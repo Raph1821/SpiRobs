@@ -181,7 +181,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \label{fig:pieuvre}
         \end{figure}
     
-        Dans notre cas, et comme souvent en robotique, les objets à manipuler ont une forme ou une position mal connue, et contrairement à une main humaine, les pinces robotiques manquent de retour tactile fiable. Pour cette raison, nous n'allons pas utiliser de retour haptique, mais plutôt de préhenseurs souples. Nous nous inspirons de la flexibilité des tentacules de pieuvre (voir figure \ref{fig:pieuvre}), ce qui permettra à la pince de s'adapter naturellement à la forme de divers fruits et légumes, sans nécessiter de capteurs ni de système de contrôle complexe, grâce à la compliance mécanique.
+        Dans notre cas, et comme souvent en robotique, les objets à manipuler ont une forme ou une position mal connue, et contrairement à une main humaine, les pinces robotiques manquent de retour tactile fiable. Pour cette raison, nous n'allons pas utiliser de retour haptique, mais plutôt de préhenseurs souples. Nous nous inspirons de la flexibilité des tentacules de pieuvre (voir figure \ref{fig:pieuvre}), ce qui permettra à la pince de s'adapter naturellement à la forme de divers fruits et légumes, sans nécessiter de capteurs ni de système de contrôle complexe, simplement grâce à la compliance mécanique.
         
         La compliance désigne la capacité d’un robot à adapter la rigidité de ses mouvements en fonction des forces extérieures. Autrement dit, il ajuste naturellement sa posture pour bien épouser l’objet qu’il manipule. Dans ce projet, nous nous concentrons sur la compliance passive, où la structure mécanique du robot est suffisamment flexible pour se déformer sous l'effet d'une contrainte externe. Cette approche permet une préhension polyvalente et adaptable. \cite{noauthor_gestion_2016}
 
@@ -189,21 +189,23 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
     
     \subsection{Comportement et structure de la pince}
     
-        La pince pourra adopter deux configurations distinctes : ouverte ou fermée. Elle sera haute de 10 cm en position ouverte et composée de 3 doigts identiques soumis à un encastrement rigide sur une base. Les doigts seront positionnés symétriquement autour du centre de la base, chacun séparé par un angle de 120°. Des câbles passeront de chaque côté des doigts et permettront de les contrôler. L'actionnement à câbles peut être localisé sur les effecteurs ou déporté sur la base, il sera question d'effectuer une étude comparative des différentes solutions possibles.
+        La pince pourra adopter deux configurations distinctes : ouverte ou fermée. Elle sera haute de 10 cm en position ouverte et composée de 3 doigts identiques soumis à un encastrement rigide sur une base. Les doigts seront positionnés symétriquement autour du centre de la base, chacun séparé par un angle de 120°. Des câbles passeront de chaque côté des doigts et permettront de les contrôler. L'actionnement à câbles peut être localisé sur la la base ou déporté à l'extérieur du système, il sera question d'effectuer une étude comparative des différentes solutions possibles.
         
-        La flexion de chaque doigt sera assurée par une force appliquée sur le câble situé du côté fléchisseur par l'utilisation d'un moteur, tandis que le retour à la position initiale se fera naturellement, cette dernière devant être la position d'équilibre lorsque le moteur n'exerce plus de couple. Il est donc crucial de dimensionner correctement les doigts et les câbles afin qu'ils conservent un comportement élastique et réversible, sans déformation permanente. C'est pourquoi nous utiliserons un matériau souple qui puisse se plier sans se casser, le TPU.
-        
-        ((Par la suite, nous étudierons les flexions, les contraintes maximales et le retour élastique afin de s'assurer de ne pas rentrer dans le modèle élastique.))
+        La flexion de chaque doigt sera assurée par une force appliquée sur le câble situé du côté fléchisseur par l'utilisation d'un moteur, tandis que le retour à la position initiale se fera naturellement, cette dernière devant être la position d'équilibre lorsque le moteur n'exerce plus de couple. Il est donc crucial de dimensionner correctement les doigts et les câbles afin qu'ils conservent un comportement élastique et réversible, sans déformation permanente. C'est pourquoi nous utiliserons un matériau souple qui puisse se plier sans se casser, le TPU. Par la suite, nous étudierons les flexions, les contraintes maximales et le retour élastique afin de s'assurer de ne pas rentrer dans le modèle plastique.
                 
         Enfin, il sera essentiel de garantir autant que possible la répétabilité, un aspect souvent problématique dans le domaine de la robotique flexible, car la souplesse peut introduire des incertitudes sur la position exacte des doigts.
 
-    \subsection{Choix de l'actionneur}
+    \subsection{Choix de l'actionneur et des câbles}
 
-        Il sera question de choisir entre un moteur rotatif qui actionnerait un tambour ou un moteur linéaire. En tout cas, un seul moteur doit synchroniser l'ouverture/fermeture des 3 doigts. On se donne pour cahier des charges de pouvoir soulever des objets de l'ordre de 5 kilogrammes. Il a été choisi de faire par un moteur rotatif, car nous avions en laboratoire.
+        Nous devons choisir entre un moteur rotatif actionnant un tambour et un moteur linéaire. Si nous optons pour un moteur rotatif avec un tambour, il est crucial d'éviter que le câble ne s'enroule sur lui-même. Étant donné que la course du câble est calculée en fonction de la rotation du moteur, il est essentiel que le câble ne tourne pas sur lui-même pour éviter de fausser les résultats. Nous pourrions envisager une glissière pour guider l'enroulement du fil le long d'un axe, ou un mécanisme utilisant des engrenages et une vis sans fin pour maintenir la tension.
 
+        Dans les systèmes mécaniques utilisant des câbles ou des tendons, la tension est essentielle pour assurer une transmission efficace de la force ou du mouvement. Une tension insuffisante peut entraîner un glissement, un flambage et une perte de performance. Idéalement, la tension dans le câble doit être directement liée à la force produite par le moteur. Ainsi, la force appliquée par le moteur doit être transmise directement et efficacement au câble sans perte significative. C'est pourquoi nous étudierons l'idée d'utiliser des réducteurs d'engrenage avec un rapport de réduction de 6 à 10 pour éviter les pertes, de sorte que la tension dans le câble reflète celle du moteur.
+
+        Il est également question de choisir des fils optimaux pour la conception du robot. Si nous utilisons des fils de pêche, nous devons résoudre le problème de la souplesse du fil qui peut flamber lorsque le robot revient à sa position d'équilibre. Une solution pourrait être d'accompagner le mouvement avec le moteur pour limiter sa vitesse et contrôler en permanence la tension du câble. Nous pourrions également utiliser des câbles en acier pour éviter ce phénomène de flambage, mais dans ce cas, la solution du tambour serait inopérante.
+        
 \clearpage
 
-\section{État de l'art des préhenseurs souples et leurs actionneurs}
+\section{État de l'art}
 
     \subsection{Préhenseurs souples}
     
@@ -243,6 +245,8 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
     
             Néanmoins, l’approche présente aussi des limites, notamment en termes de force de préhension. La pince kirigami décrite utilise des actionneurs diélectriques ou des forces manuelles pour effectuer la transition de forme, ce qui restreint sa capacité à soulever des charges importantes. Cela la rend peu adaptée aux applications où une capacité de charge élevée est requise — comme c’est le cas dans notre projet où l’objectif est de manipuler des objets jusqu’à 5 kg. Enfin, bien que le système ne repose pas sur une action par câble comme notre pince inspirée du SpiRob, cette étude permet de souligner que les principes de déformation géométrique contrôlée et de multi-stabilité passive constituent une piste intéressante pour notre pince.
     
+        \subsection{Actionnement par câbles}
+    
         \subsubsection{Étude de la spirale logarithmique avec le SpiRob}
         
             \begin{figure}
@@ -252,13 +256,34 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{fig:spiral_logarithm}
             \end{figure}
     
-            On remarque alors le lien avec la spirale logarithmique, dont on reproduit la forme à l'aide d'un matériau souple. On commande ensuite le robot avec une force exercée sur les câbles de chaque côté du bras à l'aide d'un moteur. Cette stratégie capitalise spécifiquement sur la déformation passive au contact pour s'adapter à des objets de formes et de tailles variables (voir figure \ref{fig:pieuvre}).
+            Les câbles sont utilisés pour activer le mouvement de curling (enroulement) et uncurling (déroulement) des SpiRobs, des robots souples en forme de spirale logarithmique inspirés des appendices biologiques (bras d'octopus, trompe d'éléphant).
 
-            Pour notre projet, nous choisissons cette approche.
+            Un ou plusieurs câbles (2 pour les robots 2D, 3 pour les robots 3D) passent à travers des trous percés dans les unités du robot. Une extrémité est fixée à l'unité la plus distale (pointe du robot) par un nœud de pêcheur, et l'autre est connectée à un moteur (voir figure \ref{fig:spiral_logarithm}). La contraction des câbles enroule le robot en une spirale logarithmique, tandis que leur relâchement le ramène à sa position d'équilibre grâce à son élasticité. En effet, le TPU que constitue le robot permet ce comportement. 
 
-        \subsection{Actionneurs}
+            Les auteurs ajoutent également un amortissement pour limiter la vitesse du mouvement et assurer le contrôle de la tension des câbles. Une règle linéaire ($F_1^0 = -c_1 p + c_2 \alpha + c_0$) ajuste la force antagoniste au mouvement en fonction de la position de l'objet ($p, \alpha$) en coordonnées polaires par rapport à la position de l'extrémité du robot, avec des coefficients expérimentaux ($c_0=14, c_1=13, c_2=5$). Cela permet une saisie automatique avec un taux de succès de 94,4 $\%$. En somme, Plus l'objet est éloigné, plus la force antagoniste à laquelle le robot est soumis est faible. \cite{wang_spirobs_2025}
 
-            \subsubsection{Étude des systèmes de transmissions et d'actionnements par câble pour des exosuits. }
+            On observe alors plusieurs problèmes rencontrés auxquels il faudra penser lors de la conception. Il s'agit de limiter les frottements entre les câbles et le corps du robot (une friction élevée peut causer des pertes d'énergie, des déformations non uniformes, ou un phénomène de flambage des fils), mais il faut aussi éviter d'avoir une couche élastique trop épaisse (au centre du robot), car cela augmenterait la force nécessaire pour enrouler le robot, rendant l'actionnement par câbles plus exigeant pour les moteurs qui utiliseraient alors davantage d'énergie.
+            
+            Pour régler la friction des câbles, nous pouvons utiliser des câbles UHMWPE pour leur faible coefficient de frottement et leur résistance à l'usure. Quant à l'optimisation de la couche élastique, une épaisseur de couche élastique de 5 $\%$ est optimale d'après les tests effectués, assurant une bonne élasticité sans nécessiter une force excessive pour l'enroulement \cite{wang_spirobs_2025}.
+
+        \subsubsection{Étude des systèmes de transmissions et d'actionnements par câble pour des exosuits}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.7\textwidth]{Figures/poulies.jpg}
+                \caption{Système de poulies pour contrôler l'exosuit. $\Delta l_{ijk}$ désigne la variation de longueur à l'instant i du câble qui, provenant de l'actionneur k, contribue au mouvement agissant sur l'articulation j \cite{daniel_rodriguez-jorge_transmission_2023}}
+                \label{fig:poulies}
+            \end{figure}
+
+            L'étude \cite{daniel_rodriguez-jorge_transmission_2023} se concentre sur la conception d'exosuits à actionnement par câble pour l'assistance à la marche, une alternative aux exosquelettes rigides traditionnels. Les exosuits offrent une meilleure compatibilité cinématique avec les mouvements naturels de l'utilisateur, et sont moins chers, car ils utilisent moins d'actionneurs, notamment grâce à l'ACP (Analyse en Composantes Principales), méthode permettant d'effectuer uniquement les mouvements les plus importants.
+
+            Cette étude est intéressante pour le rôle que jouent les poulies. Ces dernières transmettent le mouvement et la force d'un actionneur (moteur dans le sac à dos) aux câbles connectés à des points d'ancrage près des articulations (hanche, genou, cheville). Leur fonction principale est de contrôler l'extension des câbles pour générer les mouvements nécessaires à l'assistance de la marche. En d'autres termes, les poulies convertissent la rotation du moteur en un déplacement linéaire des câbles, qui appliquent des forces aux points d'ancrage pour produire un couple d'assistance sur les articulations (voir figure \ref{fig:poulies}).
+
+            Le principal inconvénient est que, si un seul actionneur ne suffit pas (par exemple, pour une précision accrue ou des besoins spécifiques), le système de transmission peut devenir très complexe et augmenter grandement les coûts de fabrication \cite{daniel_rodriguez-jorge_transmission_2023}.
+            
+            Dans notre cas, nous n'aurons bien qu'un seul moteur, donc nous pouvons considérer les poulies comme une solution fiable et réaliste.
+
+
 
 \clearpage
         
@@ -288,14 +313,15 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             Dans \cite{wang_spirobs_2025}, les auteurs expliquent comment dessiner le SpiRob. Nous nous inspirons de sa forme pour concevoir nos doigts.
         
             La spirale logarithmique est d'équation en coordonnées polaires ($r, \theta$) :
+
             \begin{equation}
-            r = ae^{b\theta}, \quad \text{avec} \quad a > 0
-            \label{eq:spirale_log}
+                r = ae^{b\theta}, \quad \text{avec} \quad a > 0
+                \label{eq:spirale_log}
             \end{equation}
             
             Sachant que $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale). Tandis que $b$ est un autre paramètre d’échelle qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}.
             
-            Idéalement, nous aurons besoin que la spirale s'enroule complètement autour de l'objet pour le saisir, donc nous utiliserons un $b$ relativement petit, $a$ sera choisi de telle sorte que la spirale déroulée mesurera 10 cm, tandis que la spirale parcourra 1 tour complet.}
+            Idéalement, nous aurons besoin que la spirale s'enroule complètement autour de l'objet pour le saisir, donc nous utiliserons un $b$ relativement petit, $a$ sera choisi de telle sorte que la spirale déroulée mesurera 10 cm, tandis que la spirale parcourra 1 tour complet.
         
             Pour déterminer la valeur de \( a \) dans l'équation de la spirale logarithmique \( r = a \cdot e^{b \cdot \theta} \), où la longueur totale déroulée \( L \) doit être égale à 100 mm, nous procédons comme suit :
 
@@ -370,7 +396,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
         \subsubsection{Espacement}
             
-            Enfin, il reste l'espacement $\Delta\theta$ à choisir entre les \textit{unit} de la figure \ref{fig:spiral_logarithm} pour définir entièrement la forme et la taille du doigt. \cite{wang_spirobs_2025} Or, si $\theta$ va de $0$ à $2\pi$, le nombre de segments est :
+            Enfin, il reste l'espacement $\Delta\theta$ à choisir entre les unités de la figure \ref{fig:spiral_logarithm} pour définir entièrement la forme et la taille du doigt. \cite{wang_spirobs_2025} Or, si $\theta$ va de $0$ à $2\pi$, le nombre de segments est :
         
             \begin{equation}
             \text{Nombre de rainures} = N = \frac{\text{Angle total}}{\Delta\theta} = \frac{2\pi}{\Delta\theta}
@@ -412,7 +438,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \label{eq:beta}
             \end{equation}
             
-            Cela signifie que la taille ou la géométrie d’une unité peut être mise à l’échelle (agrandie ou réduite) par un facteur $\beta$ par rapport à l’unité précédente. Ainsi, il suffit de concevoir une seule unité de base, puis de l’ajuster avec $\beta$ pour créer les unités adjacentes.
+            Cela signifie que la taille ou la géométrie d’une rainures peut être mise à l’échelle (agrandie ou réduite) par un facteur $\beta$ par rapport à la rainure précédente. Ainsi, il suffit de concevoir une seule rainure de base, puis de l’ajuster avec $\beta$ pour créer les rainures adjacentes.
         
     \subsection{Dessin sur SolidWorks}
 
