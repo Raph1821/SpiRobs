@@ -1,0 +1,22 @@
+\babel@toc {french}{}\relax 
+\babel@toc {french}{}\relax 
+\contentsline {section}{Résumé}{1}{section*.1}%
+\contentsline {section}{\numberline {I}Introduction}{3}{section.0.1}%
+\contentsline {subsection}{\numberline {I.1}Motivations et principes fondamentaux}{3}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {I.2}Comportement et structure de la pince}{3}{subsection.0.1.2}%
+\contentsline {subsection}{\numberline {I.3}Choix de l'actionneur}{4}{subsection.0.1.3}%
+\contentsline {section}{\numberline {II}État de l'art des préhenseurs souples et leurs actionneurs}{5}{section.0.2}%
+\contentsline {subsection}{\numberline {II.1}Préhenseurs souples}{5}{subsection.0.2.1}%
+\contentsline {subsubsection}{Étude d'une pince en PVC}{5}{section*.4}%
+\contentsline {subsubsection}{Étude d'une pince flexible multi-stable à l'aide du kirigami}{6}{section*.6}%
+\contentsline {subsubsection}{Étude de la spirale logarithmique avec le SpiRob}{7}{section*.8}%
+\contentsline {subsection}{\numberline {II.2}Actionneurs}{7}{subsection.0.2.2}%
+\contentsline {subsubsection}{Étude des systèmes de transmissions et d'actionnements par câble pour des exosuits. }{7}{section*.10}%
+\contentsline {section}{\numberline {III}Conception de la pince}{8}{section.0.3}%
+\contentsline {subsection}{\numberline {III.1}Considérations mathématiques}{8}{subsection.0.3.1}%
+\contentsline {subsubsection}{Spirale centrale}{8}{section*.11}%
+\contentsline {subsubsection}{Choix et détermination des coefficients}{8}{section*.12}%
+\contentsline {subsubsection}{Espacement}{10}{section*.15}%
+\contentsline {subsection}{\numberline {III.2}Dessin sur SolidWorks}{10}{subsection.0.3.2}%
+\contentsline {subsubsection}{Création d'un matériau TPU}{11}{section*.17}%
+\contentsline {subsubsection}{Simulation via \textit {SolidWorks Simulation}}{11}{section*.18}%
