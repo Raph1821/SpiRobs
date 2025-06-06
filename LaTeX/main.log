@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.13)  6 JUN 2025 12:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.13)  6 JUN 2025 13:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -729,6 +729,13 @@ File: Figures/spirale.png Graphic file (type png)
 Package pdftex.def Info: Figures/spirale.png  used on input line 283.
 (pdftex.def)             Requested size: 455.24411pt x 223.46681pt.
 
+! Too many }'s.
+l.298 ...que la spirale parcourra 1 tour complet.}
+                                                  
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+
 
 [8
 
@@ -739,19 +746,19 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 [9 <./Figures/spirale.png>]
-<Figures/draw_solidworks.png, id=190, 461.92575pt x 227.6505pt>
+<Figures/draw_solidworks.png, id=189, 461.92575pt x 227.6505pt>
 File: Figures/draw_solidworks.png Graphic file (type png)
 <use Figures/draw_solidworks.png>
-Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 390.
+Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 384.
 (pdftex.def)             Requested size: 318.66948pt x 157.05469pt.
 
 
 [10 <./Figures/draw_solidworks.png>]
 
 LaTeX Font Warning: Font shape `T1/lmr/b/it' in size <10.95> not available
-(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 426.
+(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 447.
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 428.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 449.
 (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (main.bbl
@@ -791,17 +798,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 12A21846B89FF328D0AA4FF0DBD25AE1;2309.
  ) 
 Here is how much of TeX's memory you used:
- 21779 strings out of 469941
- 421032 string characters out of 5469430
- 772179 words of memory out of 5000000
+ 21780 strings out of 469941
+ 421039 string characters out of 5469430
+ 772184 words of memory out of 5000000
  48225 multiletter control sequences out of 15000+600000
  704815 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,10n,117p,1119b,1097s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,10n,117p,1119b,1179s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbo10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (13 pages, 1710454 bytes).
+Output written on main.pdf (13 pages, 1712651 bytes).
 PDF statistics:
- 324 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
+ 325 PDF objects out of 1000 (max. 8388607)
+ 54 named destinations out of 1000 (max. 500000)
  129 words of extra memory for PDF output out of 10000 (max. 10000000)
 

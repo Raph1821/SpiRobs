@@ -268,13 +268,13 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
         \subsubsection{Spirale centrale}
             
-            Sur la figure \ref{fig:spiral_logarithm}, la spirale centrale qui définit notre robot vérifie la relation :
+            Sur la figure \ref{fig:spiral_logarithm}, la spirale centrale (en orange) qui définit notre robot vérifie la relation :
             \begin{equation}
             r_c(\theta) = \frac{r(\theta) + r(\theta + 2\pi)}{2}, \quad \forall \theta
             \label{eq:spirale_centrale}
             \end{equation}
             
-            Cela signifie qu’on prend le rayon au point $\theta$ ($r(\theta)$), celui au point $\theta + 2\pi$ ($r(\theta + 2\pi)$), et on calcule leur moyenne. Cela donne un point « central » pour chaque angle $\theta$, et en les reliant, on forme la spirale centrale. \cite{wang_spirobs_2025}
+            Cela signifie qu’on prend le rayon de la spirale du robot (en noire) au point $\theta$ ($r(\theta)$), et au point $\theta + 2\pi$ ($r(\theta + 2\pi)$), et on calcule leur moyenne. Cela donne un point « central » pour chaque angle $\theta$, et en les reliant, on forme la spirale centrale. \cite{wang_spirobs_2025}
 
         \subsubsection{Choix et détermination des coefficients}
 
@@ -293,13 +293,15 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \label{eq:spirale_log}
             \end{equation}
             
-            Sachant que $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale). Tandis que $b$ est un autre paramètre d’échelle qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}. Comme dans notre cas, il s'agit d'une pince à trois doigts, nous n'aurons pas besoin que la spirale s'enroule complètement autour de l'objet pour le saisir, donc nous utiliserons un $b$ relativement grand, $a$ sera choisi de telle sorte que la spirale déroulée mesure 10 cm, tandis que la spirale parcourra 2 tours.
+            Sachant que $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale). Tandis que $b$ est un autre paramètre d’échelle qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}.
+            
+            Idéalement, nous aurons besoin que la spirale s'enroule complètement autour de l'objet pour le saisir, donc nous utiliserons un $b$ relativement petit, $a$ sera choisi de telle sorte que la spirale déroulée mesurera 10 cm, tandis que la spirale parcourra 1 tour complet.}
         
             Pour déterminer la valeur de \( a \) dans l'équation de la spirale logarithmique \( r = a \cdot e^{b \cdot \theta} \), où la longueur totale déroulée \( L \) doit être égale à 100 mm, nous procédons comme suit :
 
-            La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de $0$ à $4\pi$ :
+            La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de $0$ à $2\pi$ :
             \[
-            L = \int_0^{\theta_0} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \, \text{pour} \, \theta_0 = 4\pi \, \text{(2 tours)}
+            L = \int_0^{\theta_0} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \, \text{pour} \, \theta_0 = 2\pi \, \text{(1 tour complet)}
             \]
             
             Calculons la dérivée de \( r \) par rapport à \( \theta \) :
@@ -330,17 +332,17 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             
             Calculons l'intégrale :
             \[
-            \int_0^{4\pi} e^{b \theta} \, d\theta = \left[ \frac{1}{b} e^{b \theta} \right]_0^{4\pi} = \frac{1}{b} \left( e^{b \cdot 4\pi} - e^{b \cdot 0} \right) = \frac{1}{b} \left( e^{b \cdot 4\pi} - 1 \right)
+            \int_0^{2\pi} e^{b \theta} \, d\theta = \left[ \frac{1}{b} e^{b \theta} \right]_0^{2\pi} = \frac{1}{b} \left( e^{b \cdot 2\pi} - e^{b \cdot 0} \right) = \frac{1}{b} \left( e^{b \cdot 2\pi} - 1 \right)
             \]
             
             Ainsi, la longueur totale est :
             \[
-            L = a \sqrt{1 + b^2} \cdot \frac{1}{b} \left( e^{b \cdot 4\pi} - 1 \right)
+            L = a \sqrt{1 + b^2} \cdot \frac{1}{b} \left( e^{b \cdot 2\pi} - 1 \right)
             \]
             
             En isolant \( a \) :
             \[
-            a = \frac{L}{\sqrt{1 + b^2} \cdot \frac{1}{b} \left( e^{b \cdot 4\pi} - 1 \right)} = \frac{L b}{\sqrt{1 + b^2} \left( e^{b \cdot 4\pi} - 1 \right)}
+            a = \frac{L}{\sqrt{1 + b^2} \cdot \frac{1}{b} \left( e^{b \cdot 2\pi} - 1 \right)} = \frac{L b}{\sqrt{1 + b^2} \left( e^{b \cdot 2\pi} - 1 \right)}
             \]
             
             Applications numériques avec \( b \in \{0.1, 0.2, 0.3, \dots, 1.0\} \) et \( L = 100 \) mm:
@@ -368,58 +370,77 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
         \subsubsection{Espacement}
             
-            Enfin, il reste l'espacement $\Delta\theta$ à choisir entre les \textit{unit} de la figure \ref{fig:spiral_logarithm} pour définir entièrement la forme et la taille du doigt. \cite{wang_spirobs_2025} Or, si $\theta$ va de $0$ à $4\pi$, le nombre de segments est :
+            Enfin, il reste l'espacement $\Delta\theta$ à choisir entre les \textit{unit} de la figure \ref{fig:spiral_logarithm} pour définir entièrement la forme et la taille du doigt. \cite{wang_spirobs_2025} Or, si $\theta$ va de $0$ à $2\pi$, le nombre de segments est :
         
             \begin{equation}
-            \text{Nombre de segments} = N = \frac{\text{Angle total}}{\Delta\theta} = \frac{4\pi}{\Delta\theta}
+            \text{Nombre de rainures} = N = \frac{\text{Angle total}}{\Delta\theta} = \frac{2\pi}{\Delta\theta}
             \label{eq:nb_segment}
             \end{equation}
 
-            Si on souhaite que $N = 10$, alors, d'après (\ref{eq:nb_segment}), on a :
+        \subsubsection{Spirale déroulée}
 
-            \begin{equation}
-            \Delta\theta= \frac{\text{Angle total}}{N} = \frac{4\pi}{10} \approx 1.257 \text{ rad} \approx 72^{\circ}
-            \label{eq:espacement}
-            \end{equation}
-    
-        
-    \subsection{Dessin sur SolidWorks}
-
-        \begin{figure}
+            \begin{figure}
                 \centering
                 \includegraphics[width=0.7\textwidth]{Figures/draw_solidworks.png}
                 \caption{Construction du doigt en "dépliant" la spirale logarthimique \cite{wang_spirobs_2025}}
                 \label{fig:draw_solidworks}
             \end{figure}
 
-        Pour dessiner le doigt sur SolidWorks, nous prenons exemple sur la figure \ref{fig:draw_solidworks}. Nous optons néanmoins pour un bossage extrudé à la place de la révolution. Il est désormais question de traduire le formalisme mathématique de la spirale logarthmique en côte des différentes rainures qui composent le doigt (voir figure \ref{fig:draw_solidworks}).
+            Pour dessiner le doigt sur SolidWorks, nous prenons exemple sur la figure \ref{fig:draw_solidworks}. Nous optons néanmoins pour un bossage extrudé à la place de la révolution. Il est désormais question de traduire le formalisme mathématique de la spirale logarthmique en côte des différentes rainures qui composent le doigt.
+
+            On donne l'angle de conicité :
+
+            \begin{equation}
+            \phi = 2\arctan \left(
+                \frac{\frac{1}{2}\delta(\theta)}{L(-\infty, \theta)}
+                \right) = 2 \arctan\left(\frac{b(e^{2\pi b}-1)}{\sqrt{b^2+1} \left(e^{2\pi b}+1\right)}\right)
+            \label{eq:angle_de_conicite}
+            \end{equation}
+
+            Avec :
+
+            \begin{itemize}
+                \item l'épaisseur du robot à l'angle $\theta$ : $\delta(\theta) = ae^{(b\theta + 2\pi)} - ae^{b\theta}$
+                \item la longueur du robot entre $[-\infty,\theta]$ : $L(-\infty, \theta) = \int_{-\infty}^{\theta} \sqrt{r_c^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta = \frac{r_c(\theta)}{b}$.
+            \end{itemize}
+
+            Le fait que $\phi$ soit indépendant de $\theta$ signifie que la forme est effilée \cite{wang_spirobs_2025}.
+
+            Enfin, le rapport entre les épaisseurs de deux rainures adjacentes \(\beta\) est donnée par :
+            \begin{equation}
+            \beta = \frac{\delta(\theta + \Delta\theta)}{\delta(\theta)} = e^{b \Delta\theta}
+            \label{eq:beta}
+            \end{equation}
+            
+            Cela signifie que la taille ou la géométrie d’une unité peut être mise à l’échelle (agrandie ou réduite) par un facteur $\beta$ par rapport à l’unité précédente. Ainsi, il suffit de concevoir une seule unité de base, puis de l’ajuster avec $\beta$ pour créer les unités adjacentes.
         
-        Pour lier la forme en spirale logarithmique du robot aux dimensions (hauteur et longueur) de chaque rainure, nous utilisons le formalisme de la figure \ref{fig:draw_solidworks}.
+    \subsection{Dessin sur SolidWorks}
 
-        On donne l'angle de conicité :
+        \subsubsection{Dessin du doigt}
 
-        \begin{equation}
-        \phi = 2\arctan \left(
-            \frac{\frac{1}{2}\delta(\theta)}{L(-\infty, \theta)}
-            \right) = 2 \arctan\left(\frac{b(e^{2\pi b}-1)}{\sqrt{b^2+1} \left(e^{2\pi b}+1\right)}\right)
-        \label{angle_de_conicite}
-        \end{equation}
+            Pour les raisons spécifiées plus tôt, nous prenons $b = 0.2$. Egalement, nous souhaitons que le nombre de rainures $N = 10$, alors, d'après (\ref{eq:nb_segment}), on a :
 
-        Avec :
+            \[
+            \Delta\theta= \frac{\text{Angle total}}{N} = \frac{2\pi}{10} \approx 0.628 \text{ rad} \approx 36^{\circ}
+            \]
+            
+            On calcule notre angle de conicité grâce à (\ref{eq:angle_de_conicite}) :
+            
+            \[
+            \phi = 2 \arctan\left( \frac{0.2\left(e^{2\pi \cdot 0.2} - 1\right)}{\sqrt{0.2^2 + 1} \left(e^{2\pi \cdot 0.2} + 1\right)} \right)
+            = 0.4656 \text{ rad}
+            = 26.13^{\circ}
+            \]
 
-        \begin{itemize}
-            \item l'épaisseur du robot à l'angle $\theta$ : $\delta(\theta) = ae^{(b\theta + 2\pi)} - ae^{b\theta}$
-            \item la longueur du robot entre $[-\infty,\theta]$ : $L(-\infty, \theta) = \int_{-\infty}^{\theta} \sqrt{r_c^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta = \frac{r_c(\theta)}{b}$.
-        \end{itemize}
+            Cela nous permet de dessiner les lignes de construction de l'enleveloppe de notre doigt. On ne dessine que d'un côté dans l'objectif de construire l'autre par symétrie.
 
-        Le fait que $\phi$ soit indépendant de $\theta$ signifie que la forme est effilée \cite{wang_spirobs_2025}.
+            Il nous reste maintenant à baisser d'un rapport $\beta$ la rainure construite pour créer celle d'après... (je te laisse faire).
+            
+            Calculons $\beta$ grâce à (\ref{eq:beta}):
 
-        Enfin, le rapport entre les épaisseurs de deux rainures adjacentes \(\beta\) est donnée par :
-        \begin{equation}
-        \beta = \frac{\delta(\theta + \Delta\theta)}{\delta(\theta)} = e^{b \Delta\theta}
-        \end{equation}
-        
-        Cela signifie que la taille ou la géométrie d’une unité peut être mise à l’échelle (agrandie ou réduite) par un facteur $\beta$ par rapport à l’unité précédente. Ainsi, il suffit de concevoir une seule unité de base, puis de l’ajuster avec $\beta$ pour créer les unités adjacentes.
+            \[
+            \beta = e^{0.2 * 0.628} = 1.134
+            \]
 
         \subsubsection{Création d'un matériau TPU}
 

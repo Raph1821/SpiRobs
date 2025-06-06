@@ -17,6 +17,8 @@
 \contentsline {subsubsection}{Spirale centrale}{8}{section*.11}%
 \contentsline {subsubsection}{Choix et détermination des coefficients}{8}{section*.12}%
 \contentsline {subsubsection}{Espacement}{10}{section*.15}%
-\contentsline {subsection}{\numberline {III.2}Dessin sur SolidWorks}{10}{subsection.0.3.2}%
-\contentsline {subsubsection}{Création d'un matériau TPU}{11}{section*.17}%
-\contentsline {subsubsection}{Simulation via \textit {SolidWorks Simulation}}{11}{section*.18}%
+\contentsline {subsubsection}{Spirale déroulée}{10}{section*.16}%
+\contentsline {subsection}{\numberline {III.2}Dessin sur SolidWorks}{11}{subsection.0.3.2}%
+\contentsline {subsubsection}{Dessin du doigt}{11}{section*.18}%
+\contentsline {subsubsection}{Création d'un matériau TPU}{11}{section*.19}%
+\contentsline {subsubsection}{Simulation via \textit {SolidWorks Simulation}}{11}{section*.20}%
