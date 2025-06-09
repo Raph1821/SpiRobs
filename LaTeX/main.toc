@@ -12,13 +12,15 @@
 \contentsline {subsection}{\numberline {II.2}Actionnement par câbles}{6}{subsection.0.2.2}%
 \contentsline {subsubsection}{Étude de la spirale logarithmique avec le SpiRob}{6}{section*.8}%
 \contentsline {subsubsection}{Étude des systèmes de transmissions et d'actionnements par câble pour des exosuits}{7}{section*.10}%
-\contentsline {section}{\numberline {III}Conception de la pince}{9}{section.0.3}%
-\contentsline {subsection}{\numberline {III.1}Considérations mathématiques}{9}{subsection.0.3.1}%
-\contentsline {subsubsection}{Spirale centrale}{9}{section*.12}%
-\contentsline {subsubsection}{Choix et détermination des coefficients}{9}{section*.13}%
-\contentsline {subsubsection}{Espacement}{11}{section*.16}%
-\contentsline {subsubsection}{Spirale déroulée}{11}{section*.17}%
-\contentsline {subsection}{\numberline {III.2}Dessin sur SolidWorks}{12}{subsection.0.3.2}%
-\contentsline {subsubsection}{Dessin du doigt}{12}{section*.19}%
-\contentsline {subsubsection}{Création d'un matériau TPU}{12}{section*.20}%
-\contentsline {subsubsection}{Simulation via \textit {SolidWorks Simulation}}{12}{section*.21}%
+\contentsline {subsection}{\numberline {II.3}Simulation par éléments finis}{8}{subsection.0.2.3}%
+\contentsline {subsubsection}{Étude d'un doigt pneumatique souple et simulation par éléments finis}{8}{section*.12}%
+\contentsline {section}{\numberline {III}Conception de la pince}{12}{section.0.3}%
+\contentsline {subsection}{\numberline {III.1}Considérations mathématiques}{12}{subsection.0.3.1}%
+\contentsline {subsubsection}{Spirale centrale}{12}{section*.17}%
+\contentsline {subsubsection}{Choix et détermination des coefficients}{12}{section*.18}%
+\contentsline {subsubsection}{Espacement}{14}{section*.21}%
+\contentsline {subsubsection}{Spirale déroulée}{14}{section*.22}%
+\contentsline {subsection}{\numberline {III.2}Dessin sur SolidWorks}{15}{subsection.0.3.2}%
+\contentsline {subsubsection}{Dessin du doigt}{15}{section*.24}%
+\contentsline {subsubsection}{Création d'un matériau TPU}{15}{section*.25}%
+\contentsline {subsubsection}{Simulation via \textit {SolidWorks Simulation}}{15}{section*.26}%

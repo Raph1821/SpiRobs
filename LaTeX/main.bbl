@@ -73,4 +73,15 @@ Z.~Qi, X.~Sun, and J.~Xu, ``\BIBforeignlanguage{eng}{A {Kirigami}
   \emph{\BIBforeignlanguage{eng}{Alexandria engineering journal}}, vol.~77, pp.
   383--393, 2023, publisher: Elsevier.
 
+\bibitem{bhat_numerical_2025}
+\BIBentryALTinterwordspacing
+S.~K. Bhat, D.~Doreswamy, A.~H. Hegde, V.~K. Nukarapu, S.~Bhat, S.~Puneeth,
+  V.~Das, A.~A. Bayezeed, and A.~M. Bongale,
+  ``\BIBforeignlanguage{en}{Numerical and experimental methods for the
+  assessment of a human finger-inspired soft pneumatic actuator for gripping
+  applications},'' \emph{\BIBforeignlanguage{en}{MethodsX}}, vol.~14, p.
+  103111, Jun. 2025. [Online]. Available:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S2215016124005624}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

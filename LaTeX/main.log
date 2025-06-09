@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.13)  6 JUN 2025 19:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.22)  9 JUN 2025 12:59
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **c:/Users/SAGNE/OneDrive/Université/Master/S2/Stage/git/LaTeX/main.tex
 (c:/Users/SAGNE/OneDrive/Université/Master/S2/Stage/git/LaTeX/main.tex
@@ -64,7 +65,7 @@ Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
 ) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/fontaxes\fontaxes.sty
-Package: fontaxes 2025-05-17 v2.0 Font selection axes (deprecated)
+Package: fontaxes 2025-05-24 v2.0.1 Font selection axes (deprecated)
  (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/figureversions\figureversions.sty
 Package: figureversions 2025-04-29 v1.0.1 Figure versions
 ))
@@ -621,7 +622,7 @@ Package hyperref Info: Link coloring ON on input line 109.
 
 
 pdfTeX warning: pdflatex (file ./Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf, id=47, 843.84326pt x 338.9931pt>
+<Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf, id=51, 843.84326pt x 338.9931pt>
 File: Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf Graphic file (type pdf)
 <use Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf>
 Package pdftex.def Info: Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf  used on input line 121.
@@ -678,7 +679,7 @@ l.163 \clearpage
 
 
 ]
-<Figures/pieuvre.png, id=93, 197.538pt x 184.89075pt>
+<Figures/pieuvre.png, id=99, 197.538pt x 184.89075pt>
 File: Figures/pieuvre.png Graphic file (type png)
 <use Figures/pieuvre.png>
 Package pdftex.def Info: Figures/pieuvre.png  used on input line 179.
@@ -693,17 +694,17 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 {C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 [4 <./Figures/pieuvre.png>]
-<Figures/robot.png, id=115, 413.74574pt x 248.127pt>
+<Figures/robot.png, id=121, 413.74574pt x 248.127pt>
 File: Figures/robot.png Graphic file (type png)
 <use Figures/robot.png>
 Package pdftex.def Info: Figures/robot.png  used on input line 218.
 (pdftex.def)             Requested size: 364.19667pt x 218.42435pt.
-<Figures/adaptability.png, id=118, 451.6875pt x 125.268pt>
+<Figures/adaptability.png, id=124, 451.6875pt x 125.268pt>
 File: Figures/adaptability.png Graphic file (type png)
 <use Figures/adaptability.png>
 Package pdftex.def Info: Figures/adaptability.png  used on input line 224.
 (pdftex.def)             Requested size: 364.19667pt x 101.00967pt.
-<Figures/multi-stable.png, id=125, 353.52075pt x 121.6545pt>
+<Figures/multi-stable.png, id=131, 353.52075pt x 121.6545pt>
 File: Figures/multi-stable.png Graphic file (type png)
 <use Figures/multi-stable.png>
 Package pdftex.def Info: Figures/multi-stable.png  used on input line 239.
@@ -713,7 +714,7 @@ Package pdftex.def Info: Figures/multi-stable.png  used on input line 239.
 [5
 
  <./Figures/robot.png> <./Figures/adaptability.png>]
-<Figures/spiral_logarithm.png, id=139, 647.41875pt x 287.27325pt>
+<Figures/spiral_logarithm.png, id=145, 647.41875pt x 287.27325pt>
 File: Figures/spiral_logarithm.png Graphic file (type png)
 <use Figures/spiral_logarithm.png>
 Package pdftex.def Info: Figures/spiral_logarithm.png  used on input line 254.
@@ -721,50 +722,78 @@ Package pdftex.def Info: Figures/spiral_logarithm.png  used on input line 254.
 
 
 [6{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./Figures/multi-stable.png>]
-<Figures/poulies.jpg, id=160, 342.27072pt x 255.25764pt>
+<Figures/poulies.jpg, id=166, 342.27072pt x 255.25764pt>
 File: Figures/poulies.jpg Graphic file (type jpg)
 <use Figures/poulies.jpg>
-Package pdftex.def Info: Figures/poulies.jpg  used on input line 273.
+Package pdftex.def Info: Figures/poulies.jpg  used on input line 271.
 (pdftex.def)             Requested size: 318.66948pt x 237.66757pt.
 
 
 [7 <./Figures/spiral_logarithm.png>]
+<Figures/doigt_souple.jpg, id=180, 361.35pt x 118.66734pt>
+File: Figures/doigt_souple.jpg Graphic file (type jpg)
+<use Figures/doigt_souple.jpg>
+Package pdftex.def Info: Figures/doigt_souple.jpg  used on input line 290.
+(pdftex.def)             Requested size: 318.66948pt x 104.6521pt.
 
-[8 <./Figures/poulies.jpg>]
-<Figures/spirale.png, id=181, 1110.0672pt x 544.9158pt>
+
+[8 <./Figures/poulies.jpg> <./Figures/doigt_souple.jpg>]
+<Figures/doigt_finit_elements.jpg, id=193, 313.21819pt x 178.5069pt>
+File: Figures/doigt_finit_elements.jpg Graphic file (type jpg)
+<use Figures/doigt_finit_elements.jpg>
+Package pdftex.def Info: Figures/doigt_finit_elements.jpg  used on input line 328.
+(pdftex.def)             Requested size: 318.66948pt x 181.63062pt.
+<Figures/angle_pression.jpg, id=197, 289.08pt x 336.7782pt>
+File: Figures/angle_pression.jpg Graphic file (type jpg)
+<use Figures/angle_pression.jpg>
+Package pdftex.def Info: Figures/angle_pression.jpg  used on input line 342.
+(pdftex.def)             Requested size: 273.14923pt x 318.23653pt.
+<Figures/angle_pression_experiments.PNG, id=200, 427.5975pt x 355.3275pt>
+File: Figures/angle_pression_experiments.PNG Graphic file (type png)
+<use Figures/angle_pression_experiments.PNG>
+Package pdftex.def Info: Figures/angle_pression_experiments.PNG  used on input line 349.
+(pdftex.def)             Requested size: 273.14923pt x 226.98048pt.
+
+
+[9{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <./Figures/doigt_finit_elements.jpg>]
+
+[10 <./Figures/angle_pression.jpg> <./Figures/angle_pression_experiments.PNG>]
+
+[11]
+<Figures/spirale.png, id=225, 1110.0672pt x 544.9158pt>
 File: Figures/spirale.png Graphic file (type png)
 <use Figures/spirale.png>
-Package pdftex.def Info: Figures/spirale.png  used on input line 308.
+Package pdftex.def Info: Figures/spirale.png  used on input line 382.
 (pdftex.def)             Requested size: 455.24411pt x 223.46681pt.
 
 
-[9
+[12
 
-{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
+]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[10 <./Figures/spirale.png>]
-<Figures/draw_solidworks.png, id=203, 461.92575pt x 227.6505pt>
+[13 <./Figures/spirale.png>]
+<Figures/draw_solidworks.png, id=247, 461.92575pt x 227.6505pt>
 File: Figures/draw_solidworks.png Graphic file (type png)
 <use Figures/draw_solidworks.png>
-Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 410.
+Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 484.
 (pdftex.def)             Requested size: 318.66948pt x 157.05469pt.
 
 
-[11 <./Figures/draw_solidworks.png>]
+[14 <./Figures/draw_solidworks.png>]
 
 LaTeX Font Warning: Font shape `T1/lmr/b/it' in size <10.95> not available
-(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 473.
+(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 547.
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 475.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 549.
 (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (main.bbl
 
-[12]
+[15]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `English'. Using the pattern for
 ** the default language instead.
@@ -792,9 +821,15 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `en'. Using the pattern for
+** the default language instead.
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `en'. Using the pattern for
+** the default language instead.
 )
 
-[13
+[16
 
 ] (main.aux)
  ***********
@@ -802,20 +837,20 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-14>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 614CEEC41C124CE180665CC2C866BC8B;2214.
+(rerunfilecheck)             Checksum: D04BA87B3CDB52986E29F5A85B0F89D9;2464.
  ) 
 Here is how much of TeX's memory you used:
- 21792 strings out of 469941
- 421344 string characters out of 5469430
- 772528 words of memory out of 5000000
- 48234 multiletter control sequences out of 15000+600000
+ 21836 strings out of 469940
+ 422651 string characters out of 5469409
+ 773071 words of memory out of 5000000
+ 48269 multiletter control sequences out of 15000+600000
  704815 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,10n,117p,1119b,1179s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 73i,10n,117p,1269b,1179s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbo10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (14 pages, 1946829 bytes).
+Output written on main.pdf (17 pages, 3548259 bytes).
 PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
- 134 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 386 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
+ 162 words of extra memory for PDF output out of 10000 (max. 10000000)
 
