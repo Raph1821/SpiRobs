@@ -5,22 +5,26 @@
 \contentsline {subsection}{\numberline {I.1}Motivations et principes fondamentaux}{3}{subsection.0.1.1}%
 \contentsline {subsection}{\numberline {I.2}Comportement et structure de la pince}{3}{subsection.0.1.2}%
 \contentsline {subsection}{\numberline {I.3}Choix de l'actionneur et des câbles}{4}{subsection.0.1.3}%
-\contentsline {section}{\numberline {II}État de l'art}{5}{section.0.2}%
-\contentsline {subsection}{\numberline {II.1}Préhenseurs souples}{5}{subsection.0.2.1}%
-\contentsline {subsubsection}{Étude d'une pince en PVC}{5}{section*.4}%
-\contentsline {subsubsection}{Étude d'une pince flexible multi-stable à l'aide du kirigami}{6}{section*.6}%
-\contentsline {subsection}{\numberline {II.2}Actionnement par câbles}{6}{subsection.0.2.2}%
-\contentsline {subsubsection}{Étude de la spirale logarithmique avec le SpiRob}{6}{section*.8}%
-\contentsline {subsubsection}{Étude des systèmes de transmissions et d'actionnements par câble pour des exosuits}{7}{section*.10}%
-\contentsline {subsection}{\numberline {II.3}Simulation par éléments finis}{8}{subsection.0.2.3}%
-\contentsline {subsubsection}{Étude d'un doigt pneumatique souple et simulation par éléments finis}{8}{section*.12}%
-\contentsline {section}{\numberline {III}Conception de la pince}{12}{section.0.3}%
-\contentsline {subsection}{\numberline {III.1}Considérations mathématiques}{12}{subsection.0.3.1}%
-\contentsline {subsubsection}{Spirale centrale}{12}{section*.17}%
-\contentsline {subsubsection}{Choix et détermination des coefficients}{12}{section*.18}%
-\contentsline {subsubsection}{Espacement}{14}{section*.21}%
-\contentsline {subsubsection}{Spirale déroulée}{14}{section*.22}%
-\contentsline {subsection}{\numberline {III.2}Dessin sur SolidWorks}{15}{subsection.0.3.2}%
-\contentsline {subsubsection}{Dessin du doigt}{15}{section*.24}%
-\contentsline {subsubsection}{Création d'un matériau TPU}{15}{section*.25}%
-\contentsline {subsubsection}{Simulation via \textit {SolidWorks Simulation}}{15}{section*.26}%
+\contentsline {section}{\numberline {II}État de l'art}{6}{section.0.2}%
+\contentsline {subsection}{\numberline {II.1}Préhenseurs souples}{6}{subsection.0.2.1}%
+\contentsline {subsubsection}{Étude d'une pince en PVC}{6}{section*.4}%
+\contentsline {subsubsection}{Étude d'une pince flexible multi-stable à l'aide du kirigami}{7}{section*.6}%
+\contentsline {subsection}{\numberline {II.2}Actionnement par câbles}{7}{subsection.0.2.2}%
+\contentsline {subsubsection}{Étude de la spirale logarithmique avec le SpiRob}{7}{section*.8}%
+\contentsline {subsubsection}{Étude des systèmes de transmissions et d'actionnements par câble pour des exosuits}{9}{section*.10}%
+\contentsline {subsubsection}{Mécanisme à tendons permettant la prétension}{10}{section*.12}%
+\contentsline {subsubsection}{Enrouleur linéaire (si le câble est accompagné d’un système à ressort pour le garder tendu)}{10}{section*.14}%
+\contentsline {subsection}{\numberline {II.3}Simulation par éléments finis}{10}{subsection.0.2.3}%
+\contentsline {subsubsection}{Étude d'un doigt pneumatique souple et simulation par éléments finis}{10}{section*.15}%
+\contentsline {section}{\numberline {III}Conception de la pince}{14}{section.0.3}%
+\contentsline {subsection}{\numberline {III.1}Considérations mathématiques}{14}{subsection.0.3.1}%
+\contentsline {subsubsection}{Spirale centrale}{14}{section*.20}%
+\contentsline {subsubsection}{Choix et détermination des coefficients}{14}{section*.21}%
+\contentsline {subsubsection}{Espacement}{16}{section*.24}%
+\contentsline {subsubsection}{Spirale déroulée}{16}{section*.25}%
+\contentsline {subsection}{\numberline {III.2}Choix de l'actionneur}{17}{subsection.0.3.2}%
+\contentsline {subsection}{\numberline {III.3}Dessin sur SolidWorks}{17}{subsection.0.3.3}%
+\contentsline {subsubsection}{Dessin du doigt}{17}{section*.27}%
+\contentsline {subsubsection}{Création d'un matériau TPU}{18}{section*.28}%
+\contentsline {subsubsection}{Dessin de la base}{18}{section*.29}%
+\contentsline {subsubsection}{Simulation et étude de l'élasiticité via \textit {SolidWorks Simulation}}{18}{section*.30}%
