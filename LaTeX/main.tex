@@ -166,7 +166,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
 \section{Introduction}
 
-    Dans l'indurainure, la robotique collaborative, ou cobotique, est omniprésente. Elle vise à soulager l’être humain en prenant en charge les tâches pénibles, notamment à l’aide de préhenseurs conçus spécifiquement pour manipuler des charges de tailles et de poids variables, souvent associées à des tâches répétitives. \cite{noauthor_cobotique_nodate}
+    Dans l'industrie, la robotique collaborative, ou cobotique, est omniprésente. Elle vise à soulager l’être humain en prenant en charge les tâches pénibles, notamment à l’aide de préhenseurs conçus spécifiquement pour manipuler des charges de tailles et de poids variables, souvent associées à des tâches répétitives. \cite{noauthor_cobotique_nodate}
 
     Ce projet consiste à concevoir et dimensionner une pince robotique à trois doigts flexibles, conçue pour s'ouvrir et se refermer en s'adaptant à l'objet saisi. L'objectif est de réussir à attraper des fruits et légumes relativement légers, comme un poivron. Nous utiliserons \textit{SolidWorks} pour modéliser le robot, et étudierons son élasticité par éléments finis via \textit{SolidWorks Simulation}.
 
@@ -209,6 +209,8 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
     \subsection{Préhenseurs souples}
 
+        Dans un premier temps nous voyons rapidement l'intérêt des préhenseurs souple à travers deux exemples.
+
         \subsubsection{Étude d'une pince en PVC}
             
             \begin{figure}[htbp]
@@ -230,7 +232,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
         
             Une étude a été menée afin de concevoir des préhenseurs souples en origami, permettant une adaptabilité de préhension pour de nombreux objets. La pince, qui n'est qu'une simple feuille de PVC (voir figure \ref{fig:origami}.a.(e)), est commandée grâce à un moteur linéaire. Le moteur linéaire est fixé au bras robotique via un support (bracket). Ce moteur est relié à un poussoir qui coulisse sur une glissière. Lorsqu’on alimente le moteur linéaire, il pousse ou tire le poussoir de manière rectiligne. Le mouvement du poussoir est ainsi transmis à la pince flexible, qui s’ouvre ou se ferme selon la direction du mouvement. Afin de garantir la stabilité, un cadre de limitation empêche le poussoir de dépasser certaines positions, et le système de guidage symétrique (les deux extrémités du poussoir étant à la même hauteur) empêche la pince de se déformer de manière asymétrique, ce qui garantit une prise stable (voir figure \ref{fig:origami}.a.(g)). \cite{liu_origami_2023}.
     
-            Cette étude nous permet de voir l'adaptabilité remarquable que permettent les préhenseurs souples. En effet, comme nous pouvons le remarquer sur la figure \ref{fig:origami}.b, la pince souple s'adapte parfaitement à chaque taille d'objet pour le même effort à son extrémité.
+            Cette étude démontre que même une structure souple minimaliste peut offrir une adaptation efficace à des objets de formes variées. En effet, comme nous pouvons le remarquer sur la figure \ref{fig:origami}.b, la pince souple s'adapte parfaitement à chaque taille d'objet pour le même effort à son extrémité.
 
         \subsubsection{Étude d'une pince flexible multi-stable à l'aide du kirigami}
     
@@ -246,6 +248,8 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             Néanmoins, l’approche présente aussi des limites, notamment en termes de force de préhension. La pince kirigami décrite utilise des actionneurs diélectriques ou des forces manuelles pour effectuer la transition de forme, ce qui restreint sa capacité à soulever des charges importantes. Cela la rend peu adaptée aux applications où une capacité de charge élevée est requise — comme c’est le cas dans notre projet où l’objectif est de manipuler des objets jusqu’à 5 kg. Enfin, bien que le système ne repose pas sur une action par câble comme notre pince inspirée du SpiRob, cette étude permet de souligner que les principes de déformation géométrique contrôlée et de multi-stabilité passive constituent une piste intéressante pour notre pince.
     
     \subsection{Actionnement par câbles}
+
+        Deuxièmement, nous établissons une synthèse utile sur l'actionnement par câbles.
     
         \subsubsection{Étude de la spirale logarithmique avec le SpiRob}
         
@@ -310,8 +314,40 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \item \texttt{https://www.conductix.us/en/products/spring-driven-cable-reels}
             \end{itemize}
 
-    \subsection{Simulation par éléments finis}
+        \subsubsection{Mécanisme \textit{level wind}}
 
+            \begin{figure}[htbp]
+                \centering
+                \begin{subfigure}[t]{0.6\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/level_wind.png}
+                    \caption{Principe de fonctionnement du système type \textit{level wind} \cite{mortensen_precision_2014}}
+                    \label{fig:level_wind}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.3\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/video.png}
+                    \caption{Illustration du mécanisme d'enroulement \cite{hugh_lyman_level_2014}}
+                    \label{fig:video}
+                \end{subfigure}
+                \caption{Représentation du mécanisme \textit{level wind}}
+            \end{figure}
+
+            Le mécanisme \textit{level wind} est un dispositif utilisé notamment sur les moulinets de pêche, qui guide le fil de pêche latéralement pendant l’enroulement pour éviter les enchevêtrements et maintenir une tension constante. La vidéo \cite{hugh_lyman_level_2014} illustre ce mécanisme (voir figure \ref{fig:video}).
+
+            L'étude \cite{mortensen_precision_2014} propose un mécanisme de guidage de câble (level wind) destiné à des applications de forage profond dans la glace. Ce système assure l'enroulement uniforme du câble autour d'un tambour, tout en maintenant une tension constante, ce qui est essentiel pour éviter les erreurs de mesure et les défaillances mécaniques.
+
+            Sur la figure \ref{fig:level_wind}, vous pouvez voir comment fonctionne le système. Une poulie se déplace le long d'un axe grâce à un moteur et une vis, et enroule alors le fil tout le long du tambour. L'approche la plus répandue pour la conception d'un tel système consiste en un rapport d'engrenage fixe entre la rotation du tambour du treuil et la poulie de l'enrouleur de niveau. Un rapport fixe signifie que pour chaque tour complet du tambour, la poulie se déplace d'une distance constante. En somme, cela permet à la poulie de se déplacer horizontalement à une vitesse proportionnelle à la vitesse de rotation du tambour. Une autre méthode, similaire à la précédente, applique ce rapport d'engrenage fixe mais est complétée par de l'automatique. Ici, la poulie est entraînée par un moteur distinct de celui du tambour. La vitesse de ce moteur est précisément synchronisée avec celle du tambour du treuil grâce à un capteur et un système de contrôle moteur en boucle fermée. \cite{mortensen_precision_2014}
+
+            Bien que ces approches se soient révélées efficaces dans de nombreuses applications, les deux dernières conceptions sont particulièrement sensibles aux changements des conditions de fonctionnement (par exemple, la charge du câble, la température, la tolérance du capteur, la précision du calcul et l'usure des pièces mécaniques). Tout décalage entre les vitesses de rotation et les vitesses horizontales entraînait une accumulation progressive d'erreurs dans la position de la poulie par rapport au point d'entrée du câble sur le tambour du treuil. \cite{mortensen_precision_2014}
+
+            Dans notre cas, il sera question d'un fil court et de vitesses lentes, limitant ainsi toute accumulation d'erreur dans la position de la poulie par rapport au tambour.
+
+    \subsection{Simulation par éléments finis}
+    
+        Troisèmement, nous étudions le cas d'une simulation d'un doigt robotique qui présente de nombreuses similitudes au nôtre.
+        
         \subsubsection{Étude d'un doigt pneumatique souple et simulation par éléments finis}
 
             \begin{figure}
@@ -383,6 +419,10 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             L'actionneur produit une force de préhension de 2 à 2,71 N pour des pressions allant de 50 à 100 kPa, d'après la simulation. Vous pouvez trouver les résultats de sur la figure \ref{fig:angle_pression}. Lorsque l'on compare avec les données expérimentales, on n'obesrve moins cette linéarité (voir figure \ref{fig:angle_pression_experiments}). Les simulations ont également montré une force maximale de 2,71 N à 100 kPa de pression d'entrée alors que les données expérimentales obtenues par la résistance sensible à la force ont montré 5 N à 100 kPa de pression d'entrée. Ceci peut être attribué à la durée plus longue du débit d'air régulé dans l'actionneur durant les expériences par rapport aux simulations. En d'autres termes, dans les expériences pratiques, l'actionneur a eu plus de temps pour se gonfler et atteindre une force de préhension plus élevée en raison d'une alimentation en air prolongée, ce qui n'a pas été entièrement capturé ou reproduit dans les simulations. Ces résultats sont comparables à ceux rapportés pour les pinces robotisées molles dans la littérature. \cite{bhat_numerical_2025}
 
             Ce travail démontre qu'un actionneur pneumatique souple bien conçu peut produire des forces de préhension tout en conservant une grande capacité de déformation. Il offre une référence utile pour la conception de dispositifs bio-inspirés, bien que son mode d'action pneumatique diffère de notre approche par câbles, qui est plus compacte pour un système embarqué. Cet article nous a néanmoins permis d'explorer un exemple de modèle de déformation et nous a fourni une première perspective pour la mise en place d'une simulation utilisant un maillage fin via un modèle CAO.
+    
+    \subsection{Conclusion}
+
+        En somme, les approches existantes confirment l’intérêt des structures souples et des actionnements par câble pour des tâches de préhension adaptative. Toutefois, elles soulignent aussi les limites à surmonter, notamment en matière de charge maximale, de précision et de contrôle de la tension. Ces constats guideront nos choix dans la conception de la pince proposée.
 
 \clearpage
         
