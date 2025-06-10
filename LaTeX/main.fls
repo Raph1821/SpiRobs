@@ -350,6 +350,10 @@ INPUT .\Figures\tendon.png
 INPUT .\Figures\tendon.png
 INPUT .\Figures\tendon.png
 INPUT .\Figures\tendon.png
+INPUT C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
+INPUT C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt10.tfm
 INPUT .\Figures\doigt_souple.jpg
 INPUT .\Figures\doigt_souple.jpg
 INPUT .\Figures\doigt_souple.jpg
@@ -396,10 +400,6 @@ INPUT .\Figures\draw_solidworks.png
 INPUT .\Figures\draw_solidworks.png
 INPUT .\Figures\draw_solidworks.png
 INPUT C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmbo10.tfm
-INPUT C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
-INPUT C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
-INPUT C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
-INPUT C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt10.tfm
 INPUT .\main.bbl
 INPUT .\main.bbl
 INPUT main.bbl

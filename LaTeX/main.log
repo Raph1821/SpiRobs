@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.22)  9 JUN 2025 19:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.22)  10 JUN 2025 12:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -739,41 +739,45 @@ File: Figures/tendon.png Graphic file (type png)
 <use Figures/tendon.png>
 Package pdftex.def Info: Figures/tendon.png  used on input line 298.
 (pdftex.def)             Requested size: 318.66948pt x 217.33473pt.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 309.
+ (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 <Figures/doigt_souple.jpg, id=205, 361.35pt x 118.66734pt>
 File: Figures/doigt_souple.jpg Graphic file (type jpg)
 <use Figures/doigt_souple.jpg>
-Package pdftex.def Info: Figures/doigt_souple.jpg  used on input line 314.
+Package pdftex.def Info: Figures/doigt_souple.jpg  used on input line 319.
 (pdftex.def)             Requested size: 318.66948pt x 104.6521pt.
 
 
-[10 <./Figures/tendon.png> <./Figures/doigt_souple.jpg>]
-<Figures/doigt_finit_elements.jpg, id=222, 313.21819pt x 178.5069pt>
+[10 <./Figures/tendon.png>]
+<Figures/doigt_finit_elements.jpg, id=223, 313.21819pt x 178.5069pt>
 File: Figures/doigt_finit_elements.jpg Graphic file (type jpg)
 <use Figures/doigt_finit_elements.jpg>
-Package pdftex.def Info: Figures/doigt_finit_elements.jpg  used on input line 352.
+Package pdftex.def Info: Figures/doigt_finit_elements.jpg  used on input line 357.
 (pdftex.def)             Requested size: 318.66948pt x 181.63062pt.
 
 
-[11{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <./Figures/doigt_finit_elements.jpg>]
-<Figures/angle_pression.jpg, id=232, 289.08pt x 336.7782pt>
+[11{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <./Figures/doigt_souple.jpg> <./Figures/doigt_finit_elements.jpg>]
+<Figures/angle_pression.jpg, id=233, 289.08pt x 336.7782pt>
 File: Figures/angle_pression.jpg Graphic file (type jpg)
 <use Figures/angle_pression.jpg>
-Package pdftex.def Info: Figures/angle_pression.jpg  used on input line 366.
+Package pdftex.def Info: Figures/angle_pression.jpg  used on input line 371.
 (pdftex.def)             Requested size: 273.14923pt x 318.23653pt.
-<Figures/angle_pression_experiments.PNG, id=235, 427.5975pt x 355.3275pt>
+<Figures/angle_pression_experiments.PNG, id=236, 427.5975pt x 355.3275pt>
 File: Figures/angle_pression_experiments.PNG Graphic file (type png)
 <use Figures/angle_pression_experiments.PNG>
-Package pdftex.def Info: Figures/angle_pression_experiments.PNG  used on input line 373.
+Package pdftex.def Info: Figures/angle_pression_experiments.PNG  used on input line 378.
 (pdftex.def)             Requested size: 273.14923pt x 226.98048pt.
 
 
 [12 <./Figures/angle_pression.jpg>]
 
 [13 <./Figures/angle_pression_experiments.PNG>]
-<Figures/spirale.png, id=255, 1110.0672pt x 544.9158pt>
+<Figures/spirale.png, id=256, 1110.0672pt x 544.9158pt>
 File: Figures/spirale.png Graphic file (type png)
 <use Figures/spirale.png>
-Package pdftex.def Info: Figures/spirale.png  used on input line 402.
+Package pdftex.def Info: Figures/spirale.png  used on input line 407.
 (pdftex.def)             Requested size: 455.24411pt x 223.46681pt.
 
 
@@ -786,10 +790,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 [15 <./Figures/spirale.png>]
-<Figures/draw_solidworks.png, id=275, 461.92575pt x 227.6505pt>
+<Figures/draw_solidworks.png, id=276, 461.92575pt x 227.6505pt>
 File: Figures/draw_solidworks.png Graphic file (type png)
 <use Figures/draw_solidworks.png>
-Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 504.
+Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 509.
 (pdftex.def)             Requested size: 318.66948pt x 157.05469pt.
 
 
@@ -798,12 +802,9 @@ Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 504.
 [17]
 
 LaTeX Font Warning: Font shape `T1/lmr/b/it' in size <10.95> not available
-(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 583.
+(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 590.
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 585.
-(C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (main.bbl
+(main.bbl
 
 [18]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
@@ -863,7 +864,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  73i,10n,117p,1269b,1179s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbo10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (20 pages, 3586725 bytes).
+Output written on main.pdf (20 pages, 3588757 bytes).
 PDF statistics:
  426 PDF objects out of 1000 (max. 8388607)
  76 named destinations out of 1000 (max. 500000)

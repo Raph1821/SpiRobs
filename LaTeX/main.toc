@@ -13,7 +13,7 @@
 \contentsline {subsubsection}{Étude de la spirale logarithmique avec le SpiRob}{7}{section*.8}%
 \contentsline {subsubsection}{Étude des systèmes de transmissions et d'actionnements par câble pour des exosuits}{9}{section*.10}%
 \contentsline {subsubsection}{Mécanisme à tendons permettant la prétension}{10}{section*.12}%
-\contentsline {subsubsection}{Enrouleur linéaire (si le câble est accompagné d’un système à ressort pour le garder tendu)}{10}{section*.14}%
+\contentsline {subsubsection}{Enrouleur à ressort (si le câble est accompagné d’un système à ressort pour le garder tendu)}{10}{section*.14}%
 \contentsline {subsection}{\numberline {II.3}Simulation par éléments finis}{10}{subsection.0.2.3}%
 \contentsline {subsubsection}{Étude d'un doigt pneumatique souple et simulation par éléments finis}{10}{section*.15}%
 \contentsline {section}{\numberline {III}Conception de la pince}{14}{section.0.3}%
