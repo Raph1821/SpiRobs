@@ -581,10 +581,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             
             Cela signifie que la taille ou la géométrie d’une rainures peut être mise à l’échelle (agrandie ou réduite) par un facteur $\beta$ par rapport à la rainure précédente. Ainsi, il suffit de concevoir une seule rainure de base, puis de l’ajuster avec $\beta$ pour créer les rainures adjacentes.
 
-    \subsection{Dessin sur SolidWorks}
-
-        \subsubsection{Dessin du doigt}
-
             Pour les raisons spécifiées plus tôt, nous prenons $b = 0.2$. Egalement, nous souhaitons que le nombre de rainures $N = 10$, alors, d'après (\ref{eq:nb_segment}), on a :
 
             \[
@@ -615,6 +611,10 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \beta = e^{0.2 * 0.628} = 1.134
             \]
 
+    \subsection{Dessin sur SolidWorks}
+
+        \subsubsection{Dessin du doigt}
+
             \dots
 
         \subsubsection{Création d'un matériau TPU}
@@ -625,54 +625,54 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             \dots
 
-        \subsubsection{Simulation et étude de l'élasiticité via \textit{SolidWorks Simulation}}
+        \subsubsection{Dessin de l'actionneur}
 
-            On crée une nouvelle étude statique. \texttt{Déplacements imposés} permet de définir les conditions limites (géométrie fixe = encastrement). \textit{Chargements externes} permet d'appliquer des forces. Enfin, il faut créer un maillage puis appuyer sur exécuter.
-
-            Pour lancer plusieurs simulation, on utilise \texttt{étude de conception}. On rajoute une variable qu'on lie à la force et que l'on fait varier entre 1 N et 20 N, avant de créer un nouveau capteur sur le maximum de la contrainte de Von-Mises. En effet, les auteurs de \cite{bhat_numerical_2025} utilisent la contrainte équivalente linéarisée, basée sur le critère de Von-Mises. Ils ont remarqué que les contraintes sont généralement plus élevées dans la partie centrale de l'actionneur en raison des déformations plus importantes dans cette région, ce qui entraîne des contraintes plus élevées.
-
-    \subsubsection{Dessin de l'actionneur}
-
-        \begin{figure}
-            \centering
-            \begin{subfigure}[t]{0.6\textwidth}
+            \begin{figure}
                 \centering
-                \includegraphics[width=\textwidth]{Figures/vis_sans_fin.jpg}
-                \caption{Notre vis mère de la marque Igus}
-                \label{fig:vis_sans_fin}
-            \end{subfigure}
-            \hfill
-            \begin{subfigure}[t]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{Figures/spiral_logarithm.png}
-                \caption{Modèle de la vis sans fin trouvée sur \textit{mcmaster.com}}
-                \label{fig:vis_sans_fin_solidworks}
-            \end{subfigure}
-            \caption{Illustrations de la vis sans fin}
-        \end{figure}
+                \begin{subfigure}[t]{0.6\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/vis_sans_fin.jpg}
+                    \caption{Notre vis mère de la marque Igus}
+                    \label{fig:vis_sans_fin}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.3\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/spiral_logarithm.png}
+                    \caption{Modèle de la vis sans fin trouvée sur \textit{mcmaster.com}}
+                    \label{fig:vis_sans_fin_solidworks}
+                \end{subfigure}
+                \caption{Illustrations de la vis sans fin}
+            \end{figure}
 
-        Après concertation avec notre superviseur, nous n'allons pas utiliser de tambour pour l'actionnement par câble. En effet, le tambour est une bonne solution mais la vis mère demeure davantage simple à mettre en œuvre. Dans le cadre de notre projet, nous allons donc utiliser un servomoteur et une vis mère (voir figure \ref{fig:vis_sans_fin}), qui tirera des câbles de type UHMWPE, car ces derniers possèdent un faible coefficient de frottement et une importante résistance à l'usure \cite{wang_spirobs_2025}.
+            Après concertation avec notre superviseur, nous n'allons pas utiliser de tambour pour l'actionnement par câble. En effet, le tambour est une bonne solution mais la vis mère demeure davantage simple à mettre en œuvre. Dans le cadre de notre projet, nous allons donc utiliser un servomoteur et une vis mère (voir figure \ref{fig:vis_sans_fin}), qui tirera des câbles de type UHMWPE, car ces derniers possèdent un faible coefficient de frottement et une importante résistance à l'usure \cite{wang_spirobs_2025}.
 
-        \begin{figure}
-            \centering
-            \begin{subfigure}[t]{0.5\textwidth}
+            \begin{figure}
                 \centering
-                \includegraphics[width=\textwidth]{Figures/ecrou_esquisse.png}
-                \caption{Esquisse et bossage avec révolution}
-            \end{subfigure}
-            \hfill
-            \begin{subfigure}[t]{0.4\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{Figures/ecrou_trou.png}
-                \caption{Rajout des trous par révolution d'esquisse pour acceuillir les câbles}
-                \label{fig:vis_sans_fin_solidworks}
-            \end{subfigure}
-            \caption{Dessin de l'écrou}
-            \label{fig:ecrou}
-        \end{figure}
+                \begin{subfigure}[t]{0.5\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/ecrou_esquisse.png}
+                    \caption{Esquisse et bossage avec révolution}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/ecrou_trou.png}
+                    \caption{Rajout des trous par révolution d'esquisse pour acceuillir les câbles}
+                    \label{fig:vis_sans_fin_solidworks}
+                \end{subfigure}
+                \caption{Dessin de l'écrou}
+                \label{fig:ecrou}
+            \end{figure}
 
-        Dans un premier temps, nous dessinons la forme de l'écrou hélicoïdale de la vis sans fin (voir figure \ref{fig:ecrou}), selon le modèle de la marque Igus que nous disposons. Ces écrous sont optimisés pour maximiser l'absorption des forces axiales. \cite{noauthor_bague_nodate} Le cylindre supérieure est de rayon $6.5$ mm. Enfin, nous complétons la pièce en ajoutant le filetage hélicoïdale de $6.35$ mm, égal au rayon de l'axe de la vis mère.
-        
+            Dans un premier temps, nous dessinons la forme de l'écrou hélicoïdale de la vis sans fin (voir figure \ref{fig:ecrou}), selon le modèle de la marque Igus que nous disposons. Ces écrous sont optimisés pour maximiser l'absorption des forces axiales. \cite{noauthor_bague_nodate} Le cylindre supérieure est de rayon $6.5$ mm. Enfin, nous complétons la pièce en ajoutant le filetage hélicoïdale de $6.35$ mm, égal au rayon de l'axe de la vis mère.
+
+    \subsection{Simulation et étude de l'élasiticité via \textit{SolidWorks Simulation}}
+
+        On crée une nouvelle étude statique. \texttt{Déplacements imposés} permet de définir les conditions limites (géométrie fixe = encastrement). \textit{Chargements externes} permet d'appliquer des forces. Enfin, il faut créer un maillage puis appuyer sur exécuter.
+
+        Pour lancer plusieurs simulation, on utilise \texttt{étude de conception}. On rajoute une variable qu'on lie à la force et que l'on fait varier entre 1 N et 20 N, avant de créer un nouveau capteur sur le maximum de la contrainte de Von-Mises. En effet, les auteurs de \cite{bhat_numerical_2025} utilisent la contrainte équivalente linéarisée, basée sur le critère de Von-Mises. Ils ont remarqué que les contraintes sont généralement plus élevées dans la partie centrale de l'actionneur en raison des déformations plus importantes dans cette région, ce qui entraîne des contraintes plus élevées.
+    
     \bibliographystyle{IEEEtran}
     \bibliography{references}
 
