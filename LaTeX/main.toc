@@ -25,8 +25,10 @@
 \contentsline {subsubsection}{Espacement}{17}{section*.26}%
 \contentsline {subsubsection}{Spirale déroulée}{17}{section*.27}%
 \contentsline {subsection}{\numberline {III.2}Dessin sur SolidWorks}{19}{subsection.0.3.2}%
-\contentsline {subsubsection}{Dessin du doigt}{19}{section*.29}%
-\contentsline {subsubsection}{Création d'un matériau TPU}{19}{section*.30}%
+\contentsline {subsubsection}{Création d'un matériau TPU}{19}{section*.29}%
+\contentsline {subsubsection}{Dessin du doigt}{19}{section*.30}%
 \contentsline {subsubsection}{Dessin de la base}{19}{section*.31}%
-\contentsline {subsubsection}{Dessin de l'actionneur}{19}{section*.32}%
+\contentsline {subsubsection}{Dessin de l'écrou}{19}{section*.32}%
+\contentsline {subsubsection}{Dessin de l'attache entre le moteur et la vis}{20}{section*.35}%
+\contentsline {subsubsection}{Dessin du système vis-écrou}{20}{section*.37}%
 \contentsline {subsection}{\numberline {III.3}Simulation et étude de l'élasiticité via \textit {SolidWorks Simulation}}{20}{subsection.0.3.3}%
