@@ -16,17 +16,17 @@
 \contentsline {subsubsection}{Mécanisme \textit {level wind} ou tambour}{10}{section*.14}%
 \contentsline {subsubsection}{Vis sans fin}{11}{section*.16}%
 \contentsline {subsection}{\numberline {II.3}Simulation par éléments finis}{11}{subsection.0.2.3}%
-\contentsline {subsubsection}{Étude d'un doigt pneumatique souple et simulation par éléments finis}{11}{section*.17}%
-\contentsline {subsection}{\numberline {II.4}Conclusion}{14}{subsection.0.2.4}%
+\contentsline {subsubsection}{Étude d'un doigt pneumatique souple et simulation par éléments finis}{12}{section*.17}%
+\contentsline {subsection}{\numberline {II.4}Conclusion}{13}{subsection.0.2.4}%
 \contentsline {section}{\numberline {III}Conception de la pince}{15}{section.0.3}%
 \contentsline {subsection}{\numberline {III.1}Considérations mathématiques}{15}{subsection.0.3.1}%
 \contentsline {subsubsection}{Spirale centrale}{15}{section*.22}%
 \contentsline {subsubsection}{Choix et détermination des coefficients}{15}{section*.23}%
 \contentsline {subsubsection}{Espacement}{17}{section*.26}%
 \contentsline {subsubsection}{Spirale déroulée}{17}{section*.27}%
-\contentsline {subsection}{\numberline {III.2}Choix de l'actionneur}{18}{subsection.0.3.2}%
-\contentsline {subsection}{\numberline {III.3}Dessin sur SolidWorks}{18}{subsection.0.3.3}%
+\contentsline {subsection}{\numberline {III.2}Dessin sur SolidWorks}{18}{subsection.0.3.2}%
 \contentsline {subsubsection}{Dessin du doigt}{18}{section*.29}%
 \contentsline {subsubsection}{Création d'un matériau TPU}{19}{section*.30}%
 \contentsline {subsubsection}{Dessin de la base}{19}{section*.31}%
 \contentsline {subsubsection}{Simulation et étude de l'élasiticité via \textit {SolidWorks Simulation}}{19}{section*.32}%
+\contentsline {subsubsection}{Dessin de l'actionneur}{20}{section*.33}%

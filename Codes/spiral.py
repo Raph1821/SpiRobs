@@ -8,7 +8,7 @@ b_values = [0.2, 0.5, 0.8]
 
 fig, axes = plt.subplots(len(b_values), len(a_values), figsize=(12, 10), subplot_kw={'aspect': 'equal'})
 
-theta = np.linspace(0, 4 * np.pi, 500)
+theta = np.linspace(0, 2 * np.pi, 500)
 
 for i, b in enumerate(b_values):  # lignes = b
     max_rho_line = max([np.max(a * np.exp(b * theta)) for a in a_values])

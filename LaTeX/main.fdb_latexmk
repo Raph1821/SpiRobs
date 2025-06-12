@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1749549652.12539 "main.aux" "main.bbl" "main" 1749549657.241 0
-  "./references.bib" 1749483876 11558 7a1d58be198cd1797bebae21ab22ef1e ""
+["bibtex main"] 1749664376.16693 "main.aux" "main.bbl" "main" 1749714432.11238 0
+  "./references.bib" 1749564836 13333 a2568de4a6bea2fb9144a53e28d36c42 ""
   "C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1749549655 11064 687035a05b481f5ec2bc98c57a5db7e5 "pdflatex"
+  "main.aux" 1749714430 12620 581bf770cf489118624ef8ccb6d3ab0f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1749549652.57228 "c:/Users/SAGNE/OneDrive/Université/Master/S2/Stage/git/LaTeX/main.tex" "main.pdf" "main" 1749549657.24216 0
+["pdflatex"] 1749714425.99829 "c:/Users/SAGNE/OneDrive/Université/Master/S2/Stage/git/LaTeX/main.tex" "main.pdf" "main" 1749714432.11358 0
   "C:/Users/SAGNE/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1749461589 132209 0fb36200973000933e455270a86542c1 ""
   "C:/Users/SAGNE/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1747930667 13157682 610b6da90c1f5606fca8797db8971a7b ""
   "C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -174,6 +174,7 @@
   "Figures/doigt_finit_elements.jpg" 1749460623 701449 555173386cd05fd4932d9bd1a6acdd95 ""
   "Figures/doigt_souple.jpg" 1749461330 212027 0b5b48f668f63bb0db557d893a87d156 ""
   "Figures/draw_solidworks.png" 1749204653 166356 50af286837cb0ef6bb654a750028e375 ""
+  "Figures/level_wind.png" 1749565597 783639 b88f4f52ab9e8e2962492ceeac015a63 ""
   "Figures/multi-stable.png" 1749204653 81607 6c2a0f743157a4f64ad93b8f42cfaf6b ""
   "Figures/pieuvre.png" 1749204653 92231 e570a3f78042d5ee4b0ef641d2ab2566 ""
   "Figures/poulies.jpg" 1749225471 223068 6a0930d81652bc1a503bec255ae6809c ""
@@ -181,12 +182,13 @@
   "Figures/spiral_logarithm.png" 1749204653 293296 3c6eb0c911b8fef76ae7a062aa2ca1fc ""
   "Figures/spirale.png" 1749204653 74437 a733f7c0b8de97fcb8ea60d7917ede58 ""
   "Figures/tendon.png" 1749487924 28436 4f9b3fed27c95a332d4d5226aa6bbbc7 ""
-  "c:/Users/SAGNE/OneDrive/Université/Master/S2/Stage/git/LaTeX/main.tex" 1749549646 43230 5241ebd4d0867edc6f0d9f12c00913cb ""
-  "main.aux" 1749549655 11064 687035a05b481f5ec2bc98c57a5db7e5 "pdflatex"
-  "main.bbl" 1749549652 4461 2702ad21ea47ecd977225eeb30ba185f "bibtex main"
-  "main.out" 1749549655 2670 992bf40ee5829882678df098a11cc99f "pdflatex"
-  "main.tex" 1749549646 43230 5241ebd4d0867edc6f0d9f12c00913cb ""
-  "main.toc" 1749549655 2616 99b3de3735e2f65091fad7c401b1ef91 "pdflatex"
+  "Figures/video.png" 1749565149 242442 f4578d12ab0b32d229b4d136f610756f ""
+  "c:/Users/SAGNE/OneDrive/Université/Master/S2/Stage/git/LaTeX/main.tex" 1749714424 46791 129204076d6d3ed3ff476b672cf1d4e4 ""
+  "main.aux" 1749714430 12620 581bf770cf489118624ef8ccb6d3ab0f "pdflatex"
+  "main.bbl" 1749664376 5237 3103b6ba80a75496587b987053907149 "bibtex main"
+  "main.out" 1749714430 3332 67c93e4a0d14c5a867c33c650736ca56 "pdflatex"
+  "main.tex" 1749714424 46791 129204076d6d3ed3ff476b672cf1d4e4 ""
+  "main.toc" 1749714430 2905 95bab0736acbc4c8fc39be2f625914c4 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

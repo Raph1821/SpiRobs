@@ -91,8 +91,9 @@ N.~B. Mortensen, J.~A. Johnson, and A.~J. Shturmakov,
 
 \bibitem{hugh_lyman_level_2014}
 \BIBentryALTinterwordspacing
-{Hugh Lyman}, ``{LEVEL} {WIND} {MECHANISM} {VIDEO},'' Jul. 2014. [Online].
-  Available: \url{https://www.youtube.com/watch?v=Zf_2RJqduoo}
+{Hugh Lyman}, ``{LEVEL} {WIND} {MECHANISM} {VIDEO},'' Jul. 2014, consultée le
+  10 juin 2025. [Online]. Available:
+  \url{https://www.youtube.com/watch?v=Zf_2RJqduoo}
 \BIBentrySTDinterwordspacing
 
 \bibitem{bhat_numerical_2025}
@@ -104,6 +105,13 @@ S.~K. Bhat, D.~Doreswamy, A.~H. Hegde, V.~K. Nukarapu, S.~Bhat, S.~Puneeth,
   applications},'' \emph{\BIBforeignlanguage{en}{MethodsX}}, vol.~14, p.
   103111, Jun. 2025. [Online]. Available:
   \url{https://linkinghub.elsevier.com/retrieve/pii/S2215016124005624}
+\BIBentrySTDinterwordspacing
+
+\bibitem{noauthor_bague_nodate}
+\BIBentryALTinterwordspacing
+``Bague écrou à embase {Igus} réf {DST}-{JFRM}-{1315DS6}.35x2.54, axe de
+  6.35mm {\textbar} {RS},'' consulté le 12 juin 2025. [Online]. Available:
+  \url{https://fr.rs-online.com/web/p/ecrous-de-vis-mere/8854785}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

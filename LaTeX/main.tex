@@ -197,7 +197,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
     \subsection{Choix de l'actionneur et des câbles}
 
-        Nous devons choisir entre un moteur rotatif actionnant un tambour et un moteur linéaire. Si nous optons pour un moteur rotatif avec un tambour, il est crucial d'éviter que le câble ne s'enroule sur lui-même. Étant donné que la course du câble est calculée en fonction de la rotation du moteur, il est essentiel que le câble ne tourne pas sur lui-même pour éviter de fausser les résultats. Nous pourrions envisager une glissière pour guider l'enroulement du fil le long d'un axe, ou un mécanisme utilisant des engrenages et une vis sans fin pour maintenir la tension.
+        Nous devons choisir entre un moteur rotatif actionnant un tambour et un moteur linéaire. Si nous optons pour un moteur rotatif avec un tambour, il est crucial d'éviter que le câble ne s'enroule sur lui-même. Étant donné que la course du câble est calculée en fonction de la rotation du moteur, il est essentiel que le câble ne tourne pas sur lui-même pour éviter de fausser les résultats. Nous pourrions envisager une glissière pour guider l'enroulement du fil le long d'un axe, ou un mécanisme utilisant une vis sans fin pour maintenir la tension.
 
         Dans les systèmes mécaniques utilisant des câbles ou des tendons, la tension est essentielle pour assurer une transmission efficace de la force ou du mouvement. Une tension insuffisante peut entraîner un glissement, un flambage et une perte de performance. Idéalement, la tension dans le câble doit être directement liée à la force produite par le moteur. Ainsi, la force appliquée par le moteur doit être transmise directement et efficacement au câble sans perte significative. C'est pourquoi nous étudierons l'idée d'utiliser des réducteurs d'engrenage avec un rapport de réduction de 6 à 10 pour éviter les pertes, de sorte que la tension dans le câble reflète celle du moteur.
 
@@ -283,7 +283,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{fig:poulies}
             \end{figure}
 
-            L'étude \cite{daniel_rodriguez-jorge_transmission_2023} se concentre sur la conception d'exosuits à actionnement par câble pour l'assistance à la marche, une alternative aux exosquelettes rigides traditionnels. Les exosuits offrent une meilleure compatibilité cinématique avec les mouvements naturels de l'utilisateur, et sont moins chers, car ils utilisent moins d'actionneurs, notamment grâce à l'ACP (Analyse en Composantes Principales), méthode permettant d'effectuer uniquement les mouvements les plus importants.
+            L'étude \cite{daniel_rodriguez-jorge_transmission_2023} se concentre sur la conception d'exosuits à actionnement par câble pour l'assistance à la marche, une alternative aux exosquelettes rigides traditionnels. Les exosuits offrent une meilleure compatibilité cinématique avec les mouvements naturels de l'utilisateur, et sont moins chers, car ils utilisent moins d'actionneurs, notamment grâce à l'ACP (Analyse en Composantes Principales), méthode permettant d'effectuer uniquement les mouvements les plus importants. Ils utilisent en outre le principe de synergies, qui définissent un ensemble de mouvement pour prendre différents objets.
 
             Cette étude est intéressante pour le rôle que jouent les poulies. Ces dernières transmettent le mouvement et la force d'un actionneur (moteur dans le sac à dos) aux câbles connectés à des points d'ancrage près des articulations (hanche, genou, cheville). Leur fonction principale est de contrôler l'extension des câbles pour générer les mouvements nécessaires à l'assistance de la marche. En d'autres termes, les poulies convertissent la rotation du moteur en un déplacement linéaire des câbles, qui appliquent des forces aux points d'ancrage pour produire un couple d'assistance sur les articulations (voir figure \ref{fig:poulies}).
 
@@ -467,7 +467,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             L = \int_0^{\theta_0} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \, \text{pour} \, \theta_0 = 2\pi \, \text{(1 tour complet)}
             \]
 
-            \textcolor{red}{$\theta_0 = \pi$ au lieu de $2\pi$ !!!}
+            \textcolor{red}{$\theta_0 = \frac{3\pi}{2}$ au lieu de $2\pi$ !!!}
             
             Calculons la dérivée de \( r \) par rapport à \( \theta \) :
             \[
@@ -581,11 +581,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             
             Cela signifie que la taille ou la géométrie d’une rainures peut être mise à l’échelle (agrandie ou réduite) par un facteur $\beta$ par rapport à la rainure précédente. Ainsi, il suffit de concevoir une seule rainure de base, puis de l’ajuster avec $\beta$ pour créer les rainures adjacentes.
 
-    \subsection{Choix de l'actionneur}
-
-        Dans le cadre de notre projet, nous allons utiliser un moteur et une vis sans fin, qui tirera des câbles de type UHMWPE, possédant un faible coefficient de frottement et une importante résistance à l'usure \cite{wang_spirobs_2025} \textit{détailler les propriétés de ces fils}.
-
-        
     \subsection{Dessin sur SolidWorks}
 
         \subsubsection{Dessin du doigt}
@@ -635,6 +630,48 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             On crée une nouvelle étude statique. \texttt{Déplacements imposés} permet de définir les conditions limites (géométrie fixe = encastrement). \textit{Chargements externes} permet d'appliquer des forces. Enfin, il faut créer un maillage puis appuyer sur exécuter.
 
             Pour lancer plusieurs simulation, on utilise \texttt{étude de conception}. On rajoute une variable qu'on lie à la force et que l'on fait varier entre 1 N et 20 N, avant de créer un nouveau capteur sur le maximum de la contrainte de Von-Mises. En effet, les auteurs de \cite{bhat_numerical_2025} utilisent la contrainte équivalente linéarisée, basée sur le critère de Von-Mises. Ils ont remarqué que les contraintes sont généralement plus élevées dans la partie centrale de l'actionneur en raison des déformations plus importantes dans cette région, ce qui entraîne des contraintes plus élevées.
+
+    \subsubsection{Dessin de l'actionneur}
+
+        \begin{figure}
+            \centering
+            \begin{subfigure}[t]{0.6\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/vis_sans_fin.jpg}
+                \caption{Notre vis mère de la marque Igus}
+                \label{fig:vis_sans_fin}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[t]{0.3\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/spiral_logarithm.png}
+                \caption{Modèle de la vis sans fin trouvée sur \textit{mcmaster.com}}
+                \label{fig:vis_sans_fin_solidworks}
+            \end{subfigure}
+            \caption{Illustrations de la vis sans fin}
+        \end{figure}
+
+        Après concertation avec notre superviseur, nous n'allons pas utiliser de tambour pour l'actionnement par câble. En effet, le tambour est une bonne solution mais la vis mère demeure davantage simple à mettre en œuvre. Dans le cadre de notre projet, nous allons donc utiliser un servomoteur et une vis mère (voir figure \ref{fig:vis_sans_fin}), qui tirera des câbles de type UHMWPE, car ces derniers possèdent un faible coefficient de frottement et une importante résistance à l'usure \cite{wang_spirobs_2025}.
+
+        \begin{figure}
+            \centering
+            \begin{subfigure}[t]{0.5\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/ecrou_esquisse.png}
+                \caption{Esquisse et bossage avec révolution}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[t]{0.4\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/ecrou_trou.png}
+                \caption{Rajout des trous par révolution d'esquisse pour acceuillir les câbles}
+                \label{fig:vis_sans_fin_solidworks}
+            \end{subfigure}
+            \caption{Dessin de l'écrou}
+            \label{fig:ecrou}
+        \end{figure}
+
+        Dans un premier temps, nous dessinons la forme de l'écrou hélicoïdale de la vis sans fin (voir figure \ref{fig:ecrou}), selon le modèle de la marque Igus que nous disposons. Ces écrous sont optimisés pour maximiser l'absorption des forces axiales. \cite{noauthor_bague_nodate} Le cylindre supérieure est de rayon $6.5$ mm. Enfin, nous complétons la pièce en ajoutant le filetage hélicoïdale de $6.35$ mm, égal au rayon de l'axe de la vis mère.
         
     \bibliographystyle{IEEEtran}
     \bibliography{references}

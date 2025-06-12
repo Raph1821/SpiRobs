@@ -16,45 +16,45 @@ Database file #1: references.bib
 Warning--empty booktitle in saputro_investigation_2023
 
 Done.
-You've used 10 entries,
+You've used 11 entries,
             4087 wiz_defined-function locations,
-            891 strings with 10212 characters,
-and the built_in function-call counts, 6796 in all, are:
-= -- 576
-> -- 156
+            896 strings with 10437 characters,
+and the built_in function-call counts, 7165 in all, are:
+= -- 607
+> -- 157
 < -- 31
-+ -- 79
++ -- 80
 - -- 33
-* -- 403
-:= -- 1110
-add.period$ -- 21
-call.type$ -- 10
-change.case$ -- 17
+* -- 418
+:= -- 1174
+add.period$ -- 23
+call.type$ -- 11
+change.case$ -- 20
 chr.to.int$ -- 45
-cite$ -- 11
-duplicate$ -- 519
-empty$ -- 507
+cite$ -- 12
+duplicate$ -- 552
+empty$ -- 542
 format.name$ -- 40
-if$ -- 1522
+if$ -- 1604
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 104
-newline$ -- 67
+int.to.str$ -- 11
+missing$ -- 112
+newline$ -- 72
 num.names$ -- 8
-pop$ -- 235
+pop$ -- 259
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 508
+skip$ -- 536
 stack$ -- 0
-substring$ -- 160
-swap$ -- 419
+substring$ -- 165
+swap$ -- 436
 text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 10
+type$ -- 11
 warning$ -- 1
 while$ -- 19
-width$ -- 12
-write$ -- 139
+width$ -- 13
+write$ -- 149
 (There was 1 warning)
