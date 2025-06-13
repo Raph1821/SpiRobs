@@ -334,9 +334,9 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             Dans notre cas, il sera question d'un fil court et de vitesses lentes, limitant ainsi toute accumulation d'erreur dans la position de la poulie par rapport au tambour.
 
-        \subsubsection{Vis sans fin}
+        \subsubsection{Vis à bille}
 
-            \dots
+            Enfin, nous nous intéressons à l'actionnement par vis à bille, qui peut être apparenté à un mécanisme de vis-écrou traditionnel. Mais les vis à billes sont les composants les plus fréquemment utilisés pour transformer la rotation en mouvement linéaire. En effet, elles permettent en limitant grandement les frottements, grâce à une simple rotation de la vis, de faire avancer l'écrou sans avoir besoin d'une glissière. \cite{verl_double_2014}
 
     \subsection{Simulation par éléments finis}
     
@@ -613,10 +613,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
     \subsection{Dessin sur SolidWorks}
 
-        \subsubsection{Création d'un matériau TPU}
-
-            \dots
-
         \subsubsection{Dessin du doigt}
 
             \dots
@@ -644,7 +640,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{fig:vis_sans_fin}
             \end{figure}
 
-            Après concertation avec notre responsable, nous n'allons pas utiliser de tambour pour l'actionnement par câble. En effet, le tambour est une bonne solution mais la vis mère demeure davantage simple à mettre en œuvre. Dans le cadre de notre projet, nous allons donc utiliser un servomoteur et une vis mère (voir figure \ref{fig:vis_sans_fin}), qui tirera des câbles de type UHMWPE, car ces derniers possèdent un faible coefficient de frottement et une importante résistance à l'usure \cite{wang_spirobs_2025}.
+            Après concertation avec notre responsable, nous n'allons pas utiliser de tambour pour l'actionnement par câble. En effet, le tambour est une bonne solution mais la vis mère demeure davantage simple à mettre en œuvre. Dans le cadre de notre projet, nous allons donc utiliser un servomoteur, une vis mère en acier trempé pour limiter les frottement, ainsi qu'un écrou (voir figure \ref{fig:vis_sans_fin}), qui tirera des câbles de type UHMWPE, car ces derniers possèdent un faible coefficient de frottement et une importante résistance à l'usure \cite{wang_spirobs_2025}.
 
             \begin{figure}
                 \centering
@@ -711,9 +707,16 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
     \subsection{Simulation et étude de l'élasiticité via \textit{SolidWorks Simulation}}
 
-        On crée une nouvelle étude statique. \texttt{Déplacements imposés} permet de définir les conditions limites (géométrie fixe = encastrement). \textit{Chargements externes} permet d'appliquer des forces. Enfin, il faut créer un maillage puis appuyer sur exécuter.
+        \subsubsection{Création d'un matériau TPU}
 
-        Pour lancer plusieurs simulation, on utilise \texttt{étude de conception}. On rajoute une variable qu'on lie à la force et que l'on fait varier entre 1 N et 20 N, avant de créer un nouveau capteur sur le maximum de la contrainte de Von-Mises. En effet, les auteurs de \cite{bhat_numerical_2025} utilisent la contrainte équivalente linéarisée, basée sur le critère de Von-Mises. Ils ont remarqué que les contraintes sont généralement plus élevées dans la partie centrale de l'actionneur en raison des déformations plus importantes dans cette région, ce qui entraîne des contraintes plus élevées.
+            \dots
+
+        \subsubsection{Méthode}
+
+            On commence par créer une nouvelle étude statique. L’onglet \textit{Déplacements imposés} permet de définir les conditions limites, par exemple en fixant la géométrie (encastrement). L’onglet \textit{Chargements externes} sert à appliquer les forces. Ensuite, on génère un maillage avant de lancer l’exécution de la simulation.
+
+            Pour effectuer plusieurs simulations, on utilise l’option \textit{étude de conception}. On y introduit une variable liée à la force appliquée, que l’on fait varier entre 1~N et 20~N. On ajoute ensuite un capteur mesurant la contrainte maximale de Von Mises. En effet, les auteurs de \cite{bhat_numerical_2025} utilisent la contrainte équivalente linéarisée, fondée sur le critère de Von Mises. Ils ont observé que les contraintes sont généralement plus élevées dans la zone centrale de l’actionneur, en raison des déformations plus importantes qui y surviennent.
+
     
     \bibliographystyle{IEEEtran}
     \bibliography{references}
