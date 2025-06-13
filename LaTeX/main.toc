@@ -31,5 +31,5 @@
 \contentsline {subsubsection}{Dessin de l'attache entre le moteur et la vis}{21}{section*.34}%
 \contentsline {subsubsection}{Dessin du système vis-écrou}{21}{section*.36}%
 \contentsline {subsection}{\numberline {III.3}Simulation et étude de l'élasiticité via \textit {SolidWorks Simulation}}{21}{subsection.0.3.3}%
-\contentsline {subsubsection}{Création d'un matériau TPU}{21}{section*.38}%
+\contentsline {subsubsection}{Création d'un matériau TPU dans SolidWorks}{21}{section*.38}%
 \contentsline {subsubsection}{Méthode}{21}{section*.39}%
