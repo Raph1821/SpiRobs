@@ -336,7 +336,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
         \subsubsection{Vis à bille}
 
-            Enfin, nous nous intéressons à l'actionnement par vis à bille, qui peut être apparenté à un mécanisme de vis-écrou traditionnel. Mais les vis à billes sont les composants les plus fréquemment utilisés pour transformer la rotation en mouvement linéaire. En effet, elles permettent en limitant grandement les frottements, grâce à une simple rotation de la vis, de faire avancer l'écrou sans avoir besoin d'une glissière. \cite{verl_double_2014}
+            Enfin, nous nous intéressons à l'actionnement par vis à bille, qui peut être apparentée à un mécanisme de vis-écrou traditionnel. Mais les vis à billes sont les composants les plus fréquemment utilisés pour transformer la rotation en mouvement linéaire. En effet, elles permettent en limitant grandement les frottements, grâce à une simple rotation de la vis, de faire avancer l'écrou sans avoir besoin d'une glissière. \cite{verl_double_2014}
 
     \subsection{Simulation par éléments finis}
     
@@ -598,8 +598,8 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             Cela nous permet de dessiner les lignes de construction de l'enleveloppe de notre doigt. On ne dessine que d'un côté dans l'objectif de construire l'autre par symétrie.
 
             Par ailleurs, l'angle de conicité de la spirale joue un rôle clé dans les performances de préhension du doigt, notamment en termes d’espace de travail, de précision de saisie et de capacité de charge. 
-            D’après les résultats rapportés dans \cite{wang_spirobs_2025}, un \textbf{faible angle de conicité} permet d’augmenter significativement l’espace de travail, en élargissant la zone accessible par les doigts lors du déploiement. À l’inverse, un \textbf{angle de conicité plus élevé} améliore la performance de saisie : il permet de saisir des objets de plus petite taille (diamètre minimal réduit) tout en augmentant la \textbf{capacité de charge maximale} du robot.
-            À géométrie constante, l’augmentation du poids de l’objet à saisir est également mieux tolérée lorsque le diamètre est grand, ce phénomène étant particulièrement marqué pour les objets volumineux. Par exemple, un SpiRob avec un angle de conicité de $15^\circ$ peut saisir des objets dont le diamètre varie de \textbf{5{,}6\,mm à 115\,mm}, et supporter une charge allant jusqu’à \textbf{10\,kg}, soit environ \textbf{260 fois son propre poids} (poids du robot : 38{,}4\,g) \cite{wang_spirobs_2025}.
+            D’après les résultats rapportés dans \cite{wang_spirobs_2025}, un faible angle de conicité permet d’augmenter significativement l’espace de travail, en élargissant la zone accessible par les doigts lors du déploiement. À l’inverse, un angle de conicité plus élevé améliore la performance de saisie : il permet de saisir des objets de plus petite taille (diamètre minimal réduit) tout en augmentant la capacité de charge maximale du robot.
+            À géométrie constante, l’augmentation du poids de l’objet à saisir est également mieux tolérée lorsque le diamètre est grand, ce phénomène étant particulièrement marqué pour les objets volumineux. Par exemple, un SpiRob avec un angle de conicité de $15^\circ$ peut saisir des objets dont le diamètre varie de 5{,}6\,mm à 115\,mm, et supporter une charge allant jusqu’à 10\,kg, soit environ 260 fois son propre poids (poids du robot : 38{,}4\,g) \cite{wang_spirobs_2025}.
 
             Ainsi, comme il s'agit d'une pince attachée à un bras robotique, la pince en elle-même n'a pas besoin d'un espace de travail important, c'est pourquoi notre angle de conicité est satisfaisant pour répondre à une bonne performance de saisie.
 
