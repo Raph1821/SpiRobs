@@ -9,7 +9,7 @@ L=100   # mm
 taper_angle = 30 
 taper_angle_rad=math.radians(taper_angle)
 epaisseur_factor = 0.1 # 10% 
-correction_factor = 40/5.381583021070124    
+correction_factor = 50/5.381583021070124    
 
 # Résolution de l'équation pour b
 def equation(b):
@@ -61,7 +61,7 @@ for theta in np.arange(0,3*np.pi*(1+2/9)/2,3*np.pi/18):
 
     # Les largeurs des trapèzes
     delta = a*np.exp(b*(theta+2*np.pi))-a*np.exp(b*theta)
-    delta_adjusted = delta * (1 + epaisseur_factor) * correction_factor
+    delta_adjusted = delta*(1 + epaisseur_factor)*correction_factor
     largeur_trapeze.append(delta_adjusted)
     epaisseur = delta_adjusted * epaisseur_factor
     epaisseurs.append(epaisseur)
