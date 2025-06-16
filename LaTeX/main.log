@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.13)  16 JUN 2025 10:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.13)  16 JUN 2025 15:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -808,58 +808,58 @@ Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 551.
 [17 <./Figures/draw_solidworks.png>]
 
 [18]
-<Figures/vis_sans_fin.jpg, id=334, 4095.3pt x 1891.065pt>
+<Figures/vis_sans_fin.jpg, id=335, 4095.3pt x 1891.065pt>
 File: Figures/vis_sans_fin.jpg Graphic file (type jpg)
 <use Figures/vis_sans_fin.jpg>
-Package pdftex.def Info: Figures/vis_sans_fin.jpg  used on input line 630.
+Package pdftex.def Info: Figures/vis_sans_fin.jpg  used on input line 632.
 (pdftex.def)             Requested size: 273.14923pt x 126.12648pt.
-<Figures/vis_simplifie.png, id=335, 169.23225pt x 340.27126pt>
+<Figures/vis_simplifie.png, id=336, 169.23225pt x 340.27126pt>
 File: Figures/vis_simplifie.png Graphic file (type png)
 <use Figures/vis_simplifie.png>
-Package pdftex.def Info: Figures/vis_simplifie.png  used on input line 636.
+Package pdftex.def Info: Figures/vis_simplifie.png  used on input line 638.
 (pdftex.def)             Requested size: 68.28383pt x 137.30026pt.
-<Figures/ecrou_esquisse.png, id=338, 555.2745pt x 389.65575pt>
+<Figures/ecrou_esquisse.png, id=339, 555.2745pt x 389.65575pt>
 File: Figures/ecrou_esquisse.png Graphic file (type png)
 <use Figures/ecrou_esquisse.png>
-Package pdftex.def Info: Figures/ecrou_esquisse.png  used on input line 649.
+Package pdftex.def Info: Figures/ecrou_esquisse.png  used on input line 651.
 (pdftex.def)             Requested size: 273.14923pt x 191.68213pt.
-<Figures/ecrou_trou.png, id=339, 410.7345pt x 413.74574pt>
+<Figures/ecrou_trou.png, id=340, 410.7345pt x 413.74574pt>
 File: Figures/ecrou_trou.png Graphic file (type png)
 <use Figures/ecrou_trou.png>
-Package pdftex.def Info: Figures/ecrou_trou.png  used on input line 655.
+Package pdftex.def Info: Figures/ecrou_trou.png  used on input line 657.
 (pdftex.def)             Requested size: 136.57462pt x 137.5782pt.
-<Figures/piece_manquante.png, id=343, 248.127pt x 367.97475pt>
-File: Figures/piece_manquante.png Graphic file (type png)
-<use Figures/piece_manquante.png>
-Package pdftex.def Info: Figures/piece_manquante.png  used on input line 670.
-(pdftex.def)             Requested size: 182.09486pt x 270.0455pt.
-<Figures/attache.png, id=344, 216.81pt x 425.79076pt>
-File: Figures/attache.png Graphic file (type png)
-<use Figures/attache.png>
-Package pdftex.def Info: Figures/attache.png  used on input line 677.
-(pdftex.def)             Requested size: 136.57462pt x 268.2301pt.
 
 
 [19 <./Figures/vis_sans_fin.jpg> <./Figures/vis_simplifie.png>]
-
-[20 <./Figures/ecrou_esquisse.png> <./Figures/ecrou_trou.png> <./Figures/piece_manquante.png> <./Figures/attache.png>]
-<Figures/système vis écrou.png, id=366, 537.80925pt x 239.6955pt>
+<Figures/piece_manquante.png, id=353, 248.127pt x 367.97475pt>
+File: Figures/piece_manquante.png Graphic file (type png)
+<use Figures/piece_manquante.png>
+Package pdftex.def Info: Figures/piece_manquante.png  used on input line 672.
+(pdftex.def)             Requested size: 182.09486pt x 270.0455pt.
+<Figures/attache.png, id=354, 216.81pt x 425.79076pt>
+File: Figures/attache.png Graphic file (type png)
+<use Figures/attache.png>
+Package pdftex.def Info: Figures/attache.png  used on input line 679.
+(pdftex.def)             Requested size: 136.57462pt x 268.2301pt.
+<Figures/système vis écrou.png, id=356, 537.80925pt x 239.6955pt>
 File: Figures/système vis écrou.png Graphic file (type png)
 <use Figures/système vis écrou.png>
-Package pdftex.def Info: Figures/système vis écrou.png  used on input line 692.
+Package pdftex.def Info: Figures/système vis écrou.png  used on input line 694.
 (pdftex.def)             Requested size: 227.62206pt x 101.45045pt.
 File: Figures/attache.png Graphic file (type png)
 <use Figures/attache.png>
-Package pdftex.def Info: Figures/attache.png  used on input line 699.
+Package pdftex.def Info: Figures/attache.png  used on input line 701.
 (pdftex.def)             Requested size: 91.04742pt x 178.8049pt.
 
 
 LaTeX Font Warning: Font shape `T1/lmr/b/it' in size <12> not available
-(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 708.
+(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 712.
 
-(main.bbl
 
-[21 <./Figures/système vis écrou.png>]
+
+[20 <./Figures/ecrou_esquisse.png> <./Figures/ecrou_trou.png>]
+
+[21 <./Figures/piece_manquante.png> <./Figures/attache.png> <./Figures/système vis écrou.png>] (main.bbl
 
 [22]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
@@ -933,9 +933,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  73i,10n,117p,1269b,1204s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbo10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb>
-Output written on main.pdf (25 pages, 7234697 bytes).
+Output written on main.pdf (25 pages, 7235679 bytes).
 PDF statistics:
- 509 PDF objects out of 1000 (max. 8388607)
+ 510 PDF objects out of 1000 (max. 8388607)
  96 named destinations out of 1000 (max. 500000)
  228 words of extra memory for PDF output out of 10000 (max. 10000000)
 
