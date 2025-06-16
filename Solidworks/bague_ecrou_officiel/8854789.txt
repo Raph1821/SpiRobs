@@ -1,0 +1,13 @@
+﻿"Symbol";"Value";"Unit";
+"TraceParts.PartNumber";"90-20022024-019295";"";
+"REFERENCE";"DST-JFRM-1315DS6.35x25.4";"";
+"rs_stock_number";"8854789";"";
+"TraceParts.PartTitle";"Flanged Lead Screw Nut 6.35x25.4";"";
+"url";"https://uk.rs-online.com/web/p/lead-screw-nuts/8854789//?cm_mmc=aff-_-uk-_-traceparts-_-8854789";"";
+"SUPPLIER_NAME";"RS Components";"";
+"SUPPLIER";"Igus";"";
+"DESIGN";"Flanged Lead Screw Nut 6.35x25.4";"";
+"TraceParts.InstanceId";"90-20022024-0192952N3XX9WWY2MK673V115V3T3RA";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartLanguage";"en";"";
+"TraceParts.PartVersion";"1.0.1";"";
