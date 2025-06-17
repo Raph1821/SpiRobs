@@ -31,12 +31,18 @@
 
 \usepackage{afterpage}
 
+\usepackage[symbol]{footmisc} % pour utiliser * au lieu de 1,2,3
+
+\usepackage{graphicx}
+\usepackage{float}  % pour [H]
+
 % La numérotation
 
 \makeatletter\@addtoreset{section}{chapter}\makeatother
 \renewcommand{\thepart}{\Roman{part}}
 \renewcommand{\thechapter}{\arabic{chapter}}
 \renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}  % active les symboles pour les footnotes
 
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
@@ -117,7 +123,7 @@
     \begin{center}
         \begin{minipage}{1\linewidth}
             \begin{flushleft}
-                \hspace{4.5cm}
+                \hspace{5.5cm}
                 \includegraphics[width=0.25\textwidth]{Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf}
             \end{flushleft}
         \end{minipage}
@@ -424,10 +430,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
         
     \subsection{Considérations mathématiques}
 
-        \textcolor{red}{Modifie selon ce que tu as fais}
-
-        \textcolor{red}{Les valeurs de $\theta_0$ sont à modifier !!!}
-
         \subsubsection{Spirale centrale}
             
             Sur la figure \ref{fig:spiral_logarithm}, la spirale centrale (en orange) qui définit notre robot vérifie la relation :
@@ -462,13 +464,15 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
         
             Pour déterminer la valeur de \( a \) dans l'équation de la spirale logarithmique \( r = a \cdot e^{b \cdot \theta} \), où la longueur totale déroulée \( L \) doit être égale à 100 mm, nous procédons comme suit :
 
-            La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de $0$ à $2\pi$ :
+
+            La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de \( 0 \) à \( \frac{11\pi}{6} \) :
             \[
-            L = \int_0^{\theta_0} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \, \text{pour} \, \theta_0 = 2\pi \, \text{(1 tour complet)}
+            L = \int_0^{\theta_0} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \quad \text{pour} \ \theta_0 = \frac{11\pi}{6} \left( \frac{11}{12} \approx 1 \text{ tour complet} \right)^*
             \]
 
-            \textcolor{red}{$\theta_0 = \frac{3\pi}{2}$ au lieu de $2\pi$ !!!}
-            
+            \footnotetext{* La méthode de calcul de la valeur de $\theta_0$ est détaillée dans la sous-section \emph{Application Numérique}.}
+ 
+
             Calculons la dérivée de \( r \) par rapport à \( \theta \) :
             \[
             \frac{dr}{d\theta} = \frac{d}{d\theta} \left( a \cdot e^{b \cdot \theta} \right) = a \cdot b \cdot e^{b \cdot \theta}
@@ -506,9 +510,11 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \]
             
             En isolant \( a \) :
-            \[
+
+            \begin{equation}
             a = \frac{L}{\sqrt{1 + b^2} \cdot \frac{1}{b} \left( e^{b \cdot 2\pi} - 1 \right)} = \frac{L b}{\sqrt{1 + b^2} \left( e^{b \cdot 2\pi} - 1 \right)}
-            \]
+            \label{eq:a}
+            \end{equation}
             
             Applications numériques avec \( b \in \{0.1, 0.2, 0.3, \dots, 1.0\} \) et \( L = 100 \) mm:
 
@@ -540,7 +546,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \begin{equation}
             \text{Nombre de rainures} = N = \frac{\text{Angle total}}{\Delta\theta}
             = \frac{\theta_0}{\Delta \theta}
-            = \frac{2\pi}{\Delta\theta}
             \label{eq:nb_segment}
             \end{equation}
 
@@ -581,19 +586,73 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             
             Cela signifie que la taille ou la géométrie d’une rainures peut être mise à l’échelle (agrandie ou réduite) par un facteur $\beta$ par rapport à la rainure précédente. Ainsi, il suffit de concevoir une seule rainure de base, puis de l’ajuster avec $\beta$ pour créer les rainures adjacentes.
 
-            Pour les raisons spécifiées plus tôt, nous prenons $b = 0.2$. Egalement, nous souhaitons que le nombre de rainures $N = 10$, alors, d'après (\ref{eq:nb_segment}), on a :
+        \subsubsection{Application numérique}
+
+            Cahier de charge : 
+
+            \begin{itemize}
+                \item Angle de conicité $\phi \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$ 
+                \item Angle entre 2 unicités adjacent $\Delta \theta \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$
+                \item Longueur de la spirale centrale $L \ = \ 10cm \ = \ 100mm$ 
+                \item Nombre total de rainures $N_u \ = \ 10$ et une base $N_b \ = \ 1$ donc $N \ = \ N_u \ + \ N_b \ = \ 11$
+            \end{itemize}
+
+            Pour satisfaire aux exigences du cahier de charge ci-dessus, on cherche les valeurs des paramètres $b,\ a,\ \theta_0$ : 
+
+            Comme montré dans l’équation (\ref{eq:nb_segment}), le nombre de rainures dépend de l’angle total $\theta_0$ et l'espacement $\Delta \theta$, on peut en déduire $\theta_0$ comme suite :
 
             \[
-            \Delta\theta= \frac{\text{Angle total}}{N} = \frac{2\pi}{10} \approx 0.628 \text{ rad} \approx 36^{\circ}
+            \theta_0 = N.\ \Delta \theta\ =\ 11\ .\ \frac{\pi}{6}\ =\ \frac{11\pi}{6}
             \]
             
-            On calcule notre angle de conicité grâce à (\ref{eq:angle_de_conicite}) :
-            
+            On calcule notre b grâce à l'équation (\ref{eq:angle_de_conicite}) en appliquant la méthode \texttt{fsolve} de \texttt{Python}:
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.7\textwidth]{Figures/resolu_b.png}
+                \caption{Résolution numérique du paramètre $b$}
+                \label{fig:resolu_b}
+            \end{figure} 
+
+            \vspace{3cm}
+
+            \textbf{Explication de l'expression \texttt{angle - taper\_angle\_rad}} :
+
+            Dans la fonction \texttt{equation(b)}, on calcule un angle \texttt{angle} qui dépend de la variable \texttt{b}, et on cherche à résoudre l'équation :
             \[
-            \phi = 2 \arctan\left( \frac{0.2\left(e^{2\pi \cdot 0.2} - 1\right)}{\sqrt{0.2^2 + 1} \left(e^{2\pi \cdot 0.2} + 1\right)} \right)
-            = 0.4656 \text{ rad}
-            = 26.13^{\circ}
+            \texttt{angle}(b) = \texttt{taper\_angle\_rad}
             \]
+            L'objectif est de trouver la valeur de \( b \) telle que cette égalité soit vérifiée.
+
+            Pour cela, la fonction renvoie la différence :
+            \[
+            f(b) = \texttt{angle}(b) - \texttt{taper\_angle\_rad}
+            \]
+            Ainsi, la résolution de \( f(b) = 0 \) correspond à trouver la racine de cette fonction, c'est-à-dire la valeur de \( b \) pour laquelle \(\texttt{angle}(b)\) est égale à \(\texttt{taper\_angle\_rad}\).
+
+            ---
+
+            \textbf{Signification de \texttt{x0} et \texttt{xtol} dans \texttt{fsolve}} :
+
+            \begin{itemize}
+                \item \(\mathbf{x_0}\) : C'est la \textit{valeur initiale} ou \textit{point de départ} donné à l'algorithme numérique pour commencer la recherche de la racine. Comme la résolution numérique dépend du point de départ, choisir un \( x_0 \) proche de la racine attendue facilite la convergence et évite d'obtenir des solutions erronées.
+
+                \item \(\mathbf{xtol}\) : C'est la \textit{tolérance sur la solution} que l'on fixe pour arrêter la recherche de la racine. Plus précisément, lorsque la variation de \( x \) (la valeur approchée de la racine) entre deux itérations est inférieure à \(\texttt{xtol}\), l'algorithme considère que la solution est suffisamment précise et s'arrête. Ici, \(\texttt{xtol} = 10^{-6}\) signifie que la racine est calculée avec une précision d'environ \(10^{-6}\).
+            \end{itemize}
+
+            \textbf{Nous avons donc reçu la valeur de $b\ =\ 0.353403485288786$ et avons déduit $a$ de l'équation (\ref{eq:a}) pour $a\ =\ 0.07781868075936593$}
+
+            \begin{table}[h!]
+                \centering
+                \begin{tabular}{@{}c S[table-format=1.4]@{}}
+                \toprule
+                $b$ & {$a$ [mm]} \\
+                \midrule
+                0.3534 & 0.0778 \\
+                \bottomrule
+                \end{tabular}
+                \caption{Valeur de $a$ calculées en fonction de $b$ avec $L=100$ mm.}
+            \end{table}
 
             Cela nous permet de dessiner les lignes de construction de l'enleveloppe de notre doigt. On ne dessine que d'un côté dans l'objectif de construire l'autre par symétrie.
 

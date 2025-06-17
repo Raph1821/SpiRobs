@@ -24,12 +24,13 @@
 \contentsline {subsubsection}{Choix et détermination des coefficients}{15}{section*.23}%
 \contentsline {subsubsection}{Espacement}{17}{section*.26}%
 \contentsline {subsubsection}{Spirale déroulée}{17}{section*.27}%
-\contentsline {subsection}{\numberline {III.2}Dessin sur SolidWorks}{19}{subsection.0.3.2}%
-\contentsline {subsubsection}{Dessin du doigt}{19}{section*.29}%
-\contentsline {subsubsection}{Dessin de la base}{19}{section*.30}%
-\contentsline {subsubsection}{Dessin de l'écrou}{19}{section*.31}%
-\contentsline {subsubsection}{Dessin de l'attache entre le moteur et la vis}{20}{section*.34}%
-\contentsline {subsubsection}{Dessin du système vis-écrou}{20}{section*.36}%
-\contentsline {subsection}{\numberline {III.3}Simulation et étude de l'élasiticité via \textit {SolidWorks Simulation}}{20}{subsection.0.3.3}%
-\contentsline {subsubsection}{Création d'un matériau TPU dans SolidWorks}{20}{section*.38}%
-\contentsline {subsubsection}{Méthode}{22}{section*.39}%
+\contentsline {subsubsection}{Application numérique}{18}{section*.29}%
+\contentsline {subsection}{\numberline {III.2}Dessin sur SolidWorks}{20}{subsection.0.3.2}%
+\contentsline {subsubsection}{Dessin du doigt}{20}{section*.32}%
+\contentsline {subsubsection}{Dessin de la base}{20}{section*.33}%
+\contentsline {subsubsection}{Dessin de l'écrou}{20}{section*.34}%
+\contentsline {subsubsection}{Dessin de l'attache entre le moteur et la vis}{22}{section*.37}%
+\contentsline {subsubsection}{Dessin du système vis-écrou}{22}{section*.39}%
+\contentsline {subsection}{\numberline {III.3}Simulation et étude de l'élasiticité via \textit {SolidWorks Simulation}}{22}{subsection.0.3.3}%
+\contentsline {subsubsection}{Création d'un matériau TPU dans SolidWorks}{22}{section*.41}%
+\contentsline {subsubsection}{Méthode}{23}{section*.42}%

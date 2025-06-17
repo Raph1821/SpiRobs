@@ -1,88 +1,89 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.13)  16 JUN 2025 15:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.17)  17 JUN 2025 23:21
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/SAGNE/OneDrive/Université/Master/S2/Stage/git/LaTeX/main.tex
-(c:/Users/SAGNE/OneDrive/Université/Master/S2/Stage/git/LaTeX/main.tex
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-04-14>
-(C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
-Document Class: report 2024/06/29 v1.4n Standard LaTeX document class
-(C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
-File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+**"c:/Users/minha/OneDrive/Desktop/S/Projet SpiRobs/main/SpiRobs/LaTeX/main.tex"
+(c:/Users/minha/OneDrive/Desktop/S/Projet SpiRobs/main/SpiRobs/LaTeX/main.tex
+LaTeX2e <2025-06-01>
+L3 programming layer <2025-05-26>
+(C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
+Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
+File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count272
-\c@chapter=\count273
-\c@section=\count274
-\c@subsection=\count275
-\c@subsubsection=\count276
-\c@paragraph=\count277
-\c@subparagraph=\count278
-\c@figure=\count279
-\c@table=\count280
+\c@part=\count275
+\c@chapter=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
-\bibindent=\dimen146
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+\bibindent=\dimen148
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
-\Gm@cnth=\count281
-\Gm@cntv=\count282
-\c@Gm@tempcnt=\count283
-\Gm@bindingoffset=\dimen147
-\Gm@wd@mp=\dimen148
-\Gm@odd@mp=\dimen149
-\Gm@even@mp=\dimen150
-\Gm@layoutwidth=\dimen151
-\Gm@layoutheight=\dimen152
-\Gm@layouthoffset=\dimen153
-\Gm@layoutvoffset=\dimen154
+\Gm@cnth=\count284
+\Gm@cntv=\count285
+\c@Gm@tempcnt=\count286
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
 \Gm@dimlist=\toks18
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/libertine\libertine.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/libertine\libertine.sty
 Package: libertine 2024/04/23 (Bob Tennent) Supports Libertine and Biolinum fonts for all LaTeX engines.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifxetex.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
 \XKV@toks=\toks19
 \XKV@tempa@toks=\toks20
 )
-\XKV@depth=\count284
+\XKV@depth=\count287
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+)) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
 Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/fontaxes\fontaxes.sty
-Package: fontaxes 2025-05-17 v2.0 Font selection axes (deprecated)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/figureversions\figureversions.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/fontaxes\fontaxes.sty
+Package: fontaxes 2025-05-24 v2.0.1 Font selection axes (deprecated)
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/figureversions\figureversions.sty
 Package: figureversions 2025-04-29 v1.0.1 Figure versions
 ))
 LaTeX Info: Redefining \oldstylenums on input line 485.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/libertine\LinLibertine_I.tex)) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/libertine\LinLibertine_I.tex)) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parskip.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+)) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count285
-)) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
+\etb@tempcnta=\count288
+)) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -116,23 +117,30 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2025/04/29 v25.8 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
-\babel@savecnt=\count286
-\U@D=\dimen155
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2025/05/14 v25.9 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
+\babel@savecnt=\count289
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2043.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2045.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2047.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2048.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2049.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2051.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2076.
+\U@D=\dimen157
 \l@unhyphenated=\language79
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count287
+\bbl@dirlevel=\count290
 
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+(C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/babel-french\french.ldf
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/babel-french\french.ldf
 Language: french 2024-07-25 v3.6c French support from the babel system
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/fr\babel-french.tex
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/fr\babel-french.tex
 Package babel Info: Importing font and identification data for french
 (babel)             from babel-fr.ini. Reported on input line 11.
 )
@@ -140,148 +148,148 @@ Package babel Info: Hyphen rules for 'acadian' set to \l@french
 (babel)             (\language22). Reported on input line 91.
 Package babel Info: Hyphen rules for 'canadien' set to \l@french
 (babel)             (\language22). Reported on input line 92.
-\FB@stdchar=\count288
+\FB@stdchar=\count291
 Package babel Info: Making : an active character on input line 421.
 Package babel Info: Making ; an active character on input line 422.
 Package babel Info: Making ! an active character on input line 423.
 Package babel Info: Making ? an active character on input line 424.
-\FBguill@level=\count289
+\FBguill@level=\count292
 \FBold@everypar=\toks21
-\FB@Mht=\dimen156
-\mc@charclass=\count290
-\mc@charfam=\count291
-\mc@charslot=\count292
-\std@mcc=\count293
-\dec@mcc=\count294
-\FB@parskip=\dimen157
-\listindentFB=\dimen158
-\descindentFB=\dimen159
-\labelindentFB=\dimen160
-\labelwidthFB=\dimen161
-\leftmarginFB=\dimen162
-\parindentFFN=\dimen163
-\FBfnindent=\dimen164
-)) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+\FB@Mht=\dimen158
+\mc@charclass=\count293
+\mc@charfam=\count294
+\mc@charslot=\count295
+\std@mcc=\count296
+\dec@mcc=\count297
+\FB@parskip=\dimen159
+\listindentFB=\dimen160
+\descindentFB=\dimen161
+\labelindentFB=\dimen162
+\labelwidthFB=\dimen163
+\leftmarginFB=\dimen164
+\parindentFFN=\dimen165
+\FBfnindent=\dimen166
+)) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks22
 \inpenc@posthook=\toks23
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 116.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+)) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen165
-\Gin@req@width=\dimen166
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+\Gin@req@height=\dimen167
+\Gin@req@width=\dimen168
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen167
-\captionmargin=\dimen168
-\caption@leftmargin=\dimen169
-\caption@rightmargin=\dimen170
-\caption@width=\dimen171
-\caption@indent=\dimen172
-\caption@parindent=\dimen173
-\caption@hangindent=\dimen174
+\caption@tempdima=\dimen169
+\captionmargin=\dimen170
+\caption@leftmargin=\dimen171
+\caption@rightmargin=\dimen172
+\caption@width=\dimen173
+\caption@indent=\dimen174
+\caption@parindent=\dimen175
+\caption@hangindent=\dimen176
 Package caption Info: Standard document class detected.
 Package caption Info: french babel package is loaded.
 )
-\c@caption@flags=\count295
-\c@continuedfloat=\count296
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
+\c@caption@flags=\count298
+\c@continuedfloat=\count299
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
 Package: siunitx 2025-05-22 v3.4.12 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count297
-\l__siunitx_number_exponent_fixed_int=\count298
-\l__siunitx_number_min_decimal_int=\count299
-\l__siunitx_number_min_integer_int=\count300
-\l__siunitx_number_round_precision_int=\count301
-\l__siunitx_number_lower_threshold_int=\count302
-\l__siunitx_number_upper_threshold_int=\count303
-\l__siunitx_number_group_first_int=\count304
-\l__siunitx_number_group_size_int=\count305
-\l__siunitx_number_group_minimum_int=\count306
-\l__siunitx_angle_tmp_dim=\dimen175
+\l__siunitx_number_uncert_offset_int=\count300
+\l__siunitx_number_exponent_fixed_int=\count301
+\l__siunitx_number_min_decimal_int=\count302
+\l__siunitx_number_min_integer_int=\count303
+\l__siunitx_number_round_precision_int=\count304
+\l__siunitx_number_lower_threshold_int=\count305
+\l__siunitx_number_upper_threshold_int=\count306
+\l__siunitx_number_group_first_int=\count307
+\l__siunitx_number_group_size_int=\count308
+\l__siunitx_number_group_minimum_int=\count309
+\l__siunitx_angle_tmp_dim=\dimen177
 \l__siunitx_angle_marker_box=\box53
 \l__siunitx_angle_unit_box=\box54
-\l__siunitx_compound_count_int=\count307
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/translations\translations.sty
+\l__siunitx_compound_count_int=\count310
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/translations\translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
-Package: amstext 2021/08/26 v2.01 AMS text
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+)) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks24
-\ex@=\dimen176
+\ex@=\dimen178
 ))
 \l__siunitx_table_tmp_box=\box55
-\l__siunitx_table_tmp_dim=\dimen177
-\l__siunitx_table_column_width_dim=\dimen178
+\l__siunitx_table_tmp_dim=\dimen179
+\l__siunitx_table_column_width_dim=\dimen180
 \l__siunitx_table_integer_box=\box56
 \l__siunitx_table_decimal_box=\box57
 \l__siunitx_table_uncert_box=\box58
 \l__siunitx_table_before_box=\box59
 \l__siunitx_table_after_box=\box60
-\l__siunitx_table_before_dim=\dimen179
-\l__siunitx_table_carry_dim=\dimen180
-\l__siunitx_unit_tmp_int=\count308
-\l__siunitx_unit_position_int=\count309
-\l__siunitx_unit_total_int=\count310
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
-\col@sep=\dimen181
+\l__siunitx_table_before_dim=\dimen181
+\l__siunitx_table_carry_dim=\dimen182
+\l__siunitx_unit_tmp_int=\count311
+\l__siunitx_unit_position_int=\count312
+\l__siunitx_unit_total_int=\count313
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/05/19 v2.6i Tabular extension package (FMi)
+\col@sep=\dimen183
 \ar@mcellbox=\box61
-\extrarowheight=\dimen182
+\extrarowheight=\dimen184
 \NC@list=\toks25
 \extratabsurround=\skip51
 \backup@length=\skip52
 \ar@cellbox=\box62
-)) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+)) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count311
+\c@subfigure=\count314
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count312
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2024/11/05 v2.17t AMS math features
+\c@subtable=\count315
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/05/18 v2.17x AMS math features
 \@mathmargin=\skip53
 
 For additional information on amsmath, use the `?' option.
-(C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+(C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen183
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+\pmbraise@=\dimen185
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count313
+\inf@bad=\count316
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count314
-\leftroot@=\count315
+\uproot@=\count317
+\leftroot@=\count318
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count316
-\DOTSCASE@=\count317
+\classnum@=\count319
+\DOTSCASE@=\count320
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -291,92 +299,109 @@ LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen184
+\big@size=\dimen186
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count318
+\macc@depth=\count321
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count319
+\c@MaxMatrixCols=\count322
 \dotsspace@=\muskip17
-\c@parentequation=\count320
-\dspbrk@lvl=\count321
+\c@parentequation=\count323
+\dspbrk@lvl=\count324
 \tag@help=\toks26
-\row@=\count322
-\column@=\count323
-\maxfields@=\count324
+\row@=\count325
+\column@=\count326
+\maxfields@=\count327
 \andhelp@=\toks27
-\eqnshift@=\dimen185
-\alignsep@=\dimen186
-\tagshift@=\dimen187
-\tagwidth@=\dimen188
-\totwidth@=\dimen189
-\lineht@=\dimen190
+\eqnshift@=\dimen187
+\alignsep@=\dimen188
+\tagshift@=\dimen189
+\tagwidth@=\dimen190
+\totwidth@=\dimen191
+\lineht@=\dimen192
 \@envbody=\toks28
 \multlinegap=\skip54
 \multlinetaggap=\skip55
 \mathdisplay@stack=\toks29
-LaTeX Info: Redefining \[ on input line 2953.
-LaTeX Info: Redefining \] on input line 2954.
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+LaTeX Info: Redefining \[ on input line 2949.
+LaTeX Info: Redefining \] on input line 2950.
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/textcase\textcase.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/textcase\textcase.sty
 Package: textcase 2025/02/16 v1.05 Text only upper/lower case changing (DPC)
 Package textcase Info: Defining Legacy names on input line 20.
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/tools\afterpage.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/tools\afterpage.sty
 Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
 \AP@output=\toks30
 \AP@partial=\box65
 \AP@footins=\box66
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/chngcntr\chngcntr.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/footmisc\footmisc.sty
+Package: footmisc 2025/05/09 v7.0b a miscellany of footnote facilities
+\FN@temptoken=\toks31
+\footnotemargin=\dimen193
+Package footmisc Info: Declaring symbol style bringhurst on input line 549.
+Package footmisc Info: Declaring symbol style chicago on input line 557.
+Package footmisc Info: Declaring symbol style wiley on input line 566.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 577.
+Package footmisc Info: Declaring symbol style lamport* on input line 597.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 618.
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count328
+\float@exts=\toks32
+\float@box=\box67
+\@float@everytoks=\toks33
+\@floatcapt=\box68
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/chngcntr\chngcntr.sty
 Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
 (chngcntr)             Quitting chngcntr on input line 21.
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2025-05-20 v7.01m Hypertext links for LaTeX
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count325
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
+\c@section@level=\count329
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\@linkdim=\dimen191
-\Hy@linkcounter=\count326
-\Hy@pagecounter=\count327
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
+\@linkdim=\dimen194
+\Hy@linkcounter=\count330
+\Hy@pagecounter=\count331
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2025-05-20 v7.01m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count328
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count332
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2025-05-20 v7.01m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -391,17 +416,17 @@ Package hyperref Info: Plain pages OFF on input line 4172.
 Package hyperref Info: Backreferencing OFF on input line 4177.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count329
+\c@Hy@tempcnt=\count333
 LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen192
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+\XeTeXLinkMargin=\dimen195
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count330
-\Field@Width=\dimen193
-\Fld@charsize=\dimen194
+\Fld@menulength=\count334
+\Field@Width=\dimen196
+\Fld@charsize=\dimen197
 Package hyperref Info: Hyper figures OFF on input line 6042.
 Package hyperref Info: Link nesting OFF on input line 6047.
 Package hyperref Info: Hyper index ON on input line 6050.
@@ -409,87 +434,86 @@ Package hyperref Info: backreferencing OFF on input line 6057.
 Package hyperref Info: Link coloring ON on input line 6060.
 Package hyperref Info: Link coloring with OCG OFF on input line 6067.
 Package hyperref Info: PDF/A mode OFF on input line 6072.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count331
-\c@Item=\count332
-\c@Hfootnote=\count333
+\Hy@abspage=\count335
+\c@Item=\count336
+\c@Hfootnote=\count337
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2024-11-05 v7.01l Hyperref driver for pdfTeX
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2025-05-20 v7.01m Hyperref driver for pdfTeX
+\Fld@listcount=\count338
+\c@bookmark@seq@number=\count339
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
-)
-\Fld@listcount=\count334
-\c@bookmark@seq@number=\count335
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
-Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip56
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/dirtytalk\dirtytalk.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/dirtytalk\dirtytalk.sty
 Package: dirtytalk 2010/11/21 A package making "quoting" easier
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
-\c@dirtytalk@qdepth=\count336
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+\c@dirtytalk@qdepth=\count340
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen195
-\lightrulewidth=\dimen196
-\cmidrulewidth=\dimen197
-\belowrulesep=\dimen198
-\belowbottomsep=\dimen199
-\aboverulesep=\dimen256
-\abovetopsep=\dimen257
-\cmidrulesep=\dimen258
-\cmidrulekern=\dimen259
-\defaultaddspace=\dimen260
-\@cmidla=\count337
-\@cmidlb=\count338
-\@aboverulesep=\dimen261
-\@belowrulesep=\dimen262
-\@thisruleclass=\count339
-\@lastruleclass=\count340
-\@thisrulewidth=\dimen263
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count341
-\lst@gtempboxa=\box67
-\lst@token=\toks31
-\lst@length=\count342
-\lst@currlwidth=\dimen264
-\lst@column=\count343
-\lst@pos=\count344
-\lst@lostspace=\dimen265
-\lst@width=\dimen266
-\lst@newlines=\count345
-\lst@lineno=\count346
-\lst@maxwidth=\dimen267
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+\heavyrulewidth=\dimen198
+\lightrulewidth=\dimen199
+\cmidrulewidth=\dimen256
+\belowrulesep=\dimen257
+\belowbottomsep=\dimen258
+\aboverulesep=\dimen259
+\abovetopsep=\dimen260
+\cmidrulesep=\dimen261
+\cmidrulekern=\dimen262
+\defaultaddspace=\dimen263
+\@cmidla=\count341
+\@cmidlb=\count342
+\@aboverulesep=\dimen264
+\@belowrulesep=\dimen265
+\@thisruleclass=\count343
+\@lastruleclass=\count344
+\@thisrulewidth=\dimen266
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count345
+\lst@gtempboxa=\box69
+\lst@token=\toks34
+\lst@length=\count346
+\lst@currlwidth=\dimen267
+\lst@column=\count347
+\lst@pos=\count348
+\lst@lostspace=\dimen268
+\lst@width=\dimen269
+\lst@newlines=\count349
+\lst@lineno=\count350
+\lst@maxwidth=\dimen270
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
 File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count347
-\lst@skipnumbers=\count348
-\lst@framebox=\box68
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+\c@lstnumber=\count351
+\lst@skipnumbers=\count352
+\lst@framebox=\box70
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2024/09/23 1.10c listings configuration
 ))
 Package: listings 2024/09/23 1.10c (Carsten Heinz)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
@@ -499,47 +523,47 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placeins.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placeins.sty
 Package: placeins 2005/04/18  v 2.2
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip57
-\enit@outerparindent=\dimen268
-\enit@toks=\toks32
-\enit@inbox=\box69
-\enit@count@id=\count349
-\enitdp@description=\count350
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/accsupp\accsupp.sty
+\enit@outerparindent=\dimen271
+\enit@toks=\toks35
+\enit@inbox=\box71
+\enit@count@id=\count353
+\enitdp@description=\count354
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/accsupp\accsupp.sty
 Package: accsupp 2019/12/05 v0.6 Accessibility support by marked content (HO)
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/accsupp\accsupp-pdftex.def
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/accsupp\accsupp-pdftex.def
 File: accsupp-pdftex.def 2019/12/05 v0.6 accsupp driver for pdfTeX (HO)
-)) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+)) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-04-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count351
+\l__color_backend_stack_int=\count355
 ) (main.aux
 Package babel Info: 'french' activates 'french' shorthands.
 (babel)             Reported  on input line 11.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -575,97 +599,98 @@ LaTeX Font Info:    ... okay on input line 109.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@mv@tabular=\count352
-\c@mv@boldtabular=\count353
-LaTeX Info: Redefining \degres on input line 109.
+\c@mv@tabular=\count356
+\c@mv@boldtabular=\count357
+LaTeX Info: Redefining \degres on input line 115.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 109.
+(french.ldf)             reported on input line 115.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 109.
-LaTeX Info: Redefining \up on input line 109.
-(C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+(french.ldf)             reported on input line 115.
+LaTeX Info: Redefining \up on input line 115.
+(C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count354
-\scratchdimen=\dimen269
-\scratchbox=\box70
-\nofMPsegments=\count355
-\nofMParguments=\count356
-\everyMPshowfont=\toks33
-\MPscratchCnt=\count357
-\MPscratchDim=\dimen270
-\MPnumerator=\count358
-\makeMPintoPDFobject=\count359
-\everyMPtoPDFconversion=\toks34
-) (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+\scratchcounter=\count358
+\scratchdimen=\dimen272
+\scratchbox=\box72
+\nofMPsegments=\count359
+\nofMParguments=\count360
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count361
+\MPscratchDim=\dimen273
+\MPnumerator=\count362
+\makeMPintoPDFobject=\count363
+\everyMPtoPDFconversion=\toks37
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-french.trsl
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-french.trsl
 File: translations-basic-dictionary-french.trsl (french translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `french'. on input line 109.
-Package hyperref Info: Link coloring ON on input line 109.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `french'. on input line 115.
+Package hyperref Info: Link coloring ON on input line 115.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-\c@lstlisting=\count360
+\c@lstlisting=\count364
 
 
-pdfTeX warning: pdflatex (file ./Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+pdfTeX warning: pdflatex.exe (file ./Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf, id=59, 843.84326pt x 338.9931pt>
 File: Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf Graphic file (type pdf)
 <use Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf>
-Package pdftex.def Info: Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf  used on input line 121.
+Package pdftex.def Info: Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf  used on input line 127.
 (pdftex.def)             Requested size: 113.81102pt x 45.7207pt.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 123.
-(C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 129.
+(C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 123.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 129.
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 123.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 129.
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 123.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 129.
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 123.
+(Font)              <10.95> on input line 129.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 123.
+(Font)              <8> on input line 129.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 123.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 123.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+(Font)              <6> on input line 129.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 129.
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 123.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+LaTeX Font Info:    Trying to load font information for U+msb on input line 129.
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 [1
 
-{C:/Users/SAGNE/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf>]
+{C:/Users/minha/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc} <./Figures/SORBONNE_FAC_SCIENCES_DEF_CMJN.pdf>]
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.163 \clearpage
+l.169 \clearpage
                  [1
 
 ] (main.toc)
@@ -681,16 +706,16 @@ l.163 \clearpage
 <Figures/pieuvre.png, id=112, 197.538pt x 184.89075pt>
 File: Figures/pieuvre.png Graphic file (type png)
 <use Figures/pieuvre.png>
-Package pdftex.def Info: Figures/pieuvre.png  used on input line 179.
+Package pdftex.def Info: Figures/pieuvre.png  used on input line 185.
 (pdftex.def)             Requested size: 227.62206pt x 213.05432pt.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 192.
- (C:\Users\SAGNE\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 198.
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 [3
 
-{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+{C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 [4 <./Figures/pieuvre.png>]
 
@@ -698,12 +723,12 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 <Figures/robot.png, id=137, 413.74574pt x 248.127pt>
 File: Figures/robot.png Graphic file (type png)
 <use Figures/robot.png>
-Package pdftex.def Info: Figures/robot.png  used on input line 220.
+Package pdftex.def Info: Figures/robot.png  used on input line 226.
 (pdftex.def)             Requested size: 364.19667pt x 218.42435pt.
 <Figures/adaptability.png, id=140, 451.6875pt x 125.268pt>
 File: Figures/adaptability.png Graphic file (type png)
 <use Figures/adaptability.png>
-Package pdftex.def Info: Figures/adaptability.png  used on input line 226.
+Package pdftex.def Info: Figures/adaptability.png  used on input line 232.
 (pdftex.def)             Requested size: 364.19667pt x 101.00967pt.
 
 
@@ -713,22 +738,22 @@ Package pdftex.def Info: Figures/adaptability.png  used on input line 226.
 <Figures/multi-stable.png, id=157, 353.52075pt x 121.6545pt>
 File: Figures/multi-stable.png Graphic file (type png)
 <use Figures/multi-stable.png>
-Package pdftex.def Info: Figures/multi-stable.png  used on input line 241.
+Package pdftex.def Info: Figures/multi-stable.png  used on input line 247.
 (pdftex.def)             Requested size: 318.66948pt x 109.66623pt.
 <Figures/spiral_logarithm.png, id=162, 647.41875pt x 287.27325pt>
 File: Figures/spiral_logarithm.png Graphic file (type png)
 <use Figures/spiral_logarithm.png>
-Package pdftex.def Info: Figures/spiral_logarithm.png  used on input line 258.
+Package pdftex.def Info: Figures/spiral_logarithm.png  used on input line 264.
 (pdftex.def)             Requested size: 455.24411pt x 202.00166pt.
 
 
 [7 <./Figures/multi-stable.png>]
 
-[8{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./Figures/spiral_logarithm.png>]
+[8{C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./Figures/spiral_logarithm.png>]
 <Figures/poulies.jpg, id=191, 342.27072pt x 255.25764pt>
 File: Figures/poulies.jpg Graphic file (type jpg)
 <use Figures/poulies.jpg>
-Package pdftex.def Info: Figures/poulies.jpg  used on input line 281.
+Package pdftex.def Info: Figures/poulies.jpg  used on input line 287.
 (pdftex.def)             Requested size: 227.62206pt x 169.75587pt.
 
 
@@ -736,22 +761,22 @@ Package pdftex.def Info: Figures/poulies.jpg  used on input line 281.
 <Figures/tendon.png, id=206, 229.60782pt x 156.585pt>
 File: Figures/tendon.png Graphic file (type png)
 <use Figures/tendon.png>
-Package pdftex.def Info: Figures/tendon.png  used on input line 300.
+Package pdftex.def Info: Figures/tendon.png  used on input line 306.
 (pdftex.def)             Requested size: 318.66948pt x 217.33473pt.
 
 
 LaTeX Font Warning: Font shape `T1/lmr/b/it' in size <10.95> not available
-(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 307.
+(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 313.
 
 <Figures/level_wind.png, id=211, 591.4095pt x 386.6445pt>
 File: Figures/level_wind.png Graphic file (type png)
 <use Figures/level_wind.png>
-Package pdftex.def Info: Figures/level_wind.png  used on input line 313.
+Package pdftex.def Info: Figures/level_wind.png  used on input line 319.
 (pdftex.def)             Requested size: 273.14923pt x 178.5725pt.
 <Figures/video.png, id=214, 310.761pt x 286.671pt>
 File: Figures/video.png Graphic file (type png)
 <use Figures/video.png>
-Package pdftex.def Info: Figures/video.png  used on input line 320.
+Package pdftex.def Info: Figures/video.png  used on input line 326.
 (pdftex.def)             Requested size: 136.57462pt x 125.99127pt.
 
 
@@ -761,25 +786,25 @@ Package pdftex.def Info: Figures/video.png  used on input line 320.
 <Figures/doigt_souple.jpg, id=245, 361.35pt x 118.66734pt>
 File: Figures/doigt_souple.jpg Graphic file (type jpg)
 <use Figures/doigt_souple.jpg>
-Package pdftex.def Info: Figures/doigt_souple.jpg  used on input line 349.
+Package pdftex.def Info: Figures/doigt_souple.jpg  used on input line 355.
 (pdftex.def)             Requested size: 318.66948pt x 104.6521pt.
 <Figures/doigt_finit_elements.jpg, id=250, 313.21819pt x 178.5069pt>
 File: Figures/doigt_finit_elements.jpg Graphic file (type jpg)
 <use Figures/doigt_finit_elements.jpg>
-Package pdftex.def Info: Figures/doigt_finit_elements.jpg  used on input line 387.
+Package pdftex.def Info: Figures/doigt_finit_elements.jpg  used on input line 393.
 (pdftex.def)             Requested size: 318.66948pt x 181.63062pt.
 
 
-[12{C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <./Figures/doigt_souple.jpg>]
+[12{C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc} <./Figures/doigt_souple.jpg>]
 <Figures/angle_pression.jpg, id=264, 289.08pt x 336.7782pt>
 File: Figures/angle_pression.jpg Graphic file (type jpg)
 <use Figures/angle_pression.jpg>
-Package pdftex.def Info: Figures/angle_pression.jpg  used on input line 401.
+Package pdftex.def Info: Figures/angle_pression.jpg  used on input line 407.
 (pdftex.def)             Requested size: 273.14923pt x 318.23653pt.
 <Figures/angle_pression_experiments.PNG, id=267, 427.5975pt x 355.3275pt>
 File: Figures/angle_pression_experiments.PNG Graphic file (type png)
 <use Figures/angle_pression_experiments.PNG>
-Package pdftex.def Info: Figures/angle_pression_experiments.PNG  used on input line 408.
+Package pdftex.def Info: Figures/angle_pression_experiments.PNG  used on input line 414.
 (pdftex.def)             Requested size: 273.14923pt x 226.98048pt.
 
 
@@ -789,79 +814,105 @@ Package pdftex.def Info: Figures/angle_pression_experiments.PNG  used on input l
 <Figures/spirale.png, id=286, 1110.0672pt x 544.9158pt>
 File: Figures/spirale.png Graphic file (type png)
 <use Figures/spirale.png>
-Package pdftex.def Info: Figures/spirale.png  used on input line 445.
+Package pdftex.def Info: Figures/spirale.png  used on input line 447.
 (pdftex.def)             Requested size: 455.24411pt x 223.46681pt.
+
+
+Package hyperref Warning: Ignoring empty anchor on input line 473.
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 473.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 473.
 
 
 [15
 
 ]
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
 [16 <./Figures/spirale.png>]
-<Figures/draw_solidworks.png, id=306, 461.92575pt x 227.6505pt>
+<Figures/draw_solidworks.png, id=310, 461.92575pt x 227.6505pt>
 File: Figures/draw_solidworks.png Graphic file (type png)
 <use Figures/draw_solidworks.png>
-Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 551.
+Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 556.
 (pdftex.def)             Requested size: 318.66948pt x 157.05469pt.
 
 
 [17 <./Figures/draw_solidworks.png>]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 608.
+ (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+<Figures/resolu_b.png, id=328, 496.10344pt x 257.46187pt>
+File: Figures/resolu_b.png Graphic file (type png)
+<use Figures/resolu_b.png>
+Package pdftex.def Info: Figures/resolu_b.png  used on input line 612.
+(pdftex.def)             Requested size: 318.66948pt x 165.38002pt.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 619.
 
-[18]
-<Figures/vis_sans_fin.jpg, id=335, 4095.3pt x 1891.065pt>
+
+[18 <./Figures/resolu_b.png>]
+
+[19]
+<Figures/vis_sans_fin.jpg, id=353, 4095.3pt x 1891.065pt>
 File: Figures/vis_sans_fin.jpg Graphic file (type jpg)
 <use Figures/vis_sans_fin.jpg>
-Package pdftex.def Info: Figures/vis_sans_fin.jpg  used on input line 632.
+Package pdftex.def Info: Figures/vis_sans_fin.jpg  used on input line 691.
 (pdftex.def)             Requested size: 273.14923pt x 126.12648pt.
-<Figures/vis_simplifie.png, id=336, 169.23225pt x 340.27126pt>
+<Figures/vis_simplifie.png, id=354, 169.23225pt x 340.27126pt>
 File: Figures/vis_simplifie.png Graphic file (type png)
 <use Figures/vis_simplifie.png>
-Package pdftex.def Info: Figures/vis_simplifie.png  used on input line 638.
+Package pdftex.def Info: Figures/vis_simplifie.png  used on input line 697.
 (pdftex.def)             Requested size: 68.28383pt x 137.30026pt.
-<Figures/ecrou_esquisse.png, id=339, 555.2745pt x 389.65575pt>
+<Figures/ecrou_esquisse.png, id=357, 555.2745pt x 389.65575pt>
 File: Figures/ecrou_esquisse.png Graphic file (type png)
 <use Figures/ecrou_esquisse.png>
-Package pdftex.def Info: Figures/ecrou_esquisse.png  used on input line 651.
+Package pdftex.def Info: Figures/ecrou_esquisse.png  used on input line 710.
 (pdftex.def)             Requested size: 273.14923pt x 191.68213pt.
-<Figures/ecrou_trou.png, id=340, 410.7345pt x 413.74574pt>
+<Figures/ecrou_trou.png, id=358, 410.7345pt x 413.74574pt>
 File: Figures/ecrou_trou.png Graphic file (type png)
 <use Figures/ecrou_trou.png>
-Package pdftex.def Info: Figures/ecrou_trou.png  used on input line 657.
+Package pdftex.def Info: Figures/ecrou_trou.png  used on input line 716.
 (pdftex.def)             Requested size: 136.57462pt x 137.5782pt.
-
-
-[19 <./Figures/vis_sans_fin.jpg> <./Figures/vis_simplifie.png>]
-<Figures/piece_manquante.png, id=353, 248.127pt x 367.97475pt>
+<Figures/piece_manquante.png, id=362, 248.127pt x 367.97475pt>
 File: Figures/piece_manquante.png Graphic file (type png)
 <use Figures/piece_manquante.png>
-Package pdftex.def Info: Figures/piece_manquante.png  used on input line 672.
+Package pdftex.def Info: Figures/piece_manquante.png  used on input line 731.
 (pdftex.def)             Requested size: 182.09486pt x 270.0455pt.
-<Figures/attache.png, id=354, 216.81pt x 425.79076pt>
+<Figures/attache.png, id=363, 216.81pt x 425.79076pt>
 File: Figures/attache.png Graphic file (type png)
 <use Figures/attache.png>
-Package pdftex.def Info: Figures/attache.png  used on input line 679.
+Package pdftex.def Info: Figures/attache.png  used on input line 738.
 (pdftex.def)             Requested size: 136.57462pt x 268.2301pt.
-<Figures/système vis écrou.png, id=356, 537.80925pt x 239.6955pt>
+
+
+[20]
+
+[21 <./Figures/vis_sans_fin.jpg> <./Figures/vis_simplifie.png> <./Figures/ecrou_esquisse.png> <./Figures/ecrou_trou.png>]
+<Figures/système vis écrou.png, id=382, 537.80925pt x 239.6955pt>
 File: Figures/système vis écrou.png Graphic file (type png)
 <use Figures/système vis écrou.png>
-Package pdftex.def Info: Figures/système vis écrou.png  used on input line 694.
+Package pdftex.def Info: Figures/système vis écrou.png  used on input line 753.
 (pdftex.def)             Requested size: 227.62206pt x 101.45045pt.
 File: Figures/attache.png Graphic file (type png)
 <use Figures/attache.png>
-Package pdftex.def Info: Figures/attache.png  used on input line 701.
+Package pdftex.def Info: Figures/attache.png  used on input line 760.
 (pdftex.def)             Requested size: 91.04742pt x 178.8049pt.
 
 
 LaTeX Font Warning: Font shape `T1/lmr/b/it' in size <12> not available
-(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 712.
+(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 771.
 
 
 
-[20 <./Figures/ecrou_esquisse.png> <./Figures/ecrou_trou.png>]
+[22 <./Figures/piece_manquante.png> <./Figures/attache.png>] (main.bbl
 
-[21 <./Figures/piece_manquante.png> <./Figures/attache.png> <./Figures/système vis écrou.png>] (main.bbl
-
-[22]
+[23 <./Figures/système vis écrou.png>]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `English'. Using the pattern for
 ** the default language instead.
@@ -905,7 +956,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--91
 
 
 
-[23
+[24
 
 ]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
@@ -916,26 +967,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--91
 ** the default language instead.
 )
 
-[24] (main.aux)
+[25] (main.aux)
  ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-04-14>
+LaTeX2e <2025-06-01>
+L3 programming layer <2025-05-26>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6594D396BE1B4E5FE3792CA8A982C119;3039.
  ) 
 Here is how much of TeX's memory you used:
- 21921 strings out of 469941
- 424979 string characters out of 5469430
- 777692 words of memory out of 5000000
- 48328 multiletter control sequences out of 15000+600000
- 711791 words of font info for 81 fonts, out of 8000000 for 9000
+ 22211 strings out of 468225
+ 429948 string characters out of 5432973
+ 798340 words of memory out of 5000000
+ 50302 multiletter control sequences out of 15000+600000
+ 737171 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,10n,117p,1269b,1204s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbo10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb>
-Output written on main.pdf (25 pages, 7235679 bytes).
+ 73i,10n,117p,1277b,1218s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbo10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri9.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+Output written on main.pdf (26 pages, 7394235 bytes).
 PDF statistics:
- 510 PDF objects out of 1000 (max. 8388607)
- 96 named destinations out of 1000 (max. 500000)
- 228 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 557 PDF objects out of 1000 (max. 8388607)
+ 101 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
