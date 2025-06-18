@@ -42,7 +42,7 @@ rho_ce_theta = lambda theta: a * (1 + np.exp(2 * np.pi * b)) * np.exp(b * theta)
 # s_theta = lambda theta: a*(1+np.exp(2*np.pi*b))/2*np.sqrt(b**2+1)*(np.exp(b*theta)-1)/b
 
 # Discrétisation avec Δθ = 30 
-for theta in np.arange(0,3*np.pi*(1+2/9)/2,3*np.pi/18):
+for theta in np.arange(0,11*np.pi/6,np.pi/6):
     thetas.append(theta)
 
     # Spirale originale

@@ -431,13 +431,10 @@ INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
 INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
 INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\tex\latex\lm\t1lmtt.fd
 INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt10.tfm
-INPUT .\Figures\resolu_b.png
-INPUT .\Figures\resolu_b.png
-INPUT .\Figures\resolu_b.png
-INPUT .\Figures\resolu_b.png
-INPUT .\Figures\resolu_b.png
-INPUT .\Figures\resolu_b.png
-INPUT .\Figures\resolu_b.png
+INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt9.tfm
 INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtk10.tfm
 INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt8.tfm
 INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmtt8.tfm
@@ -550,3 +547,5 @@ INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.
 INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtk10.pfb
 INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt10.pfb
 INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt10.pfb
+INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt9.pfb
+INPUT C:\Users\minha\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmtt9.pfb
