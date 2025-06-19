@@ -8,6 +8,10 @@
 \usepackage{setspace} % pour l'interligne
 \usepackage{parskip}  % pour gérer l'espacement entre les paragraphes
 
+% Pour les espacements entre les titres
+\usepackage{titlesec}
+\titlespacing*{\subsubsection}{0pt}{0.5em}{0.3em}  % marge gauche, avant, après
+
 % Interligne multiple de 1.15
 \setstretch{1.15}
 
@@ -607,8 +611,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             
             On calcule notre b grâce à l'équation (\ref{eq:angle_de_conicite}) en appliquant la méthode \texttt{fsolve} de \texttt{Python}:
 
-            \paragraph{Exemple en Python :}
-
             \begin{lstlisting}[language=Python,caption={Résolution numérique du paramètre $b$},label={lst:resolu_b}]
 
             # Résolution de l'équation pour b
@@ -644,10 +646,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \]
             Ainsi, la résolution de \( f(b) = 0 \) correspond à trouver la racine de cette fonction, c'est-à-dire la valeur de \( b \) pour laquelle \(\texttt{angle}(b)\) est égale à \(\texttt{taper\_angle\_rad}\).
 
-            ---
-
             \textbf{Signification de \texttt{x0} et \texttt{xtol} dans \texttt{fsolve}} :
-
             \begin{itemize}
                 \item \(\mathbf{x_0}\) : C'est la \textit{valeur initiale} ou \textit{point de départ} donné à l'algorithme numérique pour commencer la recherche de la racine. Comme la résolution numérique dépend du point de départ, choisir un \( x_0 \) proche de la racine attendue facilite la convergence et évite d'obtenir des solutions erronées.
 
@@ -669,10 +668,10 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \end{table}
 
         Avec tous les paramètres que l'on a trouvés, ils nous permettent de dessiner les lignes de construction de l'enleveloppe de notre doigt. On ne dessine que d'un côté dans l'objectif de construire l'autre par symétrie.
-        
+
         \subsubsection{Angle de conicité}
 
-            L'Angle de conicité de la spirale joue un rôle clé dans les performances de préhension du doigt, notamment en termes d’espace de travail, de précision de saisie et de capacité de charge. 
+            L'angle de conicité de la spirale joue un rôle clé dans les performances de préhension du doigt, notamment en termes d’espace de travail, de précision de saisie et de capacité de charge. 
             D’après les résultats rapportés dans \cite{wang_spirobs_2025}, un faible angle de conicité permet d’augmenter significativement l’espace de travail, en élargissant la zone accessible par les doigts lors du déploiement. À l’inverse, un angle de conicité plus élevé améliore la performance de saisie : il permet de saisir des objets de plus petite taille (diamètre minimal réduit) tout en augmentant la capacité de charge maximale du robot.
             À géométrie constante, l’augmentation du poids de l’objet à saisir est également mieux tolérée lorsque le diamètre est grand, ce phénomène étant particulièrement marqué pour les objets volumineux. Par exemple, un SpiRob avec un angle de conicité de $15^\circ$ peut saisir des objets dont le diamètre varie de 5{,}6\,mm à 115\,mm, et supporter une charge allant jusqu’à 10\,kg, soit environ 260 fois son propre poids (poids du robot : 38{,}4\,g) \cite{wang_spirobs_2025}.
 
@@ -687,7 +686,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \[
             \beta = e^{0.353403485288786 * \frac{\pi}{6}} = 1.203268534
             \]
-
     \subsection{Dessin sur SolidWorks}
 
         \subsubsection{Dessin du doigt}
@@ -726,8 +724,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \item \texttt{to\_csv} : c’est une méthode attachée à un objet \texttt{DataFrame}, qui permet d’exporter ce tableau sous forme d’un fichier au format CSV.
             \end{itemize}
 
-            \paragraph{Exemple en Python :}
-
             \begin{lstlisting}[language=Python,caption={Exportation d'une liste vers un fichier CSV avec \texttt{pandas}}, label={lst:export_csv}]
             import pandas as pd
 
@@ -759,9 +755,37 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             La commande \texttt{to\_csv("personnes.csv", index=False)} écrit le fichier sans ajouter une colonne d’index.
 
+            $\ddots$
+
         \subsubsection{Dessin de la base}
 
-            \dots
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.4\textwidth]{Figures/pb_simu1_base_molle_supp.png}
+                \caption{Base et doigts du même matériau souple}
+                \label{fig:base_molle}
+            \end{figure}
+
+            Dans un premier temps, nous avions conçu la base et le doigt comme une seule pièce monobloc. Toutefois, cette solution s’est révélée inappropriée. En effet, lors de la simulation du comportement élastique du système en TPU souple, l’application d’une force sur les doigts entraînait une déformation de la base plutôt que des doigts eux-mêmes (voir figure \ref{fig:base_molle}). Autrement dit, la base absorbait les contraintes à la place des doigts. Pour remédier à cela, nous avons décidé de fabriquer la base dans un matériau plus rigide, le PLA, et de ne pas y fixer directement le moteur. À la place, un support moteur sera conçu à l’aide de la bibliothèque MAKERBEAM et sera attaché à la base à l'aide de vis.
+
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}[t]{0.5\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/base_circonscrit.png}
+                    \caption{Esquisse de la base de diamètre 80 mm}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/base_hareng.png}
+                    \caption{Extrudage en queue de hareng de la même taille que celle du doigt, mais avec un jeu de $0.3$ mm}
+                \end{subfigure}
+                \caption{Conception de la base}
+                \label{fig:base}
+            \end{figure}
+
+            Ainsi, nous créons une base de forme tirangulaire dont le cercle circonscrit est de rayon $\sim 80$ mm, dans l'optique de prendre des fruits de diamètre $\sim 80$ mm. Ensuite, nous exploitons l'accroche en queue de hareng du doigt pour pouvoir l'accrocher sur la base, en prenant soin d'ajouter un jeu de $0.3$ mm de millimètres pour pouvoir assembler (voir figure \ref{fig:base}).
 
         \subsubsection{Dessin de l'écrou}
 
