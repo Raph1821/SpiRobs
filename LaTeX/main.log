@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.13)  19 JUN 2025 10:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.13)  19 JUN 2025 16:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -842,7 +842,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 [16 <./Figures/spirale.png>]
-<Figures/draw_solidworks.png, id=309, 461.92575pt x 227.6505pt>
+<Figures/draw_solidworks.png, id=310, 461.92575pt x 227.6505pt>
 File: Figures/draw_solidworks.png Graphic file (type png)
 <use Figures/draw_solidworks.png>
 Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 560.
@@ -866,17 +866,17 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
 [19]
 
 [20]
-<Figures/pb_simu1_base_molle_supp.png, id=381, 1027.84pt x 1541.76pt>
+<Figures/pb_simu1_base_molle_supp.png, id=382, 1027.84pt x 1541.76pt>
 File: Figures/pb_simu1_base_molle_supp.png Graphic file (type png)
 <use Figures/pb_simu1_base_molle_supp.png>
 Package pdftex.def Info: Figures/pb_simu1_base_molle_supp.png  used on input line 764.
 (pdftex.def)             Requested size: 182.09486pt x 273.1291pt.
-<Figures/base_circonscrit.png, id=383, 558.28575pt x 410.13225pt>
+<Figures/base_circonscrit.png, id=384, 558.28575pt x 410.13225pt>
 File: Figures/base_circonscrit.png Graphic file (type png)
 <use Figures/base_circonscrit.png>
 Package pdftex.def Info: Figures/base_circonscrit.png  used on input line 775.
 (pdftex.def)             Requested size: 227.62206pt x 167.21658pt.
-<Figures/base_hareng.png, id=384, 408.3255pt x 374.5995pt>
+<Figures/base_hareng.png, id=385, 408.3255pt x 374.5995pt>
 File: Figures/base_hareng.png Graphic file (type png)
 <use Figures/base_hareng.png>
 Package pdftex.def Info: Figures/base_hareng.png  used on input line 781.
@@ -888,61 +888,74 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 
 [21]
-<Figures/vis_sans_fin.jpg, id=420, 4095.3pt x 1891.065pt>
-File: Figures/vis_sans_fin.jpg Graphic file (type jpg)
-<use Figures/vis_sans_fin.jpg>
-Package pdftex.def Info: Figures/vis_sans_fin.jpg  used on input line 796.
-(pdftex.def)             Requested size: 273.14923pt x 126.12648pt.
-<Figures/vis_simplifie.png, id=421, 169.23225pt x 340.27126pt>
-File: Figures/vis_simplifie.png Graphic file (type png)
-<use Figures/vis_simplifie.png>
-Package pdftex.def Info: Figures/vis_simplifie.png  used on input line 802.
-(pdftex.def)             Requested size: 68.28383pt x 137.30026pt.
+<Figures/support_idee.png, id=421, 380.622pt x 412.54124pt>
+File: Figures/support_idee.png Graphic file (type png)
+<use Figures/support_idee.png>
+Package pdftex.def Info: Figures/support_idee.png  used on input line 796.
+(pdftex.def)             Requested size: 182.09486pt x 197.36917pt.
+<Figures/support_fixation.png, id=422, 536.60475pt x 434.22224pt>
+File: Figures/support_fixation.png Graphic file (type png)
+<use Figures/support_fixation.png>
+Package pdftex.def Info: Figures/support_fixation.png  used on input line 802.
+(pdftex.def)             Requested size: 227.62206pt x 184.19415pt.
 
 
 [22 <./Figures/pb_simu1_base_molle_supp.png (PNG copy)> <./Figures/base_circonscrit.png> <./Figures/base_hareng.png>]
-<Figures/ecrou_esquisse.png, id=431, 555.2745pt x 389.65575pt>
+<Figures/vis_sans_fin.jpg, id=431, 4095.3pt x 1891.065pt>
+File: Figures/vis_sans_fin.jpg Graphic file (type jpg)
+<use Figures/vis_sans_fin.jpg>
+Package pdftex.def Info: Figures/vis_sans_fin.jpg  used on input line 817.
+(pdftex.def)             Requested size: 273.14923pt x 126.12648pt.
+<Figures/vis_simplifie.png, id=432, 169.23225pt x 340.27126pt>
+File: Figures/vis_simplifie.png Graphic file (type png)
+<use Figures/vis_simplifie.png>
+Package pdftex.def Info: Figures/vis_simplifie.png  used on input line 823.
+(pdftex.def)             Requested size: 68.28383pt x 137.30026pt.
+<Figures/ecrou_esquisse.png, id=435, 555.2745pt x 389.65575pt>
 File: Figures/ecrou_esquisse.png Graphic file (type png)
 <use Figures/ecrou_esquisse.png>
-Package pdftex.def Info: Figures/ecrou_esquisse.png  used on input line 815.
+Package pdftex.def Info: Figures/ecrou_esquisse.png  used on input line 836.
 (pdftex.def)             Requested size: 273.14923pt x 191.68213pt.
-<Figures/ecrou_trou.png, id=432, 410.7345pt x 413.74574pt>
+<Figures/ecrou_trou.png, id=436, 410.7345pt x 413.74574pt>
 File: Figures/ecrou_trou.png Graphic file (type png)
 <use Figures/ecrou_trou.png>
-Package pdftex.def Info: Figures/ecrou_trou.png  used on input line 821.
+Package pdftex.def Info: Figures/ecrou_trou.png  used on input line 842.
 (pdftex.def)             Requested size: 136.57462pt x 137.5782pt.
-<Figures/piece_manquante.png, id=436, 248.127pt x 367.97475pt>
+
+
+[23 <./Figures/support_idee.png> <./Figures/support_fixation.png> <./Figures/vis_sans_fin.jpg> <./Figures/vis_simplifie.png>]
+<Figures/piece_manquante.png, id=451, 248.127pt x 367.97475pt>
 File: Figures/piece_manquante.png Graphic file (type png)
 <use Figures/piece_manquante.png>
-Package pdftex.def Info: Figures/piece_manquante.png  used on input line 836.
+Package pdftex.def Info: Figures/piece_manquante.png  used on input line 857.
 (pdftex.def)             Requested size: 182.09486pt x 270.0455pt.
-<Figures/attache.png, id=437, 216.81pt x 425.79076pt>
+<Figures/attache.png, id=452, 216.81pt x 425.79076pt>
 File: Figures/attache.png Graphic file (type png)
 <use Figures/attache.png>
-Package pdftex.def Info: Figures/attache.png  used on input line 843.
+Package pdftex.def Info: Figures/attache.png  used on input line 864.
 (pdftex.def)             Requested size: 136.57462pt x 268.2301pt.
 
 
-[23 <./Figures/vis_sans_fin.jpg> <./Figures/vis_simplifie.png> <./Figures/ecrou_esquisse.png> <./Figures/ecrou_trou.png>]
-<Figures/système vis écrou.png, id=450, 537.80925pt x 239.6955pt>
+[24 <./Figures/ecrou_esquisse.png> <./Figures/ecrou_trou.png>]
+<Figures/système vis écrou.png, id=463, 537.80925pt x 239.6955pt>
 File: Figures/système vis écrou.png Graphic file (type png)
 <use Figures/système vis écrou.png>
-Package pdftex.def Info: Figures/système vis écrou.png  used on input line 858.
+Package pdftex.def Info: Figures/système vis écrou.png  used on input line 879.
 (pdftex.def)             Requested size: 227.62206pt x 101.45045pt.
 File: Figures/attache.png Graphic file (type png)
 <use Figures/attache.png>
-Package pdftex.def Info: Figures/attache.png  used on input line 865.
+Package pdftex.def Info: Figures/attache.png  used on input line 886.
 (pdftex.def)             Requested size: 91.04742pt x 178.8049pt.
 
 
-[24 <./Figures/piece_manquante.png> <./Figures/attache.png> <./Figures/système vis écrou.png>]
+[25 <./Figures/piece_manquante.png> <./Figures/attache.png> <./Figures/système vis écrou.png>]
 
 LaTeX Font Warning: Font shape `T1/lmr/b/it' in size <12> not available
-(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 876.
+(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 897.
 
 (main.bbl
 
-[25]
+[26]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `English'. Using the pattern for
 ** the default language instead.
@@ -986,7 +999,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--91
 
 
 
-[26
+[27
 
 ]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
@@ -997,7 +1010,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--91
 ** the default language instead.
 )
 
-[27] (main.aux)
+[28] (main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-14>
@@ -1006,17 +1019,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: CC08CE0ED7B114AFBD174417900D2E13;3038.
  ) 
 Here is how much of TeX's memory you used:
- 23098 strings out of 469941
- 440492 string characters out of 5469430
- 1195601 words of memory out of 5000000
- 49405 multiletter control sequences out of 15000+600000
+ 23116 strings out of 469941
+ 441006 string characters out of 5469430
+ 1195658 words of memory out of 5000000
+ 49420 multiletter control sequences out of 15000+600000
  754343 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,10n,117p,1269b,1453s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbo10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri9.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/SAGNE/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt9.pfb>
-Output written on main.pdf (28 pages, 8998297 bytes).
+Output written on main.pdf (29 pages, 9170500 bytes).
 PDF statistics:
- 642 PDF objects out of 1000 (max. 8388607)
- 153 named destinations out of 1000 (max. 500000)
- 243 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 654 PDF objects out of 1000 (max. 8388607)
+ 156 named destinations out of 1000 (max. 500000)
+ 253 words of extra memory for PDF output out of 10000 (max. 10000000)
 
