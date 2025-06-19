@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.17)  17 JUN 2025 23:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.17)  18 JUN 2025 15:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -846,73 +846,79 @@ Package pdftex.def Info: Figures/draw_solidworks.png  used on input line 556.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 608.
  (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) (C:\Users\minha\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
-<Figures/resolu_b.png, id=328, 496.10344pt x 257.46187pt>
-File: Figures/resolu_b.png Graphic file (type png)
-<use Figures/resolu_b.png>
-Package pdftex.def Info: Figures/resolu_b.png  used on input line 612.
-(pdftex.def)             Requested size: 318.66948pt x 165.38002pt.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 612.
+
+
+[18]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 619.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 633.
 
-
-[18 <./Figures/resolu_b.png>]
 
 [19]
-<Figures/vis_sans_fin.jpg, id=353, 4095.3pt x 1891.065pt>
-File: Figures/vis_sans_fin.jpg Graphic file (type jpg)
-<use Figures/vis_sans_fin.jpg>
-Package pdftex.def Info: Figures/vis_sans_fin.jpg  used on input line 691.
-(pdftex.def)             Requested size: 273.14923pt x 126.12648pt.
-<Figures/vis_simplifie.png, id=354, 169.23225pt x 340.27126pt>
-File: Figures/vis_simplifie.png Graphic file (type png)
-<use Figures/vis_simplifie.png>
-Package pdftex.def Info: Figures/vis_simplifie.png  used on input line 697.
-(pdftex.def)             Requested size: 68.28383pt x 137.30026pt.
-<Figures/ecrou_esquisse.png, id=357, 555.2745pt x 389.65575pt>
-File: Figures/ecrou_esquisse.png Graphic file (type png)
-<use Figures/ecrou_esquisse.png>
-Package pdftex.def Info: Figures/ecrou_esquisse.png  used on input line 710.
-(pdftex.def)             Requested size: 273.14923pt x 191.68213pt.
-<Figures/ecrou_trou.png, id=358, 410.7345pt x 413.74574pt>
-File: Figures/ecrou_trou.png Graphic file (type png)
-<use Figures/ecrou_trou.png>
-Package pdftex.def Info: Figures/ecrou_trou.png  used on input line 716.
-(pdftex.def)             Requested size: 136.57462pt x 137.5782pt.
-<Figures/piece_manquante.png, id=362, 248.127pt x 367.97475pt>
-File: Figures/piece_manquante.png Graphic file (type png)
-<use Figures/piece_manquante.png>
-Package pdftex.def Info: Figures/piece_manquante.png  used on input line 731.
-(pdftex.def)             Requested size: 182.09486pt x 270.0455pt.
-<Figures/attache.png, id=363, 216.81pt x 425.79076pt>
-File: Figures/attache.png Graphic file (type png)
-<use Figures/attache.png>
-Package pdftex.def Info: Figures/attache.png  used on input line 738.
-(pdftex.def)             Requested size: 136.57462pt x 268.2301pt.
-
 
 [20]
 
-[21 <./Figures/vis_sans_fin.jpg> <./Figures/vis_simplifie.png> <./Figures/ecrou_esquisse.png> <./Figures/ecrou_trou.png>]
-<Figures/système vis écrou.png, id=382, 537.80925pt x 239.6955pt>
+[21]
+<Figures/vis_sans_fin.jpg, id=414, 4095.3pt x 1891.065pt>
+File: Figures/vis_sans_fin.jpg Graphic file (type jpg)
+<use Figures/vis_sans_fin.jpg>
+Package pdftex.def Info: Figures/vis_sans_fin.jpg  used on input line 772.
+(pdftex.def)             Requested size: 273.14923pt x 126.12648pt.
+<Figures/vis_simplifie.png, id=415, 169.23225pt x 340.27126pt>
+File: Figures/vis_simplifie.png Graphic file (type png)
+<use Figures/vis_simplifie.png>
+Package pdftex.def Info: Figures/vis_simplifie.png  used on input line 778.
+(pdftex.def)             Requested size: 68.28383pt x 137.30026pt.
+<Figures/ecrou_esquisse.png, id=418, 555.2745pt x 389.65575pt>
+File: Figures/ecrou_esquisse.png Graphic file (type png)
+<use Figures/ecrou_esquisse.png>
+Package pdftex.def Info: Figures/ecrou_esquisse.png  used on input line 791.
+(pdftex.def)             Requested size: 273.14923pt x 191.68213pt.
+<Figures/ecrou_trou.png, id=419, 410.7345pt x 413.74574pt>
+File: Figures/ecrou_trou.png Graphic file (type png)
+<use Figures/ecrou_trou.png>
+Package pdftex.def Info: Figures/ecrou_trou.png  used on input line 797.
+(pdftex.def)             Requested size: 136.57462pt x 137.5782pt.
+
+
+[22 <./Figures/vis_sans_fin.jpg> <./Figures/vis_simplifie.png>]
+<Figures/piece_manquante.png, id=431, 248.127pt x 367.97475pt>
+File: Figures/piece_manquante.png Graphic file (type png)
+<use Figures/piece_manquante.png>
+Package pdftex.def Info: Figures/piece_manquante.png  used on input line 812.
+(pdftex.def)             Requested size: 182.09486pt x 270.0455pt.
+<Figures/attache.png, id=432, 216.81pt x 425.79076pt>
+File: Figures/attache.png Graphic file (type png)
+<use Figures/attache.png>
+Package pdftex.def Info: Figures/attache.png  used on input line 819.
+(pdftex.def)             Requested size: 136.57462pt x 268.2301pt.
+
+
+[23 <./Figures/ecrou_esquisse.png> <./Figures/ecrou_trou.png>]
+<Figures/système vis écrou.png, id=442, 537.80925pt x 239.6955pt>
 File: Figures/système vis écrou.png Graphic file (type png)
 <use Figures/système vis écrou.png>
-Package pdftex.def Info: Figures/système vis écrou.png  used on input line 753.
+Package pdftex.def Info: Figures/système vis écrou.png  used on input line 834.
 (pdftex.def)             Requested size: 227.62206pt x 101.45045pt.
 File: Figures/attache.png Graphic file (type png)
 <use Figures/attache.png>
-Package pdftex.def Info: Figures/attache.png  used on input line 760.
+Package pdftex.def Info: Figures/attache.png  used on input line 841.
 (pdftex.def)             Requested size: 91.04742pt x 178.8049pt.
 
 
+[24 <./Figures/piece_manquante.png> <./Figures/attache.png>]
+
 LaTeX Font Warning: Font shape `T1/lmr/b/it' in size <12> not available
-(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 771.
+(Font)              Font shape `T1/lmr/b/sl' tried instead on input line 852.
 
 
 
-[22 <./Figures/piece_manquante.png> <./Figures/attache.png>] (main.bbl
+[25 <./Figures/système vis écrou.png>] (main.bbl
 
-[23 <./Figures/système vis écrou.png>]
+[26]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `English'. Using the pattern for
 ** the default language instead.
@@ -956,7 +962,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--91
 
 
 
-[24
+[27
 
 ]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
@@ -967,7 +973,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--91
 ** the default language instead.
 )
 
-[25] (main.aux)
+[28] (main.aux)
  ***********
 LaTeX2e <2025-06-01>
 L3 programming layer <2025-05-26>
@@ -976,17 +982,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6594D396BE1B4E5FE3792CA8A982C119;3039.
  ) 
 Here is how much of TeX's memory you used:
- 22211 strings out of 468225
- 429948 string characters out of 5432973
- 798340 words of memory out of 5000000
- 50302 multiletter control sequences out of 15000+600000
- 737171 words of font info for 100 fonts, out of 8000000 for 9000
+ 22766 strings out of 468225
+ 435278 string characters out of 5432973
+ 1204604 words of memory out of 5000000
+ 50801 multiletter control sequences out of 15000+600000
+ 737490 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,10n,117p,1277b,1218s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbo10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri9.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (26 pages, 7394235 bytes).
+ 73i,10n,117p,1277b,1654s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbo10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri9.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt9.pfb>
+Output written on main.pdf (29 pages, 7431153 bytes).
 PDF statistics:
- 557 PDF objects out of 1000 (max. 8388607)
- 101 named destinations out of 1000 (max. 500000)
- 233 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 638 PDF objects out of 1000 (max. 8388607)
+ 153 named destinations out of 1000 (max. 500000)
+ 228 words of extra memory for PDF output out of 10000 (max. 10000000)
 

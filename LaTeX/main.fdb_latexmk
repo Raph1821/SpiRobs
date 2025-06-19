@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1750195285.11015 "main.aux" "main.bbl" "main" 1750195291.95053 0
+["bibtex main"] 1750253405.80259 "main.aux" "main.bbl" "main" 1750253445.18596 0
   "./references.bib" 1749840959.17998 15317 5e076520bd1c27bb40ca81c57c9eb9b4 ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1750195290.23184 15432 78bcaed0cd22aac0e6718d0dd7bc5272 "pdflatex"
+  "main.aux" 1750253442.26801 16055 ab03eb83d77589450dd17a5be26fc83f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1750195285.71933 "c:/Users/minha/OneDrive/Desktop/S/Projet SpiRobs/main/SpiRobs/LaTeX/main.tex" "main.pdf" "main" 1750195291.9532 0
+["pdflatex"] 1750253436.23569 "c:/Users/minha/OneDrive/Desktop/S/Projet SpiRobs/main/SpiRobs/LaTeX/main.tex" "main.pdf" "main" 1750253445.19252 0
   "C:/Users/minha/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1750191683.73579 133807 2528f502faa7488577b38de1fae4f31e ""
   "C:/Users/minha/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1750167560.82215 13234938 f811a13de7061b62e947adb51a5c5784 ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -38,6 +38,7 @@
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ec-lmtk10.tfm" 1256929440 1368 5bfeb1cf8f9f0acdb7436bfaa8e0da4e ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ec-lmtt10.tfm" 1256929440 1372 2ef2c2b492b3c4cd7879fe083abbb061 ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ec-lmtt8.tfm" 1256929440 1380 64228d979098ac090aa3f98d5aa8ad3e ""
+  "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/ec-lmtt9.tfm" 1256929440 1372 a2ff2d4391a2d6bba15b518acb79e80f ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/lmex10.tfm" 1256929440 992 ce925c9346c7613270a79afbee98c070 ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/lmmi10.tfm" 1256929440 1528 6d36b2385e0ca062a654de6ac59cb34f ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/lmmi5.tfm" 1256929440 1508 198f5b7b99b5769126de3a533f6fc334 ""
@@ -81,6 +82,7 @@
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb" 1256929440 27802 5c876bb2c4040caaf035d60bd74a86bd ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtk10.pfb" 1256929440 117319 7f8361f845845ce6d5b36cbd9f9cf377 ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb" 1256929440 113227 1010e11451afc2822c95dae77c390042 ""
+  "C:/Users/minha/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt9.pfb" 1256929440 108480 ee1de99df36ee0a16b36023b9c9d8a58 ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575571100 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/tex/generic/babel-french/french.ldf" 1722934043 66864 5ea28be04c8922f57dc437cc5c1c2c31 ""
@@ -165,6 +167,7 @@
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/tex/latex/libertine/libertine.sty" 1713912212 19358 ca0f9b5016a74813fc4f6c85c48d3d5b ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/tex/latex/listings/listings.cfg" 1741168183 1865 301ae3c26fb8c0243307b619a6aa2dd3 ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/tex/latex/listings/listings.sty" 1741168182 81640 997090b6c021dc4af9ee00a97b85c5b4 ""
+  "C:/Users/minha/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstlang1.sty" 1741168183 206518 4eb59a801ad842a713fa168c34227290 ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstmisc.sty" 1741168182 77051 be68720e5402397a830abb9eed5a2cb4 ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/tex/latex/listings/lstpatch.sty" 1741168182 353 9024412f43e92cd5b21fe9ded82d0610 ""
   "C:/Users/minha/AppData/Local/Programs/MiKTeX/tex/latex/lm/lmodern.sty" 1430474546 1608 b00724785a9e9c599e5181bb8729160b ""
@@ -205,7 +208,6 @@
   "Figures/piece_manquante.png" 1749800483.42747 89951 875360ef893b2a926d9b191f89e310a6 ""
   "Figures/pieuvre.png" 1749800483.42959 92231 2ff28457330e7df52f82a1ac4923cc00 ""
   "Figures/poulies.jpg" 1749800483.42959 223068 9ddfc5272a8f064b83bad955c4f796ba ""
-  "Figures/resolu_b.png" 1750189357.40076 36249 5a74ffbecc72b6e9d968ce3656e35a43 ""
   "Figures/robot.png" 1749800483.43748 340638 4563946fac9d52aab3202ced2be0a3b0 ""
   "Figures/spiral_logarithm.png" 1749800483.44082 293296 9f31686e0256307344c31665f4889629 ""
   "Figures/spirale.png" 1749800483.44082 74437 b7955ad1c6e4c969e1ebda8b2dc88fd2 ""
@@ -214,11 +216,11 @@
   "Figures/video.png" 1749800483.45458 242442 ae26118b5e5a8662b05a47e51469798e ""
   "Figures/vis_sans_fin.jpg" 1749800483.4718 1952517 75b242ed4bdfdbb0f55b989ab89acd9b ""
   "Figures/vis_simplifie.png" 1749800483.4718 32234 dca32721a19f6cb48d82a6e98613c48e ""
-  "c:/Users/minha/OneDrive/Desktop/S/Projet SpiRobs/main/SpiRobs/LaTeX/main.tex" 1750195276.1981 56640 40754d3ef82352009e7cd31fe012f8ce ""
-  "main.aux" 1750195290.23184 15432 78bcaed0cd22aac0e6718d0dd7bc5272 "pdflatex"
-  "main.bbl" 1750195285.56375 6189 0c87404460ac1c395dfd46e25408560c "bibtex main"
-  "main.out" 1750195290.24952 3039 6594d396be1b4e5fe3792ca8a982c119 "pdflatex"
-  "main.toc" 1750195290.25261 3018 1ae5ed044186de58b1a2c69532c41984 "pdflatex"
+  "c:/Users/minha/OneDrive/Desktop/S/Projet SpiRobs/main/SpiRobs/LaTeX/main.tex" 1750253434.84121 60983 e2df6ae5615643d29abeebbb91ff839e ""
+  "main.aux" 1750253442.26801 16055 ab03eb83d77589450dd17a5be26fc83f "pdflatex"
+  "main.bbl" 1750253406.25188 6189 0c87404460ac1c395dfd46e25408560c "bibtex main"
+  "main.out" 1750253442.28601 3039 6594d396be1b4e5fe3792ca8a982c119 "pdflatex"
+  "main.toc" 1750253442.29229 3086 46c01ad26efa478ef272d9e7016ffe74 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
