@@ -464,14 +464,14 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             
             Sachant que $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale). Tandis que $b$ est un autre paramètre d’échelle qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}.
             
-            Idéalement, nous aurons besoin que la spirale s'enroule complètement autour de l'objet pour le saisir, donc nous utiliserons un $b$ relativement petit, $a$ sera choisi de telle sorte que la spirale déroulée mesurera 10 cm, tandis que la spirale parcourra 1 tour complet.
+            Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin que la spirale s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, nous utiliserons un $b$ relativement grand, $a$ sera choisi de telle sorte que la spirale déroulée mesurera 10 cm, tandis que la spirale parcourra 1 seul tour.
         
             Pour déterminer la valeur de \( a \) dans l'équation de la spirale logarithmique \( r = a \cdot e^{b \cdot \theta} \), où la longueur totale déroulée \( L \) doit être égale à 100 mm, nous procédons comme suit :
 
 
             La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de \( 0 \) à \( \frac{11\pi}{6} \) :
             \[
-            L = \int_0^{\theta_0} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \quad \text{pour} \ \theta_0 = \frac{11\pi}{6} \left( \frac{11}{12} \approx 1 \text{ tour complet} \right)^*
+            L = \int_0^{\theta_0} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \quad \text{pour} \ \theta_0 = \frac{11\pi}{6} \left( \approx 1 \text{ tour complet} \right)^*
             \]
 
             \footnotetext{* La méthode de calcul de la valeur de $\theta_0$ est détaillée dans la sous-section \emph{Application Numérique}.}
@@ -562,7 +562,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{fig:draw_solidworks}
             \end{figure}
 
-            Pour dessiner le doigt sur SolidWorks, nous prenons exemple sur la figure \ref{fig:draw_solidworks}. Nous optons néanmoins pour un bossage extrudé à la place de la révolution. Il est désormais question de traduire le formalisme mathématique de la spirale logarthmique en côte des différentes rainures qui composent le doigt.
+            Pour dessiner le doigt sur SolidWorks, nous prenons exemple sur la figure \ref{fig:draw_solidworks}. Il est désormais question de traduire le formalisme mathématique de la spirale logarthmique en cote des différentes rainures qui composent le doigt.
 
             On donne l'angle de conicité :
 
@@ -1004,6 +1004,27 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \end{figure}
 
             Ainsi, nous créons une base de forme tirangulaire dont le cercle circonscrit est de rayon $\sim 80$ mm, dans l'optique de prendre des fruits de diamètre $\sim 80$ mm. Ensuite, nous exploitons l'accroche en queue de hareng du doigt pour pouvoir l'accrocher sur la base, en prenant soin d'ajouter un jeu de $0.3$ mm pour pouvoir assembler (voir figure \ref{fig:base}).
+
+        \subsubsection{Dessin du support du moteur}
+
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/support_idee.png}
+                    \caption{Support moteur en MAKERBEAM}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.5\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/support_fixation.png}
+                    \caption{4 trous de diamètre 4.3 mm dans la base pour fixer les 4 barres}
+                \end{subfigure}
+                \caption{Conception du support}
+                \label{fig:support}
+            \end{figure}
+
+            En outre, le support du moteur est conçu à l’aide de la bibliothèque MAKERBEAM, disponible sur le site officiel. Nous utilisons des barres de 40 mm et de 60 mm, ainsi que des cubes de jonction pour les assembler. Pour fixer le support à la base, nous employons des vis et des boulons, ce qui nécessite l'ajout de trous dans la base, centrés sous chaque barre (voir figure \ref{fig:support}), afin de permettre le passage des vis.
 
         \subsubsection{Dessin de l'écrou}
 
