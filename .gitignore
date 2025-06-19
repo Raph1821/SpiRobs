@@ -1,0 +1,65 @@
+# ========================
+# Ignorer les fichiers LaTeX temporaires
+# ========================
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.xdy
+
+# Ne pas ignorer le PDF généré
+!*.pdf
+
+# ========================
+# Fichiers SolidWorks temporaires
+# ========================
+*.sldtmp
+*.sldnew
+*.bak
+*.log
+*.swp
+*.~*
+
+# SolidWorks Backup & Recovery
+Backup/
+~$*
+
+# ========================
+# Dossiers cache/OS
+# ========================
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+
+# ========================
+# Fichiers spécifiques à Visual Studio Code
+# ========================
+.vscode/
+
+# ========================
+# Fichiers CSV temporaires (ex : aplatissement intermédiaire)
+# ========================
+# Garder seulement les CSV utiles
+!CSV/*.csv
+
+# ========================
+# Sauvegardes personnelles ou fichiers temporaires
+# ========================
+*.bak
+*.tmp
+*.old
