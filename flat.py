@@ -1,8 +1,6 @@
 import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt
-from scipy.interpolate import splprep, splev
-from scipy.integrate import simpson 
 
 # Charger les points de la spirale centrale
 df = pd.read_csv("CSV/spirale_centrale.csv")

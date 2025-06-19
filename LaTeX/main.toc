@@ -28,6 +28,7 @@
 \contentsline {subsubsection}{Angle de conicité}{19}{subsubsection*.30}%
 \contentsline {subsection}{\numberline {III.2}Dessin sur SolidWorks}{20}{subsection.0.3.2}%
 \contentsline {subsubsection}{Dessin du doigt}{20}{subsubsection*.31}%
+<<<<<<< HEAD
 \contentsline {subsubsection}{Dessin de la base}{21}{subsubsection*.32}%
 \contentsline {subsubsection}{Dessin du support du moteur}{23}{subsubsection*.35}%
 \contentsline {subsubsection}{Dessin de l'écrou}{23}{subsubsection*.37}%
@@ -36,3 +37,18 @@
 \contentsline {subsection}{\numberline {III.3}Simulation et étude de l'élasiticité via \textit {SolidWorks Simulation}}{26}{subsection.0.3.3}%
 \contentsline {subsubsection}{Création d'un matériau TPU dans SolidWorks}{26}{subsubsection*.44}%
 \contentsline {subsubsection}{Méthode}{26}{subsubsection*.45}%
+=======
+\contentsline {subsubsection}{1. Calcul}{20}{subsubsection*.32}%
+\contentsline {paragraph}{\'Etapes principales de la macro (avec renvois cliquables) :}{21}{paragraph*.33}%
+\contentsline {paragraph}{Remarques techniques :}{22}{paragraph*.34}%
+\contentsline {paragraph}{Conclusion :}{22}{paragraph*.35}%
+\contentsline {subsubsection}{Aplatissement de la spirale centrale}{24}{subsubsection*.37}%
+\contentsline {paragraph}{Explication du code :}{24}{paragraph*.38}%
+\contentsline {subsubsection}{Dessin de la base}{27}{subsubsection*.41}%
+\contentsline {subsubsection}{Dessin de l'écrou}{28}{subsubsection*.44}%
+\contentsline {subsubsection}{Dessin de l'attache entre le moteur et la vis}{30}{subsubsection*.47}%
+\contentsline {subsubsection}{Dessin du système vis-écrou}{31}{subsubsection*.49}%
+\contentsline {subsection}{\numberline {III.3}Simulation et étude de l'élasiticité via \textit {SolidWorks Simulation}}{31}{subsection.0.3.3}%
+\contentsline {subsubsection}{Création d'un matériau TPU dans SolidWorks}{31}{subsubsection*.51}%
+\contentsline {subsubsection}{Méthode}{31}{subsubsection*.52}%
+>>>>>>> 2b069f9a1042ee4054176ea82b76382a5c867f18
