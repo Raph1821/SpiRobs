@@ -976,7 +976,12 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \end{figure}
 
             \subsubsection{3. Esquisse des rainures}
-            
+            Après avoir importé l’esquisse de la spirale aplatie, incluant différentes profondeurs de rainures trapézoïdales espacées selon les points définis, nous traçons les lignes de construction des trapèzes en fonction des largeurs calculées à l’aide de la formule suivante :
+            \begin{equation}
+                \delta = ae^{b(\theta+2\pi)}-ae^{b*\theta}
+                \label{eq:epaisseur_trapeze}
+            \end{equation}
+            L’idée est de concevoir un doigt enroulable présentant une élasticité élevée, lui permettant de revenir naturellement à sa position d’équilibre. Pour cela, nous avons ajouté une couche élastique au centre de l’esquisse, d’une épaisseur équivalente à $10\%$ de la largeur d’un trapèze :
 
         \subsubsection{Dessin de la base}
 
