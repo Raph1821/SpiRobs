@@ -128,4 +128,11 @@ S.~K. Bhat, D.~Doreswamy, A.~H. Hegde, V.~K. Nukarapu, S.~Bhat, S.~Puneeth,
   [Online]. Available: \url{https://www.youtube.com/watch?v=75htAWyG2Z4}
 \BIBentrySTDinterwordspacing
 
+\bibitem{rodriguez-parada_influence_2021}
+L.~Rodríguez-Parada, S.~de~la Rosa, and P.~F. Mayuet,
+  ``\BIBforeignlanguage{eng}{Influence of {3D}-{Printed} {TPU} {Properties} for
+  the {Design} of {Elastic} {Products}},''
+  \emph{\BIBforeignlanguage{eng}{Polymers}}, vol.~13, no.~15, pp. 2519--, 2021,
+  place: Basel Publisher: MDPI AG.
+
 \end{thebibliography}

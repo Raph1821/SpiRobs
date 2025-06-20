@@ -16,45 +16,45 @@ Database file #1: references.bib
 Warning--empty booktitle in saputro_investigation_2023
 
 Done.
-You've used 13 entries,
+You've used 14 entries,
             4087 wiz_defined-function locations,
-            908 strings with 10760 characters,
-and the built_in function-call counts, 8560 in all, are:
-= -- 730
-> -- 182
-< -- 42
-+ -- 94
-- -- 37
-* -- 488
-:= -- 1406
-add.period$ -- 27
-call.type$ -- 13
-change.case$ -- 23
-chr.to.int$ -- 69
-cite$ -- 14
-duplicate$ -- 651
-empty$ -- 645
-format.name$ -- 45
-if$ -- 1919
+            917 strings with 11000 characters,
+and the built_in function-call counts, 9504 in all, are:
+= -- 818
+> -- 201
+< -- 51
++ -- 104
+- -- 40
+* -- 542
+:= -- 1549
+add.period$ -- 29
+call.type$ -- 14
+change.case$ -- 25
+chr.to.int$ -- 87
+cite$ -- 15
+duplicate$ -- 718
+empty$ -- 707
+format.name$ -- 49
+if$ -- 2138
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 130
-newline$ -- 82
-num.names$ -- 10
-pop$ -- 296
+int.to.str$ -- 14
+missing$ -- 141
+newline$ -- 85
+num.names$ -- 11
+pop$ -- 314
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 642
+skip$ -- 716
 stack$ -- 0
-substring$ -- 225
-swap$ -- 522
-text.length$ -- 19
+substring$ -- 274
+swap$ -- 585
+text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 13
+type$ -- 14
 warning$ -- 1
-while$ -- 25
-width$ -- 15
-write$ -- 174
+while$ -- 30
+width$ -- 16
+write$ -- 186
 (There was 1 warning)
