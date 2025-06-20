@@ -1024,7 +1024,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{fig:support}
             \end{figure}
 
-            En outre, le support du moteur est conçu à l’aide de la bibliothèque MAKERBEAM, disponible sur le site officiel. Nous utilisons des barres de 40 mm et de 60 mm, ainsi que des cubes de jonction pour les assembler. Pour fixer le support à la base, nous employons des vis et des boulons, ce qui nécessite l'ajout de trous dans la base, centrés sous chaque barre (voir figure \ref{fig:support}), afin de permettre le passage des vis.
+            En outre, le support du moteur est conçu à l’aide de la bibliothèque MAKERBEAM, disponible sur le site officiel. Nous utilisons des barres de 40 mm, de 60 mm et de 200 mm(40x60x200), ainsi que des cubes de jonction pour les assembler. Pour fixer le support à la base, nous employons des vis et des boulons, ce qui nécessite l'ajout de trous dans la base, centrés sous chaque barre (voir figure \ref{fig:support}), afin de permettre le passage des vis. Enfin, nous utiliserons le servomoteur MX-106, car il est contrôlé en position, et possède la plus grande puissance que l'on a à notre disposition (10 Nm).
 
         \subsubsection{Dessin de l'écrou}
 
@@ -1066,27 +1066,27 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             Dans un premier temps, nous dessinons la forme de l'écrou hélicoïdale de la vis sans fin (voir figure \ref{fig:ecrou}), selon le modèle de la marque Igus dont nous disposons. Ces écrous sont optimisés pour maximiser l'absorption des forces axiales. \cite{noauthor_bague_nodate} Le cylindre supérieure est de diamètre $6.5$ mm, et nous prenons soin d'y rajouter un trou d'axe $6.35$ mm dans lequel s'insèrera la vis mère lors de l'assemblage, grâce à des contraites hélicoïdales avec un pas de $2.54$ mm. \cite{noauthor_bague_nodate}
 
-        \subsubsection{Dessin de l'attache entre le moteur et la vis}
+        \subsubsection{Dessin de la transmission de couple}
 
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/piece_manquante.png}
-                    \caption{Pièce manquante pour attacher le moteur Dynamixel à la vis mère}
+                    \caption{Pièce attachée au moteur et vissée sur la vis mère}
                     \label{fig:piece_manquante}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.3\textwidth}
+                \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/attache.png}
                     \caption{Attache pour la vis mère et le moteur}
                     \label{fig:inspiration_vis_ecrou}
                 \end{subfigure}
-                \caption{Accouplement du moteur et de la vis mère}
+                \caption{Transimission de couple}
             \end{figure}
 
-            Comme indiqué sur la figure \ref{fig:piece_manquante}, il manque une pièce pour accrocher la vis au moteur. Nous nous inspirons de l'écrou déjà dessiné pour concevoir cette attache. C'est pourquoi nous créons une nouvelle configuration de l'écrou précédent avec une hauteur plus importante et quatre trous permettant de fixer la pièce au moteur à l'aide de vis de diamètre $1.6$ mm (ISO M1.6).
+            Comme illustré à la figure \ref{fig:piece_manquante}, une pièce est absente pour permettre la fixation de la vis au moteur. Nous concevons cette pièce en nous inspirant de l’écrou déjà modélisé, en l’adaptant avec une hauteur accrue et en y ajoutant huit trous destinés à accueillir des vis de diamètre 2 mm (norme ISO M2) pour la fixation au moteur. Un filetage réaliste, reprenant la forme arrondie de celui de l’écrou, est également modélisé avec un pas de 2,54 cm et une profondeur de 1 mm.
 
         \subsubsection{Dessin du système vis-écrou}
 
