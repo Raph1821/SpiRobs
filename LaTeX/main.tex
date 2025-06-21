@@ -1079,7 +1079,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/piece_manquante.png}
-                    \caption{Pièce attachée au moteur et vissée sur la vis mère}
+                    \caption{Pièce attachée au moteur et vissée sur la vis mère avec un filetage réaliste}
                     \label{fig:piece_manquante}
                 \end{subfigure}
                 \hfill
@@ -1092,7 +1092,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \caption{Transimission de couple}
             \end{figure}
 
-            Comme illustré à la figure \ref{fig:piece_manquante}, nous concevons une pièce de fixation entre la vis et le moteur. Le servomoteur MX-106 de chez Dynamixel a été retenu pour ce montage, car il permet un contrôle précis en position et offre le couple le plus élevé parmi les moteurs que nous avion a disposition (10 Nm). Nous dessinons la pièce de transmission en nous inspirant de l’écrou déjà modélisé, en l’adaptant avec une plus grande hauteur accrue et en y ajoutant huit trous pour accueillir des vis de diamètre 2 mm (norme ISO M2), afin de pouvoir le fixer au moteur. Un filetage réaliste doit être dessiné pour pouvoir l'imprimer. Nous utilisons la fonctionnalité de SolidWorks permettant de fileter à l'aide de l'esquisse d'une hélice de pas 2,54 cm et d'une profondeur de 1 mm.
+            Comme illustré à la figure \ref{fig:piece_manquante}, nous concevons une pièce de fixation entre la vis et le moteur. Le servomoteur MX-106 de chez Dynamixel a été retenu pour ce montage, car il permet un contrôle précis en position et offre le couple le plus élevé parmi les moteurs que nous avions à disposition (10 Nm). Nous dessinons la pièce de transmission en nous inspirant de l’écrou déjà modélisé, en l’adaptant avec une plus grande hauteur accrue et en y ajoutant huit trous pour accueillir des vis de diamètre 2 mm (norme ISO M2), afin de pouvoir le fixer au moteur. Un filetage réaliste doit être modélisé pour permettre l’impression de la pièce. Pour cela, nous utilisons la fonctionnalité de SolidWorks permettant de créer un filetage à partir d’une hélice, en choisissant un pas de 2,54 cm et une profondeur de 1 mm.
 
         \subsubsection{Dessin du support du moteur}
 
@@ -1114,51 +1114,68 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \caption{Conception du support}
             \end{figure}
 
-            Ensuite, le support du moteur est conçu à l’aide de la bibliothèque MAKERBEAM (voir figure \ref{fig:support}). Nous utilisons des barres de 40 mm, de 60 mm et de 200 mm (40x60x200), ainsi que des cubes de jonction pour les assembler. Pour fixer le support à la base, nous employons des vis et des boulons, ce qui nécessite l'ajout de trous dans la base, centrés sous chaque barre (voir figure \ref{fig:fixation_base_support}), afin de permettre le passage des vis.
+            Le support moteur est conçu à l’aide de la bibliothèque MAKERBEAM (voir figure \ref{fig:support}). Il est assemblé à partir de barres de 40 mm, 60 mm et 200 mm, ainsi que de cubes de jonction. La fixation du support à la base est assurée par des vis et des boulons. Cela nécessite la réalisation de quatre perçages de 4,3 mm de diamètre dans la base, centrés sous chaque barre (voir figure \ref{fig:fixation_base_support}).
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.6\textwidth}
+                \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/support_vis_moteur.png}
-                    \caption{Support pour la vis et le moteur}
+                    \caption{Pièces de fixation pour la vis et le moteur}
                     \label{fig:support_vis}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.3\textwidth}
+                \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/support_acheve.png}
-                    \caption{Support monté}
+                    \caption{Support assemblé avec les pièces de fixation (en rouge)}
                     \label{fig:support_acheve}
                 \end{subfigure}
                 \caption{Conception du support du moteur}
             \end{figure}
 
-            Enfin, une nouvelle pièce est conçue pour assurer à la fois le maintien du moteur et le support de la vis mère. Elle sera imprimée en deux exemplaires. Comme illustré sur la figure \ref{fig:support_vis}, on distingue un orifice central destiné à recevoir la vis mère, avec un jeu de 0,3 mm pour faciliter le montage. Les perçages en bordure permettent la fixation du moteur à l’aide de vis, tandis que ceux situés sur les extensions latérales servent à fixer l’ensemble sur les barres MAKERBEAM (voir figure \ref{fig:support_acheve}).
+            Deux pièces supplémentaires sont conçues pour maintenir le moteur et fixer la vis mère. Comme illustré sur la figure \ref{fig:support_vis}, la première comporte un orifice central, prévu pour accueillir la vis mère avec un jeu de 0,3 mm facilitant le montage. La seconde présente des perçages en bordure permettant de fixer le moteur à l’aide de vis. Dans chacun des cas, les trous situés sur les extensions latérales servent à fixer la pièce sur les barres MAKERBEAM (voir figure \ref{fig:support_acheve}).
 
         \subsubsection{Dessin du système vis-écrou}
+
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/attache_glissière.png}
+                    \caption{Pièce pour fixer la glissière au support}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/accroche_glissiere.png}
+                    \caption{Glissière (en rouge) accrochée sur le support}
+                \end{subfigure}
+                \caption{Fixation de la glissière au support}
+                \label{fig:attache_glissiere}
+            \end{figure}
+
+            Nous allons utiliser une glissière de chez Igus, le modèle NK-01-27, accompagnée d'un chariot de guidage, et il s'agit désormais de la fixer au support MAKERBEAM. Pour cela nous dessinons une nouvelle pièce permettant de monter la glissière sur le support (voir figure \ref{fig:attache_glissiere}).
 
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}[t]{0.5\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/système vis écrou.png}
-                    \caption{Inspiration pour la conception du système vis-écrou \cite{w3d_tech_systeme_2023}}
+                    \caption{Inspiration pour notre système de vis-écrou}
                     \label{fig:vis_ecrou}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.2\textwidth}
+                \begin{subfigure}[t]{0.4\textwidth}
                     \centering
-                    \includegraphics[width=\textwidth]{Figures/attache.png}
-                    \caption{Attache pour la vis et le moteur}
-                    \label{fig:wait...}
+                    \includegraphics[width=\textwidth]{Figures/vis_ecrou_assemble.png}
+                    \caption{Exemple d'utilisation dans notre système}
+                    \label{fig:vis_ecrou_assemble}
                 \end{subfigure}
-                \caption{Accouplement du moteur et de la vis mère}
+                \caption{Conception du système vis-écrou}
             \end{figure}
 
-        Pour la conception du système vis-écrou, nous nous inspirons de la vidéo \cite{w3d_tech_systeme_2023} (voir figure \ref{fig:vis_ecrou}). Le rail supérieur (en vert) permet de garder fixe l'écrou, permettant sa translation lorsque la vis tourne. De surcroît, les câbles ne pourront pas s'emmêler grâce à ce système, puisque l'écrou ne tourne pas, il ne fait que translater.
-
-        Nous allons utiliser une glissière de chez Igus, le modèle NK-01-27, et il s'agit désormais de la fixer au support MAKERBEAM, pour cela nous dessinons une nouvelle pièce.
+            La conception du système vis-écrou s’inspire de la vidéo \cite{w3d_tech_systeme_2023} (voir figure \ref{fig:vis_ecrou}). Le rail supérieur (en vert) maintient l’écrou en rotation bloquée, ce qui lui permet de translater lorsqu’un moteur fait tourner la vis. Du reste, ce système empêche l’emmêlement des câbles : l’écrou reste fixe en rotation et ne fait que translater (voir figure \ref{fig:vis_ecrou_assemble}).
 
 \section{Résultats}
 
@@ -1166,7 +1183,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
         \subsubsection{Création d'un matériau TPU dans SolidWorks}
 
-            Pour la simulation des contraintes et des déplacements via SolidWorks, nous devons implémenter dans le logiciel le TPU que nous utiliserons. Dans \cite{rodriguez-parada_influence_2021}, les auteurs utilisent un TPU de module d'Young de 26 MPa, mais les mesures expérimentales dans l’article montrent des valeurs beaucoup plus basses en pratique, selon la densité de remplissage lors de l'impression. Nous décidons de prendre un TPU de 30 MPa pour avoir une première idée des forces maximales, et donc du couple moteur, à ne pas excéder.
+            Pour la simulation des contraintes et des déplacements via SolidWorks, nous devons implémenter dans le logiciel le TPU que nous utiliserons. Dans \cite{rodriguez-parada_influence_2021}, les auteurs utilisent un TPU de module d'Young de 26 MPa, mais les mesures expérimentales dans l’article montrent des valeurs beaucoup plus basses en pratique, selon la densité de remplissage lors de l'impression 3D. Comme notre but est d'éviter d'entrer dans le domaine plastique, nous chercherons à avoir un faible module d'Young. Nous décidons de prendre large avec un TPU de module d'Young 30 MPa pour la simulation afin d'avoir une première idée des forces maximales, et donc du couple moteur, à ne pas excéder.
 
         \subsubsection{Méthode}
 
