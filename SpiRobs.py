@@ -9,7 +9,7 @@ L=100   # mm
 taper_angle = 30 
 taper_angle_rad=math.radians(taper_angle)
 epaisseur_factor = 0.1 # 10% 
-correction_factor = 50/5.381583021070124    
+correction_factor = 1 #50/5.381583021070124    
 
 # Résolution de l'équation pour b
 def equation(b):

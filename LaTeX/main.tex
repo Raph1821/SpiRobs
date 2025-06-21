@@ -77,6 +77,16 @@
     \EndAccSupp{}%
 }
 
+\lstdefinestyle{csvstyle}{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{gray!5},
+    frame=single,
+    columns=fullflexible,
+    breaklines=true,
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
+}
+
+
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -978,10 +988,44 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \subsubsection{3. Esquisse des rainures}
             Après avoir importé l’esquisse de la spirale aplatie, incluant différentes profondeurs de rainures trapézoïdales espacées selon les points définis, nous traçons les lignes de construction des trapèzes en fonction des largeurs calculées à l’aide de la formule suivante :
             \begin{equation}
-                \delta = ae^{b(\theta+2\pi)}-ae^{b*\theta}
+                \delta = ae^{b(\theta+2\pi)}-ae^{b\theta}
                 \label{eq:epaisseur_trapeze}
             \end{equation}
             L’idée est de concevoir un doigt enroulable présentant une élasticité élevée, lui permettant de revenir naturellement à sa position d’équilibre. Pour cela, nous avons ajouté une couche élastique au centre de l’esquisse, d’une épaisseur équivalente à $10\%$ de la largeur d’un trapèze :
+            \begin{equation}
+                \delta' = \delta(1 + 10\%)
+                \label{eq:epaisseur_trapeze_adjusted}
+            \end{equation}
+
+            \vspace{3cm}
+
+            \begin{lstlisting}[style=csvstyle,caption={Largeurs des trapèzes},label={lst:epaisseur_trapeze}]
+                0.0,0.7029458751722842
+                0.5235987755982988,0.8458326525511634
+                1.0471975511965976,1.0177638156655973
+                1.5707963267948966,1.2246431742188382
+                2.0943951023931953,1.4735745966562819
+                2.617993877991494,1.7731059443464483
+                3.141592653589793,2.133522589905259
+                3.665191429188092,2.5672005985597455
+                4.1887902047863905,3.0890317001697056
+                4.71238898038469,3.7169346446891147
+                5.235987755982988,4.472470500102403
+                5.759586531581287,5.381583021070124
+            \end{lstlisting}
+            Nous avons ainsi obtenu un tableau des largeurs des trapèzes (deuxième colonne derrière les virgules) en fonction des valeurs de $\theta$ (première colonne devant les virgules). Nous avons constaté que l'épaisseur du doigt était relativement faible, ce qui pourrait entraîner des difficultés lors du pliage de l'objet par la pince. Par conséquent, nous avons décidé d’augmenter la base du doigt du robot à $50\,\text{mm}$, et avons déduit le facteur de correction approprié comme suit :
+            \begin{equation}
+                \text{Facteur de correction} = \frac{50}{\text{valeur du trapèze à } \theta_{\text{max}}}
+                \label{eq:correction_factor}
+            \end{equation}
+            Nous obtenons donc la formule final de l'épaisseur du trapèze : 
+            \begin{equation}
+                \text{epaisseur} = \delta'.\ \text{Facteur de correction}
+                \label{eq:epaisseur_final}
+            \end{equation}
+
+            
+            
 
         \subsubsection{Dessin de la base}
 
@@ -1011,7 +1055,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{fig:base}
             \end{figure}
 
-            Ainsi, nous créons une base de forme tirangulaire dont le cercle circonscrit est de rayon $\sim 80$ mm, dans l'optique de prendre des fruits de diamètre $\sim 80$ mm. Ensuite, nous exploitons l'accroche en queue de hareng du doigt pour pouvoir l'accrocher sur la base, en prenant soin d'ajouter un jeu de $0.3$ mm pour pouvoir assembler (voir figure \ref{fig:base}).
+            Ainsi, nous créons une base de forme triangulaire dont le cercle circonscrit est de rayon $\sim 80$ mm, dans l'optique de prendre des fruits de diamètre $\sim 80$ mm. Ensuite, nous exploitons l'accroche en queue de hareng du doigt pour pouvoir l'accrocher sur la base, en prenant soin d'ajouter un jeu de $0.3$ mm pour pouvoir assembler (voir figure \ref{fig:base}).
             
             \begin{figure}[H]
                 \centering
