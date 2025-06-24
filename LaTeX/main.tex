@@ -1063,7 +1063,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{fig:base_molle}
             \end{figure}
 
-            Dans un premier temps, nous avions conçu la base et le doigt comme une seule pièce monobloc. Toutefois, cette solution s’est révélée inappropriée. En effet, lors de la simulation du comportement élastique du système en TPU souple, l’application d’une force sur les doigts entraînait une déformation de la base plutôt que des doigts eux-mêmes (voir figure \ref{fig:base_molle}). Autrement dit, la base absorbait les contraintes à la place des doigts. Pour remédier à cela, nous avons décidé de fabriquer la base dans un matériau plus rigide, le PLA, et de ne pas y fixer directement le moteur. À la place, un support moteur sera conçu à l’aide de la bibliothèque MAKERBEAM et sera attaché à la base à l'aide de vis.
+            Dans un premier temps, nous avions conçu la base et le doigt comme une seule pièce monobloc. Toutefois, cette solution s’est révélée inappropriée. En effet, lors de la simulation du comportement élastique du système en TPU souple, l’application d’une force sur les doigts entraînait une déformation de la base plutôt que des doigts eux-mêmes (voir figure \ref{fig:base_molle}). Autrement dit, la base absorbait les contraintes à la place des doigts. Pour remédier à cela, nous avons décidé de fabriquer la base dans un matériau plus rigide, le PLA, et de ne pas y fixer directement le moteur. À la place, un support moteur sera conçu à l’aide de la bibliothèque MakerBeam, et fixé à la base dans laquelle une cavité sera creusée afin de l’accueillir.
 
             \begin{figure}[H]
                 \centering
@@ -1076,13 +1076,13 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/base_hareng.png}
-                    \caption{Enlèvement de matière en queue de hareng de la même taille que celle du doigt, mais avec un jeu de $0.3$ mm}
+                    \caption{Illustration de la queue de hareng pour accueillir le doigt, ainsi que de la cavité pour loger le support moteur}
                 \end{subfigure}
                 \caption{Conception de la base}
                 \label{fig:base}
             \end{figure}
 
-            Ainsi, nous créons une base de forme triangulaire dont le cercle circonscrit est de rayon $\sim 80$ mm, dans l'optique de prendre des fruits de diamètre $\sim 80$ mm. Ensuite, nous exploitons l'accroche en queue de hareng du doigt pour pouvoir l'accrocher sur la base, en prenant soin d'ajouter un jeu de $0.3$ mm pour pouvoir assembler (voir figure \ref{fig:base}).
+            Nous concevons une base de forme triangulaire, dont le cercle circonscrit présente un rayon d’environ 80 mm, afin de pouvoir manipuler des fruits de diamètre similaire. Le doigt est fixé à la base grâce à un système d’accroche en queue de hareng, avec un jeu de 0,3 mm prévu pour permettre l’assemblage. Ce même jeu est appliqué à la cavité destinée à accueillir le support moteur réalisé avec la bibliothèque MAKERBEAM. Enfin, une excroissance percée est ajoutée à la base afin de maintenir l’extrémité de la vis mère, évitant ainsi qu’elle ne reste libre et prévenant tout hypostatisme (voir figure \ref{fig:base}).
             
             \begin{figure}[H]
                 \centering
@@ -1157,7 +1157,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/attache.png}
-                    \caption{Attache pour la vis mère et le moteur}
+                    \caption{Attache pour la vis mère (en bleue) et le moteur}
                     \label{fig:inspiration_vis_ecrou}
                 \end{subfigure}
                 \caption{Transimission de couple}
@@ -1189,44 +1189,48 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.3\textwidth}
+                \begin{subfigure}[t]{0.5\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/support_vis_moteur.png}
-                    \caption{Pièces de fixation pour la vis et le moteur}
+                    \caption{Pièce de fixation pour le moteur}
                     \label{fig:support_vis}
                 \end{subfigure}
                 \hfill
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/support_acheve.png}
-                    \caption{Support assemblé avec les pièces de fixation (en rouge)}
+                    \caption{Support assemblé avec la pièce de fixation du moteur (en rouge)}
                     \label{fig:support_acheve}
                 \end{subfigure}
                 \caption{Conception du support du moteur}
             \end{figure}
 
-            Deux pièces supplémentaires sont conçues pour maintenir le moteur et fixer la vis mère. Comme illustré sur la figure \ref{fig:support_vis}, la première comporte un orifice central, prévu pour accueillir la vis mère avec un jeu de 0,3 mm facilitant le montage. La seconde présente des perçages en bordure permettant de fixer le moteur à l’aide de vis. Dans chacun des cas, les trous situés sur les extensions latérales servent à fixer la pièce sur les barres MAKERBEAM (voir figure \ref{fig:support_acheve}).
+            Une pièce supplémentaire est conçu pour maintenir le moteur. Comme illustré sur la figure \ref{fig:support_vis}, elle présente des perçages en bordure permettant de fixer le moteur à l’aide de vis. Les trous situés sur les extensions latérales servent à fixer la pièce sur les barres MAKERBEAM (voir figure \ref{fig:support_acheve}).
 
         \subsubsection{Dessin du système vis-écrou}
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.4\textwidth}
+                \begin{subfigure}[t]{0.45\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/attache_glissière.png}
-                    \caption{Pièce pour fixer la glissière au support}
+                    \caption{Pièce pour fixer la glissière au support (en rouge)}
+                    \label{fig:corner}
                 \end{subfigure}
                 \hfill
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/accroche_glissiere.png}
-                    \caption{Glissière (en rouge) accrochée sur le support}
+                    \caption{Glissière accrochée sur le support (en rouge)}
+                    \label{fig:glissiere_support}
                 \end{subfigure}
                 \caption{Fixation de la glissière au support}
                 \label{fig:attache_glissiere}
             \end{figure}
 
-            Nous allons utiliser une glissière de chez Igus, le modèle NK-01-27, accompagnée d'un chariot de guidage, et il s'agit désormais de la fixer au support MAKERBEAM. Pour cela nous dessinons une nouvelle pièce permettant de monter la glissière sur le support (voir figure \ref{fig:attache_glissiere}).
+            Comme spécifié précédemment, nous utilisons une glissière de chez Igus, modèle NK-01-27, accompagnée de son chariot de guidage. Il s’agit à présent de la fixer au support conçu à l’aide de la bibliothèque MAKERBEAM. Pour ce faire, nous utilisons une pièce standard de cette bibliothèque (voir figure \ref{fig:corner}) afin d’y fixer une nouvelle barre, sur laquelle la glissière sera montée.
+
+            Nous concevons ainsi une pièce intermédiaire destinée à relier la glissière à l’écrou. Pour garantir l’hyperstatisme de l’assemblage, un minimum de trois vis est nécessaire pour fixer cette pièce à l'écrou. Nous en profitons également pour intégrer, à l’extrémité de cette pièce, un triangle destiné à accueillir les câbles des doigts. Étant positionné au centre du support, ce triangle présente une distance égale aux trois doigts, assurant ainsi une course identique pour chacun des câbles. En d’autres termes, l’actionnement des doigts sera uniforme (voir figure \ref{fig:glissiere_support}).
 
             \begin{figure}[H]
                 \centering
