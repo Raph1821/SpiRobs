@@ -11,6 +11,8 @@ DXL_ID = 11                    # ID de ton moteur (à adapter si différent)
 
 # ---------------------
 # REGISTRES DYNAMIXEL (EX-106+) 
+# Ces lignes définissent les adresses mémoire internes du moteur. Chaque moteur Dynamixel
+# possède une mémoire divisée en registres auxquels on accède pour lire ou écrire des données.
 # ---------------------
 ADDR_MX_TORQUE_ENABLE = 24     # Activer couple
 ADDR_MX_GOAL_POSITION = 30     # Position cible
@@ -60,7 +62,7 @@ print("Position actuelle : ", present_position)
 time.sleep(1)
 
 # Aller à une position (valeurs entre 0 et 4095 pour EX-106+)
-goal_position = 4047  # Position centrale
+goal_position = 4095  # Position centrale
 packetHandler.write2ByteTxRx(portHandler, DXL_ID, ADDR_MX_GOAL_POSITION, goal_position)
 print("Position envoyée : ", goal_position)
 

@@ -1,6 +1,7 @@
 import sys
 import msvcrt
 from dynamixel_sdk import *  # pip install dynamixel-sdk
+from numpy import pi
 
 # ---------------------
 # PARAMÈTRES DYNAMIXEL
@@ -24,22 +25,13 @@ TORQUE_DISABLE = 0
 # ---------------------
 PAS_VIS_MM = 25.4
 DISTANCE_MAX_MM = 130
-TOURS_MAX = DISTANCE_MAX_MM / PAS_VIS_MM  # ≈ 5.12 tours
-ANGLE_MAX = TOURS_MAX * 360               # ≈ 1843.2°
-STEP_ANGLE = 10                           # angle par touche
-ANGLE_TO_POS = 4095 / 360
+TOURS_MAX = DISTANCE_MAX_MM / PAS_VIS_MM * 2*pi  # ≈ 5.12 tours
 
 # ---------------------
 # OUTILS CLAVIER WINDOWS
 # ---------------------
 def getch():
     return msvcrt.getch().decode('utf-8')
-
-def angle_to_position(angle_deg):
-    return max(0, min(4095, int(angle_deg * ANGLE_TO_POS)))
-
-def position_to_angle(position_val):
-    return position_val * 360 / 4095
 
 # ---------------------
 # INITIALISATION DYNAMIXEL
@@ -60,34 +52,24 @@ packetHandler.write1ByteTxRx(portHandler, DXL_ID, ADDR_MX_TORQUE_ENABLE, TORQUE_
 
 # Lire position initiale
 dxl_present_position, _, _ = packetHandler.read2ByteTxRx(portHandler, DXL_ID, ADDR_MX_PRESENT_POSITION)
-current_angle = position_to_angle(dxl_present_position)
-print(f"Position initiale : {current_angle:.2f}°")
+print(f"Position initiale : {dxl_present_position:.2f}°")
 
 # ---------------------
 # BOUCLE DE CONTRÔLE CLAVIER
 # ---------------------
-print("\nCommandes : q = avancer, d = reculer, x = quitter\n")
+print("\nCommandes : o = ouvert, f = fermé, x = quitter\n")
 
 while True:
     key = getch()
-    if key == 'q':
-        if current_angle + STEP_ANGLE <= ANGLE_MAX:
-            current_angle += STEP_ANGLE
-            pos = angle_to_position(current_angle)
-            packetHandler.write2ByteTxRx(portHandler, DXL_ID, ADDR_MX_GOAL_POSITION, pos)
-            print(f"→ Avance à {current_angle:.2f}°")
-        else:
-            print("⚠️ Limite avant atteinte.")
-    elif key == 'd':
-        if current_angle - STEP_ANGLE >= 0:
-            current_angle -= STEP_ANGLE
-            pos = angle_to_position(current_angle)
-            packetHandler.write2ByteTxRx(portHandler, DXL_ID, ADDR_MX_GOAL_POSITION, pos)
-            print(f"← Recule à {current_angle:.2f}°")
-        else:
-            print("⚠️ Limite arrière atteinte.")
+    dxl_present_position, _, _ = packetHandler.read2ByteTxRx(portHandler, DXL_ID, ADDR_MX_PRESENT_POSITION)
+    if key == 'o':
+        packetHandler.write2ByteTxRx(portHandler, DXL_ID, ADDR_MX_GOAL_POSITION, 0)
+        print(f"→ Avance à {dxl_present_position:.2f}°")
+    elif key == 'f':
+        packetHandler.write2ByteTxRx(portHandler, DXL_ID, ADDR_MX_GOAL_POSITION, TOURS_MAX)
+        print(f"← Recule à {dxl_present_position:.2f}°")
     elif key == 'x':
-        print("Fermeture...")
+        print("Annulation...")
         break
 
 # Désactivation du couple et fermeture port
