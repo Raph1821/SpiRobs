@@ -1023,6 +1023,9 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{eq:epaisseur_final}
             \end{equation}
 
+            \textbf{Esquisse des trapèzes}
+            Comme mentionné dans les sections précédentes, afin de dessiner les trapèzes de manière paramétrée, nous avons défini un trapèze de référence tracé à partir des lignes de construction, en tenant compte de l’épaisseur de la couche élastique et d’une convention angulaire $\Delta \theta = 30^\circ$. Nous avons ensuite commencé l’esquisse par la base du doigt, car cela permet une mise à l’échelle plus aisée pour différentes tailles, en agrandissant progressivement chaque trapèze selon le facteur d’échelle $\beta = 1{,}203268534$, jusqu’à l’extrémité.
+
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}[t]{0.4\textwidth}
@@ -1038,6 +1041,16 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{fig:Scale_trapeze}
             \end{figure}
 
+            Par ailleurs, il est important de noter que les deux trapèzes situés à l’extrémité du doigt présentent une géométrie particulière : leurs têtes sont plates et ne peuvent donc pas être générées selon la même méthode que les autres. Il a donc été nécessaire de les tracer séparément, afin de faciliter l’esquisse complète des lignes de construction.
+
+            Cependant, nous avons constaté certaines limites dans cette méthode d’esquisse lorsqu’il s’agit de découper le bloc extrudé. En effet, après avoir extrudé un bloc à partir des lignes de construction (voir figure \ref{fig:construction_sketch}), nous avons obtenu un volume massif présentant des rainures bien symétriques et des surfaces latérales planes. Cette configuration rend le doigt assez volumineux, ce qui peut poser problème lors de son intégration à la base, notamment en réduisant l’espace disponible et en compliquant les opérations de préhension.
+
+            C’est pourquoi nous avons envisagé une solution visant à affiner la forme du doigt, afin d’élargir la plage de préhension et de rendre la structure plus adaptée aux opérations de pincement.
+
+            Pour ce faire, nous avons d’abord généré un volume trapézoïdal effilé à l’aide de la fonction Lofted Boss/Base, afin d’obtenir une forme plus pointue. Ce volume a ensuite été découpé selon l’esquisse des rainures, préalablement définie. C’est à ce stade que la méthode d’esquisse fondée sur la mise à l’échelle par $\beta$ s’est révélée inadaptée : si l’on se contente d’une extrusion simple du doigt à partir de son esquisse, cette méthode fonctionne parfaitement. En revanche, lorsqu’il s’agit de découper le bloc trapézoïdal, il est préférable de construire les rainures à partir de lignes pointillées (comme illustré dans la figure \ref{fig:construction_sketch}) et de relier les extrémités par des traits pleins pour dessiner les parois latérales, ce qui permet une découpe plus précise et conforme à la géométrie souhaitée.
+
+
+
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.4\textwidth]{Figures/construction_sketch.png}
@@ -1051,6 +1064,8 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \caption{Spirale Aplatie}
                 \label{fig:Esquisse découpée}
             \end{figure}
+
+
             
 
         \subsubsection{Dessin de la base}
