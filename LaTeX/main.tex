@@ -474,7 +474,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             
             Sachant que $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale). Tandis que $b$ est un autre paramètre d’échelle qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}.
             
-            Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin que la spirale s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, nous utiliserons un $b$ relativement grand, $a$ sera choisi de telle sorte que la spirale déroulée mesurera 10 cm, tandis que la spirale parcourra 1 seul tour.
+            Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin que la spirale s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale parcourra 1 seul tour, et a et b seront choisi de telle sorte que L = $100$ mm.
         
             Pour déterminer la valeur de \( a \) dans l'équation de la spirale logarithmique \( r = a \cdot e^{b \cdot \theta} \), où la longueur totale déroulée \( L \) doit être égale à 100 mm, nous procédons comme suit :
 
@@ -538,16 +538,16 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \toprule
                 $b$ & {$a$ [mm]} \\
                 \midrule
-                0.1 & 3.9557 \\
-                0.2 & 1.7272 \\
-                0.3 & 0.6783 \\
-                0.4 & 0.2460 \\
-                0.5 & 0.0837 \\
-                0.6 & 0.0273 \\
-                0.7 & 0.0087 \\
-                0.8 & 0.0027 \\
-                0.9 & 0.0008 \\
-                1.0 & 0.0002 \\
+                0.1 & 11.378 \\
+                0.2 & 7.802 \\
+                0.3 & 5.144 \\
+                0.4 & 3.273 \\
+                0.5 & 2.019 \\
+                0.6 & 1.214 \\
+                0.7 & 0.714 \\
+                0.8 & 0.412 \\
+                0.9 & 0.234 \\
+                1.0 & 0.132 \\
                 \bottomrule
                 \end{tabular}
                 \caption{Valeurs de $a$ calculées pour différentes valeurs de $b$ avec $L=100$ mm.}
@@ -614,7 +614,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             \begin{itemize}
                 \item Angle de conicité (ou \textit{taper\_angle}) : $\phi \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$ 
-                \item Angle entre 2 unicités adjacent : $\Delta \theta \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$
+                \item Angle entre 2 unicités adjacent : $\Delta \theta \ = \ 20^o \ = \ \frac{\pi}{6} \ rad$
                 \item Longueur de la spirale centrale : $L \ = \ 10cm \ = \ 100mm$ 
                 \item Nombre total de trapèzes : $N_u \ = \ 10$ et une base $N_b \ = \ 1$ donc $N \ = \ N_u \ + \ N_b \ = \ 11$
             \end{itemize}
