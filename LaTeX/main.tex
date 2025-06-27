@@ -481,7 +481,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de \( 0 \) à \( \frac{11\pi}{6} \) :
             \[
-            L = \int_0^{\theta_0} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \quad \text{pour} \ \theta_0 = \frac{11\pi}{6} \approx 2\pi \left( \approx 1 \text{ tour complet} \right)^*
+            L = \int_\pi^{\theta_0 +\pi} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \quad \text{pour} \ \theta_0 = 2\pi \left( = 1 \text{ tour complet} \right)^*
             \]
 
             \footnotetext{* La méthode de calcul de la valeur de $\theta_0$ est détaillée dans la sous-section \emph{Application Numérique}.}
@@ -510,23 +510,23 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             
             La longueur totale devient :
             \[
-            L = \int_0^{2\pi} a e^{b \theta} \sqrt{1 + b^2} \, d\theta = a \sqrt{1 + b^2} \int_0^{2\pi} e^{b \theta} \, d\theta
+            L = \int_\pi^{3\pi} a e^{b \theta} \sqrt{1 + b^2} \, d\theta = a \sqrt{1 + b^2} \int_\pi^{3\pi} e^{b \theta} \, d\theta
             \]
             
             Calculons l'intégrale :
             \[
-            \int_0^{2\pi} e^{b \theta} \, d\theta = \left[ \frac{1}{b} e^{b \theta} \right]_0^{2\pi} = \frac{1}{b} \left( e^{b \cdot 2\pi} - e^{b \cdot 0} \right) = \frac{1}{b} \left( e^{b \cdot 2\pi} - 1 \right)
+            \int_\pi^{3\pi} e^{b \theta} \, d\theta = \left[ \frac{1}{b} e^{b \theta} \right]_\pi^{3\pi} = \frac{1}{b} \left( e^{b \cdot 3\pi} - e^{b \cdot \pi} \right)
             \]
             
             Ainsi, la longueur totale est :
             \[
-            L = a \sqrt{1 + b^2} \cdot \frac{1}{b} \left( e^{b \cdot 2\pi} - 1 \right)
+            L = a \sqrt{1 + b^2} \cdot \frac{1}{b} \left( e^{b \cdot 3\pi} - e^{b \cdot \pi} \right)
             \]
             
             En isolant \( a \) :
 
             \begin{equation}
-            a = \frac{L}{\sqrt{1 + b^2} \cdot \frac{1}{b} \left( e^{b \cdot 2\pi} - 1 \right)} = \frac{L b}{\sqrt{1 + b^2} \left( e^{b \cdot 2\pi} - 1 \right)}
+            a = \frac{L b}{\sqrt{1 + b^2} \left( e^{b \cdot 3\pi} - e^{b \cdot \pi} \right)}
             \label{eq:a}
             \end{equation}
             
@@ -538,16 +538,16 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \toprule
                 $b$ & {$a$ [mm]} \\
                 \midrule
-                0.1 & 11.378 \\
-                0.2 & 7.802 \\
-                0.3 & 5.144 \\
-                0.4 & 3.273 \\
-                0.5 & 2.019 \\
-                0.6 & 1.214 \\
-                0.7 & 0.714 \\
-                0.8 & 0.412 \\
-                0.9 & 0.234 \\
-                1.0 & 0.132 \\
+                0.1 & 8.311 \\
+                0.2 & 4.162 \\
+                0.3 & 2.004 \\
+                0.4 & 0.932 \\
+                0.5 & 0.420 \\
+                0.6 & 0.184 \\
+                0.7 & 0.079 \\
+                0.8 & 0.033 \\
+                0.9 & 0.014 \\
+                1.0 & 0.006 \\
                 \bottomrule
                 \end{tabular}
                 \caption{Valeurs de $a$ calculées pour différentes valeurs de $b$ avec $L=100$ mm.}
@@ -613,10 +613,10 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             Cahier des charges : 
 
             \begin{itemize}
-                \item Angle de conicité (ou \textit{taper\_angle}) : $\phi \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$ 
-                \item Angle entre 2 unicités adjacent : $\Delta \theta \ = \ 20^o \ = \ \frac{\pi}{6} \ rad$
+                \item Angle de conicité (ou \textit{taper\_angle}) : $\phi \ = \ 15^o \ = \ \frac{\pi}{12} \ rad$ 
+                \item Angle entre 2 unicités adjacent : $\Delta \theta \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$
                 \item Longueur de la spirale centrale : $L \ = \ 10cm \ = \ 100mm$ 
-                \item Nombre total de trapèzes : $N_u \ = \ 10$ et une base $N_b \ = \ 1$ donc $N \ = \ N_u \ + \ N_b \ = \ 11$
+                \item Nombre total de trapèzes : $N_u \ = \ 11$ et une base $N_b \ = \ 1$ donc $N \ = \ N_u \ + \ N_b \ = \ 12$
             \end{itemize}
 
             Pour satisfaire aux exigences du cahier des charges ci-dessus, on cherche les valeurs des paramètres $b,\ a,\ \theta_0$ : 
@@ -624,7 +624,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             Comme montré dans l’équation (\ref{eq:nb_segment}), le nombre de trapèzes dépend de l’angle total $\theta_0$ et l'espacement $\Delta \theta$, on peut en déduire $\theta_0$ comme suit :
 
             \[
-            \theta_0 = N.\ \Delta \theta\ =\ 11\ .\ \frac{\pi}{6}\ =\ \frac{11\pi}{6} \approx 2\pi
+            \theta_0 = N.\ \Delta \theta\ =\ 12\ .\ \frac{\pi}{6}\ =\ \frac{12\pi}{6} = 2\pi
             \]
             
             On calcule notre b grâce à l'équation (\ref{eq:angle_de_conicite}) en appliquant la méthode \texttt{fsolve} de \texttt{Python}:
@@ -679,7 +679,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \toprule
                 $b$ & {$a$ [mm]} \\
                 \midrule
-                0.3534 & 0.0778 \\
+                0.2230 & 3.5303 \\
                 \bottomrule
                 \end{tabular}
                 \caption{Valeur de $a$ calculée en fonction de $b$ avec $L=100$ mm.}
