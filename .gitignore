@@ -20,6 +20,7 @@
 *.gls
 *.ist
 *.xdy
+*.CWR
 
 # Ne pas ignorer le PDF généré
 !*.pdf
