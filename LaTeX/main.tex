@@ -715,6 +715,42 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             
             Nous allons expliquer comment dessiner le doigt à l'aide des outils de SolidWorks. La méthode consiste à dessiner le doigt dans sa forme enroulée, puis à enregistrer chaque trapèze individuellement. Ainsi, nous nous assurons qu'ils se plieront correctement.
 
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/esquisse_spirale_1.png}
+                    \caption{Esquisse de la spirale centrale, d'équation \ensuremath{r_c = a_ce^{b_c \theta}}}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/esquisse_spirale_2.png}
+                    \caption{Esquisse de la spirale qui enveloppe le doigt (en bleue), d'équation \ensuremath{r = \frac{2 \cdot r_c(\theta)}{1 + e^{2\pi b}}}}
+                \end{subfigure}
+                \caption{Conception de la base}
+                \label{fig:esquisse_spirale}
+            \end{figure}
+
+            La figure \ref{fig:esquisse_spirale} présente les esquisses des deux spirales. Elles ont été tracées à l’aide d’une méthode paramétrique, consistant simplement à ajouter aux formules un $\cos(t)$ en $x$ et un $\sin(t)$ en $y$. Ces tracés permettent de valider nos calculs, que nous pouvons considérer comme corrects puisque la spirale centrale reste bien centrée pour tout $\theta$.
+
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/esquisse_etoile.png}
+                    \caption{Esquisse de l'étoile au centre du repère, pour discrétiser la spirale}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.5\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_1.png}
+                    \caption{Extrusion de la première phalange}
+                \end{subfigure}
+                \caption{Conception de la base}
+                \label{fig:esquisse_etoile}
+            \end{figure}
+
         \subsubsection{Dessin de la base}
 
             \begin{figure}[H]
@@ -935,7 +971,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
         \subsubsection{Méthode}
 
-            De même que \cite{bhat_numerical_2025}, nous restons dans l'hypothèse des petits déplacements pour des matériaux homogènes, isotropes et incompressibles. Nous décidons également de négliger la gravité. En effet, d'après SolidWorks, notre doigt mesure $30$ grammes. Son poids est donc d'environ $0,3$ N, or les forces des câbles seront de l'ordre de la dizaine de Newton puisque l'on souhaite attraper des objets allant jusqu'à 5 kilogrammes ($50$ Newton). Ainsi, la gravité représente moins de $1$ \% des efforts subis par le doigts.
+            De même que \cite{bhat_numerical_2025}, nous restons dans l'hypothèse des petits déplacements pour des matériaux homogènes, isotropes et incompressibles. Nous décidons également de négliger la gravité. En effet, d'après SolidWorks, notre doigt mesure $25$ grammes. Son poids est donc d'environ $0,25$ N, or les forces des câbles seront de l'ordre de l'unité, voire de la dizaine de Newton puisque l'on souhaite attraper des objets allant jusqu'à 5 kilogrammes ($50$ Newton). Ainsi, la gravité représente moins de $1$ \% des efforts subis par le doigt.
 
             \begin{figure}[H]
                 \centering
@@ -981,7 +1017,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             On génère un maillage avant d'exécuter la simulation avec des forces de 4~N appliquées sur chaque doigt (pour simuler la portée d'un objet d'environ 400 grammes). On peut remarquer dans ce cas que la contrainte maximale ne dépasse pas la limite d'élasticité du matériau (voir figure~\ref{fig:simulation4}) :
 
             \[
-            5{,}578\ \text{MPa} < 8{,}6\ \text{MPa} \quad \Rightarrow \quad \sigma_{\text{max}} < \sigma_{\text{limite}}
+            4{,}781\ \text{MPa} < 8{,}6\ \text{MPa} \quad \Rightarrow \quad \sigma_{\text{max}} < \sigma_{\text{limite}}
             \]
 
             On en déduit que la pince est parfaitement capable de soulever des fruits et des légumes de quelques centaines de grammes sans entrer dans le domaine plastique. Par exemple, une pomme ou un poivron mesure en moyenne entre 150 et 200 grammes, ce qui est conforme à ces limites.
