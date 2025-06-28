@@ -693,7 +693,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
         r_c = a_c e^{b_c\theta}, \, b_c = 0.2230, \qquad a_c = 3.5303, \quad \text{d'après le tableau \ref{tab:valeurs_a_b}}
         \]
 
-        On cherche maintenant l'équation de la spirale qui enveloppe le doigt, soit $r_c(\theta) = f(r(\theta))$. Ainsi, on peut
+        On cherche maintenant l'équation de la spirale qui enveloppe le doigt, soit $r(\theta) = f(r_c(\theta))$. Ainsi, on peut
         déduire la formule inverse de (\ref{eq:spirale_centrale}) en posant $r(\theta) = ae^{b\theta}$ :
 
         $$r_c(\theta) = \frac{r(\theta) + r(\theta + 2\pi)}{2}, \quad \forall \theta$$
