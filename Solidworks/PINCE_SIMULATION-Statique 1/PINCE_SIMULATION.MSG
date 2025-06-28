@@ -1,0 +1,51 @@
+Démarrer l'étude: Statique 1 samedi 28 juin 2025 15:19:55
+Maillage échoué. Analyse avortée.
+Terminer l'étude: Statique 1 samedi 28 juin 2025 15:20:02
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+Démarrer l'étude: Statique 1 samedi 28 juin 2025 15:28:41
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+Terminer l'étude: Statique 1 samedi 28 juin 2025 15:29:04
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+Démarrer l'étude: Statique 1 samedi 28 juin 2025 16:25:07
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+Terminer l'étude: Statique 1 samedi 28 juin 2025 16:26:27
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
+L'entité d'interaction ne peut pas être traitée correctement : 
+           Interaction(s) générée(s) par contact solidaire global
