@@ -178,7 +178,8 @@
 \clearpage
 \section*{Résumé}
 \addcontentsline{toc}{section}{Résumé}
-Ce document présente la conception et le dimensionnement d'une pince robotique à trois doigts flexibles. Blablabla...
+
+Ce rapport décrit la conception, le dimensionnement et la simulation d’une pince robotique à trois doigts flexibles, destinée à la préhension d’objets variés comme des fruits. La démarche s’inspire des robots SpiRob, qui utilisent l’enroulement par câble d’une spirale logarithmique pour générer la flexion des doigts. Après une étude de l’état de l’art (préhenseurs souples, actionnement par câbles, simulation par éléments finis), le projet précise la modélisation mathématique des doigts, leur implémentation CAO sous SolidWorks et le choix des composants mécaniques (moteurs, vis à billes, matériaux TPU et PLA). Des simulations par éléments finis confirment la capacité du système à saisir des objets légers, tout en mettant en évidence les limites d’élasticité des doigts sous forte contrainte. Enfin, des recommandations sont proposées pour renforcer la résistance mécanique, notamment par l’ajout d’élastiques de rappel. L’ensemble valide la faisabilité d’un préhenseur compact et souple, adapté à la robotique collaborative.
 
 \clearpage
 \tableofcontents
@@ -188,11 +189,28 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
     Dans l'industrie, la robotique collaborative, ou cobotique, est omniprésente. Elle vise à soulager l’être humain en prenant en charge les tâches pénibles, notamment à l’aide de préhenseurs conçus spécifiquement pour manipuler des charges de tailles et de poids variables, souvent associées à des tâches répétitives. \cite{noauthor_cobotique_nodate}
 
-    Ce projet consiste à concevoir et dimensionner une pince robotique à trois doigts flexibles, conçue pour s'ouvrir et se refermer en s'adaptant à l'objet saisi. L'objectif est de réussir à attraper des fruits et légumes relativement légers, comme un poivron. Nous utiliserons \textit{SolidWorks} pour modéliser le robot, et étudierons son élasticité par éléments finis via \textit{SolidWorks Simulation}.
-
-    Elle sera ensuite fixé au bras robotique...
+    Ce projet consiste à concevoir et dimensionner une pince robotique à trois doigts flexibles, conçue pour s'ouvrir et se refermer en s'adaptant à l'objet saisi. L'objectif est de réussir à attraper des fruits et légumes relativement légers, comme un poivron. Idéalement, nous devrons pouvoir soulever des objets allant jusqu'à 5 kilogrammes. Nous utiliserons \textit{SolidWorks} pour modéliser le robot, et étudierons son élasticité par éléments finis via \textit{SolidWorks Simulation}.
 
     \subsection{Motivations et principes fondamentaux}
+
+        \begin{figure}[H]
+                \centering
+                \begin{subfigure}[t]{0.5\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/spiral_logarithm.png}
+                    \caption{Spiral logarithmique du préhenseur \cite{wang_spirobs_2025}}
+                    \label{fig:spiral_logarithm}
+                    \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/draw_solidworks.png}
+                    \caption{Construction du doigt en "dépliant" la spirale logarthimique \cite{wang_spirobs_2025}}
+                    \label{fig:draw_solidworks}
+                \end{subfigure}
+                \caption{Conception du doigt}
+                \label{fig:doigt}
+            \end{figure}
 
         \begin{figure}
             \centering
@@ -201,115 +219,68 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \label{fig:pieuvre}
         \end{figure}
     
-        Dans notre cas, et comme souvent en robotique, les objets à manipuler ont une forme ou une position mal connue, et contrairement à une main humaine, les pinces robotiques manquent de retour tactile fiable. Pour cette raison, nous n'allons pas utiliser de retour haptique, mais plutôt de préhenseurs souples. Nous nous inspirons de la flexibilité des tentacules de pieuvre (voir figure \ref{fig:pieuvre}), ce qui permettra à la pince de s'adapter naturellement à la forme de divers fruits et légumes, sans nécessiter de capteurs ni de système de contrôle complexe, simplement grâce à la compliance mécanique.
-        
-        La compliance désigne la capacité d’un robot à adapter la rigidité de ses mouvements en fonction des forces extérieures. Autrement dit, il ajuste naturellement sa posture pour bien épouser l’objet qu’il manipule. Dans ce projet, nous nous concentrons sur la compliance passive, où la structure mécanique du robot est suffisamment flexible pour se déformer sous l'effet d'une contrainte externe. Cette approche permet une préhension polyvalente et adaptable. \cite{noauthor_gestion_2016}
+        Dans notre cas, et comme souvent en robotique, les objets à manipuler ont une forme ou une position mal connue, et contrairement à une main humaine, les pinces robotiques manquent de retour tactile fiable. Pour cette raison, nous n'allons pas utiliser de retour haptique, mais plutôt de préhenseurs souples. Nous nous inspirons de la flexibilité des tentacules de pieuvre et du robot SpiRob dont l'étude est partagée en annexe (voir figure \ref{fig:pieuvre}), ce qui permettra à la pince de s'adapter naturellement à la forme de divers fruits et légumes, sans nécessiter de capteurs ni de système de contrôle complexe, simplement grâce à la compliance mécanique. En effet la compliance désigne la capacité d’un robot à adapter la rigidité de ses mouvements en fonction des forces extérieures. Autrement dit, il ajuste naturellement sa posture pour bien épouser l’objet qu’il manipule. Dans ce projet, nous nous concentrons sur la compliance passive, où la structure mécanique du robot est suffisamment flexible pour se déformer sous l'effet d'une contrainte externe. Cette approche permet une préhension polyvalente et adaptable. \cite{noauthor_gestion_2016}
 
-        Malgré ses avantages, cette flexibilité favorise le flambage sous de grandes forces d'actionnement et limite donc la charge maximale. Il faut donc établir un compromis sur la souplesse, afin d'assurer la flexibilité et la capacité à soutenir des charges raisonnables. \cite{wang_spirobs_2025}
+        Les SpiRobs dont nous nous inspirons utilisent des câbles pour provoquer les mouvements d'enroulement (curling) et de déroulement (uncurling). Une extrémité est fixée à l'unité distale par un nœud de pêcheur, tandis que l'autre est reliée à un moteur (voir figure~\ref{fig:spiral_logarithm}). La contraction des câbles entraîne l'enroulement en spirale logarithmique, alors que leur relâchement, combiné à leur élasticité intrinsèque, restitue la forme initiale. En effet, les SpiRobs sont entièrement fabriqués en TPU (Thermoplastic Polyurethane) imprimé en 3D avec du filament eTPU-95A (shore A95). Ce matériau souple, que nous utiliserons également, offre une bonne compliance mécanique et une rigidité suffisante pour transmettre efficacement la tension des câbles. La couche centrale entre les unités agit comme un ressort passif, permettant le redéploiement sans nécessiter d’articulations ni de moteurs multiples~\cite{wang_spirobs_2025}.
+
+    \subsection{Comportement et structure de la pince à concevoir}
     
-    \subsection{Comportement et structure de la pince}
+        La pince pourra adopter deux configurations distinctes : ouverte ou fermée. Elle sera haute de 10 cm en position ouverte et composée de 3 doigts identiques soumis à un encastrement rigide sur une base. Les doigts seront positionnés symétriquement autour du centre de la base, chacun séparé par un angle de 120°. Des câbles passeront sur un des côtés des doigts et permettront de les contrôler. L'actionnement à câbles peut être localisé sur la base ou déporté à l'extérieur du système, il sera question d'effectuer une étude comparative des différentes solutions possibles.
     
-        La pince pourra adopter deux configurations distinctes : ouverte ou fermée. Elle sera haute de 10 cm en position ouverte et composée de 3 doigts identiques soumis à un encastrement rigide sur une base. Les doigts seront positionnés symétriquement autour du centre de la base, chacun séparé par un angle de 120°. Des câbles passeront sur un des côtés des doigts et permettront de les contrôler. L'actionnement à câbles peut être localisé sur la la base ou déporté à l'extérieur du système, il sera question d'effectuer une étude comparative des différentes solutions possibles.
-        
-        La flexion de chaque doigt sera assurée par une force appliquée sur le câble situé du côté fléchisseur par l'utilisation d'un moteur, tandis que le retour à la position initiale se fera naturellement, cette dernière devant être la position d'équilibre lorsque le moteur n'exerce plus de couple. Il est donc crucial de dimensionner correctement les doigts et les câbles afin qu'ils conservent un comportement élastique et réversible, sans déformation permanente. C'est pourquoi nous utiliserons un matériau souple qui puisse se plier sans se casser, le TPU, en prenant soin de ne pas aller dans le domaine plastique. Par la suite, nous étudierons les flexions, les contraintes maximales et le retour élastique afin de s'assurer de ne pas rentrer dans le modèle plastique.
-                
-        Enfin, il sera essentiel de garantir autant que possible la répétabilité, un aspect souvent problématique dans le domaine de la robotique flexible, car la souplesse peut introduire des incertitudes sur la position exacte des doigts.
-
-    \subsection{Choix de l'actionneur et des câbles}
-
-        Nous devons choisir entre un moteur rotatif actionnant un tambour et un moteur linéaire. Si nous optons pour un moteur rotatif avec un tambour, il est crucial d'éviter que le câble ne s'enroule sur lui-même. Étant donné que la course du câble est calculée en fonction de la rotation du moteur, il est essentiel que le câble ne tourne pas sur lui-même pour éviter de fausser les résultats. Nous pourrions envisager une glissière pour guider l'enroulement du fil le long d'un axe, ou un mécanisme utilisant une vis sans fin pour maintenir la tension.
-
-        Dans les systèmes mécaniques utilisant des câbles ou des tendons, la tension est essentielle pour assurer une transmission efficace de la force ou du mouvement. Une tension insuffisante peut entraîner un glissement, un flambage et une perte de performance. Idéalement, la tension dans le câble doit être directement liée à la force produite par le moteur. Ainsi, la force appliquée par le moteur doit être transmise directement et efficacement au câble sans perte significative.
-
-        Il est également question de choisir des fils optimaux pour la conception du robot. Si nous utilisons des fils de pêche, nous devons résoudre le problème de la souplesse du fil qui peut flamber lorsque le robot revient à sa position d'équilibre. Une solution pourrait être d'accompagner le mouvement avec le moteur pour limiter sa vitesse et contrôler en permanence la tension du câble. Nous pourrions également utiliser des câbles en acier pour éviter ce phénomène de flambage, mais dans ce cas, la solution du tambour serait inopérante.
+        En outre, nous devons choisir entre un moteur rotatif actionnant un tambour et un moteur linéaire.
+        Si nous optons pour un moteur rotatif avec un tambour, il est crucial d’éviter que le câble ne
+        s’enroule sur lui-même. Étant donné que la course du câble est calculée en fonction de la rotation
+        du moteur, il est essentiel que le câble ne tourne pas sur lui-même pour éviter de fausser les
+        résultats. Nous pourrions envisager une glissière pour guider l’enroulement du fil le long d’un
+        axe, ou un mécanisme utilisant une vis sans fin pour maintenir la tension.
+        Dans les systèmes mécaniques utilisant des câbles, la tension de ces derniers est en effet essentielle. Une tension insuffisante
+        peut entraîner un flambage, et empêcher un contrôle efficace des câbles.
         
 \clearpage
 
 \section{État de l'art}
 
+    Nous proposons dans un premier temps, un état de l'art sur les préhenseurs souples et leurs actionneurs afin d'avoir une vue globale sur leur intérêt et les solutions existantes.
+
     \subsection{Préhenseurs souples}
 
-        Dans un premier temps nous voyons rapidement l'intérêt des préhenseurs souple à travers deux exemples.
+            Ces travaux montrent l'intérêt des préhenseurs souples pour s'adapter à des objets variés, et illustrent les principes de compliance et de préhension adaptative exposés en introduction.
 
-        \subsubsection{Étude d'une pince en PVC}
-            
             \begin{figure}[htbp]
+                \centering
+                \begin{subfigure}[t]{0.5\textwidth}
                     \centering
-                    \begin{subfigure}[t]{0.8\textwidth}
-                        \centering
-                        \includegraphics[width=\textwidth]{Figures/robot.png}
-                        \caption{Robot Anno V6-PLUS qui porte la pince \cite{liu_origami_2023}}
-                    \end{subfigure}
-                    \hfill
-                    \begin{subfigure}[t]{0.8\textwidth}
-                        \centering
-                        \includegraphics[width=\textwidth]{Figures/adaptability.png}
-                        \caption{Exemples d'utilisation de la pince souple \cite{liu_origami_2023}}
-                    \end{subfigure}
-                    \caption{Illustration de l'étude sur la pince souple}
-                    \label{fig:origami}
-                \end{figure}
-        
-            Une étude a été menée afin de concevoir des préhenseurs souples en origami, permettant une adaptabilité de préhension pour de nombreux objets. La pince, qui n'est qu'une simple feuille de PVC (voir figure \ref{fig:origami}.a.(e)), est commandée grâce à un moteur linéaire. Le moteur linéaire est fixé au bras robotique via un support (bracket). Ce moteur est relié à un poussoir qui coulisse sur une glissière. Lorsqu’on alimente le moteur linéaire, il pousse ou tire le poussoir de manière rectiligne. Le mouvement du poussoir est ainsi transmis à la pince flexible, qui s’ouvre ou se ferme selon la direction du mouvement. Afin de garantir la stabilité, un cadre de limitation empêche le poussoir de dépasser certaines positions, et le système de guidage symétrique (les deux extrémités du poussoir étant à la même hauteur) empêche la pince de se déformer de manière asymétrique, ce qui garantit une prise stable (voir figure \ref{fig:origami}.a.(g)). \cite{liu_origami_2023}.
-    
-            Cette étude démontre que même une structure souple minimaliste peut offrir une adaptation efficace à des objets de formes variées. En effet, comme nous pouvons le remarquer sur la figure \ref{fig:origami}.b, la pince souple s'adapte parfaitement à chaque taille d'objet pour le même effort à son extrémité.
+                    \includegraphics[width=\textwidth]{Figures/robot.png}
+                    \caption{Robot portant la pince souple \cite{liu_origami_2023}}
+                    \label{fig:pince_PVC}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.5\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/adaptability.png}
+                    \caption{Adaptation de la pince souple \cite{liu_origami_2023}}
+                    \label{fig:prehension_adapt}
+                \end{subfigure}
+                \caption{Pince en PVC souple}
+                \label{fig:resume_origami}
+            \end{figure}
 
-        \subsubsection{Étude d'une pince flexible multi-stable à l'aide du kirigami}
-    
-            \begin{figure}
+            La première étude a été menée afin de concevoir des préhenseurs souples en origami, permettant une adaptabilité de préhension pour de nombreux objets. La pince, qui n'est qu'une simple feuille de PVC (voir figure \ref{fig:pince_PVC}), est commandée grâce à un moteur linéaire. Grâce à sa structure flexible, elle peut saisir efficacement des objets de taille diverse pour le même actionnement (voir figure \ref{fig:prehension_adapt}).
+
+            \begin{figure}[htbp]
                 \centering
                 \includegraphics[width=0.7\textwidth]{Figures/multi-stable.png}
-                \caption{Pince à plusieurs positions stables \cite{qi_kirigami_2024}}
-                \label{fig:multi_stable}
+                \caption{Pince kirigami multi-stable \cite{qi_kirigami_2024}}
+                \label{fig:resume_kirigami}
             \end{figure}
-    
-            Cette étude \cite{qi_kirigami_2024} explore la conception d'une pince souple en s'appuyant sur les principes du kirigami, une technique dérivée de l'origami. Cette approche permet de générer des structures à multi-stabilité passive, c’est-à-dire capables de maintenir plusieurs configurations d’équilibre, notamment une configuration pince fermée et une autre pince ouverte (voir figure \ref{fig:multi_stable}). Ce changement de configuration s'opère grâce à une structure "trigger" (déclencheuse) capable de convertir une force longitudinale appliquée en un mouvement de déformation latérale des bras de la pince.
-    
-            Néanmoins, l’approche présente aussi des limites, notamment en termes de force de préhension. La pince kirigami décrite utilise des actionneurs diélectriques ou des forces manuelles pour effectuer la transition de forme, ce qui restreint sa capacité à soulever des charges importantes. Cela la rend peu adaptée aux applications où une capacité de charge élevée est requise — comme c’est le cas dans notre projet où l’objectif est de manipuler des objets jusqu’à 5 kg. Enfin, bien que le système ne repose pas sur une action par câble comme notre pince inspirée du SpiRob, cette étude permet de souligner que les principes de déformation géométrique contrôlée et de multi-stabilité passive constituent une piste intéressante pour notre pince.
-    
+
+            La seconde étude explore une pince kirigami dotée de plusieurs configurations stables, obtenues par déformation géométrique contrôlée (voir figure \ref{fig:resume_kirigami}). Bien qu’ingénieuse, cette pince présente une force de préhension limitée, la rendant moins adaptée aux charges lourdes.
+            
+            Ces approches soulignent l’intérêt et les limites des solutions souples pour la préhension robotique malgré leur adaptabilité.
+                
     \subsection{Actionnement par câbles}
 
         Deuxièmement, nous établissons une synthèse utile sur l'actionnement par câbles.
-    
-        \subsubsection{Étude de la spirale logarithmique avec le SpiRob}
-        
-            \begin{figure}
-                \centering
-                \includegraphics[width=1.0\textwidth]{Figures/spiral_logarithm.png}
-                \caption{Spiral logarithmique du préhenseur \cite{wang_spirobs_2025}}
-                \label{fig:spiral_logarithm}
-            \end{figure}
-    
-            Les câbles sont utilisés pour activer le mouvement de curling (enroulement) et uncurling (déroulement) des SpiRobs, des robots souples en forme de spirale logarithmique inspirés des appendices biologiques (bras d'octopus, trompe d'éléphant).
-
-            Un ou plusieurs câbles (2 pour les robots 2D, 3 pour les robots 3D) passent à travers des trous percés dans les unités du robot. Une extrémité est fixée à l'unité la plus distale (pointe du robot) par un nœud de pêcheur, et l'autre est connectée à un moteur (voir figure \ref{fig:spiral_logarithm}). La contraction des câbles enroule le robot en une spirale logarithmique, tandis que leur relâchement le ramène à sa position d'équilibre grâce à son élasticité. En effet, le TPU que constitue le robot permet ce comportement. 
-
-            Les auteurs ajoutent également un amortissement pour limiter la vitesse du mouvement et assurer le contrôle de la tension des câbles. Une règle linéaire ($F_1^0 = -c_1 p + c_2 \alpha + c_0$) ajuste la force antagoniste au mouvement en fonction de la position de l'objet ($p, \alpha$) en coordonnées polaires par rapport à la position de l'extrémité du robot, avec des coefficients expérimentaux ($c_0=14, c_1=13, c_2=5$). Cela permet une saisie automatique avec un taux de succès de 94,4 $\%$. En somme, Plus l'objet est éloigné, plus la force antagoniste à laquelle le robot est soumis est faible. \cite{wang_spirobs_2025}
-
-            Du reste, les SpiRobs sont entièrement réalisés en \textbf{TPU (Thermoplastic Polyurethane)}, un matériau souple imprimé en 3D à l’aide de filaments eTPU-95A (shore A95). Ce choix permet une bonne compliance mécanique tout en maintenant une certaine rigidité, indispensable pour transmettre efficacement la tension appliquée par les câbles. Le TPU confère aux robots une capacité à s’enrouler en spirale logarithmique puis à se redéployer, sans nécessiter d’articulations ni de moteurs multiples. Le retour à l’état initial est assuré par une couche centrale élastique jouant le rôle de ressort passif. \cite{wang_spirobs_2025}
-
-            Par ailleurs, l'angle de conicité de la spirale joue un rôle clé dans les performances de préhension du doigt, notamment en termes d’espace de travail, de précision de saisie et de capacité de charge. 
-            D’après les résultats rapportés dans \cite{wang_spirobs_2025}, un \textbf{faible angle de conicité} permet d’augmenter significativement l’espace de travail, en élargissant la zone accessible par les doigts lors du déploiement. À l’inverse, un \textbf{angle de conicité plus élevé} améliore la performance de saisie : il permet de saisir des objets de plus petite taille (diamètre minimal réduit) tout en augmentant la \textbf{capacité de charge maximale} du robot.
-            À géométrie constante, l’augmentation du poids de l’objet à saisir est également mieux tolérée lorsque le diamètre est grand, ce phénomène étant particulièrement marqué pour les objets volumineux. Par exemple, un SpiRob avec un angle de conicité de $15^\circ$ peut saisir des objets dont le diamètre varie de \textbf{5{,}6\,mm à 115\,mm}, et supporter une charge allant jusqu’à \textbf{10\,kg}, soit environ \textbf{260 fois son propre poids} (poids du robot : 38{,}4\,g). \cite{wang_spirobs_2025}
-
-            On observe alors plusieurs problèmes rencontrés auxquels il faudra penser lors de la conception. Il s'agit de limiter les frottements entre les câbles et le corps du robot (une friction élevée peut causer des pertes d'énergie, des déformations non uniformes, ou un phénomène de flambage des fils), mais il faut aussi éviter d'avoir une couche élastique trop épaisse (au centre du robot), car cela augmenterait la force nécessaire pour enrouler le robot, rendant l'actionnement par câbles plus exigeant pour les moteurs qui utiliseraient alors davantage d'énergie. Pour régler la friction des câbles, nous pouvons utiliser des câbles UHMWPE pour leur faible coefficient de frottement et leur résistance à l'usure. Quant à l'optimisation de la couche élastique, une épaisseur de couche élastique de 5 $\%$ est optimale d'après les tests effectués, assurant une bonne élasticité sans nécessiter une force excessive pour l'enroulement \cite{wang_spirobs_2025}.
-
-        \subsubsection{Étude des systèmes de transmissions et d'actionnements par câble pour des exosuits}
-
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.5\textwidth]{Figures/poulies.jpg}
-                \caption{Système de poulies pour contrôler l'exosuit. $\Delta l_{ijk}$ désigne la variation de longueur à l'instant i du câble qui, provenant de l'actionneur k, contribue au mouvement agissant sur l'articulation j \cite{daniel_rodriguez-jorge_transmission_2023}}
-                \label{fig:poulies}
-            \end{figure}
-
-            L'étude \cite{daniel_rodriguez-jorge_transmission_2023} se concentre sur la conception d'exosuits à actionnement par câble pour l'assistance à la marche, une alternative aux exosquelettes rigides traditionnels. Les exosuits offrent une meilleure compatibilité cinématique avec les mouvements naturels de l'utilisateur, et sont moins chers, car ils utilisent moins d'actionneurs, notamment grâce à l'ACP (Analyse en Composantes Principales), méthode permettant d'effectuer uniquement les mouvements les plus importants. Ils utilisent en outre le principe de synergies, qui définissent un ensemble de mouvement pour prendre différents objets.
-
-            Cette étude est intéressante pour le rôle que jouent les poulies. Ces dernières transmettent le mouvement et la force d'un actionneur (moteur dans le sac à dos) aux câbles connectés à des points d'ancrage près des articulations (hanche, genou, cheville). Leur fonction principale est de contrôler l'extension des câbles pour générer les mouvements nécessaires à l'assistance de la marche. En d'autres termes, les poulies convertissent la rotation du moteur en un déplacement linéaire des câbles, qui appliquent des forces aux points d'ancrage pour produire un couple d'assistance sur les articulations (voir figure \ref{fig:poulies}).
-
-            Le principal inconvénient est que, si un seul actionneur ne suffit pas (par exemple, pour une précision accrue ou des besoins spécifiques), le système de transmission peut devenir très complexe et augmenter grandement les coûts de fabrication \cite{daniel_rodriguez-jorge_transmission_2023}.
-            
-            Dans notre cas, nous n'aurons bien qu'un seul moteur, donc nous pouvons considérer les poulies comme une solution fiable et réaliste.
 
         \subsubsection{Mécanisme à tendons permettant la prétension}
 
@@ -317,7 +288,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             \begin{figure}
                 \centering
-                \includegraphics[width=0.7\textwidth]{Figures/tendon.png}
+                \includegraphics[width=0.5\textwidth]{Figures/tendon.png}
                 \caption{Tendon à extrémité ouverte \cite{saputro_investigation_2023}}
                 \label{fig:tendon}
             \end{figure}
@@ -328,18 +299,19 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             \begin{figure}[htbp]
                 \centering
-                \begin{subfigure}[t]{0.6\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/level_wind.png}
-                    \caption{Principe de fonctionnement du système type \textit{level wind} \cite{mortensen_precision_2014}}
-                    \label{fig:level_wind}
-                \end{subfigure}
-                \hfill
+
                 \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/video.png}
                     \caption{Illustration du mécanisme d'enroulement \cite{hugh_lyman_level_2014}}
                     \label{fig:video}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.6\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/level_wind.png}
+                    \caption{Principe de fonctionnement du système type \textit{level wind} \cite{mortensen_precision_2014}}
+                    \label{fig:level_wind}
                 \end{subfigure}
                 \caption{Représentation du mécanisme \textit{level wind}}
             \end{figure}
@@ -361,8 +333,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
     \subsection{Simulation par éléments finis}
     
         Troisèmement, nous étudions le cas d'une simulation d'un doigt robotique qui présente de nombreuses similitudes au nôtre.
-        
-        \subsubsection{Étude d'un doigt pneumatique souple et simulation par éléments finis}
 
             \begin{figure}
                 \centering
@@ -444,6 +414,8 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
         
     \subsection{Considérations mathématiques}
 
+        Dans \cite{wang_spirobs_2025}, les auteurs expliquent comment dessiner le SpiRob. Comme dit précédemment, nous nous inspirons de sa forme pour concevoir nos doigts.
+
         \subsubsection{Spirale centrale}
             
             Sur la figure \ref{fig:spiral_logarithm}, la spirale centrale (en orange) qui définit notre robot vérifie la relation :
@@ -456,8 +428,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
         \subsubsection{Choix et détermination des coefficients}
         
-            Dans \cite{wang_spirobs_2025}, les auteurs expliquent comment dessiner le SpiRob. Nous nous inspirons de sa forme pour concevoir nos doigts.
-        
             La spirale logarithmique est d'équation en coordonnées polaires ($r, \theta$) :
 
             \begin{equation}
@@ -467,7 +437,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             \begin{figure}
                 \centering
-                \includegraphics[width=0.8\textwidth]{Figures/spirale.png}
+                \includegraphics[width=1\textwidth]{Figures/spirale.png}
                 \caption{Influence des coefficients $a$ et $b$ sur la spirale logarithmique}
                 \label{fig:spirale}
             \end{figure}
@@ -527,7 +497,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
         \subsubsection{Espacement}
             
-            Enfin, il reste l'espacement $\Delta\theta$ à choisir entre les unités de la figure \ref{fig:spiral_logarithm} pour définir entièrement la forme et la taille du doigt. \cite{wang_spirobs_2025} Or, si $\theta$ va de $\pi$ à $3\pi$, le nombre de trapèzes N est :
+            Enfin, il reste l'espacement $\Delta\theta$ à choisir entre les unités de la figure \ref{fig:spiral_logarithm} pour définir entièrement la forme et la taille du doigt. \cite{wang_spirobs_2025} Or, si $\theta$ va de $\pi$ à $3\pi$, le nombre de phalanges N est :
         
             \begin{equation}
             N = \frac{\text{Angle total}}{\Delta \theta}
@@ -538,14 +508,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
         \subsubsection{Spirale déroulée}
 
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.7\textwidth]{Figures/draw_solidworks.png}
-                \caption{Construction du doigt en "dépliant" la spirale logarthimique \cite{wang_spirobs_2025}}
-                \label{fig:draw_solidworks}
-            \end{figure}
-
-            Pour construire le doigt, nous prenons exemple sur la figure \ref{fig:draw_solidworks}. Il est désormais question de traduire le formalisme mathématique de la spirale logarthmique en cote des différents trapèzes qui composent le doigt.
+            Pour construire le doigt, nous prenons exemple sur la figure \ref{fig:draw_solidworks}. Il est désormais question de traduire le formalisme mathématique de la spirale logarthmique en cote des différentes phalanges qui composent le doigt.
 
             On donne l'angle de conicité (\textit{taper} \textit{angle}) :
 
@@ -568,8 +531,8 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
     \subsection{Cahier des charges} 
 
             \begin{itemize}
-                \item Angle de conicité (ou \textit{taper\_angle}) : $\phi \ = \ 15^o \ = \ \frac{\pi}{12} \ rad$ 
-                \item Angle entre 2 trapèzes adjacents : $\Delta \theta \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$
+                \item Angle de conicité (ou \textit{taper angle}) : $\phi \ = \ 15^o \ = \ \frac{\pi}{12} \ rad$ 
+                \item Angle entre 2 phalanges adjacentes : $\Delta \theta \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$
                 \item Longueur de la spirale centrale : $L \ = \ 10cm \ = \ 100mm$ 
                 \item Couche élastique : 10 $\%$ de la largeur du doigt pour chaque $\theta$
             \end{itemize}
@@ -580,21 +543,21 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             D’après les résultats rapportés dans \cite{wang_spirobs_2025}, un faible angle de conicité permet d’augmenter significativement l’espace de travail, en élargissant la zone accessible par les doigts lors du déploiement. À l’inverse, un angle de conicité plus élevé améliore la performance de saisie : il permet de saisir des objets de plus petite taille (diamètre minimal réduit) tout en augmentant la capacité de charge maximale du robot.
             À géométrie constante, l’augmentation du poids de l’objet à saisir est également mieux tolérée lorsque le diamètre est grand, ce phénomène étant particulièrement marqué pour les objets volumineux. Par exemple, un SpiRob avec un angle de conicité de $15^\circ$ peut saisir des objets dont le diamètre varie de 5{,}6\,mm à 115\,mm, et supporter une charge allant jusqu’à 10\,kg, soit environ 260 fois son propre poids (poids du robot : 38{,}4\,g) \cite{wang_spirobs_2025}.
 
-            En outre , il s'agit de limiter les frottements entre les câbles et le corps du robot (une friction élevée peut causer des pertes d'énergie, des déformations non uniformes, ou un phénomène de flambage des fils), mais il faut aussi éviter d'avoir une couche élastique trop épaisse (au centre du doight robotique), car cela augmenterait la force nécessaire pour enrouler le doight, rendant l'actionnement par câbles plus exigeant pour les moteurs qui utiliseraient alors davantage d'énergie. Pour régler la friction des câbles, nous pouvons utiliser des câbles UHMWPE pour leur faible coefficient de frottement et leur résistance à l'usure. Quant à l'optimisation de la couche élastique, une épaisseur de couche élastique de  $10\%$ est optimale d'après les tests effectués, assurant une bonne élasticité sans nécessiter une force excessive pour l'enroulement \cite{wang_spirobs_2025}.
+            En outre , il s'agit de limiter les frottements entre les câbles et le corps du robot (une friction élevée peut causer des pertes d'énergie, des déformations non uniformes, ou un phénomène de flambage des fils), mais il faut aussi éviter d'avoir une couche élastique trop épaisse (au centre du doigt robotique), car cela augmenterait la force nécessaire pour enrouler le doight, rendant l'actionnement par câbles plus exigeant pour les moteurs qui utiliseraient alors davantage d'énergie. Pour régler la friction des câbles, nous pouvons utiliser des câbles UHMWPE pour leur faible coefficient de frottement et leur résistance à l'usure. Quant à l'optimisation de la couche élastique, une épaisseur de couche élastique de  $10\%$ est optimale d'après les tests effectués, assurant une bonne élasticité sans nécessiter une force excessive pour l'enroulement \cite{wang_spirobs_2025}.
 
-        \subsubsection{Application numérique}
+        \subsubsection{Détermination des paramètres pour répondre au cahier des charges}
 
             Pour satisfaire les exigences du cahier des charges ci-dessus, on cherche les valeurs des paramètres $b,\ a,\ \theta_0$ : 
 
-            Comme montré dans l’équation (\ref{eq:nb_segment}), le nombre de trapèzes dépend de l’angle total $\theta_0$ et l'espacement $\Delta \theta$, on peut en déduire le nombre de trapèzes comme suit :
+            Comme montré dans l’équation (\ref{eq:nb_segment}), le nombre de phalanges dépend de l’angle total $\theta_0$ et l'espacement $\Delta \theta$, on peut en déduire le nombre de phalanges comme suit :
 
             \[
                 N = \frac{2\pi}{\frac{\pi}{6}} = 12 
             \]
             
-            Il y aura donc 12 trapèzes.
+            Il y aura donc 12 phalanges.
 
-            On calcule notre b grâce à l'équation (\ref{eq:angle_de_conicite}) en appliquant la méthode \texttt{fsolve} de \texttt{Python}:
+            Ensuite, nous devons déterminer b de telle sorte que $\phi = \frac{\pi}{12}$. On le calcule grâce à l'équation (\ref{eq:angle_de_conicite}) en appliquant la méthode \texttt{fsolve} de \texttt{Python}:
 
             \begin{lstlisting}[language=Python,caption={Résolution numérique du paramètre $b$},label={lst:resolu_b},xleftmargin=0pt]
 
@@ -617,18 +580,13 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             \vspace{3cm}
 
-            \textbf{Explication de l'expression \texttt{angle - taper\_angle\_rad}} :
-
-            Dans la fonction \texttt{equation(b)}, on calcule un angle \texttt{angle} qui dépend de la variable \texttt{b}, et on cherche à résoudre l'équation :
-            \[
-            \texttt{angle}(b) = \texttt{taper\_angle\_rad}
-            \]
             L'objectif est de trouver la valeur de \( b \) telle que cette égalité soit vérifiée.
 
-            Pour cela, la fonction renvoie la différence :
+            La fonction \texttt{equation} renvoie la différence :
             \[
-            f(b) = \texttt{angle}(b) - \texttt{taper\_angle\_rad}
+            f(b) = \texttt{angle}(b) - \texttt{taper\_angle\_rad}, \qquad \text{pour} \texttt{taper\_angle\_rad} = \frac{\pi}{12}
             \]
+
             Ainsi, la résolution de \( f(b) = 0 \) correspond à trouver la racine de cette fonction, c'est-à-dire la valeur de \( b \) pour laquelle \(\texttt{angle}(b)\) est égale à \(\texttt{taper\_angle\_rad}\).
 
             \textbf{Signification de \texttt{x0} et \texttt{xtol} dans \texttt{fsolve}} :
@@ -658,7 +616,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
         Afin que notre doigt mesure $L = 100$ mm, il faut que la spirale centrale d'équation (\ref{eq:spirale_centrale}) soit de la forme :
 
         \[
-        r_c = a_c e^{b_c\theta}, \, b_c = 0.2230, \qquad a_c = 3.5303, \quad \text{d'après le tableau \ref{tab:valeurs_a_b}}
+        r_c = a_c e^{b_c\theta}, \qquad b_c = 0.2230, a_c = 3.5303, \quad \text{d'après le tableau \ref{tab:valeurs_a_b}}
         \]
 
         On cherche maintenant l'équation de la spirale qui enveloppe le doigt, soit $r(\theta) = f(r_c(\theta))$. Ainsi, on peut
@@ -681,7 +639,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
         \subsubsection{Dessin du doigt}
             
-            Nous allons expliquer comment dessiner le doigt à l'aide des outils de SolidWorks. La méthode consiste à dessiner le doigt dans sa forme enroulée, puis à enregistrer chaque trapèze individuellement. Ainsi, nous nous assurons qu'ils se plieront correctement.
+            Nous allons expliquer comment dessiner le doigt à l'aide des outils de SolidWorks. La méthode consiste à dessiner le doigt dans sa forme enroulée, puis à enregistrer chaque phalange individuellement. Ainsi, nous nous assurons qu'ils se plieront correctement.
 
             \begin{figure}[H]
                 \centering
@@ -696,7 +654,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                     \includegraphics[width=\textwidth]{Figures/esquisse_spirale_2.png}
                     \caption{Esquisse de la spirale qui enveloppe le doigt (en bleue), d'équation \ensuremath{r = \frac{2 \cdot r_c(\theta)}{1 + e^{2\pi b}}}}
                 \end{subfigure}
-                \caption{Conception de la base}
+                \caption{Dessin des spirales élémentaires du doigt}
                 \label{fig:esquisse_spirale}
             \end{figure}
 
@@ -706,29 +664,41 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \centering
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
-                    \includegraphics[width=\textwidth]{Figures/esquisse_etoile.png}
-                    \caption{Esquisse de l'étoile au centre du repère, pour discrétiser la spirale}
+                    \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_1.png}
+                    \caption{Esquisse de l'étoile pour discrétiser la spirale, ainsi que extrusion de la première phalange}
                 \end{subfigure}
                 \hfill
                 \begin{subfigure}[t]{0.5\textwidth}
                     \centering
-                    \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_1.png}
-                    \caption{Extrusion du premier trapèze}
+                    \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_entier.png}
+                    \caption{Extrusion des phalanges à l'aide des lignes construites}
                 \end{subfigure}
-                \caption{Conception de la base}
+                \caption{Dessin de l'étoile et des phalanges}
                 \label{fig:esquisse_etoile}
             \end{figure}
 
-        \subsubsection{Dessin de la base}
+            Sur la figure \ref{fig:esquisse_etoile}, vous pouvez voir notre dessin de l'étoile dont le centre est l'origine du repère polaire utilisée pour tracer les spirales. Comme en $\theta = 0$, on a $r_c(0) = a_c e^0 = a_c$, alors l'origine de l'étoile se trouve à une distance $a_c$ du point de départ de la spirale centrale. Ensuite, nous dessinons chacune des moitié de phalanges en prenant soin de ne pas fusionner les extrusions, en utilisant les lignes ainsi construites.
 
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=0.4\textwidth]{Figures/pb_simu1_base_molle_supp.png}
-                \caption{Base et doigts du même matériau souple}
-                \label{fig:base_molle}
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/esquisse_trapèze_symetrie.png}
+                    \caption{Symétrie de toutes les phalanges}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/doigt.png}
+                    \caption{Doigt assemblé et perçage des trous pour faire passer les câbles}
+                \end{subfigure}
+                \caption{Dessin et assemblage du doigt}
+                \label{fig:spirale_enroule}
             \end{figure}
 
-            Dans un premier temps, nous avions conçu la base et le doigt comme une seule pièce monobloc. Toutefois, cette solution s’est révélée inappropriée. En effet, lors de la simulation du comportement élastique du système en TPU souple, l’application d’une force sur les doigts entraînait une déformation de la base plutôt que des doigts eux-mêmes (voir figure \ref{fig:base_molle}). Autrement dit, la base absorbait les contraintes à la place des doigts. Pour remédier à cela, nous avons décidé de fabriquer la base dans un matériau plus rigide, le PLA, et de ne pas y fixer directement le moteur. À la place, un support moteur sera conçu à l’aide de la bibliothèque MakerBeam, et fixé à la base dans laquelle une cavité sera creusée afin de l’accueillir.
+            Enfin, nous symétrisons les moitiés de phalanges. Nous les enregistrons alors dans des fichiers pièces séparément, et cela permet de les assembler de telle sorte que le doigt soit déroulé. Nous avons bien vérifier sur le logiciel : le doigt mesure environ 100 mm, et l'angle de conicité est en effet de 15°, tandis que l'angle entre chaque phalange est de 30° (voir figure \ref{spirale_enroule}). On prend également soin de rajouter la couche élastique de 10\% de la largeur du doigt afin de relier les phalanges entre elles.
+            
+            \subsubsection{Dessin de la base}
 
             \begin{figure}[H]
                 \centering
@@ -757,7 +727,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                     \caption{Encastrement du doigt dans la base}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.4\textwidth}
+                \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/trou_base_cable.png}
                     \caption{Trous dans la base pour faire passer les câbles dans les doigts}
@@ -767,70 +737,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             \end{figure}
             
             En outre, nous n'oublions pas de creuser des trous dans la base afin de pouvoir faire passer les câble dans les doigts (voir figure \ref{fig:base_doigt}).
-
-        \subsubsection{Dessin de l'écrou}
-
-            \begin{figure}[H]
-                \centering
-                \begin{subfigure}[t]{0.6\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/vis_sans_fin.jpg}
-                    \caption{Notre vis mère de la marque Igus en acier trempé, permettant un très faible frottement}
-                \end{subfigure}
-                \hfill
-                \begin{subfigure}[t]{0.15\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/vis_simplifie.png}
-                    \caption{Modèle simplifié de la vis sur SolidWorks}
-                \end{subfigure}
-                \caption{Illustrations de la vis sans fin}
-                \label{fig:vis_sans_fin}
-            \end{figure}
-
-            Après discussion avec notre responsable, nous avons décidé de ne pas utiliser de tambour pour l'actionnement par câble. Bien que le tambour soit une solution efficace, la vis mère s’avère plus simple à mettre en œuvre dans le cadre de notre projet. Nous opterons donc pour une vis mère en acier trempé afin de réduire les frottements, associée à un écrou (voir figure \ref{fig:vis_sans_fin}).
-
-            Selon les recommandations du fabricant \cite{noauthor_bague_nodate}, l’écrou doit impérativement être protégé contre les efforts de torsion et les déplacements axiaux excessifs. Nous veillerons donc à intégrer des dispositifs de guidage et de blocage adaptés afin d’assurer la stabilité et la durabilité du mécanisme.
-
-            \begin{figure}[H]
-                \centering
-                \begin{subfigure}[t]{0.6\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/ecrou_esquisse.png}
-                    \caption{Esquisse et bossage avec révolution}
-                \end{subfigure}
-                \hfill
-                \begin{subfigure}[t]{0.3\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/ecrou_trou.png}
-                    \caption{Rajout des trous pour acceuillir les câbles par répétition circulaire d'esquisse}
-                \end{subfigure}
-                \caption{Dessin de l'écrou}
-                \label{fig:ecrou}
-            \end{figure}
-
-            Dans un premier temps, nous dessinons la forme de l'écrou hélicoïdale de la vis sans fin (voir figure \ref{fig:ecrou}), selon le modèle de la marque Igus dont nous disposons. Ces écrous sont optimisés pour maximiser l'absorption des forces axiales. \cite{noauthor_bague_nodate} Le cylindre supérieure est de diamètre $6.5$ mm, et nous prenons soin d'y rajouter un trou d'axe $6.35$ mm dans lequel s'insèrera la vis mère lors de l'assemblage, grâce à des contraites hélicoïdales avec un pas de $2.54$ cm. \cite{noauthor_bague_nodate}
-
-        \subsubsection{Dessin de la transmission de couple}
-
-            \begin{figure}[H]
-                \centering
-                \begin{subfigure}[t]{0.4\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/piece_manquante.png}
-                    \caption{Pièce attachée au moteur et vissée sur la vis mère avec un filetage réaliste}
-                    \label{fig:piece_manquante}
-                \end{subfigure}
-                \hfill
-                \begin{subfigure}[t]{0.4\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/attache.png}
-                    \caption{Attache pour la vis mère (en bleue) et le moteur}
-                    \label{fig:inspiration_vis_ecrou}
-                \end{subfigure}
-                \caption{Transimission de couple}
-            \end{figure}
-
-            Comme illustré à la figure \ref{fig:piece_manquante}, nous concevons une pièce de fixation entre la vis et le moteur. Le servomoteur MX-28 de chez Dynamixel a été retenu pour ce montage, car il permet un contrôle précis en position et offre le couple le plus élevé parmi les moteurs que nous avions à disposition (10 Nm). Nous dessinons la pièce de transmission en nous inspirant de l’écrou déjà modélisé, en l’adaptant avec une plus grande hauteur accrue et en y ajoutant huit trous pour accueillir des vis de diamètre 2 mm (norme ISO M2), afin de pouvoir le fixer au moteur. Un filetage réaliste doit être modélisé pour permettre l’impression de la pièce. Pour cela, nous utilisons la fonctionnalité de SolidWorks permettant de créer un filetage à partir d’une hélice, en choisissant un pas de 2,54 cm et une profondeur de 1 mm.
 
         \subsubsection{Dessin du support du moteur}
 
@@ -854,27 +760,30 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             Le support moteur est conçu à l’aide de la bibliothèque MAKERBEAM (voir figure \ref{fig:support}). Il est assemblé à partir de barres de 40 mm, 60 mm et 200 mm, ainsi que de cubes de jonction. La fixation du support à la base est assurée par des vis et des boulons. Cela nécessite la réalisation de quatre perçages de 4,3 mm de diamètre dans la base, centrés sous chaque barre (voir figure \ref{fig:fixation_base_support}).
 
-            \begin{figure}[H]
-                \centering
-                \begin{subfigure}[t]{0.5\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/support_vis_moteur.png}
-                    \caption{Pièce de fixation pour le moteur}
-                    \label{fig:support_vis}
-                \end{subfigure}
-                \hfill
-                \begin{subfigure}[t]{0.4\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/support_acheve.png}
-                    \caption{Support assemblé avec la pièce de fixation du moteur (en rouge)}
-                    \label{fig:support_acheve}
-                \end{subfigure}
-                \caption{Conception du support du moteur}
-            \end{figure}
-
-            Une pièce supplémentaire est conçu pour maintenir le moteur. Comme illustré sur la figure \ref{fig:support_vis}, elle présente des perçages en bordure permettant de fixer le moteur à l’aide de vis. Les trous situés sur les extensions latérales servent à fixer la pièce sur les barres MAKERBEAM (voir figure \ref{fig:support_acheve}).
+            Une pièce supplémentaire est conçue pour maintenir le moteur. Elle présente des perçages en bordure permettant de fixer le moteur à l’aide de vis sur les barres MakerBeam. Les trous situés sur les extensions latérales servent à fixer la pièce sur les barres MAKERBEAM (voir figure \ref{fig:support}).
 
         \subsubsection{Dessin du système vis-écrou}
+
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}[t]{0.6\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/vis_sans_fin.jpg}
+                    \caption{Notre vis mère de la marque Igus en acier trempé, permettant un très faible frottement}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.2\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/ecrou_trou.png}
+                    \caption{Modèle de l'écrou dessiné sur SolidWorks pour permettre l'assemblage CAO}
+                \end{subfigure}
+                \caption{Illustrations de la vis sans fin}
+                \label{fig:vis_sans_fin}
+            \end{figure}
+
+            Après discussion avec notre responsable, nous avons décidé de ne pas utiliser de tambour pour l'actionnement par câble. Bien que le tambour soit une solution efficace, l'actionnement par un système vis-écrou s’avère plus simple à mettre en œuvre dans le cadre de notre projet. Nous opterons donc pour une vis mère en acier trempé afin de réduire les frottements, associée à un écrou (voir figure \ref{fig:vis_sans_fin}). Nous avons retenu à cet effet une glissière Igus, modèle NK-01-27, accompagnée de son chariot et de son écrou.
+
+            Selon les recommandations du fabricant \cite{noauthor_bague_nodate}, l’écrou doit impérativement être protégé contre les efforts de torsion et les déplacements axiaux excessifs. Nous veillerons donc à intégrer des dispositifs de guidage et de blocage adaptés afin d’assurer la stabilité et la durabilité du mécanisme.
 
             \begin{figure}[H]
                 \centering
@@ -895,9 +804,31 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{fig:attache_glissiere}
             \end{figure}
 
-            Comme spécifié précédemment, nous utilisons une glissière de chez Igus, modèle NK-01-27, accompagnée de son chariot de guidage. Il s’agit à présent de la fixer au support conçu à l’aide de la bibliothèque MAKERBEAM. Pour ce faire, nous utilisons une pièce standard de cette bibliothèque (voir figure \ref{fig:corner}) afin d’y fixer une nouvelle barre, sur laquelle la glissière sera montée.
+            Comme indiqué précédemment dans l’état de l’art, l’absence de vis à billes nécessite d’associer le système vis-écrou à une glissière pour assurer le guidage. Il convient donc de la fixer sur le support réalisé avec la bibliothèque MAKERBEAM. Pour cela, nous utilisons une pièce de cette bibliothèque (voir figure \ref{fig:corner}) qui permet de solidariser une nouvelle barre destinée à recevoir la glissière.
 
-            Nous concevons ainsi une pièce intermédiaire destinée à relier la glissière à l’écrou. Pour garantir l’hyperstatisme de l’assemblage, un minimum de trois vis est nécessaire pour fixer cette pièce à l'écrou. Nous en profitons également pour intégrer, à l’extrémité de cette pièce, un triangle destiné à accueillir les câbles des doigts. Étant positionné au centre du support, ce triangle présente une distance égale aux trois doigts, assurant ainsi une course identique pour chacun des câbles. En d’autres termes, l’actionnement des doigts sera uniforme (voir figure \ref{fig:glissiere_support}).
+            Nous concevons ensuite une pièce intermédiaire destinée à relier la glissière à l’écrou. Pour garantir l’hyperstatisme de l’assemblage, un minimum de trois vis est nécessaire pour fixer cette pièce à l'écrou. Nous en profitons également pour intégrer, à l’extrémité de cette pièce, un triangle destiné à accueillir les câbles des doigts. Étant positionné au centre du support, ce triangle présente une distance égale aux trois doigts, assurant ainsi une course identique pour chacun des câbles. En d’autres termes, l’actionnement des doigts sera uniforme (voir figure \ref{fig:glissiere_support}).
+
+        \subsubsection{Dessin de la transmission de couple}
+
+            \begin{figure}[H]
+                \centering
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/piece_manquante.png}
+                    \caption{Pièce attachée au moteur et vissée sur la vis mère avec un filetage réaliste}
+                    \label{fig:piece_manquante}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[t]{0.4\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/attache.png}
+                    \caption{Attache pour la vis mère (en bleue) et le moteur}
+                    \label{fig:inspiration_vis_ecrou}
+                \end{subfigure}
+                \caption{Transimission de couple}
+            \end{figure}
+
+            Comme illustré à la figure \ref{fig:piece_manquante}, nous concevons une pièce de fixation entre la vis et le moteur. Le servomoteur MX-28 de chez Dynamixel a été retenu pour ce montage, car il permet un contrôle précis en position et offre le couple le plus élevé parmi les moteurs que nous avions à disposition (10 Nm). Nous dessinons la pièce de transmission en nous inspirant de l’écrou déjà modélisé, en l’adaptant avec une plus grande hauteur accrue et en y ajoutant huit trous pour accueillir des vis de diamètre 2 mm (norme ISO M2), afin de pouvoir le fixer au moteur. Un filetage réaliste doit être modélisé pour permettre l’impression de la pièce. Pour cela, nous utilisons la fonctionnalité de SolidWorks permettant de créer un filetage à partir d’une hélice, en choisissant un pas de 2,54 cm et une profondeur de 1 mm.
 
             \begin{figure}[H]
                 \centering
