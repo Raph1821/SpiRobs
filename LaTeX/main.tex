@@ -455,13 +455,6 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             Cela signifie qu’on prend le rayon de la spirale du robot (en noire) au point $\theta$ ($r(\theta)$), et au point $\theta + 2\pi$ ($r(\theta + 2\pi)$), et on calcule leur moyenne. Cela donne un point « central » pour chaque angle $\theta$, et en les reliant, on forme la spirale centrale. \cite{wang_spirobs_2025}
 
         \subsubsection{Choix et détermination des coefficients}
-
-            \begin{figure}
-                \centering
-                \includegraphics[width=1\textwidth]{Figures/spirale.png}
-                \caption{Influence des coefficients $a$ et $b$ sur le tracé de la spirale logarithmique}
-                \label{fig:spirale}
-            \end{figure}
         
             Dans \cite{wang_spirobs_2025}, les auteurs expliquent comment dessiner le SpiRob. Nous nous inspirons de sa forme pour concevoir nos doigts.
         
@@ -471,21 +464,24 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 r = ae^{b\theta}, \quad \text{avec} \quad a > 0
                 \label{eq:spirale_log}
             \end{equation}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.8\textwidth]{Figures/spirale.png}
+                \caption{Influence des coefficients $a$ et $b$ sur la spirale logarithmique}
+                \label{fig:spirale}
+            \end{figure}
             
-            Sachant que $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale). Tandis que $b$ est un autre paramètre d’échelle qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}.
+            $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale), tandis que $b$ est un autre paramètre d’échelle qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}.
             
-            Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin que la spirale s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale parcourra 1 seul tour, et a et b seront choisi de telle sorte que L = $100$ mm.
+            Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin que la spirale s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale parcourra 1 seul tour, et a et b seront choisi de telle sorte qu'on obtienne la longueur L désirée.
         
             Pour déterminer la valeur de \( a \) dans l'équation de la spirale logarithmique \( r = a \cdot e^{b \cdot \theta} \), où la longueur totale déroulée \( L \) doit être égale à 100 mm, nous procédons comme suit :
 
-
-            La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de \( 0 \) à \( \frac{11\pi}{6} \) :
+            La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de \( \pi \) à \( 2\pi \) :
             \[
-            L = \int_\pi^{\theta_0 +\pi} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \quad \text{pour} \ \theta_0 = 2\pi \left( = 1 \text{ tour complet} \right)^*
+            L = \int_\pi^{\theta_0 +\pi} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \quad \text{pour} \ \theta_0 = 2\pi \left( = 1 \text{ tour complet} \right)
             \]
-
-            \footnotetext{* La méthode de calcul de la valeur de $\theta_0$ est détaillée dans la sous-section \emph{Application Numérique}.}
- 
 
             Calculons la dérivée de \( r \) par rapport à \( \theta \) :
             \[
@@ -494,10 +490,9 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             
             Substituons dans l'expression sous la racine :
             \[
-            r^2 = \left( a \cdot e^{b \cdot \theta} \right)^2 = a^2 \cdot e^{2b \theta}
-            \]
-            \[
-            \left( \frac{dr}{d\theta} \right)^2 = \left( a \cdot b \cdot e^{b \cdot \theta} \right)^2 = a^2 \cdot b^2 \cdot e^{2b \theta}
+            r^2 = \left( a \cdot e^{b \cdot \theta} \right)^2 = a^2 \cdot e^{2b \theta},
+            \quad
+            \left( \frac{dr}{d\theta} \right)^2 = \left( a \cdot b \cdot e^{b \cdot \theta} \right)^2 = a^2 \cdot b^2 \cdot e^{2b \theta},
             \]
             \[
             r^2 + \left( \frac{dr}{d\theta} \right)^2 = a^2 e^{2b \theta} + a^2 b^2 e^{2b \theta} = a^2 e^{2b \theta} (1 + b^2)
@@ -529,37 +524,15 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
             a = \frac{L b}{\sqrt{1 + b^2} \left( e^{b \cdot 3\pi} - e^{b \cdot \pi} \right)}
             \label{eq:a}
             \end{equation}
-            
-            Applications numériques avec \( b \in \{0.1, 0.2, 0.3, \dots, 1.0\} \) et \( L = 100 \) mm:
-
-            \begin{table}[h!]
-                \centering
-                \begin{tabular}{@{}c S[table-format=1.4]@{}}
-                \toprule
-                $b$ & {$a$ [mm]} \\
-                \midrule
-                0.1 & 8.311 \\
-                0.2 & 4.162 \\
-                0.3 & 2.004 \\
-                0.4 & 0.932 \\
-                0.5 & 0.420 \\
-                0.6 & 0.184 \\
-                0.7 & 0.079 \\
-                0.8 & 0.033 \\
-                0.9 & 0.014 \\
-                1.0 & 0.006 \\
-                \bottomrule
-                \end{tabular}
-                \caption{Valeurs de $a$ calculées pour différentes valeurs de $b$ avec $L=100$ mm.}
-            \end{table}
 
         \subsubsection{Espacement}
             
-            Enfin, il reste l'espacement $\Delta\theta$ à choisir entre les unités de la figure \ref{fig:spiral_logarithm} pour définir entièrement la forme et la taille du doigt. \cite{wang_spirobs_2025} Or, si $\theta$ va de $0$ à $2\pi$, le nombre de segments est :
+            Enfin, il reste l'espacement $\Delta\theta$ à choisir entre les unités de la figure \ref{fig:spiral_logarithm} pour définir entièrement la forme et la taille du doigt. \cite{wang_spirobs_2025} Or, si $\theta$ va de $\pi$ à $3\pi$, le nombre de trapèzes N est :
         
             \begin{equation}
-            \text{Nombre de trapèzes} = N = \frac{\text{Angle total}}{\Delta\theta}
+            N = \frac{\text{Angle total}}{\Delta \theta}
             = \frac{\theta_0}{\Delta \theta}
+            = \frac{2\pi}{\Delta \theta}
             \label{eq:nb_segment}
             \end{equation}
 
@@ -572,9 +545,9 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{fig:draw_solidworks}
             \end{figure}
 
-            Pour dessiner le doigt sur SolidWorks, nous prenons exemple sur la figure \ref{fig:draw_solidworks}. Il est désormais question de traduire le formalisme mathématique de la spirale logarthmique en cote des différents trapèzes qui composent le doigt.
+            Pour construire le doigt, nous prenons exemple sur la figure \ref{fig:draw_solidworks}. Il est désormais question de traduire le formalisme mathématique de la spirale logarthmique en cote des différents trapèzes qui composent le doigt.
 
-            On donne l'angle de conicité :
+            On donne l'angle de conicité (\textit{taper} \textit{angle}) :
 
             \begin{equation}
             \phi = 2\arctan \left(
@@ -592,15 +565,16 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             Le fait que $\phi$ soit indépendant de $\theta$ signifie que la forme est effilée \cite{wang_spirobs_2025}.
 
-            Enfin, le rapport entre les épaisseurs de deux trapèzes adjacents \(\beta\) est donnée par :
-            \begin{equation}
-            \beta = \frac{\delta(\theta + \Delta\theta)}{\delta(\theta)} = e^{b \Delta\theta}
-            \label{eq:beta}
-            \end{equation}
-            
-            Cela signifie que la taille ou la géométrie d’un trapèze peut être mise à l’échelle (agrandie ou réduite) par un facteur $\beta$ par rapport à la rainure précédente. Ainsi, il suffit de concevoir un seul trapèze initial, puis de l’ajuster avec $\beta$ pour créer les trapèzes suivants.
+    \subsection{Cahier des charges} 
 
-        \subsubsection{Discussion sur le cahier des charges à respecter}
+            \begin{itemize}
+                \item Angle de conicité (ou \textit{taper\_angle}) : $\phi \ = \ 15^o \ = \ \frac{\pi}{12} \ rad$ 
+                \item Angle entre 2 trapèzes adjacents : $\Delta \theta \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$
+                \item Longueur de la spirale centrale : $L \ = \ 10cm \ = \ 100mm$ 
+                \item Couche élastique : 10 $\%$ de la largeur du doigt pour chaque $\theta$
+            \end{itemize}
+
+            \subsubsection{Discussion sur le cahier des charges à respecter}
 
             L'angle de conicité de la spirale joue un rôle clé dans les performances de préhension du doigt, notamment en termes d’espace de travail, de précision de saisie et de capacité de charge. 
             D’après les résultats rapportés dans \cite{wang_spirobs_2025}, un faible angle de conicité permet d’augmenter significativement l’espace de travail, en élargissant la zone accessible par les doigts lors du déploiement. À l’inverse, un angle de conicité plus élevé améliore la performance de saisie : il permet de saisir des objets de plus petite taille (diamètre minimal réduit) tout en augmentant la capacité de charge maximale du robot.
@@ -608,24 +582,18 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
 
             En outre , il s'agit de limiter les frottements entre les câbles et le corps du robot (une friction élevée peut causer des pertes d'énergie, des déformations non uniformes, ou un phénomène de flambage des fils), mais il faut aussi éviter d'avoir une couche élastique trop épaisse (au centre du doight robotique), car cela augmenterait la force nécessaire pour enrouler le doight, rendant l'actionnement par câbles plus exigeant pour les moteurs qui utiliseraient alors davantage d'énergie. Pour régler la friction des câbles, nous pouvons utiliser des câbles UHMWPE pour leur faible coefficient de frottement et leur résistance à l'usure. Quant à l'optimisation de la couche élastique, une épaisseur de couche élastique de  $10\%$ est optimale d'après les tests effectués, assurant une bonne élasticité sans nécessiter une force excessive pour l'enroulement \cite{wang_spirobs_2025}.
 
-            Cahier des charges : 
+        \subsubsection{Application numérique}
 
-            \begin{itemize}
-                \item Angle de conicité (ou \textit{taper\_angle}) : $\phi \ = \ 15^o \ = \ \frac{\pi}{12} \ rad$ 
-                \item Angle entre 2 unicités adjacent : $\Delta \theta \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$
-                \item Longueur de la spirale centrale : $L \ = \ 10cm \ = \ 100mm$ 
-                \item Nombre total de trapèzes : $N_u \ = \ 11$ et une base $N_b \ = \ 1$ donc $N \ = \ N_u \ + \ N_b \ = \ 12$
-                \item Couche élastique : 10 $\%$ de la largeur du doigt pour chaque $\theta$
-            \end{itemize}
+            Pour satisfaire les exigences du cahier des charges ci-dessus, on cherche les valeurs des paramètres $b,\ a,\ \theta_0$ : 
 
-            Pour satisfaire Les exigences du cahier des charges ci-dessus, on cherche les valeurs des paramètres $b,\ a,\ \theta_0$ : 
-
-            Comme montré dans l’équation (\ref{eq:nb_segment}), le nombre de trapèzes dépend de l’angle total $\theta_0$ et l'espacement $\Delta \theta$, on peut en déduire $\theta_0$ comme suit :
+            Comme montré dans l’équation (\ref{eq:nb_segment}), le nombre de trapèzes dépend de l’angle total $\theta_0$ et l'espacement $\Delta \theta$, on peut en déduire le nombre de trapèzes comme suit :
 
             \[
-            \theta_0 = N.\ \Delta \theta\ =\ 12\ .\ \frac{\pi}{6}\ =\ \frac{12\pi}{6} = 2\pi
+                N = \frac{2\pi}{\frac{\pi}{6}} = 12 
             \]
             
+            Il y aura donc 12 trapèzes.
+
             On calcule notre b grâce à l'équation (\ref{eq:angle_de_conicite}) en appliquant la méthode \texttt{fsolve} de \texttt{Python}:
 
             \begin{lstlisting}[language=Python,caption={Résolution numérique du paramètre $b$},label={lst:resolu_b},xleftmargin=0pt]
@@ -745,7 +713,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \begin{subfigure}[t]{0.5\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_1.png}
-                    \caption{Extrusion de la première phalange}
+                    \caption{Extrusion du premier trapèze}
                 \end{subfigure}
                 \caption{Conception de la base}
                 \label{fig:esquisse_etoile}
@@ -1029,7 +997,7 @@ Ce document présente la conception et le dimensionnement d'une pince robotique 
                 \label{fig:etude_de_conception}
             \end{figure}
 
-            Pour réaliser plusieurs simulations, nous utilisons l’option étude de conception. Une variable représentant la force appliquée y est introduite, variant de 10 N à 50 N. Nous ajoutons également un capteur mesurant la contrainte maximale de Von Mises. En effet, les auteurs de \cite{bhat_numerical_2025} s’appuient sur la contrainte équivalente linéarisée, basée sur le critère de Von Mises. Ils ont observé que les contraintes sont généralement plus importantes au centre de l’actionneur, en raison des déformations plus marquées dans cette zone — une observation en accord avec nos propres résultats.
+            Pour réaliser plusieurs simulations, nous utilisons l’option \textit{étude de conception}. Une variable représentant la force appliquée y est introduite, variant de 10 N à 50 N. Nous ajoutons également un capteur mesurant la contrainte maximale de Von Mises. En effet, les auteurs de \cite{bhat_numerical_2025} s’appuient sur la contrainte équivalente linéarisée, basée sur le critère de Von Mises. Ils ont observé que les contraintes sont généralement plus importantes au centre du doigt, en raison des déformations plus marquées dans cette zone — une observation en accord avec nos propres résultats.
 
             La figure \ref{fig:etude_de_conception} montre un dépassement rapide de la limite d’élasticité. Étant donné que nos doigts doivent supporter des charges supérieures à 1 kilogramme, il est fort probable que la pièce entre dans le domaine plastique. Pour remédier à cela, nous proposons d’ajouter un élastique au niveau du trou extérieur du doigt. Ce dispositif permettra à la pièce de retrouver sa position initiale grâce à l’effet de rappel de l’élastique.
 
