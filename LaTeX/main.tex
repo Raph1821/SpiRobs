@@ -1,8 +1,8 @@
 \documentclass[a4paper, 11pt]{report}
-\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage[a4paper, margin=1.5cm]{geometry}
 
 % Police
-\usepackage{libertine}
+\usepackage{lmodern}
 
 % Interlignes et paragraphes
 \usepackage{setspace} % pour l'interligne
@@ -17,9 +17,8 @@
 
 % Espace après paragraphe : 6pt
 \setlength{\parskip}{6pt}
-\setlength{\parindent}{15pt} % Retrait en début de paragraphe
+\setlength{\parindent}{0pt} % Retrait en début de paragraphe
 
-\usepackage{lmodern}
 \usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -37,7 +36,6 @@
 
 \usepackage[symbol]{footmisc} % pour utiliser * au lieu de 1,2,3
 
-\usepackage{graphicx}
 \usepackage{float}  % pour [H]
 
 % La numérotation
@@ -133,6 +131,8 @@
 % Page de garde
 
 \begin{titlepage}
+    \setcounter{page}{1}
+    \thispagestyle{plain}
     \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
     \begin{center}
         \begin{minipage}{1\linewidth}
@@ -144,12 +144,12 @@
 
         \vspace{1.5cm}
         
-        \textsc{\Large{}Master SAR 1\up{\MakeTextLowercase{ère}} année} \\[0.5cm]
+        \textsc{\Large{}Master Sciences de l'ingénieur} \\[0.5cm]
         \textsc{\large{}2024 - 2025} \\[0.5cm]
 
         \HRule \\[0.6cm]
-        {\huge\bfseries{}Rapport de projet :} \\
-        \LARGE{Conception et dimensionnement d'une pince robotique à trois doigts flexibles} \\[0.25cm]
+        {\huge\bfseries{}Rapport de projet de M1, parcours SAR :} \\
+        \LARGE{Conception et dimensionnement d'une pince robotique à trois doigts souples} \\[0.25cm]
         \HRule \\[1.5cm]
 
 
@@ -161,7 +161,7 @@
 
         \hfill
 
-        \Large\textit{Responsable :}\\
+        \Large\textit{Encadrant :}\\
         \begin{center}
             Faiz \textsc{Ben Amar}
         \end{center}
@@ -172,6 +172,7 @@
     \vfill
 \end{titlepage}
 
+\setcounter{page}{2}
 
 \selectlanguage{french}
 % Résumé sur une page séparée avant la table des matières
@@ -179,7 +180,13 @@
 \section*{Résumé}
 \addcontentsline{toc}{section}{Résumé}
 
-Ce rapport décrit la conception, le dimensionnement et la simulation d’une pince robotique à trois doigts flexibles, destinée à la préhension d’objets variés comme des fruits. La démarche s’inspire des robots SpiRob, qui utilisent l’enroulement par câble d’une spirale logarithmique pour générer la flexion des doigts. Après une étude de l’état de l’art (préhenseurs souples, actionnement par câbles, simulation par éléments finis), le projet précise la modélisation mathématique des doigts, leur implémentation CAO sous SolidWorks et le choix des composants mécaniques (moteurs, vis-écrou, matériaux TPU et PLA). Des simulations par éléments finis confirment la capacité du système à saisir des objets légers, tout en mettant en évidence les limites d’élasticité des doigts sous forte contrainte. Enfin, des recommandations sont proposées pour renforcer la résistance mécanique, notamment par l’ajout d’élastiques de rappel. L’ensemble valide la faisabilité d’un préhenseur compact et souple, adapté à la robotique collaborative.
+Ce rapport présente la conception, la modélisation et la simulation d’une pince robotique à trois doigts souples, destinée à la préhension d’objets légers comme des fruits et des légumes, et avec une capacité de charge maximale de 5 kg. S’appuyant sur les principes du robot SpiRob et des structures souples bio-inspirées, le système utilise des doigts imprimés en 3D en TPU selon une géométrie en spirale logarithmique, actionnés par un mécanisme vis-écrou couplé à des câbles.
+
+Le document commence par un état de l'art des préhenseurs souples et des dispositifs d’actionnement par câble, en soulignant les avantages de la compliance passive et les limites en termes de charge et de flambage. La conception est détaillée de la définition mathématique des spirales jusqu’au dessin complet des pièces sous SolidWorks, incluant la base, les doigts et les éléments de transmission (glissière, vis, écrou, support moteur).
+
+Une simulation par éléments finis permet d’évaluer les contraintes subies lors de la fermeture des doigts. Les résultats montrent que la pince peut saisir des objets de masse modérée sans dépasser la limite d’élasticité du matériau, sous réserve d’ajouter des éléments de rappel mécanique tel qu'un élastique pour limiter les déformations plastiques lors d’efforts plus importants.
+
+Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable, illustrant l’intérêt des solutions à câbles pour des applications collaboratives simples.
 
 \clearpage
 \tableofcontents
@@ -187,9 +194,9 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
 \section{Introduction}
 
-    Dans l'industrie, la robotique collaborative, ou cobotique, est omniprésente. Elle vise à soulager l’être humain en prenant en charge les tâches pénibles, notamment à l’aide de préhenseurs conçus spécifiquement pour manipuler des charges de tailles et de poids variables, souvent associées à des tâches répétitives. \cite{noauthor_cobotique_nodate}
+    Dans l'industrie, la robotique collaborative, ou cobotique, est omniprésente. Elle vise à soulager l’être humain en prenant en charge les tâches pénibles, notamment à l’aide de préhenseurs conçus spécifiquement pour manipuler des charges de tailles et de poids variables, souvent associées à des tâches répétitives.
 
-    Ce projet consiste à concevoir et dimensionner une pince robotique à trois doigts flexibles, conçue pour s'ouvrir et se refermer en s'adaptant à l'objet saisi. L'objectif est de réussir à attraper des fruits et légumes relativement légers, comme un poivron. Idéalement, nous devrons pouvoir soulever des objets allant jusqu'à 5 kilogrammes. Nous utiliserons \textit{SolidWorks} pour modéliser le robot, et étudierons son élasticité par éléments finis via \textit{SolidWorks Simulation}.
+    Ce projet consiste à concevoir et dimensionner une pince robotique à trois doigts flexibles, conçue pour s'ouvrir et se refermer en s'adaptant à l'objet saisi. L'objectif est de réussir à attraper des fruits et légumes relativement légers, comme un poivron. Idéalement, nous devrons pouvoir soulever des objets allant jusqu'à 5 kilogrammes. Nous utiliserons SolidWorks pour modéliser le robot, et étudierons son élasticité par éléments finis via le module \textit{SolidWorks Simulation}.
 
     \subsection{Motivations et principes fondamentaux}
 
@@ -225,16 +232,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
     \subsection{Comportement et structure de la pince à concevoir}
     
-        La pince pourra adopter deux configurations distinctes : ouverte ou fermée. Elle sera haute de 10 cm en position ouverte et composée de 3 doigts identiques soumis à un encastrement rigide sur une base. Les doigts seront positionnés symétriquement autour du centre de la base, chacun séparé par un angle de 120°. Des câbles passeront sur un des côtés des doigts et permettront de les contrôler. L'actionnement à câbles peut être localisé sur la base ou déporté à l'extérieur du système, il sera question d'effectuer une étude comparative des différentes solutions possibles.
-    
-        En outre, nous devons choisir entre un moteur rotatif actionnant un tambour et un moteur linéaire.
-        Si nous optons pour un moteur rotatif avec un tambour, il est crucial d’éviter que le câble ne
-        s’enroule sur lui-même. Étant donné que la course du câble est calculée en fonction de la rotation
-        du moteur, il est essentiel que le câble ne tourne pas sur lui-même pour éviter de fausser les
-        résultats. Nous pourrions envisager une glissière pour guider l’enroulement du fil le long d’un
-        axe, ou un mécanisme utilisant une vis sans fin pour maintenir la tension.
-        Dans les systèmes mécaniques utilisant des câbles, la tension de ces derniers est en effet essentielle. Une tension insuffisante
-        peut entraîner un flambage, et empêcher un contrôle efficace des câbles.
+        La pince pourra adopter deux configurations distinctes : ouverte ou fermée. Elle est composée de 3 doigts identiques de hauteur 10 cm, chacun soumis à un encastrement rigide sur une base. Les doigts seront positionnés symétriquement autour du centre de la base, séparés par un angle de 120°. Des câbles passant dans les trous des doigts permettront leur actionnement via un moteur chargé de régler leur tension. Il convient également de déterminer la solution la plus appropriée entre un moteur linéaire et un moteur rotatif. Dans ce type de mécanisme, la tension appliquée aux câbles est un paramètre critique, car si elle est insuffisante, elle peut provoquer un flambage et compromettre le contrôle efficace du mouvement.
         
 \clearpage
 
@@ -243,8 +241,6 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
     Nous proposons dans un premier temps, un état de l'art sur les préhenseurs souples et leurs actionneurs afin d'avoir une vue globale sur leur intérêt et les solutions existantes.
 
     \subsection{Préhenseurs souples}
-
-            Ces travaux montrent l'intérêt des préhenseurs souples pour s'adapter à des objets variés, et illustrent les principes de compliance et de préhension adaptative exposés en introduction.
 
             \begin{figure}[htbp]
                 \centering
@@ -265,35 +261,13 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                 \label{fig:resume_origami}
             \end{figure}
 
-            La première étude a été menée afin de concevoir des préhenseurs souples en origami, permettant une adaptabilité de préhension pour de nombreux objets. La pince, qui n'est qu'une simple feuille de PVC (voir figure \ref{fig:pince_PVC}), est commandée grâce à un moteur linéaire. Grâce à sa structure flexible, elle peut saisir efficacement des objets de taille diverse pour le même actionnement (voir figure \ref{fig:prehension_adapt}).
+            Cette étude a été menée afin de concevoir des préhenseurs souples en origami, permettant une adaptabilité de préhension pour de nombreux objets. La pince, qui n'est qu'une simple feuille de PVC (voir figure \ref{fig:pince_PVC}), est commandée à l'aide d'un moteur linéaire. Grâce à sa structure flexible, elle peut saisir efficacement des objets de taille diverse pour le même actionnement (voir figure \ref{fig:prehension_adapt}). Cependant, sa capacité de préhension reste limitée pour des charges trop lourdes, le frottement étant insuffisant pour maintenir ou attraper des objets au poids élevé.
 
-            \begin{figure}[htbp]
-                \centering
-                \includegraphics[width=0.5\textwidth]{Figures/multi-stable.png}
-                \caption{Pince kirigami multi-stable \cite{qi_kirigami_2024}}
-                \label{fig:resume_kirigami}
-            \end{figure}
-
-            La seconde étude explore une pince kirigami dotée de plusieurs configurations stables, obtenues par déformation géométrique contrôlée (voir figure \ref{fig:resume_kirigami}). Bien qu’ingénieuse, cette pince présente une force de préhension limitée, la rendant moins adaptée aux charges lourdes.
-            
-            Ces approches soulignent l’intérêt et les limites des solutions souples pour la préhension robotique malgré leur adaptabilité.
+            Ces travaux soulignent l’intérêt et les limites des solutions souples pour la préhension robotique malgré leur adaptabilité.
                 
     \subsection{Actionnement par câbles}
 
         Deuxièmement, nous établissons une synthèse utile sur l'actionnement par câbles.
-
-        \subsubsection{Mécanisme à tendons permettant la prétension}
-
-            Dans l'article \cite{saputro_investigation_2023}, les auteurs effectue un examen systématique de certaines avancées technologiques récentes dans le domaine des préhenseurs robotiques souples, et plus précisément dans le cas des mécanismes à tendon.
-
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.5\textwidth]{Figures/tendon.png}
-                \caption{Tendon à extrémité ouverte \cite{saputro_investigation_2023}}
-                \label{fig:tendon}
-            \end{figure}
-
-            Une partie intéressante de cette étude est celle qui traite des tendons à extrémité ouverte, car ils permettent de prétendre le fil. Un tendon à extrémité ouverte possède une extrémité attachée à un lien mobile et l'autre extrémité fixée à une poulie motrice qui est connectée à un actionneur (notre moteur). Ce type de tendon utilise une force unidirectionnelle, la force de friction, qui agit à l'opposé de la force appliquée pour résister au mouvement du corps. Sur la figure \ref{fig:tendon}, deux poulies (i et j) sont connectées par un tendon à extrémité ouverte. Un support ou lien (noté k) est utilisé pour maintenir une distance centrale stable entre les poulies i et j. \cite{saputro_investigation_2023}
 
         \subsubsection{Mécanisme \textit{level wind} ou tambour}
 
@@ -307,7 +281,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                     \label{fig:video}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.6\textwidth}
+                \begin{subfigure}[t]{0.5\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/level_wind.png}
                     \caption{Principe de fonctionnement du système type \textit{level wind} \cite{mortensen_precision_2014}}
@@ -318,9 +292,9 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
             Le mécanisme \textit{level wind} est un dispositif utilisé notamment sur les moulinets de pêche, qui guide le fil de pêche latéralement pendant l’enroulement pour éviter les enchevêtrements et maintenir une tension constante. La vidéo \cite{hugh_lyman_level_2014} illustre ce mécanisme (voir figure \ref{fig:video}).
 
-            Sur la figure \ref{fig:level_wind}, vous pouvez voir comment fonctionne le système. Une poulie se déplace le long d'un axe grâce à un moteur et une vis, et enroule alors le fil tout le long du tambour. L'approche la plus répandue pour la conception d'un tel système consiste en un rapport d'engrenage fixe entre la rotation du tambour du treuil et la poulie de l'enrouleur de niveau. Un rapport fixe signifie que pour chaque tour complet du tambour, la poulie se déplace d'une distance constante. En somme, cela permet à la poulie de se déplacer horizontalement à une vitesse proportionnelle à la vitesse de rotation du tambour.
+            Sur la figure \ref{fig:level_wind}, vous pouvez voir comment fonctionne le système. Une poulie se déplace le long d'un axe grâce à un moteur et une vis, et enroule alors le fil tout le long du tambour. L'approche la plus répandue pour la conception d'un tel système consiste en un rapport d'engrenage fixe entre la rotation du tambour du treuil et la poulie de l'enrouleur de niveau. Un rapport fixe signifie que pour chaque tour complet du tambour, la poulie se déplace d'une distance constante. En somme, cela permet à la poulie de se déplacer horizontalement à une vitesse proportionnelle à celle de rotation du tambour.
             
-            Cette solution est parfaitement envisageable pour notre pince, puisque nous resterons dans plages de distances et de vitesses relativement faibles, limitant ainsi toute saccumulation d’erreur dans la position de la poulie par rapport au tambour.
+            Cette solution est parfaitement envisageable pour notre pince, puisque nous resterons dans des plages de distances et de vitesses relativement faibles, limitant ainsi toute accumulation d’erreur dans la position de la poulie par rapport au tambour.
 
         \subsubsection{Vis à bille}
 
@@ -351,20 +325,9 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
         Dans \cite{bhat_numerical_2025}, les auteurs développent un actuateur souple pneumatique bio-inspiré, conçu pour la préhension douce et les applications thérapeutiques. Ce dispositif imite la flexion d’un doigt humain par l'action de la pression sur des chambres internes segmentées (voir figure \ref{fig:doigt_souple}).
 
-        L'effecteur est fabriqué en silicone liquide (LSR), un matériau hyperélastique modélisé selon la loi de \textbf{Yeoh d'ordre 2}, adaptée aux grandes déformations quasi-incompressibles. Le modèle est défini par la formulation faible du problème établi par l'équation d'équilibre :
+        L'effecteur est fabriqué en silicone liquide (LSR), un matériau hyperélastique modélisé selon la loi de Yeoh d'ordre 2. Le modèle est défini par la formulation faible du problème établie par l'équation d'équilibre : $div(\sigma) + \rho f = 0$, avec \( \sigma \) le tenseur des contraintes, \( \rho \) la masse volumique, et \( f \) les forces volumiques (gravité).
 
-        \[
-        div(\sigma) + \rho f = 0
-        \]
-
-        où :
-        \begin{itemize}
-        \item \( \sigma \) est le tenseur de contrainte,
-        \item \( \rho \) est la masse volumique,
-        \item \( f \) sont les forces volumiques (gravité).
-        \end{itemize}
-
-        Le comportement est supposé \textbf{isotrope}, \textbf{homogène}, \textbf{incompressible}, et en \textbf{quasi-statique} (pas d’effets inertiels).
+        Le comportement est supposé isotrope, homogène, incompressible, et en quasi-statique (pas d’effets inertiels).
 
         L’analyse est menée via un modèle éléments finis utilisant des tétraèdres quadratiques (éléments d'ordre 2), avec un maillage raffiné (\( 63\,772 \) éléments, taille 3 mm).
 
@@ -390,10 +353,6 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
         La simulation indique que l’actionneur produit une force de préhension comprise entre 2 et 2,71 N pour des pressions allant de 50 à 100 kPa (voir figure II.6a). En revanche, les résultats expérimentaux montrent une relation moins linéaire (figure II.6b) et une force maximale plus élevée, atteignant 5 N à 100 kPa, alors que la simulation ne prévoit que 2,71 N. Cette différence s’explique par un débit d’air prolongé lors des tests expérimentaux, ce qui permet à l’actionneur de se gonfler davantage et donc de générer une force plus importante.
 
         Ce travail montre que les résultats d’une simulation peuvent différer sensiblement de ceux obtenus par expérimentation. Même si notre approche par câbles est différente, cet article nous a aidés à explorer un modèle de déformation et une simulation avec un maillage fin basé sur un modèle CAO.
-
-    \subsection{Conclusion}
-
-        En somme, les approches existantes confirment l’intérêt des structures souples et des actionnements par câble pour des tâches de préhension adaptative. Toutefois, elles soulignent aussi les limites à surmonter, notamment en matière de charge maximale, de précision et de contrôle de la tension. Ces constats guideront nos choix dans la conception de la pince proposée.
 
 \clearpage
         
@@ -424,56 +383,27 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
             \begin{figure}
                 \centering
-                \includegraphics[width=1\textwidth]{Figures/spirale.png}
+                \includegraphics[width=0.8\textwidth]{Figures/spirale.png}
                 \caption{Influence des coefficients $a$ et $b$ sur la spirale logarithmique}
                 \label{fig:spirale}
             \end{figure}
             
-            $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale), tandis que $b$ est un autre paramètre qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}.
-            
-            Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin qu'un doigt s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale centrale parcourra 1 seul tour, et a et b seront choisis de telle sorte qu'on obtienne la longueur désirée L du doigt.
+            Dans notre cas, la spirale sera bornée par $\theta \in [\pi, \theta_0 + \pi]$. De plus, $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale), tandis que $b$ est un coefficient qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}. Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin qu'un doigt s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale centrale parcourra 1 seul tour ($\theta_0 = 2\pi$), et a et b seront choisis de telle sorte qu'on obtienne la longueur désirée L du doigt.
 
             Pour déterminer la valeur de \( a \) dans l'équation de la spirale logarithmique \( r = a \cdot e^{b \cdot \theta} \), à b et L fixés, nous procédons comme suit :
 
-            La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de \( \pi \) à \( 2\pi \) :
+            La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de \( \pi \) à \( 3\pi \) :
             \[
             L = \int_\pi^{\theta_0 +\pi} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \quad \text{pour} \ \theta_0 = 2\pi \left( = 1 \text{ tour complet} \right)
             \]
-
-            Calculons la dérivée de \( r \) par rapport à \( \theta \) :
-            \[
-            \frac{dr}{d\theta} = \frac{d}{d\theta} \left( a \cdot e^{b \cdot \theta} \right) = a \cdot b \cdot e^{b \cdot \theta}
-            \]
             
-            Substituons dans l'expression sous la racine :
-            \[
-            r^2 = \left( a \cdot e^{b \cdot \theta} \right)^2 = a^2 \cdot e^{2b \theta},
-            \quad
-            \left( \frac{dr}{d\theta} \right)^2 = \left( a \cdot b \cdot e^{b \cdot \theta} \right)^2 = a^2 \cdot b^2 \cdot e^{2b \theta},
-            \]
-            \[
-            r^2 + \left( \frac{dr}{d\theta} \right)^2 = a^2 e^{2b \theta} + a^2 b^2 e^{2b \theta} = a^2 e^{2b \theta} (1 + b^2)
-            \]
+            Substituons dans la racine carrée : $\sqrt{r^2 + \left( \frac{dr}{d\theta} \right)^2} = \sqrt{a^2 e^{2b \theta} (1 + b^2)} = a e^{b \theta} \sqrt{1 + b^2}$
             
-            Prenons la racine carrée :
-            \[
-            \sqrt{r^2 + \left( \frac{dr}{d\theta} \right)^2} = \sqrt{a^2 e^{2b \theta} (1 + b^2)} = a e^{b \theta} \sqrt{1 + b^2}
-            \]
+            La longueur totale devient : $L = \int_\pi^{3\pi} a e^{b \theta} \sqrt{1 + b^2} \, d\theta = a \sqrt{1 + b^2} \int_\pi^{3\pi} e^{b \theta} \, d\theta$
             
-            La longueur totale devient :
-            \[
-            L = \int_\pi^{3\pi} a e^{b \theta} \sqrt{1 + b^2} \, d\theta = a \sqrt{1 + b^2} \int_\pi^{3\pi} e^{b \theta} \, d\theta
-            \]
+            Calculons l'intégrale : $\int_\pi^{3\pi} e^{b \theta} \, d\theta = \left[ \frac{1}{b} e^{b \theta} \right]_\pi^{3\pi} = \frac{1}{b} \left( e^{b \cdot 3\pi} - e^{b \cdot \pi} \right)$
             
-            Calculons l'intégrale :
-            \[
-            \int_\pi^{3\pi} e^{b \theta} \, d\theta = \left[ \frac{1}{b} e^{b \theta} \right]_\pi^{3\pi} = \frac{1}{b} \left( e^{b \cdot 3\pi} - e^{b \cdot \pi} \right)
-            \]
-            
-            Ainsi, la longueur totale est :
-            \[
-            L = a \sqrt{1 + b^2} \cdot \frac{1}{b} \left( e^{b \cdot 3\pi} - e^{b \cdot \pi} \right)
-            \]
+            Ainsi, la longueur totale est : $L = a \sqrt{1 + b^2} \cdot \frac{1}{b} \left( e^{b \cdot 3\pi} - e^{b \cdot \pi} \right)$
             
             En isolant \( a \) :
 
@@ -530,7 +460,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
             D’après les résultats rapportés dans \cite{wang_spirobs_2025}, un faible angle de conicité permet d’augmenter significativement l’espace de travail, en élargissant la zone accessible par les doigts lors du déploiement. À l’inverse, un angle de conicité plus élevé améliore la performance de saisie : il permet de saisir des objets de plus petite taille (diamètre minimal réduit) tout en augmentant la capacité de charge maximale du robot.
             À géométrie constante, l’augmentation du poids de l’objet à saisir est également mieux tolérée lorsque le diamètre est grand, ce phénomène étant particulièrement marqué pour les objets volumineux. Par exemple, un SpiRob avec un angle de conicité de $15^\circ$ peut saisir des objets dont le diamètre varie de 5{,}6\,mm à 115\,mm, et supporter une charge allant jusqu’à 10\,kg, soit environ 260 fois son propre poids (poids du robot : 38{,}4\,g) \cite{wang_spirobs_2025}.
 
-            En outre , il s'agit de limiter les frottements entre les câbles et le corps du robot (une friction élevée peut causer des pertes d'énergie, des déformations non uniformes, ou un phénomène de flambage des fils), mais il faut aussi éviter d'avoir une couche élastique trop épaisse (au centre du doigt robotique), car cela augmenterait la force nécessaire pour enrouler le doight, rendant l'actionnement par câbles plus exigeant pour les moteurs qui utiliseraient alors davantage d'énergie. Pour régler la friction des câbles, nous pouvons utiliser des câbles UHMWPE pour leur faible coefficient de frottement et leur résistance à l'usure. Quant à l'optimisation de la couche élastique, une épaisseur de couche élastique de  $10\%$ est optimale d'après les tests effectués, assurant une bonne élasticité sans nécessiter une force excessive pour l'enroulement \cite{wang_spirobs_2025}.
+            En outre , il s'agit de limiter les frottements entre les câbles et le corps du robot (une friction élevée peut causer des pertes d'énergie, des déformations non uniformes, ou un phénomène de flambage des fils), mais il faut aussi éviter d'avoir une couche élastique trop épaisse (au centre du doigt robotique), car cela augmenterait la force nécessaire pour enrouler le doigt, rendant l'actionnement par câbles plus exigeant pour les moteurs qui utiliseraient alors davantage d'énergie. Pour régler la friction des câbles, nous pouvons utiliser des câbles UHMWPE pour leur faible coefficient de frottement et leur résistance à l'usure. Quant à l'optimisation de la couche élastique, une épaisseur de couche élastique de  $10\%$ est optimale d'après les tests effectués, assurant une bonne élasticité sans nécessiter une force excessive pour l'enroulement \cite{wang_spirobs_2025}.
 
         \subsubsection{Détermination des paramètres pour répondre au cahier des charges}
 
@@ -565,8 +495,6 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                 raise ValueError("La solution pour b doit être positive.")
             b=b_solution
             \end{lstlisting}
-
-            \vspace{3cm}
 
             La fonction \texttt{equation} renvoie la différence :
             \[
@@ -651,13 +579,13 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                 \begin{subfigure}[t]{0.5\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_1.png}
-                    \caption{Esquisse de l'étoile pour discrétiser la spirale, et extrusion de la première phalange à l'aide des lignes construites}
+                    \caption{Esquisse de l'étoile pour discrétiser la spirale, et extrusion de la première moitié de phalange à l'aide des lignes construites}
                 \end{subfigure}
                 \hfill
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_entier.png}
-                    \caption{Extrusion des phalanges à l'aide des lignes construites}
+                    \caption{Extrusion de toutes les moitiés des phalanges à l'aide des lignes construites}
                 \end{subfigure}
                 \caption{Dessin de l'étoile et des phalanges}
                 \label{fig:esquisse_etoile}
@@ -728,14 +656,14 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.3\textwidth}
+                \begin{subfigure}[t]{0.2\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/support_idee.png}
                     \caption{Support moteur en MAKERBEAM, avec la pièce pour y fixer le moteur en rouge}
                     \label{fig:support}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.5\textwidth}
+                \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/support_fixation.png}
                     \caption{4 trous de diamètre 4 mm percés dans la base pour fixer les 4 barres (en bleu)}
@@ -773,14 +701,14 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.3\textwidth}
+                \begin{subfigure}[t]{0.25\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/piece_manquante.png}
                     \caption{Pièce attachée au moteur et vissée sur la vis mère avec un filetage réaliste}
                     \label{fig:piece_manquante}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.3\textwidth}
+                \begin{subfigure}[t]{0.25\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/attache.png}
                     \caption{Attache pour la vis mère (en bleue) et le moteur}
@@ -817,14 +745,14 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
         \subsubsection{Pince assemblée}
 
-            \begin{figure}
+            \begin{figure} [h]
                 \centering
                 \includegraphics[width=0.5\textwidth]{Figures/pince_assemblee.png}
                 \caption{Assemblage de notre pince}
                 \label{fig:pince_assemble}
             \end{figure}
 
-            Sur la figure \ref{fig:pince_assemble}, nous proposons une illustration de l'assemblage CAO finale de notre pince. La sphère verte permet de simuler une pomme de diamètre 8 cm.
+            Sur la figure \ref{fig:pince_assemble}, nous proposons une illustration de l'assemblage CAO finale de notre pince. La sphère verte permet de modéliser une pomme de diamètre 8 cm.
 
 \section{Résultats}
 
@@ -834,7 +762,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
             \textbf{TPU}
 
-                Pour simuler les contraintes et les déplacements dans SolidWorks, il est nécessaire d'intégrer les propriétés mécaniques du TPU que nous utiliserons pour les doigts. Dans \cite{rodriguez-parada_influence_2021}, les auteurs utilisent un TPU de module d'Young de 26 MPa. Toutefois, les résultats expérimentaux rapportés dans cet article indiquent des valeurs sensiblement inférieures en pratique, en fonction notamment de la densité de remplissage lors de l'impression 3D. Étant donné notre objectif d’éviter tout comportement plastique, nous privilégions un matériau présentant un module d’Young relativement faible. Ainsi, pour obtenir une première estimation des efforts maximaux – et par conséquent du couple moteur à ne pas dépasser – nous retenons une valeur volontairement majorée de 30 MPa pour le module d’Young dans la simulation (sachant que plus il est élevé, moins le matériau est souple). Enfin, pour vérifier que la pièce reste dans le domaine élastique, nous adoptons comme limite d’élasticité celle du eTPU-95a utilisé dans \cite{wang_spirobs_2025}, soit $\sigma_{limite} = 8,6$ MPa.
+                Pour simuler les contraintes et les déplacements dans SolidWorks, il est nécessaire d'intégrer les propriétés mécaniques du TPU que nous utiliserons pour les doigts. Dans \cite{rodriguez-parada_influence_2021}, les auteurs utilisent un TPU de module d'Young de 26 MPa. Étant donné notre objectif d’éviter tout comportement plastique, nous privilégions un matériau présentant un module d’Young relativement faible. Ainsi, pour obtenir une première estimation des efforts maximaux, et par conséquent du couple moteur à ne pas dépasser, nous retenons une valeur volontairement majorée de 30 MPa pour le module d’Young dans la simulation (sachant que plus il est élevé, moins le matériau est souple). Enfin, pour vérifier que la pièce reste dans le domaine élastique, nous adoptons comme limite d’élasticité celle du eTPU-95a utilisé dans \cite{wang_spirobs_2025}, soit $\sigma_{limite} = 8,6$ MPa.
             
             \textbf{PLA}
 
@@ -842,7 +770,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
         \subsubsection{Méthode}
 
-            De même que \cite{bhat_numerical_2025}, nous restons dans l'hypothèse des petits déplacements pour des matériaux homogènes, isotropes et incompressibles. Nous décidons également de négliger la gravité. En effet, d'après SolidWorks, notre doigt mesure $25$ grammes. Son poids est donc d'environ $0,25$ N, or les forces des câbles seront de l'ordre de l'unité, voire de la dizaine de Newton puisque l'on souhaite attraper des objets allant jusqu'à 5 kilogrammes ($50$ Newton). Ainsi, la gravité représente moins de $1$ \% des efforts subis par le doigt.
+            De même que dans le cadre de l'étude \cite{bhat_numerical_2025}, nous restons dans l'hypothèse des des matériaux homogènes, isotropes et incompressibles. Nous décidons également de négliger la gravité. En effet, d'après SolidWorks, notre doigt mesure $25$ grammes. Son poids est donc d'environ $0,25$ N, or les forces des câbles seront de l'ordre de l'unité, voire de la dizaine de Newton puisque l'on souhaite attraper des objets allant jusqu'à 5 kilogrammes ($50$ Newton). Ainsi, la gravité représente moins de $1$ \% des efforts subis par le doigt.
 
             \begin{figure}[H]
                 \centering
@@ -853,16 +781,16 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                     \label{fig:encastrement}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.3\textwidth}
+                \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/force_3_doigts.png}
-                    \caption{Simulation des forces (en violet) engendrées par les câbles sur les doigts}
+                    \caption{Simulation des forces (en violet) engendrées par les câbles sur l'extrémité des doigts}
                     \label{fig:force}
                 \end{subfigure}
                 \caption{Mise en place d'un problème bien posé}
             \end{figure}
 
-            On commence par créer une nouvelle étude statique. L’onglet \textit{Déplacements imposés} permet de définir les conditions limites, notamment en fixant la géométrie, c'est-à-dire ajouter un encastrement sur la base (voir figure \ref{fig:encastrement}). Ensuite, l’onglet \textit{Chargements externes} sert à appliquer les forces. Pour simuler la force du câble sur un doigt, nous établissons une force sur l'extrémité de la pièce, dans la direction du câble (voir figure \ref{fig:force}).
+            On commence par créer une nouvelle étude statique. L’onglet \textit{Déplacements imposés} permet de définir les conditions limites, notamment en fixant la géométrie, c'est-à-dire ajouter un encastrement sur la base (voir figure \ref{fig:encastrement}). Ensuite, l’onglet \textit{Chargements externes} sert à appliquer les forces. Pour simuler la force du câble sur un doigt, nous établissons une force sur l'extrémité de la pièce, dans la direction du trou (voir figure \ref{fig:force}).
 
             \begin{figure}[H]
                 \centering
@@ -873,7 +801,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                     \label{fig:maillage}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.6\textwidth}
+                \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/simulation_4 N.png}
                     \caption{Simulation des efforts des câbles sur les doigts}
@@ -885,24 +813,24 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
         \textbf{Résultats}
             
-            On génère un maillage avant d'exécuter la simulation avec des forces de 4~N appliquées sur chaque doigt (pour simuler la portée d'un objet d'environ 400 grammes). Le logiciel va alors calculer le tenseur de contraintes, les déformations et les déplacements. On peut remarquer dans ce cas que la contrainte maximale ne dépasse pas la limite d'élasticité du matériau (voir figure~\ref{fig:simulation4}) :
+            On génère un maillage fin de $2,7 \cdot 10^5$ éléments avant d'exécuter la simulation avec des forces de 4~N appliquées sur chaque doigt (pour simuler la portée d'un objet d'environ 400 grammes). Le logiciel va alors calculer le tenseur de contraintes, les déformations et les déplacements. On peut remarquer dans ce cas que la contrainte maximale ne dépasse pas la limite d'élasticité du matériau (voir figure~\ref{fig:simulation4}) :
 
             \[
-            4{,}781\ \text{MPa} < 8{,}6\ \text{MPa} \quad \Rightarrow \quad \sigma_{\text{max}} < \sigma_{\text{limite}}
+            2{,}346\ \text{MPa} < 8{,}6\ \text{MPa} \quad \Rightarrow \quad \sigma_{\text{max}} < \sigma_{\text{limite}}
             \]
 
-            Étant donné que le poids de l'objet soulevé peut être divisé par trois grâce à l'utilisation des trois doigts, on peut conclure que la pince est tout à fait capable de soulever des fruits et des légumes pesant quelques centaines de grammes sans subir de déformation permanente. Par exemple, une pomme ou un poivron pèse en moyenne entre 150 et 200 grammes, ce qui est conforme à ces limites.
+            Étant donné que le poids de l'objet soulevé peut être divisé par trois grâce à l'utilisation des trois doigts, on peut conclure que la pince est tout à fait capable de soulever des fruits et des légumes pesant quelques centaines de grammes sans subir de déformations permanentes. Par exemple, une pomme ou un poivron pèse en moyenne entre 150 et 200 grammes, ce qui est conforme à ces limites.
 
             \begin{figure}
                 \centering
-                \includegraphics[width=1\textwidth]{Figures/étude_de_conception.png}
+                \includegraphics[width=0.8\textwidth]{Figures/étude_de_conception.png}
                 \caption{Étude des contraintes maximales pour plusieurs valeurs de forces}
                 \label{fig:etude_de_conception}
             \end{figure}
 
-            Pour réaliser plusieurs simulations, nous utilisons l’option \textit{étude de conception}. Une variable représentant la force appliquée y est introduite, variant de 10 N à 50 N. Nous ajoutons également un capteur mesurant la contrainte maximale de Von Mises. En effet, les auteurs de \cite{bhat_numerical_2025} s’appuient sur la contrainte équivalente linéarisée, basée sur le critère de Von Mises. Ils ont observé que les contraintes sont généralement plus importantes au centre du doigt, en raison des déformations plus marquées dans cette zone — une observation en accord avec nos propres résultats.
+            Pour réaliser plusieurs simulations, nous utilisons l’option \textit{étude de conception}. Une variable représentant la force appliquée y est introduite, variant de 9 N à 17 N (pour simuler le poids des objets pesant jusqu'à $1.7 \cdot 3 = 5.1$ kg). Nous ajoutons également un capteur mesurant la contrainte maximale de Von Mises. En effet, les auteurs de \cite{bhat_numerical_2025} s’appuient sur la contrainte équivalente linéarisée, basée sur le critère de Von Mises. Ils ont observé que les contraintes sont généralement plus importantes au centre du doigt, en raison des déformations plus marquées dans cette zone — une observation en accord avec nos propres résultats.
 
-            La figure \ref{fig:etude_de_conception} montre un dépassement rapide de la limite d’élasticité. Étant donné que nos doigts doivent supporter des charges supérieures à 1 kilogramme, il est fort probable que la pièce entre dans le domaine plastique. Pour remédier à cela, nous proposons d’ajouter un élastique au niveau du trou extérieur du doigt. Ce dispositif permettra à la pièce de retrouver sa position initiale grâce à l’effet de rappel de l’élastique.
+            La figure \ref{fig:etude_de_conception} montre un dépassement de la limite d’élasticité pour des charges lourdes (15 Newton), et la pièce rentre ainsi dans le domaine plastique. Pour remédier à cela, nous proposons d’ajouter un élastique au niveau du trou extérieur du doigt. Ce dispositif permettra à la pièce de retrouver sa position initiale grâce à l’effet de rappel de l’élastique, dans le cas où le matériau fatigue ou sort du domaine élastique.
 
     
     \bibliographystyle{IEEEtran}

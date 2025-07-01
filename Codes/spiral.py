@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch
 
 # Paramètres des spirales
-a_values = [4, 6, 8]
+a_values = [5, 15, 30]
 b_values = [0.2, 0.5, 0.8]
 
-fig, axes = plt.subplots(len(b_values), len(a_values), figsize=(12, 10), subplot_kw={'aspect': 'equal'})
+fig, axes = plt.subplots(len(b_values), len(a_values), figsize=(9, 6), subplot_kw={'aspect': 'equal'})
 
 theta = np.linspace(0, 2 * np.pi, 500)
 
