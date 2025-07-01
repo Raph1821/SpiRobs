@@ -427,7 +427,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
             Pour construire le doigt, nous prenons exemple sur la figure \ref{fig:draw_solidworks}. Il est désormais question de traduire le formalisme mathématique de la spirale logarthmique en cote des différentes phalanges qui composent le doigt.
 
-            On donne l'angle de conicité (\textit{taper} \textit{angle}) :
+            Nous donnons l'angle de conicité (\textit{taper} \textit{angle}) :
 
             \begin{equation}
             \phi(b) = 2\arctan \left(
@@ -476,7 +476,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
             Ensuite, nous devons déterminer b de telle sorte que $\phi = \frac{\pi}{12}$.
             
-            On le calcule grâce à l'équation (\ref{eq:angle_de_conicite}) en appliquant la méthode \texttt{fsolve} de \texttt{Python}:
+            Nous le calculons grâce à l'équation (\ref{eq:angle_de_conicite}) en appliquant la méthode \texttt{fsolve} de \texttt{Python}:
 
             \begin{lstlisting}[language=Python,caption={Résolution numérique du paramètre $b$},label={lst:resolu_b},xleftmargin=0pt]
 
@@ -510,7 +510,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \item \(\mathbf{xtol}\) : C'est la \textit{tolérance sur la solution} que l'on fixe pour arrêter la recherche de la racine. Plus précisément, lorsque la variation de \( x \) (la valeur approchée de la racine) entre deux itérations est inférieure à \(\texttt{xtol}\), l'algorithme considère que la solution est suffisamment précise et s'arrête. Ici, \(\texttt{xtol} = 10^{-6}\) signifie que la racine est calculée avec une précision d'environ \(10^{-6}\).
             \end{itemize}
 
-            \textbf{On a donc reçu la valeur de $b_c\ =\ 0.2230302381847426$ et a déduit $a_c$ de l'équation (\ref{eq:a}) pour $a_c\ =\ 3.530268404263818$}
+            \textbf{Nous avons donc reçu la valeur de $b_c\ =\ 0.2230302381847426$ et a déduit $a_c$ de l'équation (\ref{eq:a}) pour $a_c\ =\ 3.530268404263818$}
 
             \begin{table}[h!]
                 \centering
@@ -533,7 +533,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
         r_c = a_c e^{b_c\theta}, \qquad \text{avec} b_c = 0.2230, a_c = 3.5303, \quad \text{d'après TABLE \ref{tab:valeurs_a_b}}
         \]
 
-        On cherche maintenant l'équation de la spirale qui enveloppe le doigt, soit $r(\theta) = f(r_c(\theta))$. Ainsi, on peut
+        Nous cherchons maintenant l'équation de la spirale qui enveloppe le doigt, soit $r(\theta) = f(r_c(\theta))$. Ainsi, on peut
         déduire la formule inverse de (\ref{eq:spirale_centrale}) en posant $r(\theta) = ae^{b\theta}$ :
 
         $$r_c(\theta) = \frac{r(\theta) + r(\theta + 2\pi)}{2}, \quad \forall \theta$$
@@ -790,7 +790,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \caption{Mise en place d'un problème bien posé}
             \end{figure}
 
-            On commence par créer une nouvelle étude statique. L’onglet \textit{Déplacements imposés} permet de définir les conditions limites, notamment en fixant la géométrie, c'est-à-dire ajouter un encastrement sur la base (voir figure \ref{fig:encastrement}). Ensuite, l’onglet \textit{Chargements externes} sert à appliquer les forces. Pour simuler la force du câble sur un doigt, nous établissons une force sur l'extrémité de la pièce, dans la direction du trou (voir figure \ref{fig:force}).
+            Nous commencons par créer une nouvelle étude statique. L’onglet \textit{Déplacements imposés} permet de définir les conditions limites, notamment en fixant la géométrie, c'est-à-dire ajouter un encastrement sur la base (voir figure \ref{fig:encastrement}). Ensuite, l’onglet \textit{Chargements externes} sert à appliquer les forces. Pour simuler la force du câble sur un doigt, nous établissons une force sur l'extrémité de la pièce, dans la direction du trou (voir figure \ref{fig:force}).
 
             \begin{figure}[H]
                 \centering
@@ -813,7 +813,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
         \textbf{Résultats}
             
-            On génère un maillage fin de $2,7 \cdot 10^5$ éléments avant d'exécuter la simulation avec des forces de 4~N appliquées sur chaque doigt (pour simuler la portée d'un objet d'environ 400 grammes). Le logiciel va alors calculer le tenseur de contraintes, les déformations et les déplacements. On peut remarquer dans ce cas que la contrainte maximale ne dépasse pas la limite d'élasticité du matériau (voir figure~\ref{fig:simulation4}) :
+            Nous générons un maillage fin de $2,7 \cdot 10^5$ éléments avant d'exécuter la simulation avec des forces de 4~N appliquées sur chaque doigt (pour simuler la portée d'un objet d'environ 400 grammes). Le logiciel va alors calculer le tenseur de contraintes, les déformations et les déplacements. On peut remarquer dans ce cas que la contrainte maximale ne dépasse pas la limite d'élasticité du matériau (voir figure~\ref{fig:simulation4}) :
 
             \[
             2{,}346\ \text{MPa} < 8{,}6\ \text{MPa} \quad \Rightarrow \quad \sigma_{\text{max}} < \sigma_{\text{limite}}
