@@ -179,7 +179,7 @@
 \section*{Résumé}
 \addcontentsline{toc}{section}{Résumé}
 
-Ce rapport décrit la conception, le dimensionnement et la simulation d’une pince robotique à trois doigts flexibles, destinée à la préhension d’objets variés comme des fruits. La démarche s’inspire des robots SpiRob, qui utilisent l’enroulement par câble d’une spirale logarithmique pour générer la flexion des doigts. Après une étude de l’état de l’art (préhenseurs souples, actionnement par câbles, simulation par éléments finis), le projet précise la modélisation mathématique des doigts, leur implémentation CAO sous SolidWorks et le choix des composants mécaniques (moteurs, vis à billes, matériaux TPU et PLA). Des simulations par éléments finis confirment la capacité du système à saisir des objets légers, tout en mettant en évidence les limites d’élasticité des doigts sous forte contrainte. Enfin, des recommandations sont proposées pour renforcer la résistance mécanique, notamment par l’ajout d’élastiques de rappel. L’ensemble valide la faisabilité d’un préhenseur compact et souple, adapté à la robotique collaborative.
+Ce rapport décrit la conception, le dimensionnement et la simulation d’une pince robotique à trois doigts flexibles, destinée à la préhension d’objets variés comme des fruits. La démarche s’inspire des robots SpiRob, qui utilisent l’enroulement par câble d’une spirale logarithmique pour générer la flexion des doigts. Après une étude de l’état de l’art (préhenseurs souples, actionnement par câbles, simulation par éléments finis), le projet précise la modélisation mathématique des doigts, leur implémentation CAO sous SolidWorks et le choix des composants mécaniques (moteurs, vis-écrou, matériaux TPU et PLA). Des simulations par éléments finis confirment la capacité du système à saisir des objets légers, tout en mettant en évidence les limites d’élasticité des doigts sous forte contrainte. Enfin, des recommandations sont proposées pour renforcer la résistance mécanique, notamment par l’ajout d’élastiques de rappel. L’ensemble valide la faisabilité d’un préhenseur compact et souple, adapté à la robotique collaborative.
 
 \clearpage
 \tableofcontents
@@ -214,7 +214,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
         \begin{figure}
             \centering
-            \includegraphics[width=0.5\textwidth]{Figures/pieuvre.png}
+            \includegraphics[width=0.3\textwidth]{Figures/pieuvre.png}
             \caption{Inspiration du SpiRob pour les 3 doigts de notre pince \cite{wang_spirobs_2025}}
             \label{fig:pieuvre}
         \end{figure}
@@ -269,7 +269,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
             \begin{figure}[htbp]
                 \centering
-                \includegraphics[width=0.7\textwidth]{Figures/multi-stable.png}
+                \includegraphics[width=0.5\textwidth]{Figures/multi-stable.png}
                 \caption{Pince kirigami multi-stable \cite{qi_kirigami_2024}}
                 \label{fig:resume_kirigami}
             \end{figure}
@@ -318,92 +318,79 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
             Le mécanisme \textit{level wind} est un dispositif utilisé notamment sur les moulinets de pêche, qui guide le fil de pêche latéralement pendant l’enroulement pour éviter les enchevêtrements et maintenir une tension constante. La vidéo \cite{hugh_lyman_level_2014} illustre ce mécanisme (voir figure \ref{fig:video}).
 
-            L'étude \cite{mortensen_precision_2014} propose un mécanisme de guidage de câble (level wind) destiné à des applications de forage profond dans la glace. Ce système assure l'enroulement uniforme du câble autour d'un tambour, tout en maintenant une tension constante, ce qui est essentiel pour éviter les erreurs de mesure et les défaillances mécaniques.
-
-            Sur la figure \ref{fig:level_wind}, vous pouvez voir comment fonctionne le système. Une poulie se déplace le long d'un axe grâce à un moteur et une vis, et enroule alors le fil tout le long du tambour. L'approche la plus répandue pour la conception d'un tel système consiste en un rapport d'engrenage fixe entre la rotation du tambour du treuil et la poulie de l'enrouleur de niveau. Un rapport fixe signifie que pour chaque tour complet du tambour, la poulie se déplace d'une distance constante. En somme, cela permet à la poulie de se déplacer horizontalement à une vitesse proportionnelle à la vitesse de rotation du tambour. Une autre méthode, similaire à la précédente, applique ce rapport d'engrenage fixe mais est complétée par de l'automatique. Ici, la poulie est entraînée par un moteur distinct de celui du tambour. La vitesse de ce moteur est précisément synchronisée avec celle du tambour du treuil grâce à un capteur et un système de contrôle moteur en boucle fermée. \cite{mortensen_precision_2014}
-
-            Bien que ces approches se soient révélées efficaces dans de nombreuses applications, les deux dernières conceptions sont particulièrement sensibles aux changements des conditions de fonctionnement (par exemple, la charge du câble, la température, la tolérance du capteur, la précision du calcul et l'usure des pièces mécaniques). Tout décalage entre les vitesses de rotation et les vitesses horizontales entraînait une accumulation progressive d'erreurs dans la position de la poulie par rapport au point d'entrée du câble sur le tambour du treuil. \cite{mortensen_precision_2014}
-
-            Dans notre cas, il sera question d'un fil court et de vitesses lentes, limitant ainsi toute accumulation d'erreur dans la position de la poulie par rapport au tambour.
+            Sur la figure \ref{fig:level_wind}, vous pouvez voir comment fonctionne le système. Une poulie se déplace le long d'un axe grâce à un moteur et une vis, et enroule alors le fil tout le long du tambour. L'approche la plus répandue pour la conception d'un tel système consiste en un rapport d'engrenage fixe entre la rotation du tambour du treuil et la poulie de l'enrouleur de niveau. Un rapport fixe signifie que pour chaque tour complet du tambour, la poulie se déplace d'une distance constante. En somme, cela permet à la poulie de se déplacer horizontalement à une vitesse proportionnelle à la vitesse de rotation du tambour.
+            
+            Cette solution est parfaitement envisageable pour notre pince, puisque nous resterons dans plages de distances et de vitesses relativement faibles, limitant ainsi toute saccumulation d’erreur dans la position de la poulie par rapport au tambour.
 
         \subsubsection{Vis à bille}
 
-            Enfin, nous nous intéressons à l'actionnement par vis à bille, qui peut être apparentée à un mécanisme de vis-écrou traditionnel. Mais les vis à billes sont les composants les plus fréquemment utilisés pour transformer la rotation en mouvement linéaire. En effet, elles permettent en limitant grandement les frottements, grâce à une simple rotation de la vis, de faire avancer l'écrou sans avoir besoin d'une glissière. \cite{verl_double_2014}
+            Enfin, nous nous intéressons à l'actionnement par vis à bille, qui peut être apparentée à un mécanisme de vis-écrou traditionnel. Mais les vis à billes sont les composants les plus fréquemment utilisés pour transformer la rotation de moteur en mouvement linéaire. En effet, elles permettent, en limitant grandement les frottements, grâce à une simple rotation de la vis, de faire avancer l'écrou sans avoir besoin d'une glissière. \cite{verl_double_2014}
 
     \subsection{Simulation par éléments finis}
     
         Troisèmement, nous étudions le cas d'une simulation d'un doigt robotique qui présente de nombreuses similitudes au nôtre.
 
-            \begin{figure}
+        \begin{figure}[htbp]
+            \centering
+            \begin{subfigure}[b]{0.4\textwidth}
                 \centering
-                \includegraphics[width=0.7\textwidth]{Figures/doigt_souple.jpg}
+                \includegraphics[width=\textwidth]{Figures/doigt_souple.jpg}
                 \caption{Doigt souple inspiré d'un humain \cite{bhat_numerical_2025}}
                 \label{fig:doigt_souple}
-            \end{figure}
-
-            Dans \cite{bhat_numerical_2025}, les auteurs développent un actuateur souple pneumatique bio-inspiré, conçu pour la préhension douce et les applications thérapeutiques. Ce dispositif imite la flexion d’un doigt humain par l'action de la pression sur des chambres internes segmentées (voir figure \ref{fig:doigt_souple}).
-
-            L'effecteur est fabriqué en silicone liquide (LSR), un matériau hyperélastique modélisé selon la loi de \textbf{Yeoh d'ordre 2}, adaptée aux grandes déformations quasi-incompressibles. Le modèle est défini par l'énergie de déformation suivante :
-
-            \[
-            W = \sum_{i=1}^{2} C_i (I_1 - 3)^i + D
-            \]
-
-            où :
-            \begin{itemize}
-            \item \( W \) est l'énergie de déformation,
-            \item \( I_1 \) est le premier invariant du tenseur de Cauchy-Green à droite,
-            \item \( C_1 = 0.11\,\text{MPa},\; C_2 = 0.03\,\text{MPa} \) sont les constantes matériau,
-            \item le terme volumique est négligé ( \( D = 0 \) ).
-            \end{itemize}
-
-            C'est en fait la formulation faible du problème établi à l'aide du principe des travaux virtuels de l'équation de Navier-Cauchy :
-
-            \[
-            div(\sigma) + \rho f = 0
-            \]
-
-            où :
-            \begin{itemize}
-            \item \( \sigma \) est le tenseur de contrainte,
-            \item \( \rho \) est la masse volumique,
-            \item \( f \) sont les forces volumiques (gravité).
-            \end{itemize}
-
-            Le comportement est supposé \textbf{isotrope}, \textbf{homogène}, \textbf{incompressible}, et en \textbf{quasi-statique} (pas d’effets inertiels).
-
-            \begin{figure}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.3\textwidth}
                 \centering
-                \includegraphics[width=0.7\textwidth]{Figures/doigt_finit_elements.jpg}
+                \includegraphics[width=\textwidth]{Figures/doigt_finit_elements.jpg}
                 \caption{Représentation du maillage du doigt \cite{bhat_numerical_2025}}
                 \label{fig:doigt_finit_elements}
-            \end{figure}
+            \end{subfigure}
+            \caption{Illustrations du doigt souple et de son maillage}
+            \label{fig:doigts_cote_a_cote}
+        \end{figure}
 
-            L’analyse est menée via un modèle éléments finis utilisant des tétraèdres quadratiques (éléments d'ordre 2), avec un maillage raffiné (\( 63\,772 \) éléments, taille 3 mm) (voir figure \ref{fig:doigt_finit_elements}). Les conditions aux limites sont :
-            \begin{itemize}
-            \item Encastrement d’une extrémité de l’actuateur,
-            \item Pression interne appliquée sur les parois internes,
-            \item Définition de contacts sans frottement avec un bloc rigide pour calcul de la force de préhension.
-            \end{itemize}
+        Dans \cite{bhat_numerical_2025}, les auteurs développent un actuateur souple pneumatique bio-inspiré, conçu pour la préhension douce et les applications thérapeutiques. Ce dispositif imite la flexion d’un doigt humain par l'action de la pression sur des chambres internes segmentées (voir figure \ref{fig:doigt_souple}).
 
-            \begin{figure}
+        L'effecteur est fabriqué en silicone liquide (LSR), un matériau hyperélastique modélisé selon la loi de \textbf{Yeoh d'ordre 2}, adaptée aux grandes déformations quasi-incompressibles. Le modèle est défini par la formulation faible du problème établi par l'équation d'équilibre :
+
+        \[
+        div(\sigma) + \rho f = 0
+        \]
+
+        où :
+        \begin{itemize}
+        \item \( \sigma \) est le tenseur de contrainte,
+        \item \( \rho \) est la masse volumique,
+        \item \( f \) sont les forces volumiques (gravité).
+        \end{itemize}
+
+        Le comportement est supposé \textbf{isotrope}, \textbf{homogène}, \textbf{incompressible}, et en \textbf{quasi-statique} (pas d’effets inertiels).
+
+        L’analyse est menée via un modèle éléments finis utilisant des tétraèdres quadratiques (éléments d'ordre 2), avec un maillage raffiné (\( 63\,772 \) éléments, taille 3 mm).
+
+        \begin{figure}[htbp]
+            \centering
+            \begin{subfigure}[b]{0.4\textwidth}
                 \centering
-                \includegraphics[width=0.6\textwidth]{Figures/angle_pression.jpg}
-                \caption{Angle parcouru suivant la pression exercée (en haut), et effecteur pour une pression de respectivement de 60 kPa et 100 kPa (en bas).\cite{bhat_numerical_2025}}
+                \includegraphics[width=\textwidth]{Figures/angle_pression.jpg}
+                \caption{Angle parcouru suivant la pression exercée (en haut), et effecteur pour une pression de 60 kPa et 100 kPa.}
                 \label{fig:angle_pression}
-            \end{figure}
-
-            \begin{figure}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.4\textwidth}
                 \centering
-                \includegraphics[width=0.6\textwidth]{Figures/angle_pression_experiments.PNG}
-                \caption{Angle parcouru suivant la pression exercée lors de l'expérience \cite{bhat_numerical_2025}}
+                \includegraphics[width=\textwidth]{Figures/angle_pression_experiments.PNG}
+                \caption{Angle parcouru suivant la pression exercée lors de l'expérience.}
                 \label{fig:angle_pression_experiments}
-            \end{figure}
+            \end{subfigure}
+            \caption{Comparaison entre les résultats numériques et expérimentaux \cite{bhat_numerical_2025}.}
+            \label{fig:angle_pression_comparaison}
+        \end{figure}
 
-            L'actionneur produit une force de préhension de 2 à 2,71 N pour des pressions allant de 50 à 100 kPa, d'après la simulation. Vous pouvez trouver les résultats de sur la figure \ref{fig:angle_pression}. Lorsque l'on compare avec les données expérimentales, on n'obesrve moins cette linéarité (voir figure \ref{fig:angle_pression_experiments}). Les simulations ont également montré une force maximale de 2,71 N à 100 kPa de pression d'entrée alors que les données expérimentales obtenues par la résistance sensible à la force ont montré 5 N à 100 kPa de pression d'entrée. Ceci peut être attribué à la durée plus longue du débit d'air régulé dans l'actionneur durant les expériences par rapport aux simulations. En d'autres termes, dans les expériences pratiques, l'actionneur a eu plus de temps pour se gonfler et atteindre une force de préhension plus élevée en raison d'une alimentation en air prolongée, ce qui n'a pas été entièrement capturé ou reproduit dans les simulations. Ces résultats sont comparables à ceux rapportés pour les pinces robotisées molles dans la littérature. \cite{bhat_numerical_2025}
+        La simulation indique que l’actionneur produit une force de préhension comprise entre 2 et 2,71 N pour des pressions allant de 50 à 100 kPa (voir figure II.6a). En revanche, les résultats expérimentaux montrent une relation moins linéaire (figure II.6b) et une force maximale plus élevée, atteignant 5 N à 100 kPa, alors que la simulation ne prévoit que 2,71 N. Cette différence s’explique par un débit d’air prolongé lors des tests expérimentaux, ce qui permet à l’actionneur de se gonfler davantage et donc de générer une force plus importante.
 
-            Ce travail démontre qu'un actionneur pneumatique souple bien conçu peut produire des forces de préhension tout en conservant une grande capacité de déformation. Il offre une référence utile pour la conception de dispositifs bio-inspirés, bien que son mode d'action pneumatique diffère de notre approche par câbles, qui est plus compacte pour un système embarqué. Cet article nous a néanmoins permis d'explorer un exemple de modèle de déformation et nous a fourni une première perspective pour la mise en place d'une simulation utilisant un maillage fin via un modèle CAO.
-    
+        Ce travail montre que les résultats d’une simulation peuvent différer sensiblement de ceux obtenus par expérimentation. Même si notre approche par câbles est différente, cet article nous a aidés à explorer un modèle de déformation et une simulation avec un maillage fin basé sur un modèle CAO.
+
     \subsection{Conclusion}
 
         En somme, les approches existantes confirment l’intérêt des structures souples et des actionnements par câble pour des tâches de préhension adaptative. Toutefois, elles soulignent aussi les limites à surmonter, notamment en matière de charge maximale, de précision et de contrôle de la tension. Ces constats guideront nos choix dans la conception de la pince proposée.
@@ -428,10 +415,10 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
         \subsubsection{Choix et détermination des coefficients}
         
-            La spirale logarithmique est d'équation en coordonnées polaires ($r, \theta$) :
+            Une spirale logarithmique est d'équation en coordonnées polaires ($r, \theta$) :
 
             \begin{equation}
-                r = ae^{b\theta}, \quad \text{avec} \quad a > 0
+                r(\theta) = ae^{b\theta}, \quad \text{avec} \quad a > 0
                 \label{eq:spirale_log}
             \end{equation}
 
@@ -442,11 +429,11 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                 \label{fig:spirale}
             \end{figure}
             
-            $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale), tandis que $b$ est un autre paramètre d’échelle qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}.
+            $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale), tandis que $b$ est un autre paramètre qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}.
             
-            Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin que la spirale s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale parcourra 1 seul tour, et a et b seront choisi de telle sorte qu'on obtienne la longueur L désirée.
-        
-            Pour déterminer la valeur de \( a \) dans l'équation de la spirale logarithmique \( r = a \cdot e^{b \cdot \theta} \), où la longueur totale déroulée \( L \) doit être égale à 100 mm, nous procédons comme suit :
+            Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin qu'un doigt s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale centrale parcourra 1 seul tour, et a et b seront choisis de telle sorte qu'on obtienne la longueur désirée L du doigt.
+
+            Pour déterminer la valeur de \( a \) dans l'équation de la spirale logarithmique \( r = a \cdot e^{b \cdot \theta} \), à b et L fixés, nous procédons comme suit :
 
             La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de \( \pi \) à \( 2\pi \) :
             \[
@@ -513,7 +500,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
             On donne l'angle de conicité (\textit{taper} \textit{angle}) :
 
             \begin{equation}
-            \phi = 2\arctan \left(
+            \phi(b) = 2\arctan \left(
                 \frac{\frac{1}{2}\delta(\theta)}{L(-\infty, \theta)}
                 \right) = 2 \arctan\left(\frac{b(e^{2\pi b}-1)}{\sqrt{b^2+1} \left(e^{2\pi b}+1\right)}\right)
             \label{eq:angle_de_conicite}
@@ -557,7 +544,9 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
             
             Il y aura donc 12 phalanges.
 
-            Ensuite, nous devons déterminer b de telle sorte que $\phi = \frac{\pi}{12}$. On le calcule grâce à l'équation (\ref{eq:angle_de_conicite}) en appliquant la méthode \texttt{fsolve} de \texttt{Python}:
+            Ensuite, nous devons déterminer b de telle sorte que $\phi = \frac{\pi}{12}$.
+            
+            On le calcule grâce à l'équation (\ref{eq:angle_de_conicite}) en appliquant la méthode \texttt{fsolve} de \texttt{Python}:
 
             \begin{lstlisting}[language=Python,caption={Résolution numérique du paramètre $b$},label={lst:resolu_b},xleftmargin=0pt]
 
@@ -575,19 +564,16 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
             if b_solution <= 0:
                 raise ValueError("La solution pour b doit être positive.")
             b=b_solution
-
             \end{lstlisting}
 
             \vspace{3cm}
 
-            L'objectif est de trouver la valeur de \( b \) telle que cette égalité soit vérifiée.
-
             La fonction \texttt{equation} renvoie la différence :
             \[
-            f(b) = \texttt{angle}(b) - \texttt{taper\_angle\_rad}, \qquad \text{pour} \texttt{taper\_angle\_rad} = \frac{\pi}{12}
+            \texttt{equation}(b) = \phi(b) - \texttt{taper\_angle\_rad}, \qquad \text{pour} \texttt{ taper\_angle\_rad} = \frac{\pi}{12}
             \]
 
-            Ainsi, la résolution de \( f(b) = 0 \) correspond à trouver la racine de cette fonction, c'est-à-dire la valeur de \( b \) pour laquelle \(\texttt{angle}(b)\) est égale à \(\texttt{taper\_angle\_rad}\).
+            Ainsi, la résolution de \( \texttt{equation}(b) = 0 \) correspond à trouver la racine de cette fonction, c'est-à-dire la valeur de \( b \) pour laquelle \(\phi(b)\) est égale à \(\texttt{taper\_angle\_rad}\).
 
             \textbf{Signification de \texttt{x0} et \texttt{xtol} dans \texttt{fsolve}} :
             \begin{itemize}
@@ -613,10 +599,10 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
         Avec tous les paramètres que l'on a trouvés, nous allons pouvoir dessiner les lignes de construction pour l'enleveloppe de notre doigt.
 
-        Afin que notre doigt mesure $L = 100$ mm, il faut que la spirale centrale d'équation (\ref{eq:spirale_centrale}) soit de la forme :
+        Afin que notre doigt mesure $L = 100$ mm, il faut que la spirale centrale d'équation (\ref{eq:spirale_centrale}) soit :
 
         \[
-        r_c = a_c e^{b_c\theta}, \qquad b_c = 0.2230, a_c = 3.5303, \quad \text{d'après le tableau \ref{tab:valeurs_a_b}}
+        r_c = a_c e^{b_c\theta}, \qquad \text{avec} b_c = 0.2230, a_c = 3.5303, \quad \text{d'après TABLE \ref{tab:valeurs_a_b}}
         \]
 
         On cherche maintenant l'équation de la spirale qui enveloppe le doigt, soit $r(\theta) = f(r_c(\theta))$. Ainsi, on peut
@@ -639,7 +625,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
         \subsubsection{Dessin du doigt}
             
-            Nous allons expliquer comment dessiner le doigt à l'aide des outils de SolidWorks. La méthode consiste à dessiner le doigt dans sa forme enroulée, puis à enregistrer chaque phalange individuellement. Ainsi, nous nous assurons qu'ils se plieront correctement.
+            Nous allons expliquer comment dessiner le doigt à l'aide des outils de SolidWorks. La méthode consiste à dessiner le doigt dans sa forme enroulée, puis à enregistrer chaque phalange individuellement. Ainsi, nous nous assurons qu'il s'enroulera correctement.
 
             \begin{figure}[H]
                 \centering
@@ -662,13 +648,13 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.4\textwidth}
+                \begin{subfigure}[t]{0.5\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_1.png}
-                    \caption{Esquisse de l'étoile pour discrétiser la spirale, ainsi que extrusion de la première phalange}
+                    \caption{Esquisse de l'étoile pour discrétiser la spirale, et extrusion de la première phalange à l'aide des lignes construites}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.5\textwidth}
+                \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_entier.png}
                     \caption{Extrusion des phalanges à l'aide des lignes construites}
@@ -677,7 +663,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                 \label{fig:esquisse_etoile}
             \end{figure}
 
-            Sur la figure \ref{fig:esquisse_etoile}, vous pouvez voir notre dessin de l'étoile dont le centre est l'origine du repère polaire utilisée pour tracer les spirales. Comme en $\theta = 0$, on a $r_c(0) = a_c e^0 = a_c$, alors l'origine de l'étoile se trouve à une distance $a_c$ du point de départ de la spirale centrale. Ensuite, nous dessinons chacune des moitié de phalanges en prenant soin de ne pas fusionner les extrusions, en utilisant les lignes ainsi construites.
+            Sur la figure \ref{fig:esquisse_etoile}, vous pouvez voir notre dessin de l'étoile dont le centre est l'origine du repère polaire utilisée pour tracer les spirales. Comme en $\theta = 0$, on a $r_c(0) = a_c e^0 = a_c$, alors l'origine de l'étoile se trouve à une distance $a_c$ du point de départ de la spirale centrale. Ensuite, nous dessinons chacune des moitié de phalanges en prenant soin de ne pas fusionner les extrusions.
 
             \begin{figure}[H]
                 \centering
@@ -690,13 +676,13 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/doigt.png}
-                    \caption{Doigt assemblé et perçage des trous pour faire passer les câbles}
+                    \caption{Doigt assemblé et perçage des trous sur les côtés pour faire passer les câbles}
                 \end{subfigure}
                 \caption{Dessin et assemblage du doigt}
                 \label{fig:spirale_enroule}
             \end{figure}
 
-            Enfin, nous symétrisons les moitiés de phalanges. Nous les enregistrons alors dans des fichiers pièces séparément, et cela permet de les assembler de telle sorte que le doigt soit déroulé. Nous avons bien vérifier sur le logiciel : le doigt mesure environ 100 mm, et l'angle de conicité est en effet de 15°, tandis que l'angle entre chaque phalange est de 30° (voir figure \ref{spirale_enroule}). On prend également soin de rajouter la couche élastique de 10\% de la largeur du doigt afin de relier les phalanges entre elles.
+            Enfin, nous symétrisons les moitiés de phalanges. Nous les enregistrons alors dans des fichiers pièces séparément, et cela permet de les assembler de telle sorte que le doigt soit déroulé. Nous avons bien vérifier sur le logiciel : la longueur du doigt L mesure environ 100 mm, et l'angle de conicité $\phi$ est en effet de 15°, tandis que l'angle $\Delta \theta$ entre chaque phalange est de 30° (voir figure \ref{fig:spirale_enroule}). On prend également soin de rajouter la couche élastique de 10\% de la largeur du doigt afin de relier les phalanges entre elles.
             
             \subsubsection{Dessin de la base}
 
@@ -717,14 +703,14 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                 \label{fig:base}
             \end{figure}
 
-            Nous concevons une base de forme triangulaire, dont le cercle circonscrit présente un rayon d’environ 80 mm, afin de pouvoir manipuler des fruits de diamètre similaire. Le doigt est fixé à la base grâce à un système d’accroche en queue de hareng, avec un jeu de 0,3 mm prévu pour permettre l’assemblage (par la suite, nous adopterons toujours ce jeu pour chaque pièce). Ce même jeu est appliqué à la cavité destinée à accueillir le support moteur réalisé avec la bibliothèque MAKERBEAM. Enfin, une excroissance percée est ajoutée à la base afin de maintenir l’extrémité de la vis mère, évitant ainsi qu’elle ne reste libre et prévenant tout hypostatisme (voir figure \ref{fig:base}).
+            Nous concevons une base de forme triangulaire, dont le cercle circonscrit présente un rayon d’environ 80 mm, afin de pouvoir manipuler des fruits de diamètre similaire. Le doigt est fixé à la base grâce à un système d’accroche en queue de hareng, avec un jeu de 0,3 mm prévu pour permettre l’assemblage (par la suite, nous adopterons toujours ce jeu pour chaque pièce). Ce même jeu est appliqué à la cavité destinée à accueillir le support moteur qui sera accroché à la base. Enfin, une excroissance percée est ajoutée à la base afin de maintenir l’extrémité de la vis mère, évitant ainsi qu’elle ne reste libre et prévenant tout hypostatisme (voir figure \ref{fig:base}).
             
             \begin{figure}[H]
                 \centering
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/encastrement_doigt_base.png}
-                    \caption{Encastrement du doigt dans la base}
+                    \caption{Encastrement du doigt dans la base avec un jeu de 0.3 mm}
                 \end{subfigure}
                 \hfill
                 \begin{subfigure}[t]{0.3\textwidth}
@@ -745,14 +731,14 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                 \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/support_idee.png}
-                    \caption{Support moteur en MAKERBEAM}
+                    \caption{Support moteur en MAKERBEAM, avec la pièce pour y fixer le moteur en rouge}
                     \label{fig:support}
                 \end{subfigure}
                 \hfill
                 \begin{subfigure}[t]{0.5\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/support_fixation.png}
-                    \caption{4 trous de diamètre 4.3 mm dans la base pour fixer les 4 barres}
+                    \caption{4 trous de diamètre 4 mm percés dans la base pour fixer les 4 barres (en bleu)}
                     \label{fig:fixation_base_support}
                 \end{subfigure}
                 \caption{Conception du support}
@@ -760,99 +746,85 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
             Le support moteur est conçu à l’aide de la bibliothèque MAKERBEAM (voir figure \ref{fig:support}). Il est assemblé à partir de barres de 40 mm, 60 mm et 200 mm, ainsi que de cubes de jonction. La fixation du support à la base est assurée par des vis et des boulons. Cela nécessite la réalisation de quatre perçages de 4,3 mm de diamètre dans la base, centrés sous chaque barre (voir figure \ref{fig:fixation_base_support}).
 
-            Une pièce supplémentaire est conçue pour maintenir le moteur. Elle présente des perçages en bordure permettant de fixer le moteur à l’aide de vis sur les barres MakerBeam. Les trous situés sur les extensions latérales servent à fixer la pièce sur les barres MAKERBEAM (voir figure \ref{fig:support}).
+            Le servomoteur MX-28 de chez Dynamixel a été retenu pour ce montage, car il permet un contrôle précis en position et offre le couple le plus élevé parmi les moteurs que nous avions à disposition (10 Nm).
+
+            Une pièce supplémentaire est conçue pour maintenir le moteur. Elle présente des perçages en bordure permettant d'y accrocher le moteur à l'aide de vis. Les trous situés sur les extensions latérales servent à fixer la pièce sur les barres MAKERBEAM (voir figure \ref{fig:support}).
 
         \subsubsection{Dessin du système vis-écrou}
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.6\textwidth}
+                \begin{subfigure}[t]{0.5\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/vis_sans_fin.jpg}
                     \caption{Notre vis mère de la marque Igus en acier trempé, permettant un très faible frottement}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.2\textwidth}
+                \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/ecrou_trou.png}
                     \caption{Modèle de l'écrou dessiné sur SolidWorks pour permettre l'assemblage CAO}
                 \end{subfigure}
-                \caption{Illustrations de la vis sans fin}
+                \caption{Illustrations de la vis mère et de l'écrou}
                 \label{fig:vis_sans_fin}
             \end{figure}
 
-            Après discussion avec notre responsable, nous avons décidé de ne pas utiliser de tambour pour l'actionnement par câble. Bien que le tambour soit une solution efficace, l'actionnement par un système vis-écrou s’avère plus simple à mettre en œuvre dans le cadre de notre projet. Nous opterons donc pour une vis mère en acier trempé afin de réduire les frottements, associée à un écrou (voir figure \ref{fig:vis_sans_fin}). Nous avons retenu à cet effet une glissière Igus, modèle NK-01-27, accompagnée de son chariot et de son écrou.
-
-            Selon les recommandations du fabricant \cite{noauthor_bague_nodate}, l’écrou doit impérativement être protégé contre les efforts de torsion et les déplacements axiaux excessifs. Nous veillerons donc à intégrer des dispositifs de guidage et de blocage adaptés afin d’assurer la stabilité et la durabilité du mécanisme.
+            Après discussion avec notre responsable, nous avons décidé de ne pas utiliser de tambour pour l'actionnement par câble. Bien que le tambour soit une solution efficace, l'actionnement par un système vis-écrou s’avère plus simple à mettre en œuvre dans le cadre de notre projet. Nous opterons donc pour une vis mère en acier trempé afin de réduire les frottements, associée à un écrou (voir figure \ref{fig:vis_sans_fin}). Nous avons retenu à cet effet une glissière Igus, modèle NK-01-27, accompagnée de son chariot et de son écrou. Selon les recommandations du fabricant \cite{noauthor_bague_nodate}, l’écrou doit impérativement être protégé contre les efforts de torsion et les déplacements axiaux excessifs. Nous veillerons donc à intégrer des dispositifs de guidage et de blocage adaptés afin d’assurer la stabilité et la durabilité du mécanisme.
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.45\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/attache_glissière.png}
-                    \caption{Pièce pour fixer la glissière au support (en rouge)}
-                    \label{fig:corner}
-                \end{subfigure}
-                \hfill
-                \begin{subfigure}[t]{0.4\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/accroche_glissiere.png}
-                    \caption{Glissière accrochée sur le support (en rouge)}
-                    \label{fig:glissiere_support}
-                \end{subfigure}
-                \caption{Fixation de la glissière au support}
-                \label{fig:attache_glissiere}
-            \end{figure}
-
-            Comme indiqué précédemment dans l’état de l’art, l’absence de vis à billes nécessite d’associer le système vis-écrou à une glissière pour assurer le guidage. Il convient donc de la fixer sur le support réalisé avec la bibliothèque MAKERBEAM. Pour cela, nous utilisons une pièce de cette bibliothèque (voir figure \ref{fig:corner}) qui permet de solidariser une nouvelle barre destinée à recevoir la glissière.
-
-            Nous concevons ensuite une pièce intermédiaire destinée à relier la glissière à l’écrou. Pour garantir l’hyperstatisme de l’assemblage, un minimum de trois vis est nécessaire pour fixer cette pièce à l'écrou. Nous en profitons également pour intégrer, à l’extrémité de cette pièce, un triangle destiné à accueillir les câbles des doigts. Étant positionné au centre du support, ce triangle présente une distance égale aux trois doigts, assurant ainsi une course identique pour chacun des câbles. En d’autres termes, l’actionnement des doigts sera uniforme (voir figure \ref{fig:glissiere_support}).
-
-        \subsubsection{Dessin de la transmission de couple}
-
-            \begin{figure}[H]
-                \centering
-                \begin{subfigure}[t]{0.4\textwidth}
+                \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/piece_manquante.png}
                     \caption{Pièce attachée au moteur et vissée sur la vis mère avec un filetage réaliste}
                     \label{fig:piece_manquante}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.4\textwidth}
+                \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/attache.png}
                     \caption{Attache pour la vis mère (en bleue) et le moteur}
-                    \label{fig:inspiration_vis_ecrou}
                 \end{subfigure}
                 \caption{Transimission de couple}
             \end{figure}
 
-            Comme illustré à la figure \ref{fig:piece_manquante}, nous concevons une pièce de fixation entre la vis et le moteur. Le servomoteur MX-28 de chez Dynamixel a été retenu pour ce montage, car il permet un contrôle précis en position et offre le couple le plus élevé parmi les moteurs que nous avions à disposition (10 Nm). Nous dessinons la pièce de transmission en nous inspirant de l’écrou déjà modélisé, en l’adaptant avec une plus grande hauteur accrue et en y ajoutant huit trous pour accueillir des vis de diamètre 2 mm (norme ISO M2), afin de pouvoir le fixer au moteur. Un filetage réaliste doit être modélisé pour permettre l’impression de la pièce. Pour cela, nous utilisons la fonctionnalité de SolidWorks permettant de créer un filetage à partir d’une hélice, en choisissant un pas de 2,54 cm et une profondeur de 1 mm.
+            Comme illustré à la figure \ref{fig:piece_manquante}, nous concevons une pièce de fixation entre la vis et le moteur. Nous dessinons la pièce de transmission en nous inspirant de l’écrou déjà modélisé, en l’adaptant avec une hauteur plus importante et en y ajoutant huit trous pour accueillir des vis de diamètre 2 mm (norme ISO M2), afin de pouvoir le fixer au moteur. Un filetage réaliste doit être modélisé pour permettre l’impression de la pièce. Pour cela, nous utilisons la fonctionnalité de SolidWorks permettant de créer un filetage à partir d’une hélice, en choisissant un pas de 2,54 cm et une profondeur de 1 mm.
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.5\textwidth}
+                \begin{subfigure}[t]{0.45\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/système vis écrou.png}
-                    \caption{Inspiration pour notre système de vis-écrou}
-                    \label{fig:vis_ecrou}
+                    \caption{Inspiration pour notre système vis écrou \cite{w3d_tech_systeme_2023}}
+                    \label{fig:inspiration}
                 \end{subfigure}
                 \hfill
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/vis_ecrou_assemble.png}
-                    \caption{Exemple d'utilisation dans notre système}
-                    \label{fig:vis_ecrou_assemble}
+                    \caption{Notre système vis-écrou avec la glissière accrochée au support}
+                    \label{fig:glissiere_support}
                 \end{subfigure}
                 \caption{Conception du système vis-écrou}
+                \label{fig:attache_glissiere}
             \end{figure}
 
-            La conception du système vis-écrou s’inspire de la vidéo \cite{w3d_tech_systeme_2023} (voir figure \ref{fig:vis_ecrou}). Le rail supérieur (en vert) maintient l’écrou en rotation bloquée, ce qui lui permet de translater lorsqu’un moteur fait tourner la vis. Du reste, ce système empêche l’emmêlement des câbles : l’écrou reste fixe en rotation et ne fait que translater (voir figure \ref{fig:vis_ecrou_assemble}).
+            Comme indiqué précédemment dans l’état de l’art, l’absence de vis à billes nécessite d’associer le système vis-écrou à une glissière pour assurer le guidage. Il convient donc de la fixer sur le support réalisé avec la bibliothèque MAKERBEAM. Pour cela, nous utilisons une pièce de cette bibliothèque qui permet de solidariser une nouvelle barre au support destinée à recevoir la glissière.
+
+            Du reste, la conception du système vis-écrou s’inspire de la vidéo \cite{w3d_tech_systeme_2023}. Sur la figure \ref{fig:inspiration}, le rail supérieur (en vert) maintient l’écrou en rotation bloquée, ce qui lui permet de translater lorsqu’un moteur fait tourner la vis. Du reste, ce système empêche l’emmêlement des câbles : l’écrou reste fixe en rotation et ne fait que translater.
+
+            Nous devons ainsi concevoir une pièce intermédiaire destinée à relier la glissière à l’écrou (voir figure \ref{fig:glissiere_support}). Pour garantir l’hyperstatisme de l’assemblage, un minimum de trois vis est nécessaire pour fixer cette pièce à l'écrou. Nous en profitons également pour intégrer, à l’extrémité de cette pièce, un triangle destiné à accueillir les câbles des doigts. Étant positionné au centre du support, ce triangle présente une distance égale aux trois doigts, assurant ainsi une course identique pour chacun des câbles. En d’autres termes, l’actionnement des doigts sera uniforme.
 
         \subsubsection{Pince assemblée}
 
-            $\ddots$
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\textwidth]{Figures/pince_assemblee.png}
+                \caption{Assemblage de notre pince}
+                \label{fig:pince_assemble}
+            \end{figure}
+
+            Sur la figure \ref{fig:pince_assemble}, nous proposons une illustration de l'assemblage CAO finale de notre pince. La sphère verte permet de simuler une pomme de diamètre 8 cm.
 
 \section{Résultats}
 
@@ -881,7 +853,7 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
                     \label{fig:encastrement}
                 \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.5\textwidth}
+                \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/force_3_doigts.png}
                     \caption{Simulation des forces (en violet) engendrées par les câbles sur les doigts}
@@ -913,13 +885,13 @@ Ce rapport décrit la conception, le dimensionnement et la simulation d’une pi
 
         \textbf{Résultats}
             
-            On génère un maillage avant d'exécuter la simulation avec des forces de 4~N appliquées sur chaque doigt (pour simuler la portée d'un objet d'environ 400 grammes). On peut remarquer dans ce cas que la contrainte maximale ne dépasse pas la limite d'élasticité du matériau (voir figure~\ref{fig:simulation4}) :
+            On génère un maillage avant d'exécuter la simulation avec des forces de 4~N appliquées sur chaque doigt (pour simuler la portée d'un objet d'environ 400 grammes). Le logiciel va alors calculer le tenseur de contraintes, les déformations et les déplacements. On peut remarquer dans ce cas que la contrainte maximale ne dépasse pas la limite d'élasticité du matériau (voir figure~\ref{fig:simulation4}) :
 
             \[
             4{,}781\ \text{MPa} < 8{,}6\ \text{MPa} \quad \Rightarrow \quad \sigma_{\text{max}} < \sigma_{\text{limite}}
             \]
 
-            On en déduit que la pince est parfaitement capable de soulever des fruits et des légumes de quelques centaines de grammes sans entrer dans le domaine plastique. Par exemple, une pomme ou un poivron mesure en moyenne entre 150 et 200 grammes, ce qui est conforme à ces limites.
+            Étant donné que le poids de l'objet soulevé peut être divisé par trois grâce à l'utilisation des trois doigts, on peut conclure que la pince est tout à fait capable de soulever des fruits et des légumes pesant quelques centaines de grammes sans subir de déformation permanente. Par exemple, une pomme ou un poivron pèse en moyenne entre 150 et 200 grammes, ce qui est conforme à ces limites.
 
             \begin{figure}
                 \centering
