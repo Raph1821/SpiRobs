@@ -202,14 +202,14 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
         \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.5\textwidth}
+                \begin{subfigure}[t]{0.7\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/spiral_logarithm.png}
                     \caption{Spiral logarithmique du préhenseur \cite{wang_spirobs_2025}}
                     \label{fig:spiral_logarithm}
                     \end{subfigure}
                 \hfill
-                \begin{subfigure}[t]{0.4\textwidth}
+                \begin{subfigure}[t]{0.6\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/draw_solidworks.png}
                     \caption{Construction du doigt en "dépliant" la spirale logarthimique \cite{wang_spirobs_2025}}
@@ -228,7 +228,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
     
         Dans notre cas, et comme souvent en robotique, les objets à manipuler ont une forme ou une position mal connue, et contrairement à une main humaine, les pinces robotiques manquent de retour tactile fiable. Pour cette raison, nous n'allons pas utiliser de retour haptique, mais plutôt de préhenseurs souples. Nous nous inspirons de la flexibilité des tentacules de pieuvre et du robot SpiRob dont l'étude est partagée en annexe (voir figure \ref{fig:pieuvre}), ce qui permettra à la pince de s'adapter naturellement à la forme de divers fruits et légumes, sans nécessiter de capteurs ni de système de contrôle complexe, simplement grâce à la compliance mécanique. En effet la compliance désigne la capacité d’un robot à adapter la rigidité de ses mouvements en fonction des forces extérieures. Autrement dit, il ajuste naturellement sa posture pour bien épouser l’objet qu’il manipule. Dans ce projet, nous nous concentrons sur la compliance passive, où la structure mécanique du robot est suffisamment flexible pour se déformer sous l'effet d'une contrainte externe. Cette approche permet une préhension polyvalente et adaptable. \cite{noauthor_gestion_2016}
 
-        Les SpiRobs dont nous nous inspirons utilisent des câbles pour provoquer les mouvements d'enroulement (curling) et de déroulement (uncurling). Une extrémité est fixée à l'unité distale par un nœud de pêcheur, tandis que l'autre est reliée à un moteur (voir figure~\ref{fig:spiral_logarithm}). La contraction des câbles entraîne l'enroulement en spirale logarithmique, alors que leur relâchement, combiné à leur élasticité intrinsèque, restitue la forme initiale. En effet, les SpiRobs sont entièrement fabriqués en TPU (Thermoplastic Polyurethane) imprimé en 3D avec du filament eTPU-95A (shore A95). Ce matériau souple, que nous utiliserons également, offre une bonne compliance mécanique et une rigidité suffisante pour transmettre efficacement la tension des câbles. La couche centrale entre les unités agit comme un ressort passif, permettant le redéploiement sans nécessiter d’articulations ni de moteurs multiples~\cite{wang_spirobs_2025}.
+        Les SpiRobs dont nous nous inspirons utilisent des câbles pour provoquer les mouvements d'enroulement (curling) et de déroulement (uncurling). Une extrémité est fixée à l'unité distale par un nœud de pêcheur, tandis que l'autre est reliée à un moteur (voir figure~\ref{fig:spiral_logarithm}). La contraction des câbles entraîne l'enroulement en spirale logarithmique, alors que leur relâchement, combiné à leur élasticité intrinsèque, restitue la forme initiale. En effet, les SpiRobs sont entièrement fabriqués en TPU (Thermoplastic Polyurethane) imprimé en 3D avec du filament eTPU-95A (shore A95). Ce matériau souple, que nous utiliserons également, offre une bonne compliance mécanique et une rigidité suffisante pour transmettre efficacement la tension des câbles. La couche centrale qui relie entre elles les phalanges agit comme un ressort passif, permettant le redéploiement sans nécessiter d’articulations ni de moteurs multiples~\cite{wang_spirobs_2025}.
 
     \subsection{Comportement et structure de la pince à concevoir}
     
@@ -278,7 +278,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                     \caption{Illustration du mécanisme d'enroulement \cite{hugh_lyman_level_2014}}
                     \label{fig:video}
                 \end{subfigure}
-                \hfill
+                \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.5\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/level_wind.png}
@@ -310,7 +310,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \caption{Doigt souple inspiré d'un humain \cite{bhat_numerical_2025}}
                 \label{fig:doigt_souple}
             \end{subfigure}
-            \hfill
+            \hspace{0.1\textwidth}
             \begin{subfigure}[b]{0.3\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{Figures/doigt_finit_elements.jpg}
@@ -323,7 +323,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
         Dans \cite{bhat_numerical_2025}, les auteurs développent un actuateur souple pneumatique bio-inspiré, conçu pour la préhension douce et les applications thérapeutiques. Ce dispositif imite la flexion d’un doigt humain par l'action de la pression sur des chambres internes segmentées (voir figure \ref{fig:doigt_souple}).
 
-        L'effecteur est fabriqué en silicone liquide (LSR), un matériau hyperélastique modélisé selon la loi de Yeoh d'ordre 2. Le modèle est défini par la formulation faible du problème établie par l'équation d'équilibre : $div(\sigma) + \rho f = 0$, avec \( \sigma \) le tenseur des contraintes, \( \rho \) la masse volumique, et \( f \) les forces volumiques (gravité).
+        L’effecteur est fabriqué en silicone liquide (LSR), un matériau hyperélastique, nettement plus souple que notre TPU, et modélisé par la loi de Yeoh d'ordre 2. Le modèle est défini par la formulation faible du problème établie par l'équation d'équilibre : $div(\sigma) + \rho f = 0$, avec \( \sigma \) le tenseur des contraintes, \( \rho \) la masse volumique, et \( f \) les forces volumiques (gravité).
 
         Le comportement est supposé isotrope, homogène, incompressible, et en quasi-statique (pas d’effets inertiels).
 
@@ -337,7 +337,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \caption{Angle parcouru suivant la pression exercée (en haut), et effecteur pour une pression de 60 kPa et 100 kPa.}
                 \label{fig:angle_pression}
             \end{subfigure}
-            \hfill
+            \hspace{0.1\textwidth}
             \begin{subfigure}[b]{0.4\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{Figures/angle_pression_experiments.PNG}
@@ -362,94 +362,94 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
         \subsubsection{Spirale centrale}
             
-            Sur la figure \ref{fig:spiral_logarithm}, la spirale centrale (en orange) qui définit notre robot vérifie la relation :
+            Sur la figure \ref{fig:spiral_logarithm}, la spirale centrale (notée $r_c(\theta)$, en orange) qui définit notre robot vérifie la relation :
             \begin{equation}
             r_c(\theta) = \frac{r(\theta) + r(\theta + 2\pi)}{2}, \quad \forall \theta
             \label{eq:spirale_centrale}
             \end{equation}
             
-            Cela signifie qu’on prend le rayon de la spirale du robot (en noire) au point $\theta$ ($r(\theta)$), et au point $\theta + 2\pi$ ($r(\theta + 2\pi)$), et on calcule leur moyenne. Cela donne un point « central » pour chaque angle $\theta$, et en les reliant, on forme la spirale centrale. \cite{wang_spirobs_2025}
+            Cela signifie qu’on prend le rayon de la spirale qui enveloppe le robot (notée $r(\theta)$, en noir) au point $\theta$ ($r(\theta)$), et au point $\theta + 2\pi$ ($r(\theta + 2\pi)$), et on calcule leur moyenne. Cela donne un point « central » pour chaque angle $\theta$, et en les reliant, on forme la spirale centrale. \cite{wang_spirobs_2025}
 
         \subsubsection{Choix et détermination des coefficients}
         
-            Une spirale logarithmique est d'équation en coordonnées polaires ($r, \theta$) :
+            La spirale logarithmique centrale en coordonnées polaires ($r, \theta$) est de la forme :
 
             \begin{equation}
-                r(\theta) = ae^{b\theta}, \quad \text{avec} \quad a > 0
+                r_c(\theta) = a_c e^{b_c \theta}, \quad \text{avec} \quad a_c > 0
                 \label{eq:spirale_log}
             \end{equation}
 
             \begin{figure}
                 \centering
                 \includegraphics[width=0.8\textwidth]{Figures/spirale.png}
-                \caption{Influence des coefficients $a$ et $b$ sur la spirale logarithmique}
+                \caption{Influence des coefficients $a_c$ et $b_c$ sur la spirale logarithmique}
                 \label{fig:spirale}
             \end{figure}
             
-            Dans notre cas, la spirale sera bornée par $\theta \in [\pi, \theta_0 + \pi]$. De plus, $a$ est un paramètre d’échelle (elle détermine la taille globale de la spirale), tandis que $b$ est un coefficient qui détermine à quel point la spirale s’enroule (plus $b$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}. Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin qu'un doigt s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale centrale parcourra 1 seul tour ($\theta_0 = 2\pi$), et a et b seront choisis de telle sorte qu'on obtienne la longueur désirée L du doigt.
+            Afin que la première phalange ne soit pas trop petite, la spirale centrale sera bornée par $\theta \in [\pi, \theta_0 + \pi]$, avec $\theta_0$ le nombre de tours de la spirale. De plus, $a_c$ est un paramètre d’échelle (elle détermine la taille globale de la spirale), tandis que $b_c$ est un coefficient qui détermine à quel point la spirale s’enroule (plus $b_c$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}. Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin qu'un doigt s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale centrale parcourra 1 seul tour ($\theta_0 = 2\pi$), et $a_c$ et $b_c$ seront choisis de telle sorte qu'on obtienne la longueur désirée $L$ du doigt, soit $10$ cm.
 
-            Pour déterminer la valeur de \( a \) dans l'équation de la spirale logarithmique \( r = a \cdot e^{b \cdot \theta} \), à b et L fixés, nous procédons comme suit :
+            Pour déterminer la valeur de \( a_c \) en fonction de $b_c$ pour satisfaire la condition sur $L$, nous procédons comme suit :
 
-            La longueur totale \( L \) d'une spirale logarithmique est donnée par l'intégrale de l'arc de \( \pi \) à \( 3\pi \) :
+            La longueur totale \( L \) de la spirale centrale est donnée par l'intégrale de l'arc de \( \pi \) à \( 3\pi \) :
             \[
-            L = \int_\pi^{\theta_0 +\pi} \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta, \quad \text{pour} \ \theta_0 = 2\pi \left( = 1 \text{ tour complet} \right)
+            L = \int_\pi^{\theta_0 +\pi} \sqrt{r_c^2 + \left(\frac{dr_c}{d\theta}\right)^2} \, d\theta, \quad \text{pour} \ \theta_0 = 2\pi \left( = 1 \text{ tour complet} \right)
             \]
             
-            Substituons dans la racine carrée : $\sqrt{r^2 + \left( \frac{dr}{d\theta} \right)^2} = \sqrt{a^2 e^{2b \theta} (1 + b^2)} = a e^{b \theta} \sqrt{1 + b^2}$
+            Substituons dans la racine carrée : $\sqrt{r_c^2 + \left( \frac{dr_c}{d\theta} \right)^2} = \sqrt{a_c^2 e^{2b_c \theta} (1 + b_c^2)} = a_c e^{b_c \theta} \sqrt{1 + b_c^2}$
             
-            La longueur totale devient : $L = \int_\pi^{3\pi} a e^{b \theta} \sqrt{1 + b^2} \, d\theta = a \sqrt{1 + b^2} \int_\pi^{3\pi} e^{b \theta} \, d\theta$
+            La longueur totale devient : $L = \int_\pi^{3\pi} a_c e^{b_c \theta} \sqrt{1 + b_c^2} \, d\theta = a_c \sqrt{1 + b_c^2} \int_\pi^{3\pi} e^{b_c \theta} \, d\theta$
             
-            Calculons l'intégrale : $\int_\pi^{3\pi} e^{b \theta} \, d\theta = \left[ \frac{1}{b} e^{b \theta} \right]_\pi^{3\pi} = \frac{1}{b} \left( e^{b \cdot 3\pi} - e^{b \cdot \pi} \right)$
+            Calculons l'intégrale : $\int_\pi^{3\pi} e^{b_c \theta} \, d\theta = \left[ \frac{1}{b_c} e^{b_c \theta} \right]_\pi^{3\pi} = \frac{1}{b_c} \left( e^{b_c \cdot 3\pi} - e^{b_c \cdot \pi} \right)$
             
-            Ainsi, la longueur totale est : $L = a \sqrt{1 + b^2} \cdot \frac{1}{b} \left( e^{b \cdot 3\pi} - e^{b \cdot \pi} \right)$
+            Ainsi, la longueur totale de la spirale centrale est : $L = a_c \sqrt{1 + b_c^2} \cdot \frac{1}{b_c} \left( e^{b_c \cdot 3\pi} - e^{b_c \cdot \pi} \right)$
             
-            En isolant \( a \) :
+            En isolant \( a_c \) :
 
             \begin{equation}
-            a = \frac{L b}{\sqrt{1 + b^2} \left( e^{b \cdot 3\pi} - e^{b \cdot \pi} \right)}
+            a_c(b_c) = \frac{L b_c}{\sqrt{1 + b_c^2} \left( e^{b_c \cdot 3\pi} - e^{b_c \cdot \pi} \right)}, \qquad \text{avec L connue}
             \label{eq:a}
-            \end{equation}
-
-        \subsubsection{Espacement}
-            
-            Enfin, il reste l'espacement $\Delta\theta$ à choisir entre les unités de la figure \ref{fig:spiral_logarithm} pour définir entièrement la forme et la taille du doigt. \cite{wang_spirobs_2025} Or, si $\theta$ va de $\pi$ à $3\pi$, le nombre de phalanges N est :
-        
-            \begin{equation}
-            N = \frac{\text{Angle total}}{\Delta \theta}
-            = \frac{\theta_0}{\Delta \theta}
-            = \frac{2\pi}{\Delta \theta}
-            \label{eq:nb_segment}
             \end{equation}
 
         \subsubsection{Spirale déroulée}
 
-            Pour construire le doigt, nous prenons exemple sur la figure \ref{fig:draw_solidworks}. Il est désormais question de traduire le formalisme mathématique de la spirale logarthmique en cote des différentes phalanges qui composent le doigt.
+            Etant donné l'équation (\ref{eq:a}), il ne reste qu'à déterminer la valeur optimale de $b_c$ pour définir l'équation de notre doigt.
 
-            Nous donnons l'angle de conicité (\textit{taper} \textit{angle}) :
+            Nous la calculerons en fonction d'un angle de conicité $\phi$ désiré (\textit{taper angle} sur la figure \ref{fig:draw_solidworks}) :
 
             \begin{equation}
-            \phi(b) = 2\arctan \left(
+            \phi(b_c) = 2\arctan \left(
                 \frac{\frac{1}{2}\delta(\theta)}{L(-\infty, \theta)}
-                \right) = 2 \arctan\left(\frac{b(e^{2\pi b}-1)}{\sqrt{b^2+1} \left(e^{2\pi b}+1\right)}\right)
+                \right) = 2 \arctan\left(\frac{b_c(e^{2\pi b_c}-1)}{\sqrt{b_c^2+1} \left(e^{2\pi b_c}+1\right)}\right)
             \label{eq:angle_de_conicite}
             \end{equation}
 
             Avec :
 
             \begin{itemize}
-                \item l'épaisseur du robot à l'angle $\theta$ : $\delta(\theta) = ae^{(b\theta + 2\pi)} - ae^{b\theta}$
-                \item la longueur du robot entre $[-\infty,\theta]$ : $L(-\infty, \theta) = \int_{-\infty}^{\theta} \sqrt{r_c^2 + \left(\frac{dr}{d\theta}\right)^2} \, d\theta = \frac{r_c(\theta)}{b}$.
+                \item l'épaisseur du robot à l'angle $\theta$ : $\delta(\theta) = a_ce^{(b_c\theta + 2\pi)} - a_ce^{b_c\theta}$
+                \item la longueur du robot entre $[-\infty,\theta]$ : $L(-\infty, \theta) = \int_{-\infty}^{\theta} \sqrt{r_c^2 + \left(\frac{dr_c}{d\theta}\right)^2} \, d\theta = \frac{r_c(\theta)}{b_c}$.
             \end{itemize}
 
             Le fait que $\phi$ soit indépendant de $\theta$ signifie que la forme est effilée \cite{wang_spirobs_2025}.
 
-    \subsection{Cahier des charges} 
+        \subsubsection{Nombre de phalanges}
+            
+            Enfin, nous devrons choisir l'espacement $\Delta\theta$ entre les phalanges de la figure \ref{fig:spiral_logarithm} pour définir entièrement la forme et la taille du doigt. On pourra alors en déduire, si $\theta_0 = 2\pi$, le nombre de phalanges N :
+        
+            \begin{equation}
+                N = \frac{\text{Angle total}}{\Delta \theta}
+                = \frac{\theta_0}{\Delta \theta}
+                = \frac{2\pi}{\Delta \theta}
+                \label{eq:nb_segment}
+            \end{equation}
+
+    \subsection{Cahier des charges retenu} 
 
             \begin{itemize}
                 \item Angle de conicité (ou \textit{taper angle}) : $\phi \ = \ 15^o \ = \ \frac{\pi}{12} \ rad$ 
                 \item Angle entre 2 phalanges adjacentes : $\Delta \theta \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$
                 \item Longueur de la spirale centrale : $L \ = \ 10cm \ = \ 100mm$ 
-                \item Couche élastique : 10 $\%$ de la largeur du doigt pour chaque $\theta$
+                \item Couche élastique : 10 $\%$ de la largeur du doigt pour tout $\theta$
             \end{itemize}
 
             \subsubsection{Discussion sur le cahier des charges à respecter}
@@ -462,9 +462,9 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
         \subsubsection{Détermination des paramètres pour répondre au cahier des charges}
 
-            Pour satisfaire les exigences du cahier des charges ci-dessus, on cherche les valeurs des paramètres $b,\ a,\ \theta_0$ : 
+            Pour satisfaire les exigences du cahier des charges ci-dessus, nous cherchons les valeurs des paramètres $N$, $a_c$ et $b_c$ qui y répondent : 
 
-            Comme montré dans l’équation (\ref{eq:nb_segment}), le nombre de phalanges dépend de l’angle total $\theta_0$ et l'espacement $\Delta \theta$, on peut en déduire le nombre de phalanges comme suit :
+            Comme montré dans l’équation (\ref{eq:nb_segment}), le nombre de phalanges dépend de l’angle total $\theta_0$ et l'espacement $\Delta \theta$, on peut donc déduire le nombre de phalanges comme suit :
 
             \[
                 N = \frac{2\pi}{\frac{\pi}{6}} = 12 
@@ -472,7 +472,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
             
             Il y aura donc 12 phalanges.
 
-            Ensuite, nous devons déterminer b de telle sorte que $\phi = \frac{\pi}{12}$.
+            Ensuite, nous devons déterminer $b_c$ de telle sorte que $\phi = \frac{\pi}{12}$.
             
             Nous le calculons grâce à l'équation (\ref{eq:angle_de_conicite}) en appliquant la méthode \texttt{fsolve} de \texttt{Python}:
 
@@ -499,7 +499,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
             \texttt{equation}(b) = \phi(b) - \texttt{taper\_angle\_rad}, \qquad \text{pour} \texttt{ taper\_angle\_rad} = \frac{\pi}{12}
             \]
 
-            Ainsi, la résolution de \( \texttt{equation}(b) = 0 \) correspond à trouver la racine de cette fonction, c'est-à-dire la valeur de \( b \) pour laquelle \(\phi(b)\) est égale à \(\texttt{taper\_angle\_rad}\).
+            Ainsi, la résolution de \( \texttt{equation}(b_c) = 0 \) correspond à trouver la racine de cette fonction, c'est-à-dire la valeur de \( b \) pour laquelle \(\phi(b)\) est égale à \(\texttt{taper\_angle\_rad}\).
 
             \textbf{Signification de \texttt{x0} et \texttt{xtol} dans \texttt{fsolve}} :
             \begin{itemize}
@@ -508,7 +508,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \item \(\mathbf{xtol}\) : C'est la \textit{tolérance sur la solution} que l'on fixe pour arrêter la recherche de la racine. Plus précisément, lorsque la variation de \( x \) (la valeur approchée de la racine) entre deux itérations est inférieure à \(\texttt{xtol}\), l'algorithme considère que la solution est suffisamment précise et s'arrête. Ici, \(\texttt{xtol} = 10^{-6}\) signifie que la racine est calculée avec une précision d'environ \(10^{-6}\).
             \end{itemize}
 
-            \textbf{Nous avons donc reçu la valeur de $b_c\ =\ 0.2230302381847426$ et a déduit $a_c$ de l'équation (\ref{eq:a}) pour $a_c\ =\ 3.530268404263818$}
+            \textbf{Nous avons donc reçu la valeur de $b_c\ =\ 0.2230302381847426$, et avons déduit $a_c\ =\ 3.530268404263818$ avec l'équation (\ref{eq:a})}
 
             \begin{table}[h!]
                 \centering
@@ -519,19 +519,17 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 0.2230 & 3.5303 \\
                 \bottomrule
                 \end{tabular}
-                \caption{Valeur de $a$ calculée en fonction de $b_c$ avec $L=100$ mm.}
+                \caption{Valeur de $a_c$ calculée en fonction de $b_c$ avec $L=100$ mm.}
             \label{tab:valeurs_a_b}
             \end{table}
 
-        Avec tous les paramètres que l'on a trouvés, nous allons pouvoir dessiner les lignes de construction pour l'enleveloppe de notre doigt.
-
-        Afin que notre doigt mesure $L = 100$ mm, il faut que la spirale centrale d'équation (\ref{eq:spirale_centrale}) soit :
+        Ainsi, afin que notre doigt réponde au cahier des charges, il faut que la spirale centrale d'équation (\ref{eq:spirale_log}) soit définie par :
 
         \[
-        r_c = a_c e^{b_c\theta}, \qquad \text{avec} b_c = 0.2230, a_c = 3.5303, \quad \text{d'après TABLE \ref{tab:valeurs_a_b}}
+        r_c = a_c e^{b_c\theta}, \qquad \text{avec } b_c = 0.2230, \text{ } a_c = 3.5303, \text{ d'après TABLE \ref{tab:valeurs_a_b}}
         \]
 
-        Nous cherchons maintenant l'équation de la spirale qui enveloppe le doigt, soit $r(\theta) = f(r_c(\theta))$. Ainsi, on peut
+        Nous cherchons maintenant l'équation de la spirale qui enveloppe le doigt, soit $r(\theta) = f(r_c(\theta))$. Pour cela, on peut
         déduire la formule inverse de (\ref{eq:spirale_centrale}) en posant $r(\theta) = ae^{b\theta}$ :
 
         $$r_c(\theta) = \frac{r(\theta) + r(\theta + 2\pi)}{2}, \quad \forall \theta$$
@@ -558,19 +556,19 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_spirale_1.png}
-                    \caption{Esquisse de la spirale centrale, d'équation \ensuremath{r_c = a_ce^{b_c \theta}}}
+                    \caption{Esquisse de la spirale centrale, d'équation \ensuremath{r_c = a_ce^{b_c \theta}} avec \ensuremath{\theta \in [0,3\pi]}}
                 \end{subfigure}
                 \hfill
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_spirale_2.png}
-                    \caption{Esquisse de la spirale qui enveloppe le doigt (en bleue), d'équation \ensuremath{r = \frac{2 \cdot r_c(\theta)}{1 + e^{2\pi b}}}}
+                    \caption{Esquisse de la spirale qui enveloppe le doigt (en bleue), d'équation \ensuremath{r = \frac{2 \cdot r_c(\theta)}{1 + e^{2\pi b}}} avec \ensuremath{\theta \in [0,4\pi]}}
                 \end{subfigure}
                 \caption{Dessin des spirales élémentaires du doigt}
                 \label{fig:esquisse_spirale}
             \end{figure}
 
-            La figure \ref{fig:esquisse_spirale} présente les esquisses des deux spirales. Elles ont été tracées à l’aide d’une méthode paramétrique, consistant simplement à ajouter aux formules un $\cos(t)$ en $x$ et un $\sin(t)$ en $y$. Ces tracés permettent de valider nos calculs, que nous pouvons considérer comme corrects puisque la spirale centrale reste bien centrée pour tout $\theta$.
+            La figure \ref{fig:esquisse_spirale} présente les esquisses des deux spirales. Elles ont été tracées à l’aide d’une méthode paramétrique. Ces courbes permettent de valider nos calculs, que nous pouvons considérer comme corrects puisque la spirale centrale reste bien centrée pour tout $\theta$.
 
             \begin{figure}[H]
                 \centering
@@ -589,7 +587,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \label{fig:esquisse_etoile}
             \end{figure}
 
-            Sur la figure \ref{fig:esquisse_etoile}, vous pouvez voir notre dessin de l'étoile dont le centre est l'origine du repère polaire utilisée pour tracer les spirales. Comme en $\theta = 0$, on a $r_c(0) = a_c e^0 = a_c$, alors l'origine de l'étoile se trouve à une distance $a_c$ du point de départ de la spirale centrale. Ensuite, nous dessinons chacune des moitié de phalanges en prenant soin de ne pas fusionner les extrusions.
+            Sur la figure \ref{fig:esquisse_etoile}, vous pouvez voir notre dessin de l'étoile dont le centre est l'origine du repère polaire utilisée pour tracer les spirales. Comme en $\theta = 0$, on a $r_c(0) = a_c e^0 = a_c$, alors l'origine de l'étoile se trouve à une distance $a_c$ du point de départ de la spirale centrale. Ensuite, nous dessinons chacune des moitiés de phalanges en prenant soin de ne pas fusionner les extrusions.
 
             \begin{figure}[H]
                 \centering
@@ -598,7 +596,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                     \includegraphics[width=\textwidth]{Figures/esquisse_trapèze_symetrie.png}
                     \caption{Symétrie de toutes les phalanges}
                 \end{subfigure}
-                \hfill
+                \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/doigt.png}
@@ -638,7 +636,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                     \includegraphics[width=\textwidth]{Figures/encastrement_doigt_base.png}
                     \caption{Encastrement du doigt dans la base avec un jeu de 0.3 mm}
                 \end{subfigure}
-                \hfill
+                \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/trou_base_cable.png}
@@ -660,7 +658,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                     \caption{Support moteur en MAKERBEAM, avec la pièce pour y fixer le moteur en rouge}
                     \label{fig:support}
                 \end{subfigure}
-                \hfill
+                \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/support_fixation.png}
@@ -685,7 +683,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                     \includegraphics[width=\textwidth]{Figures/vis_sans_fin.jpg}
                     \caption{Notre vis mère de la marque Igus en acier trempé, permettant un très faible frottement}
                 \end{subfigure}
-                \hfill
+                \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/ecrou_trou.png}
@@ -705,7 +703,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                     \caption{Pièce attachée au moteur et vissée sur la vis mère avec un filetage réaliste}
                     \label{fig:piece_manquante}
                 \end{subfigure}
-                \hfill
+                \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.25\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/attache.png}
@@ -780,7 +778,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                     \caption{Condition limite d'encastrement sur la base}
                     \label{fig:encastrement}
                 \end{subfigure}
-                \hfill
+                \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/force_3_doigts.png}
@@ -800,7 +798,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                     \caption{Création du maillage}
                     \label{fig:maillage}
                 \end{subfigure}
-                \hfill
+                \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/simulation_4 N.png}
@@ -813,7 +811,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
         \textbf{Résultats}
             
-            Nous générons un maillage fin de $2,7 \cdot 10^5$ éléments avant d'exécuter la simulation avec des forces de 4~N appliquées sur chaque doigt (pour simuler la portée d'un objet d'environ 400 grammes). Le logiciel va alors calculer le tenseur de contraintes, les déformations et les déplacements. On peut remarquer dans ce cas que la contrainte maximale ne dépasse pas la limite d'élasticité du matériau (voir figure~\ref{fig:simulation4}) :
+            Nous générons un maillage fin de $2,7 \cdot 10^5$ éléments basé sur la courbure, avant d'exécuter la simulation avec des forces de 4~N appliquées sur chaque doigt (pour simuler la portée d'un objet d'environ 400 grammes). Le logiciel va alors calculer le tenseur de contraintes, les déformations et les déplacements. On peut remarquer dans ce cas que la contrainte maximale ne dépasse pas la limite d'élasticité du matériau (voir figure~\ref{fig:simulation4}) :
 
             \[
             2{,}346\ \text{MPa} < 8{,}6\ \text{MPa} \quad \Rightarrow \quad \sigma_{\text{max}} < \sigma_{\text{limite}}
