@@ -232,7 +232,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
     \subsection{Comportement et structure de la pince à concevoir}
     
-        La pince pourra adopter deux configurations distinctes : ouverte ou fermée. Elle est composée de 3 doigts identiques de hauteur 10 cm, chacun soumis à un encastrement rigide sur une base. Les doigts seront positionnés symétriquement autour du centre de la base, séparés par un angle de 120°. Des câbles passant dans les trous des doigts permettront leur actionnement via un moteur chargé de régler leur tension. Dans ce type de mécanisme, la tension appliquée aux câbles constitue une préoccupation majeure, car si elle est insuffisante, elle peut provoquer un flambage et compromettre le contrôle efficace du mouvement. Il convient également de déterminer la solution la plus appropriée entre un moteur linéaire et un moteur rotatif.
+        La pince pourra adopter deux configurations distinctes : ouverte ou fermée. Elle est composée de 3 doigts identiques de hauteur 10 cm, chacun soumis à un encastrement rigide sur une base. Les doigts seront positionnés symétriquement autour du centre de la base, séparés par un angle de 120°. Des câbles passant dans les trous des doigts permettront leur actionnement via un moteur chargé de régler leur tension. Dans ce type de mécanisme, la tension appliquée aux câbles constitue une préoccupation majeure, car si elle est insuffisante, elle peut provoquer un flambage et compromettre le contrôle efficace du mouvement.
         
 \clearpage
 
@@ -261,13 +261,11 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \label{fig:resume_origami}
             \end{figure}
 
-            Cette étude a été menée afin de concevoir des préhenseurs souples en origami, permettant une adaptabilité de préhension pour de nombreux objets. La pince, qui n'est qu'une simple feuille de PVC (voir figure \ref{fig:pince_PVC}), est commandée à l'aide d'un moteur linéaire. Grâce à sa structure flexible, elle peut saisir efficacement des objets de taille diverse pour le même actionnement (voir figure \ref{fig:prehension_adapt}). Cependant, sa capacité de préhension reste limitée pour des charges trop lourdes, le frottement étant insuffisant pour maintenir ou attraper des objets au poids élevé.
+            Cette étude a été menée afin de concevoir des préhenseurs souples en origami, permettant une adaptabilité de préhension pour de nombreux objets. La pince, qui n'est qu'une simple feuille de PVC (voir figure \ref{fig:pince_PVC}), est commandée à l'aide d'un moteur linéaire. Grâce à sa structure flexible, elle peut saisir efficacement des objets de taille diverse pour le même actionnement (voir figure \ref{fig:prehension_adapt}). Cependant, sa capacité de préhension demeure limitée pour des charges dépassant 113.88 g, la force de préhension de la pince et les frottements n’étant pas suffisants pour maintenir ou saisir ces objets.
 
-            Ces travaux soulignent l’intérêt et les limites des solutions souples pour la préhension robotique malgré leur adaptabilité.
+            Ces travaux mettent en évidence la grande adaptabilité des préhenseurs souples, tout en soulignant leur capacité de charge limitée. Notre pince vise à dépasser cette contrainte en améliorant la préhension grâce à la présence de trois doigts.
                 
     \subsection{Actionnement par câbles}
-
-        Deuxièmement, nous établissons une synthèse utile sur l'actionnement par câbles.
 
         \subsubsection{Mécanisme \textit{level wind} ou tambour}
 
@@ -298,11 +296,11 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
         \subsubsection{Vis à bille}
 
-            Enfin, nous nous intéressons à l'actionnement par vis à bille, qui peut être apparentée à un mécanisme de vis-écrou traditionnel. Mais les vis à billes sont les composants les plus fréquemment utilisés pour transformer la rotation de moteur en mouvement linéaire. En effet, elles permettent, en limitant grandement les frottements, grâce à une simple rotation de la vis, de faire avancer l'écrou sans avoir besoin d'une glissière. \cite{verl_double_2014}
+            Enfin, nous nous intéressons à l’actionnement par vis à billes, un système comparable au mécanisme vis-écrou classique. Toutefois, les vis à billes sont parmi les composants les plus couramment employés pour convertir la rotation d’un moteur en mouvement linéaire. Elles présentent l’avantage de réduire considérablement les frottements, grâce au contact entre la vis et l’écrou qui s’effectue uniquement par l’intermédiaire de billes. \cite{verl_double_2014}
 
     \subsection{Simulation par éléments finis}
     
-        Troisèmement, nous étudions le cas d'une simulation d'un doigt robotique qui présente de nombreuses similitudes au nôtre.
+        En outre, nous étudions le cas d'une simulation d'un doigt robotique qui présente de nombreuses similitudes au nôtre.
 
         \begin{figure}[htbp]
             \centering
@@ -631,7 +629,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \label{fig:base}
             \end{figure}
 
-            Nous concevons une base de forme triangulaire, dont le cercle circonscrit présente un rayon d’environ 80 mm, afin de pouvoir manipuler des fruits de diamètre similaire. Le doigt est fixé à la base grâce à un système d’accroche en queue de hareng, avec un jeu de 0,3 mm prévu pour permettre l’assemblage (par la suite, nous adopterons toujours ce jeu pour chaque pièce). Ce même jeu est appliqué à la cavité destinée à accueillir le support moteur qui sera accroché à la base. Enfin, une excroissance percée est ajoutée à la base afin de maintenir l’extrémité de la vis mère, évitant ainsi qu’elle ne reste libre et prévenant tout hypostatisme (voir figure \ref{fig:base}).
+            Nous concevons une base de forme triangulaire, dont le cercle circonscrit présente un rayon d’environ 80 mm, afin de pouvoir manipuler des fruits de diamètre similaire. Le doigt est fixé à la base grâce à un système d’accroche en queue de hareng, avec un jeu de 0,3 mm prévu pour permettre l’assemblage (par la suite, nous adopterons toujours ce jeu pour chaque pièce). Ce même jeu est appliqué à la cavité destinée à accueillir le support moteur qui sera accroché à la base (voir figure \ref{fig:base}).
             
             \begin{figure}[H]
                 \centering
@@ -697,7 +695,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \label{fig:vis_sans_fin}
             \end{figure}
 
-            Après discussion avec notre responsable, nous avons décidé de ne pas utiliser de tambour pour l'actionnement par câble. Bien que le tambour soit une solution efficace, l'actionnement par un système vis-écrou s’avère plus simple à mettre en œuvre dans le cadre de notre projet, et est moins encombrant. Nous opterons donc pour une vis mère en acier trempé afin de réduire les frottements, associée à un écrou (voir figure \ref{fig:vis_sans_fin}). Nous avons retenu à cet effet une glissière Igus, modèle NK-01-27, accompagnée de son chariot et de son écrou. Selon les recommandations du fabricant \cite{noauthor_bague_nodate}, l’écrou doit impérativement être protégé contre les efforts de torsion et les déplacements axiaux excessifs. Nous veillerons donc à intégrer des dispositifs de guidage et de blocage adaptés afin d’assurer la stabilité et la durabilité du mécanisme.
+            Après discussion avec notre responsable, nous avons décidé de ne pas utiliser de tambour pour l'actionnement par câble. Bien que le tambour soit une solution efficace, l'actionnement des câbles prétendus par un système vis-écrou s’avère plus simple à mettre en œuvre dans le cadre de notre projet et se révèle moins encombrant. À la place d'une vis à billes, nous optons pour une vis mère en acier trempé afin de réduire les frottements, accompagnée d'un écrou (voir figure \ref{fig:vis_sans_fin}). Selon les recommandations du fabricant \cite{noauthor_bague_nodate}, l’écrou doit impérativement être protégé contre les efforts de torsion et les déplacements axiaux excessifs. Nous veillerons donc à intégrer des dispositifs de guidage et de blocage adaptés afin d’assurer la stabilité et la durabilité du mécanisme.
 
             \begin{figure}[H]
                 \centering
@@ -737,7 +735,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \label{fig:attache_glissiere}
             \end{figure}
 
-            Comme indiqué précédemment dans l’état de l’art, l’absence de vis à billes nécessite d’associer le système vis-écrou à une glissière pour assurer le guidage. Il convient donc de la fixer sur le support réalisé avec la bibliothèque MAKERBEAM. Pour cela, nous utilisons une pièce de cette bibliothèque qui permet de solidariser une nouvelle barre au support destinée à recevoir la glissière.
+            Nous devons également associer le système vis-écrou à une glissière pour assurer le guidage linéaire. Nous avons retenu à cet effet une glissière Igus, modèle NK-01-27, accompagnée de son chariot. Il convient donc de la fixer sur le support réalisé avec la bibliothèque MAKERBEAM. Pour cela, nous utilisons une pièce de cette bibliothèque qui permet de solidariser une nouvelle barre au support destinée à recevoir la glissière.
 
             Du reste, la conception du système vis-écrou s’inspire de la vidéo \cite{w3d_tech_systeme_2023}. Sur la figure \ref{fig:inspiration}, le rail supérieur (en vert) maintient l’écrou en rotation bloquée, ce qui lui permet de translater lorsqu’un moteur fait tourner la vis. Du reste, ce système empêche l’emmêlement des câbles : l’écrou reste fixe en rotation et ne fait que translater.
 
