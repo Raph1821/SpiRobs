@@ -754,9 +754,11 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
             Sur la figure \ref{fig:pince_assemble}, nous proposons une illustration de l'assemblage CAO finale de notre pince. La sphère verte permet de modéliser une pomme de diamètre 8 cm.
 
+\clearpage
+
 \section{Résultats}
 
-    \subsection{Simulation et étude de l'élasiticité via \textit{SolidWorks Simulation}}
+    \subsection{Simulation et étude de l'élasticité via \textit{SolidWorks Simulation}}
 
         \subsubsection{Création des matériaux dans SolidWorks}
 
@@ -821,14 +823,26 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
             Étant donné que le poids de l'objet soulevé peut être divisé par trois grâce à l'utilisation des trois doigts, on peut conclure que la pince est tout à fait capable de soulever des fruits et des légumes pesant quelques centaines de grammes sans subir de déformations permanentes. Par exemple, une pomme ou un poivron pèse en moyenne entre 150 et 200 grammes, ce qui est conforme à ces limites.
 
-            \begin{figure}
+            \begin{figure}[h]
+            \centering
+            \begin{subfigure}[b]{0.5\textwidth}
                 \centering
-                \includegraphics[width=0.8\textwidth]{Figures/étude_de_conception.png}
-                \caption{Analyse des contraintes maximales pour différentes valeurs de forces, mettant en évidence une évolution linéaire}
-                \label{fig:etude_de_conception}
-            \end{figure}
+                \includegraphics[width=\textwidth]{Figures/étude_de_conception.png}
+                \caption{Analyse des contraintes maximales pour différentes valeurs de forces}
+                \label{fig:etude_de_conception_a}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.4\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/linear.png}
+                \caption{Évolution linéaire mise en évidence}
+                \label{fig:etude_de_conception_b}
+            \end{subfigure}
+            \caption{Analyse des contraintes maximales et mise en évidence de l’évolution linéaire, traduisant le fait que l'on reste globalement dans le domaine élastique}
+            \label{fig:etude_de_conception}
+        \end{figure}
 
-            Pour réaliser plusieurs simulations, nous utilisons l’option \textit{étude de conception}. Une variable représentant la force appliquée y est introduite, variant de 9 N à 17 N (pour simuler le poids des objets pesant jusqu'à $1.7 \cdot 3 = 5.1$ kg). Nous ajoutons également un capteur mesurant la contrainte maximale de Von Mises. En effet, les auteurs de \cite{bhat_numerical_2025} s’appuient sur la contrainte équivalente linéarisée, basée sur le critère de Von Mises. Ils ont observé que les contraintes sont généralement plus importantes au centre du doigt, en raison des déformations plus marquées dans cette zone — une observation en accord avec nos propres r<ésultats.
+            Pour réaliser plusieurs simulations, nous utilisons l’option \textit{étude de conception}. Une variable représentant la force appliquée y est introduite, variant de 9 N à 17 N (pour simuler le poids des objets pesant jusqu'à $1.7 \cdot 3 = 5.1$ kg). De même que dans \cite{bhat_numerical_2025}, nous observons que les contraintes sont généralement plus importantes au centre du doigt, en raison des déformations plus marquées dans cette zone.
 
             La figure \ref{fig:etude_de_conception} montre un dépassement de la limite d’élasticité pour des charges lourdes (15 Newton), et la pièce rentre ainsi dans le domaine plastique. Pour remédier à cela, nous proposons d’ajouter un élastique au niveau du trou extérieur du doigt. Ce dispositif permettra à la pièce de retrouver sa position initiale grâce à l’effet de rappel de l’élastique, dans le cas où le matériau fatigue ou sort du domaine élastique.
 
