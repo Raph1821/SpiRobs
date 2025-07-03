@@ -186,8 +186,6 @@ Le document commence par un état de l'art des préhenseurs souples et des dispo
 
 Une simulation par éléments finis permet d’évaluer les contraintes subies lors de la fermeture des doigts. Les résultats montrent que la pince peut saisir des objets de masse modérée sans dépasser la limite d’élasticité du matériau, sous réserve d’ajouter des éléments de rappel mécanique tel qu'un élastique pour limiter les déformations plastiques lors d’efforts plus importants.
 
-Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable, illustrant l’intérêt des solutions à câbles pour des applications collaboratives simples.
-
 \clearpage
 \tableofcontents
 \clearpage
@@ -323,13 +321,11 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
         Dans \cite{bhat_numerical_2025}, les auteurs développent un actuateur souple pneumatique bio-inspiré, conçu pour la préhension douce et les applications thérapeutiques. Ce dispositif imite la flexion d’un doigt humain par l'action de la pression sur des chambres internes segmentées (voir figure \ref{fig:doigt_souple}).
 
-        L’effecteur est fabriqué en silicone liquide (LSR), un matériau hyperélastique, nettement plus souple que notre TPU, et modélisé par la loi de Yeoh d'ordre 2. Le modèle est défini par la formulation faible du problème établie par l'équation d'équilibre : $div(\sigma) + \rho f = 0$, avec \( \sigma \) le tenseur des contraintes, \( \rho \) la masse volumique, et \( f \) les forces volumiques (gravité).
-
-        Le comportement est supposé isotrope, homogène, incompressible, et en quasi-statique (pas d’effets inertiels).
+        L’effecteur est fabriqué en silicone liquide (LSR), un matériau hyperélastique, nettement plus souple que notre TPU, et modélisé par la loi de Yeoh d'ordre 2. Le comportement est supposé isotrope, homogène, incompressible, et en quasi-statique (pas d’effets inertiels).Le modèle est défini par la formulation faible du problème établie par l'équation d'équilibre : $div(\sigma) + \rho f = 0$, avec \( \sigma \) le tenseur des contraintes, \( \rho \) la masse volumique, et \( f \) les forces volumiques (gravité).
 
         L’analyse est menée via un modèle éléments finis utilisant des tétraèdres quadratiques (éléments d'ordre 2), avec un maillage raffiné (\( 63\,772 \) éléments, taille 3 mm).
 
-        \begin{figure}[htbp]
+                \begin{figure}[htbp]
             \centering
             \begin{subfigure}[b]{0.4\textwidth}
                 \centering
@@ -379,14 +375,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \label{eq:spirale_log}
             \end{equation}
 
-            \begin{figure}
-                \centering
-                \includegraphics[width=0.8\textwidth]{Figures/spirale.png}
-                \caption{Influence des coefficients $a_c$ et $b_c$ sur la spirale logarithmique}
-                \label{fig:spirale}
-            \end{figure}
-            
-            Afin que la première phalange ne soit pas trop petite, la spirale centrale sera bornée par $\theta \in [\pi, \theta_0 + \pi]$, avec $\theta_0$ le nombre de tours de la spirale. De plus, $a_c$ est un paramètre d’échelle (elle détermine la taille globale de la spirale), tandis que $b_c$ est un coefficient qui détermine à quel point la spirale s’enroule (plus $b_c$ est grand, plus la spirale est "serrée"), comme l'illustre la figure \ref{fig:spirale}. Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin qu'un doigt s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale centrale parcourra 1 seul tour ($\theta_0 = 2\pi$), et $a_c$ et $b_c$ seront choisis de telle sorte qu'on obtienne la longueur désirée $L$ du doigt, soit $10$ cm.
+            Afin que la première phalange ne soit pas trop petite, la spirale centrale sera bornée par $\theta \in [\pi, \theta_0 + \pi]$, avec $\theta_0$ le nombre de tours de la spirale. De plus, $a_c$ est un paramètre d’échelle (elle détermine la taille globale de la spirale), tandis que $b_c$ est un coefficient qui détermine à quel point la spirale s’enroule (plus $b_c$ est grand, plus la spirale est "serrée"). Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin qu'un doigt s'enroule complètement autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale centrale parcourra 1 seul tour ($\theta_0 = 2\pi$), et $a_c$ et $b_c$ seront choisis de telle sorte qu'on obtienne la longueur désirée $L$ du doigt, soit $10$ cm.
 
             Pour déterminer la valeur de \( a_c \) en fonction de $b_c$ pour satisfaire la condition sur $L$, nous procédons comme suit :
 
@@ -509,25 +498,12 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \item \(\mathbf{xtol}\) : C'est la \textit{tolérance sur la solution} que l'on fixe pour arrêter la recherche de la racine. Plus précisément, lorsque la variation de \( x \) (la valeur approchée de la racine) entre deux itérations est inférieure à \(\texttt{xtol}\), l'algorithme considère que la solution est suffisamment précise et s'arrête. Ici, \(\texttt{xtol} = 10^{-6}\) signifie que la racine est calculée avec une précision d'environ \(10^{-6}\).
             \end{itemize}
 
-            \textbf{Nous avons donc reçu la valeur de $b_c\ =\ 0.2230302381847426$, et avons déduit $a_c\ =\ 3.530268404263818$ avec l'équation (\ref{eq:a})}
-
-            \begin{table}[h!]
-                \centering
-                \begin{tabular}{@{}c S[table-format=1.4]@{}}
-                \toprule
-                $b_c$ & {$a_c$ [mm]} \\
-                \midrule
-                0.2230 & 3.5303 \\
-                \bottomrule
-                \end{tabular}
-                \caption{Valeur de $a_c$ calculée en fonction de $b_c$ avec $L=100$ mm.}
-            \label{tab:valeurs_a_b}
-            \end{table}
+            \textbf{Nous avons donc reçu la valeur de $b_c\ =\ 0.2230302381847426$, et avons déduit $a_c\ =\ 3.530268404263818$ avec l'équation (\ref{eq:a})}.
 
         Ainsi, afin que notre doigt réponde au cahier des charges, il faut que la spirale centrale d'équation (\ref{eq:spirale_log}) soit définie par :
 
         \[
-        r_c = a_c e^{b_c\theta}, \qquad \text{avec } b_c = 0.2230, \text{ } a_c = 3.5303, \text{ d'après TABLE \ref{tab:valeurs_a_b}}
+        r_c = a_c e^{b_c\theta}, \qquad \text{avec } b_c = 0.2230, \text{ } a_c = 3.5303
         \]
 
         Nous cherchons maintenant l'équation de la spirale qui enveloppe le doigt, soit $r(\theta) = f(r_c(\theta))$. Pour cela, on peut
@@ -554,13 +530,13 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.4\textwidth}
+                \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_spirale_1.png}
                     \caption{Esquisse de la spirale centrale, d'équation \ensuremath{r_c = a_ce^{b_c \theta}} avec \ensuremath{\theta \in [0,3\pi]}}
                 \end{subfigure}
-                \hfill
-                \begin{subfigure}[t]{0.4\textwidth}
+                \hspace{0.1\textwidth}
+                \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_spirale_2.png}
                     \caption{Esquisse de la spirale qui enveloppe le doigt (en bleue), d'équation \ensuremath{r = \frac{2 \cdot r_c(\theta)}{1 + e^{2\pi b}}} avec \ensuremath{\theta \in [0,4\pi]}}
@@ -573,12 +549,12 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.5\textwidth}
+                \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_1.png}
                     \caption{Esquisse de l'étoile pour discrétiser la spirale, et extrusion de la première moitié de phalange à l'aide des lignes construites}
                 \end{subfigure}
-                \hfill
+                \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_entier.png}
@@ -607,7 +583,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \label{fig:spirale_enroule}
             \end{figure}
 
-            Enfin, nous symétrisons les moitiés de phalanges. Nous les enregistrons alors dans des fichiers pièces séparément, et cela permet de les assembler de telle sorte que le doigt soit déroulé. Nous avons bien vérifier sur le logiciel : la longueur du doigt L mesure environ 100 mm, et l'angle de conicité $\phi$ est en effet de 15°, tandis que l'angle $\Delta \theta$ entre chaque phalange est de 30° (voir figure \ref{fig:spirale_enroule}). On prend également soin de rajouter la couche élastique de 10\% de la largeur du doigt afin de relier les phalanges entre elles.
+            Enfin, nous symétrisons les moitiés de phalanges. Nous les enregistrons alors dans des fichiers pièces séparément, et cela permet de les assembler de telle sorte que le doigt soit déroulé. Nous avons bien vérifier sur le logiciel : la longueur du doigt L mesure environ 100 mm, et l'angle de conicité $\phi$ est en effet de 15°, tandis que l'angle $\Delta \theta$ entre chaque phalange est de 30° (voir figure \ref{fig:spirale_enroule}). Également, nous prenons soin de rajouter la couche élastique de 10\% de la largeur du doigt afin de relier les phalanges entre elles.
             
             \subsubsection{Dessin de la base}
 
@@ -632,13 +608,13 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
             
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.4\textwidth}
+                \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/encastrement_doigt_base.png}
                     \caption{Encastrement du doigt dans la base avec un jeu de 0.3 mm}
                 \end{subfigure}
                 \hspace{0.1\textwidth}
-                \begin{subfigure}[t]{0.3\textwidth}
+                \begin{subfigure}[t]{0.2\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/trou_base_cable.png}
                     \caption{Trous dans la base pour faire passer les câbles dans les doigts}
@@ -671,7 +647,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
             Le support moteur est conçu à l’aide de la bibliothèque MAKERBEAM (voir figure \ref{fig:support}). Il est assemblé à partir de barres de 40 mm, 60 mm et 200 mm, ainsi que de cubes de jonction. La fixation du support à la base est assurée par des vis et des boulons. Cela nécessite la réalisation de quatre perçages de 4,3 mm de diamètre dans la base, centrés sous chaque barre (voir figure \ref{fig:fixation_base_support}).
 
-            Le servomoteur MX-28 de chez Dynamixel a été retenu pour ce montage, car il permet un contrôle précis en position et offre le couple le plus élevé parmi les moteurs que nous avions à disposition (10 Nm).
+            Le servomoteur MX-106 de chez Dynamixel a été retenu pour ce montage, car il permet un contrôle précis en position et en vitesse grâce au PID intégré et offre le couple le plus élevé parmi les moteurs que nous avions à disposition (10 Nm).
 
             Une pièce supplémentaire est conçue pour maintenir le moteur. Elle présente des perçages en bordure permettant d'y accrocher le moteur à l'aide de vis. Les trous situés sur les extensions latérales servent à fixer la pièce sur les barres MAKERBEAM (voir figure \ref{fig:support}).
 
@@ -685,7 +661,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                     \caption{Notre vis mère de la marque Igus en acier trempé, permettant un très faible frottement}
                 \end{subfigure}
                 \hspace{0.1\textwidth}
-                \begin{subfigure}[t]{0.3\textwidth}
+                \begin{subfigure}[t]{0.2\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/ecrou_trou.png}
                     \caption{Modèle de l'écrou dessiné sur SolidWorks pour permettre l'assemblage CAO}
@@ -694,7 +670,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \label{fig:vis_sans_fin}
             \end{figure}
 
-            Après discussion avec notre responsable, nous avons décidé de ne pas utiliser de tambour pour l'actionnement par câble. Bien que le tambour soit une solution efficace, l'actionnement des câbles prétendus par un système vis-écrou s’avère plus simple à mettre en œuvre dans le cadre de notre projet et se révèle moins encombrant. À la place d'une vis à billes, nous optons pour une vis mère en acier trempé afin de réduire les frottements, accompagnée d'un écrou (voir figure \ref{fig:vis_sans_fin}). Selon les recommandations du fabricant \cite{noauthor_bague_nodate}, l’écrou doit impérativement être protégé contre les efforts de torsion et les déplacements axiaux excessifs. Nous veillerons donc à intégrer des dispositifs de guidage et de blocage adaptés afin d’assurer la stabilité et la durabilité du mécanisme.
+            Après discussion avec notre responsable, nous avons décidé de ne pas utiliser de tambour pour l'actionnement par câble. Bien que le tambour soit une solution efficace, l'actionnement des câbles préalablement prétendus par un système vis-écrou s’avère plus simple à mettre en œuvre et se révèle moins encombrant. À la place d'une vis à billes, nous optons pour une vis mère Igus en acier trempé afin de réduire les frottements, accompagnée d'un écrou (voir figure \ref{fig:vis_sans_fin}). Selon les recommandations du fabricant \cite{noauthor_bague_nodate}, l’écrou doit impérativement être protégé contre les efforts de torsion et les déplacements axiaux excessifs. Nous veillerons donc à intégrer des dispositifs de guidage alignés et parallèles afin d’assurer la stabilité et la durabilité du mécanisme.
 
             \begin{figure}[H]
                 \centering
@@ -708,9 +684,9 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \begin{subfigure}[t]{0.25\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/attache.png}
-                    \caption{Attache pour la vis mère (en bleue) et le moteur}
+                    \caption{Accouplement pour la vis mère (en bleue) et le moteur}
                 \end{subfigure}
-                \caption{Transimission de couple}
+                \caption{Acouplement de transimission de couple}
             \end{figure}
 
             Comme illustré à la figure \ref{fig:piece_manquante}, nous concevons une pièce de fixation entre la vis et le moteur. Nous dessinons la pièce de transmission en nous inspirant de l’écrou déjà modélisé, en l’adaptant avec une hauteur plus importante et en y ajoutant huit trous pour accueillir des vis de diamètre 2 mm (norme ISO M2), afin de pouvoir le fixer au moteur. Un filetage réaliste doit être modélisé pour permettre l’impression de la pièce. Pour cela, nous utilisons la fonctionnalité de SolidWorks permettant de créer un filetage à partir d’une hélice, en choisissant un pas de 2,54 cm et une profondeur de 1 mm.
@@ -723,7 +699,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                     \caption{Inspiration pour notre système vis écrou \cite{w3d_tech_systeme_2023}}
                     \label{fig:inspiration}
                 \end{subfigure}
-                \hfill
+                \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/vis_ecrou_assemble.png}
@@ -738,14 +714,14 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
             Du reste, la conception du système vis-écrou s’inspire de la vidéo \cite{w3d_tech_systeme_2023}. Sur la figure \ref{fig:inspiration}, le rail supérieur (en vert) maintient l’écrou en rotation bloquée, ce qui lui permet de translater lorsqu’un moteur fait tourner la vis. Du reste, ce système empêche l’emmêlement des câbles : l’écrou reste fixe en rotation et ne fait que translater.
 
-            Nous devons ainsi concevoir une pièce intermédiaire destinée à relier la glissière à l’écrou (voir figure \ref{fig:glissiere_support}). Pour garantir l’hyperstatisme de l’assemblage, un minimum de trois vis est nécessaire pour fixer cette pièce à l'écrou. Nous en profitons également pour intégrer, à l’extrémité de cette pièce, un triangle destiné à accueillir les câbles des doigts. Étant positionné au centre du support, ce triangle présente une distance égale aux trois doigts, assurant ainsi une course identique pour chacun des câbles. En d’autres termes, l’actionnement des doigts sera uniforme.
+            Nous devons ainsi concevoir une pièce intermédiaire destinée à relier la glissière à l’écrou (voir figure \ref{fig:glissiere_support}). Pour garantir l’hyperstatisme de l’assemblage, un minimum de trois vis est nécessaire pour fixer cette pièce à l'écrou. Nous en profitons également pour intégrer, à l’extrémité de cette pièce, un triangle destiné à accueillir les câbles des doigts. Étant positionné au centre du support, ce triangle présente une distance égale aux trois doigts, assurant ainsi une course identique pour chacun des câbles. En d’autres termes, l’actionnement des doigts sera ainsi uniforme.
 
         \subsubsection{Pince assemblée}
 
             \begin{figure} [h]
                 \centering
                 \includegraphics[width=0.5\textwidth]{Figures/pince_assemblee.png}
-                \caption{Assemblage de notre pince}
+                \caption{Accouplement de notre pince}
                 \label{fig:pince_assemble}
             \end{figure}
 
@@ -761,11 +737,11 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
             \textbf{TPU}
 
-                Pour simuler les contraintes et les déplacements dans SolidWorks, il est nécessaire d'intégrer les propriétés mécaniques du TPU que nous utiliserons pour les doigts. Dans \cite{rodriguez-parada_influence_2021}, les auteurs utilisent un TPU de module d'Young de 26 MPa. Étant donné notre objectif d’éviter tout comportement plastique, nous privilégions un matériau présentant un module d’Young relativement faible. Ainsi, pour obtenir une première estimation des efforts maximaux, et par conséquent du couple moteur à ne pas dépasser, nous retenons une valeur volontairement majorée de 30 MPa pour le module d’Young dans la simulation (sachant que plus il est élevé, moins le matériau est souple). Enfin, pour vérifier que la pièce reste dans le domaine élastique, nous adoptons comme limite d’élasticité celle du eTPU-95a utilisé dans \cite{wang_spirobs_2025}, soit $\sigma_{limite} = 8,6$ MPa.
+                Pour simuler les contraintes et les déplacements dans SolidWorks, il est nécessaire d'intégrer les propriétés mécaniques du TPU que nous utiliserons pour les doigts. Dans \cite{rodriguez-parada_influence_2021}, les auteurs utilisent un TPU de module d'Young de 26 MPa. Étant donné notre objectif d’éviter tout comportement plastique, nous privilégions un matériau présentant un module d’Young relativement faible. Ainsi, pour obtenir une première estimation des efforts maximaux, et par conséquent du couple moteur à ne pas dépasser, nous retenons une valeur volontairement majorée de 30 MPa pour le module d’Young dans la simulation (sachant que plus il est élevé, moins le matériau est souple étant donnée la loi de Hooke $\sigma = E \epsilon$). Enfin, comme critère de vérification, nous adoptons comme limite d’élasticité celle du eTPU-95a utilisé dans \cite{wang_spirobs_2025}, soit $\sigma_{limite} = 8,6$ MPa.
             
             \textbf{PLA}
 
-                Pour les autres pièces imprimées, nous privilégions l'utilisation de PLA, dont le module d'Young est d’environ 3 GPa, afin de garantir une bonne rigidité face aux efforts transmis par les câbles. L’objectif est d’éviter que les déformations se produisent au niveau de la base plutôt qu’au niveau des doigts.
+                Pour les autres pièces imprimées, nous privilégions l'utilisation de PLA, dont le module d'Young est d’environ 3 GPa, afin de garantir une rigidité suffisante face aux efforts transmis par les câbles. Cela permet de s’assurer que les déformations se produisent comme prévu au niveau des doigts, et non à la base.
 
         \subsubsection{Méthode}
 
@@ -773,14 +749,14 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
             \begin{figure}[H]
                 \centering
-                \begin{subfigure}[t]{0.4\textwidth}
+                \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/encastrement.png}
                     \caption{Condition limite d'encastrement sur la base}
                     \label{fig:encastrement}
                 \end{subfigure}
                 \hspace{0.1\textwidth}
-                \begin{subfigure}[t]{0.4\textwidth}
+                \begin{subfigure}[t]{0.3\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/force_3_doigts.png}
                     \caption{Simulation des forces (en violet) engendrées par les câbles sur l'extrémité des doigts}
@@ -789,7 +765,7 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
                 \caption{Mise en place d'un problème bien posé}
             \end{figure}
 
-            Nous commencons par créer une nouvelle étude statique. L’onglet \textit{Déplacements imposés} permet de définir les conditions limites, notamment en fixant la géométrie, c'est-à-dire ajouter un encastrement sur la base (voir figure \ref{fig:encastrement}). Ensuite, l’onglet \textit{Chargements externes} sert à appliquer les forces. Pour simuler la force du câble sur un doigt, nous établissons une force sur l'extrémité de la pièce, dans la direction du trou (voir figure \ref{fig:force}).
+            Nous commencons par créer une nouvelle étude statique. L’onglet \textit{Déplacements imposés} permet de définir les conditions limites, notamment en fixant la géométrie, c'est-à-dire ajouter un encastrement sur la base (voir figure \ref{fig:encastrement}, cela revient à négliger les déformations de la base dont le module d'Young est 100x plus important). Ensuite, l’onglet \textit{Chargements externes} sert à appliquer les forces. Pour simuler la tension du câble subie par le doigt, nous ajoutons une force à l'extrémité de la pièce, dans la direction du trou (voir figure \ref{fig:force}).
 
             \begin{figure}[H]
                 \centering
@@ -812,13 +788,13 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
         \textbf{Résultats}
             
-            Nous générons un maillage fin de $2,7 \cdot 10^5$ éléments basé sur la courbure, avant d'exécuter la simulation avec des forces de 4~N appliquées sur chaque doigt (pour simuler la portée d'un objet d'environ 400 grammes). Le logiciel va alors calculer le tenseur de contraintes, les déformations et les déplacements. On peut remarquer dans ce cas que la contrainte maximale ne dépasse pas la limite d'élasticité du matériau (voir figure~\ref{fig:simulation4}) :
+            Nous générons un maillage fin de $2,7 \cdot 10^5$ éléments basé sur la courbure, avant d'exécuter la simulation avec des forces de 4~N appliquées sur chacun des 3 doigts (pour simuler la portée d'un objet d'environ $0.4 \cdot 3 = 1.2$ kg). Le logiciel va alors calculer les déformations et les déplacements, ainsi que les contraintes équivalentes de Von-Mises. On peut remarquer dans ce cas que la contrainte maximale ne dépasse pas la limite d'élasticité du matériau (voir figure~\ref{fig:simulation4}) :
 
             \[
             2{,}346\ \text{MPa} < 8{,}6\ \text{MPa} \quad \Rightarrow \quad \sigma_{\text{max}} < \sigma_{\text{limite}}
             \]
 
-            Étant donné que le poids de l'objet soulevé peut être divisé par trois grâce à l'utilisation des trois doigts, on peut conclure que la pince est tout à fait capable de soulever des fruits et des légumes pesant quelques centaines de grammes sans subir de déformations permanentes. Par exemple, une pomme ou un poivron pèse en moyenne entre 150 et 200 grammes, ce qui est conforme à ces limites.
+            On peut en conclure que la pince est tout à fait capable de soulever des fruits et des légumes pesant quelques centaines de grammes sans subir de déformations permanentes. Par exemple, une pomme ou un poivron pèse en moyenne entre 150 et 200 grammes, ce qui est conforme à ces limites.
 
             \begin{figure}[h]
             \centering
@@ -841,10 +817,19 @@ Ce projet valide la faisabilité d’un préhenseur souple compact et adaptable,
 
             Pour réaliser plusieurs simulations, nous utilisons l’option \textit{étude de conception}. Une variable représentant la force appliquée y est introduite, variant de 9 N à 17 N (pour simuler le poids des objets pesant jusqu'à $1.7 \cdot 3 = 5.1$ kg). De même que dans \cite{bhat_numerical_2025}, nous observons que les contraintes sont généralement plus importantes au centre du doigt, en raison des déformations plus marquées dans cette zone.
 
-            La figure \ref{fig:etude_de_conception} montre un dépassement de la limite d’élasticité pour des charges lourdes (15 Newton), et la pièce rentre ainsi dans le domaine plastique. Pour remédier à cela, nous proposons d’ajouter un élastique au niveau du trou extérieur du doigt. Ce dispositif permettra à la pièce de retrouver sa position initiale grâce à l’effet de rappel de l’élastique, dans le cas où le matériau fatigue ou sort du domaine élastique.
+            La figure \ref{fig:etude_de_conception} montre un dépassement de la limite d’élasticité pour des charges lourdes (15 Newton), et la pièce rentre ainsi dans le domaine plastique. Pour remédier à cela, nous proposons d’ajouter un élastique dans le trou extérieur du doigt. Ce dispositif permettra à la pièce de retrouver sa position initiale grâce à l’effet de rappel de l’élastique, dans le cas où le matériau fatigue ou sort du domaine élastique.
 
-    
-    \bibliographystyle{IEEEtran}
-    \bibliography{references}
+\clearpage
+
+\section{Synthèse et conclusion}
+
+        Ce projet avait pour objectif de concevoir et dimensionner une pince robotique à trois doigts souples, inspirée des principes de la robotique bio-inspirée et destinée à la préhension d’objets légers jusqu’à 5 kg. Après un état de l’art des préhenseurs souples et des mécanismes d’actionnement par câbles, la conception s’est appuyée sur une modélisation mathématique des spirales logarithmiques définissant la géométrie des doigts, combinée à une modélisation 3D sous SolidWorks.
+
+        L’assemblage complet comprend les doigts en TPU, une base, un système vis-écrou actionné par un servomoteur, ainsi qu’un support structurel modulaire. La simulation par éléments finis a permis de vérifier le comportement élastique des doigts sous diverses charges. Les résultats montrent que la pince peut saisir efficacement des objets de masse modérée sans dépasser la limite d’élasticité du matériau, tout en mettant en évidence la nécessité éventuelle d’un dispositif de rappel par élastique pour prévenir les déformations permanentes en cas de charges élevées.
+
+        Le projet aboutit à une solution au stade virtuel, qui pourra être complétée par une phase de prototypage et d’essais expérimentaux pour valider ses performances en conditions réelles.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 
 \end{document}
