@@ -149,7 +149,7 @@
 
         \HRule \\[0.6cm]
         {\huge\bfseries{}Rapport de projet de M1, parcours SAR :} \\
-        \LARGE{Conception et dimensionnement d'une pince robotique à trois doigts souples} \\[0.25cm]
+        \LARGE{Conception et réalisation d'une pince à trois doigts souples} \\[0.25cm]
         \HRule \\[1.5cm]
 
 
@@ -182,7 +182,7 @@
 
 Ce rapport présente la conception, la modélisation et la simulation d’une pince robotique à trois doigts souples, destinée à la préhension d’objets légers comme des fruits et des légumes, et avec une capacité de charge maximale de 5 kg. S’appuyant sur les principes du robot SpiRob et des structures souples bio-inspirées, le système utilise des doigts imprimés en 3D en TPU selon une géométrie en spirale logarithmique, actionnés par un mécanisme vis-écrou couplé à des câbles.
 
-Le document commence par un état de l'art des préhenseurs souples et des dispositifs d’actionnement par câbles, en soulignant les avantages de la compliance passive et les limites en termes de charge et de flambage. La conception est détaillée de la définition mathématique des spirales jusqu’au dessin complet des pièces sous SolidWorks, incluant la base, les doigts et les éléments de transmission (glissière, vis, écrou, support moteur).
+Le document commence par un état de l'art des préhenseurs souples et des dispositifs d’actionnement par câbles, en soulignant les avantages de la compliance passive et les limites en termes de charge et de tension des câbles. La conception est détaillée de la définition mathématique des spirales jusqu’au dessin complet des pièces sous SolidWorks, incluant la base, les doigts et les éléments de transmission (glissière, vis, écrou, support moteur).
 
 Une simulation par éléments finis permet d’évaluer les contraintes subies lors de la fermeture des doigts. Les résultats montrent que la pince peut saisir des objets de masse modérée sans dépasser la limite d’élasticité du matériau, sous réserve d’ajouter des éléments de rappel mécanique tel qu'un élastique pour limiter les déformations plastiques lors d’efforts plus importants.
 
@@ -219,18 +219,18 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
         \begin{figure}
             \centering
-            \includegraphics[width=0.3\textwidth]{Figures/pieuvre.png}
+            \includegraphics[width=0.5\textwidth]{Figures/pieuvre.png}
             \caption{Inspiration du SpiRob pour les 3 doigts de notre pince \cite{wang_spirobs_2025}}
             \label{fig:pieuvre}
         \end{figure}
     
         Dans notre cas, et comme souvent en robotique, les objets à manipuler ont une forme ou une position mal connue, et contrairement à une main humaine, les pinces robotiques manquent de retour tactile fiable. Pour cette raison, nous n'allons pas utiliser de retour haptique, mais plutôt de préhenseurs souples. Nous nous inspirons de la flexibilité des tentacules de pieuvre et du robot SpiRob dont l'étude est partagée en annexe (voir figure \ref{fig:pieuvre}), ce qui permettra à la pince de s'adapter naturellement à la forme de divers fruits et légumes, sans nécessiter de capteurs ni de système de contrôle complexe, simplement grâce à la compliance mécanique. En effet, la compliance désigne la capacité d’un robot à adapter la rigidité de ses mouvements en fonction des forces extérieures. Autrement dit, il ajuste naturellement sa posture pour bien épouser l’objet qu’il manipule. Dans ce projet, nous nous concentrons sur la compliance passive, où la structure mécanique du robot est suffisamment flexible pour se déformer sous l'effet d'une contrainte externe. Cette approche permet une préhension polyvalente et adaptable. \cite{noauthor_gestion_2016}
 
-        Les SpiRobs dont nous nous inspirons utilisent des câbles pour provoquer les mouvements d'enroulement (curling) et de déroulement (uncurling). Une extrémité est fixée à l'unité distale par un nœud de pêcheur, tandis que l'autre est reliée à un moteur (voir figure~\ref{fig:spiral_logarithm}). La contraction des câbles entraîne l'enroulement en spirale logarithmique, alors que leur relâchement, combiné à leur élasticité intrinsèque, restitue la forme initiale. En effet, les SpiRobs sont entièrement fabriqués en TPU (Thermoplastic Polyurethane) imprimé en 3D avec du filament eTPU-95A (shore A95). Ce matériau souple, que nous utiliserons également, offre une bonne compliance mécanique et une rigidité suffisante pour transmettre efficacement la tension des câbles. La couche centrale qui relie entre elles les phalanges agit comme un ressort passif, permettant le redéploiement sans nécessiter d’articulations ni de moteurs multiples~\cite{wang_spirobs_2025}.
+        Les SpiRobs dont nous nous inspirons utilisent des câbles pour provoquer les mouvements d'enroulement (curling) et de déroulement (uncurling). Une extrémité du câble est fixée à l'unité distale par un nœud de pêcheur, tandis que l'autre est reliée à un moteur (voir figure~\ref{fig:spiral_logarithm}). La contraction des câbles entraîne l'enroulement en spirale logarithmique, alors que leur relâchement, combiné à l'élasticité intrinsèque du robot, restitue la forme initiale. En effet, les SpiRobs sont entièrement fabriqués en TPU (Thermoplastic Polyurethane) imprimé en 3D avec du filament eTPU-95A (shore A95). Ce matériau souple, que nous utiliserons également, offre une bonne compliance mécanique et une rigidité suffisante pour transmettre efficacement la tension des câbles. La couche centrale qui relie entre elles les phalanges agit comme un ressort passif, permettant le redéploiement sans nécessiter d’articulations ni de moteurs multiples~\cite{wang_spirobs_2025}.
 
     \subsection{Comportement et structure de la pince à concevoir}
     
-        La pince pourra adopter deux configurations distinctes : ouverte ou fermée. Elle est composée de 3 doigts identiques de hauteur 10 cm, chacun soumis à un encastrement rigide sur une base. Les doigts seront positionnés symétriquement autour du centre de la base, séparés par un angle de 120°. Des câbles passant dans les trous des doigts permettront leur actionnement via un moteur chargé de régler leur tension. Dans ce type de mécanisme, la tension appliquée aux câbles constitue une préoccupation majeure, car si elle est insuffisante, elle peut provoquer un flambage et compromettre le contrôle efficace du mouvement. Du reste, pour régler la friction des câbles, nous pouvons utiliser des câbles UHMWPE pour leur faible coefficient de frottement et leur résistance à l'usure. \cite{wang_spirobs_2025}
+        La pince pourra adopter deux configurations distinctes : ouverte ou fermée. Elle est composée de 3 doigts identiques de hauteur 10 cm, chacun soumis à un encastrement rigide sur une base. Les doigts seront positionnés symétriquement autour du centre de la base, séparés par un angle de 120°. Trois câbles, passant du côté fléchisseur de chaque doigt, permettront leur actionnement grâce à un moteur chargé de régler leur tension. Dans ce type de mécanisme, la tension appliquée aux câbles constitue en effet une préoccupation majeure, car si elle est insuffisante, elle peut provoquer un relâchement des câbles et compromettre le contrôle efficace du mouvement. Du reste, pour limiter la friction des câbles, nous pouvons utiliser des câbles UHMWPE pour leur faible coefficient de frottement et leur résistance à l'usure. \cite{wang_spirobs_2025}
         
 \clearpage
 
@@ -346,7 +346,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
         La simulation indique que l’actionneur produit une force de préhension comprise entre 2 et 2,71 N pour des pressions allant de 50 à 100 kPa (voir figure II.6a). En revanche, les résultats expérimentaux montrent une relation moins linéaire (figure II.6b) et une force maximale plus élevée, atteignant 5 N à 100 kPa, alors que la simulation ne prévoit que 2,71 N. Cette différence s’explique par un débit d’air prolongé lors des tests expérimentaux, ce qui permet à l’actionneur de se gonfler davantage et donc de générer une force plus importante.
 
-        Ce travail montre que les résultats d’une simulation peuvent différer sensiblement de ceux obtenus par expérimentation. Même si notre approche par câbles est différente, cet article nous a aidés à explorer un modèle de déformation et une simulation avec un maillage fin basé sur un modèle CAO.
+        Ce travail montre que les résultats d’une simulation par éléments finis peuvent différer sensiblement de ceux obtenus par expérimentation. Même si notre approche par câbles est différente, cet article nous a aidés à explorer un modèle de déformation et une simulation avec un maillage fin basé sur un modèle CAO.
 
 \clearpage
         
@@ -585,7 +585,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
                 \label{fig:spirale_enroule}
             \end{figure}
 
-            Enfin, nous symétrisons les moitiés de phalanges. Nous les enregistrons alors dans des fichiers pièces séparément, et cela permet de les assembler de telle sorte que le doigt soit déroulé. Également, nous prenons soin de rajouter la couche élastique de 10\% de la largeur du doigt afin de relier les phalanges entre elles (voir figure \ref{fig:spirale_enroule}).
+            Enfin, nous rendons symétriques les moitiés de phalanges et les sauvegardons dans des fichiers de pièces distincts, permettant leur assemblage de manière à obtenir un doigt déroulé. De plus, nous intégrons une couche élastique représentant 10\% de la largeur du doigt pour connecter les phalanges entre elles (voir figure \ref{fig:spirale_enroule}). Bien que chaque doigt soit actionné par un unique câble côté fléchisseur, nous prévoyons des trous de part et d’autre pour garantir la symétrie de la pièce.
             
             \subsubsection{Dessin de la base}
 
@@ -790,7 +790,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
         \subsubsection{Résultats}
             
-            Nous générons un maillage fin de \(2,7 \times 10^{5}\) éléments basé sur la courbure, avant d'exécuter la simulation avec des forces de 4~N appliquées sur chacun des 3 doigts pour modéliser la prise uniforme d’un objet d’environ \(0,4 \times 3 = 1,2\) kg. Cependant, comme la force de frottement qui retient l'objet est forcément plus faible que la tension exercée par les câbles, la charge effective pourrait être divisée par deux, soit environ 0,6 kg.
+            Nous générons un maillage de \(2,7 \times 10^{5}\) éléments basé sur la courbure, avant d'exécuter la simulation avec des forces de 4~N appliquées sur chacun des 3 doigts pour modéliser la prise uniforme d’un objet d’environ \(0,4 \times 3 = 1,2\) kg. Cependant, comme la force de frottement qui retient l'objet est forcément plus faible que la tension exercée par les câbles, la charge effective pourrait être divisée par deux, soit environ 0,6 kg.
             
             Le logiciel va alors calculer les déformations et les déplacements, ainsi que les contraintes équivalentes de Von-Mises. On peut remarquer dans ce cas que la limite d'élasticité n'est pas atteinte (voir figure~\ref{fig:simulation4}) :
 
@@ -798,7 +798,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
             2{,}346\ \text{MPa} < 8{,}6\ \text{MPa} \quad \Rightarrow \quad \sigma_{\text{max}} < \sigma_{\text{limite}}
             \]
 
-            Ainsi, la pince peut facilement soulever des fruits ou légumes de quelques centaines de grammes sans déformation permanente, comme une pomme ou un poivron pesant entre 150 et 200 grammes.
+            Ainsi, la pince peut facilement soulever des fruits ou légumes de quelques centaines de grammes sans déformation permanente, comme une pomme ou un poivron pesant en moyenne entre 150 et 200 grammes.
 
             \begin{figure}[h]
             \centering
@@ -821,7 +821,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
             Pour réaliser plusieurs simulations, nous utilisons l’option \textit{étude de conception}. Une variable représentant la force appliquée y est introduite, variant de 9 N à 17 N, pour simuler le poids des objets soulevés mesurant jusqu'à $1.7 \cdot 3 / 2 = 2.55$ kg.
 
-            La figure \ref{fig:etude_de_conception} montre un dépassement de la limite d’élasticité pour des charges lourdes (au-delà de 2.25 kg), et la pièce rentre ainsi dans le domaine plastique. Pour remédier à cela, nous proposons d’ajouter un élastique dans le trou extérieur du doigt. Ce dispositif permettra à la pièce de retrouver sa position initiale grâce à l’effet de rappel de l’élastique, dans le cas où le matériau fatigue ou se plastifie.
+            La figure \ref{fig:etude_de_conception} montre un dépassement de la limite d’élasticité pour des charges lourdes (au-delà de 2.25 kg), et la pièce rentre ainsi dans le domaine plastique. Pour remédier à cela, nous proposons d’ajouter un élastique dans le trou extérieur du doigt qui est inutilisé. Ce dispositif permettra à la pièce de retrouver sa position initiale grâce à l’effet de rappel de l’élastique, dans le cas où le matériau fatigue ou se plastifie.
 
 \clearpage
 
@@ -830,6 +830,8 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
         Ce projet avait pour objectif de concevoir et dimensionner une pince robotique à trois doigts souples, inspirée des principes de la robotique bio-inspirée et destinée à la préhension d’objets légers jusqu’à 5 kg. Après un état de l’art des préhenseurs souples et des mécanismes d’actionnement par câbles, la conception s’est appuyée sur une modélisation mathématique des spirales logarithmiques définissant la géométrie des doigts, combinée à une modélisation 3D sous SolidWorks.
 
         L’assemblage complet comprend les doigts en TPU, une base, un système vis-écrou actionné par un servomoteur, ainsi qu’un support structurel modulaire. La simulation par éléments finis a permis de vérifier le comportement élastique des doigts sous diverses charges. Les résultats montrent que la pince peut saisir efficacement des objets de masse modérée sans dépasser la limite d’élasticité du matériau, tout en mettant en évidence la nécessité éventuelle d’un dispositif de rappel par élastique pour prévenir les déformations permanentes en cas de charges élevées.
+
+        Ce projet nous a permis de maîtriser le logiciel SolidWorks, ainsi que son module de simulation par éléments finis, \textit{SolidWorks Simulation}. Il nous a offert une expérience approfondie dans la conception d’un assemblage en tenant compte de contraintes telles que les jeux pour faciliter l’assemblage, la gestion de l’hyperstatisme, le choix des vis et des outils de conception adaptés. De plus, il nous a permis d’explorer la robotique souple, d’en détailler les avantages, notamment l’adaptabilité aux formes irrégulières, et les limites, comme la capacité de charge restreinte. Enfin, ce projet nous a offert l’opportunité de concevoir un système d’actionnement par câbles, renforçant notre compréhension des mécanismes de transmission et de contrôle dans les systèmes robotiques.
 
         Le projet aboutit à une solution au stade virtuel, qui pourra être complétée par une phase de prototypage et d’essais expérimentaux pour valider ses performances en conditions réelles.
 
