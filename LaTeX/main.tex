@@ -444,11 +444,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
             D’après les résultats rapportés dans \cite{wang_spirobs_2025}, un faible angle de conicité permet d’augmenter significativement l’espace de travail, en élargissant la zone accessible par les doigts lors du déploiement. À l’inverse, un angle de conicité plus élevé améliore la performance de saisie : il permet de saisir des objets de plus petite taille (diamètre minimal réduit) tout en augmentant la capacité de charge maximale du robot.
             Par exemple, un SpiRob avec un angle de conicité de $15^\circ$ peut saisir des objets dont le diamètre varie de 5{,}6\,mm à 115\,mm, et supporter une charge allant jusqu’à 10\,kg, soit environ 260 fois son propre poids (poids du robot : 38{,}4\,g) \cite{wang_spirobs_2025}.
 
-            Concernant la discrétisation angulaire $\Delta \theta$ (espacement des unités), une valeur trop élevée limite la capacité du robot à s’enrouler en une spirale logarithmique compacte. 
-
-            Il convient également d’éviter une couche élastique trop épaisse (au centre du doigt robotique), car cela augmenterait la force nécessaire pour enrouler le doigt, rendant l'actionnement par câbles plus exigeant pour le moteur qui utiliserait alors davantage d'énergie.
-
-            Nous adoptons les recommandations de \cite{wang_spirobs_2025}, en optant pour une épaisseur de couche élastique de 10\,\%, assurant un bon compromis entre élasticité et force d’enroulement, ainsi qu’un $\Delta \theta$ de 30° pour garantir une déformation satisfaisante.
+            Concernant la discrétisation angulaire $\Delta \theta$ (espacement des unités), une valeur trop élevée limite la capacité du robot à s’enrouler en une spirale logarithmique fluide. Il convient également d’éviter une couche élastique trop épaisse (au centre du doigt robotique), car cela augmenterait la force nécessaire pour enrouler le doigt, rendant l'actionnement par câbles plus exigeant pour le moteur qui utiliserait alors davantage d'énergie. Nous adoptons les recommandations de \cite{wang_spirobs_2025}, en optant pour une épaisseur de couche élastique de 10\,\%, assurant un bon compromis entre élasticité et force d’enroulement, ainsi qu’un $\Delta \theta$ de 30° pour garantir une déformation satisfaisante.
 
         \subsubsection{Détermination des paramètres pour répondre au cahier des charges}
 
@@ -688,7 +684,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
                     \includegraphics[width=\textwidth]{Figures/attache.png}
                     \caption{Accouplement pour la vis mère (en bleue) et le moteur}
                 \end{subfigure}
-                \caption{Acouplement de transimission de couple}
+                \caption{Accouplement de transimission de couple}
             \end{figure}
 
             Comme illustré à la figure \ref{fig:piece_manquante}, nous concevons une pièce de fixation entre la vis et le moteur. Nous dessinons la pièce de transmission en nous inspirant de l’écrou déjà modélisé, en l’adaptant avec une hauteur plus importante et en y ajoutant huit trous pour accueillir des vis de diamètre 2 mm (norme ISO M2), afin de pouvoir le fixer au moteur. Un filetage réaliste doit être dessiné pour permettre l’impression de la pièce. Pour cela, nous employons l’outil de création de filetage de SolidWorks basé sur une hélice, en reprenant le profil de notre vis avec un pas de 2,54 cm et une profondeur de 1 mm.
@@ -723,7 +719,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
             \begin{figure} [h]
                 \centering
                 \includegraphics[width=0.5\textwidth]{Figures/pince_assemblee.png}
-                \caption{Accouplement de notre pince}
+                \caption{Assemblage de notre pince}
                 \label{fig:pince_assemble}
             \end{figure}
 

@@ -2,7 +2,7 @@ import time
 from dynamixel_sdk import *  # SDK Dynamixel
 
 # Paramètres à modifier
-overture = 1        # Ouverture de la pince ou fermeture
+overture = 0        # Ouverture de la pince ou fermeture
 desired_rps = 0.6   # Vitesse désirée en tours par seconde
 distance_tours = 3  # Nombre de tours à parcourir
 
