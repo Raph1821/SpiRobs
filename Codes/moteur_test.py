@@ -1,79 +1,88 @@
-from dynamixel_sdk import *  # SDK classes
 import time
+from dynamixel_sdk import *  # SDK Dynamixel
 
-# ---------------------
-# PARAMÈTRES À ADAPTER (SUR DYNAMIXEL WIZARD 2.0)
-# ---------------------
-DEVICENAME = 'COM10'           # Port série (ex: COM3 sous Windows, /dev/ttyUSB0 sous Linux)
-BAUDRATE = 1000000             # Vitesse (essaie aussi 1000000 si ça ne marche pas)
-PROTOCOL_VERSION = 1.0         # EX-106+ utilise le protocole 1.0
-DXL_ID = 11                    # ID de ton moteur (à adapter si différent)
+# Paramètres
+overture = False
+desired_rps = 0.6
+distance_tours = 3
 
-# ---------------------
-# REGISTRES DYNAMIXEL (EX-106+) 
-# Ces lignes définissent les adresses mémoire internes du moteur. Chaque moteur Dynamixel
-# possède une mémoire divisée en registres auxquels on accède pour lire ou écrire des données.
-# ---------------------
-ADDR_MX_TORQUE_ENABLE = 24     # Activer couple
-ADDR_MX_GOAL_POSITION = 30     # Position cible
-ADDR_MX_PRESENT_POSITION = 36  # Position actuelle
+DEVICENAME = 'COM10'
+BAUDRATE = 57600
+DXL_ID = 1
+
+# Registres protocole 1.0
+ADDR_TORQUE_ENABLE = 24
+ADDR_GOAL_VELOCITY = 32
+ADDR_CW_LIMIT = 6
+ADDR_CCW_LIMIT = 8
+
 TORQUE_ENABLE = 1
 TORQUE_DISABLE = 0
+VELOCITY_UNIT = 0.114
 
-# ---------------------
-# INITIALISATION
-# ---------------------
+time_to_run = distance_tours / desired_rps
+print(f"Temps de rotation : {time_to_run:.2f} secondes")
+
 portHandler = PortHandler(DEVICENAME)
-packetHandler = PacketHandler(PROTOCOL_VERSION)
+packetHandler = PacketHandler(1.0)   # Protocole 1.0
 
-# Ouvrir le port
 if not portHandler.openPort():
-    print("Échec ouverture du port.")
+    print("Impossible d'ouvrir le port")
     quit()
 
-# Régler le débit
 if not portHandler.setBaudRate(BAUDRATE):
-    print("Échec réglage baudrate.")
+    print("Impossible de définir le baudrate")
     quit()
 
-# Ping le servo
-dxl_model_number, dxl_comm_result, dxl_error = packetHandler.ping(portHandler, DXL_ID)
+# Wheel mode
+packetHandler.write2ByteTxRx(portHandler, DXL_ID, ADDR_CW_LIMIT, 0)
+packetHandler.write2ByteTxRx(portHandler, DXL_ID, ADDR_CCW_LIMIT, 0)
+
+# Torque ON
+dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(
+    portHandler, DXL_ID, ADDR_TORQUE_ENABLE, TORQUE_ENABLE)
 if dxl_comm_result != COMM_SUCCESS:
-    print("Erreur communication :", packetHandler.getTxRxResult(dxl_comm_result))
+    print(packetHandler.getTxRxResult(dxl_comm_result))
 elif dxl_error != 0:
-    print("Erreur du moteur :", packetHandler.getRxPacketError(dxl_error))
+    print(packetHandler.getRxPacketError(dxl_error))
 else:
-    print(f"Moteur détecté ! Modèle : {dxl_model_number}")
+    print("Torque activé")
 
-# Activer le moteur
-packetHandler.write1ByteTxRx(portHandler, DXL_ID, ADDR_MX_TORQUE_ENABLE, TORQUE_ENABLE)
+# Calcul vitesse
+desired_rpm = desired_rps * 60
+dxl_velocity_value = int(desired_rpm / VELOCITY_UNIT)
+if dxl_velocity_value > 1023:
+    raise ValueError("Vitesse trop grande !")
 
-# Aller à une position (valeurs entre 0 et 4095 pour EX-106+)
-goal_position = 0  # Position centrale
-packetHandler.write2ByteTxRx(portHandler, DXL_ID, ADDR_MX_GOAL_POSITION, goal_position)
-print("Position envoyée : ", goal_position)
+if not overture:
+    dxl_velocity_value |= 1024   # bit 10 = sens CW
 
-time.sleep(1)
+print(f"Vitesse souhaitée: {desired_rpm:.2f} rpm => valeur = {dxl_velocity_value}")
 
-# Lire la position réelle
-present_position, _, _ = packetHandler.read2ByteTxRx(portHandler, DXL_ID, ADDR_MX_PRESENT_POSITION)
-print("Position actuelle : ", present_position)
+# ⚠️ Ecriture 2 octets, pas 4
+dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(
+    portHandler, DXL_ID, ADDR_GOAL_VELOCITY, dxl_velocity_value)
+if dxl_comm_result != COMM_SUCCESS:
+    print(packetHandler.getTxRxResult(dxl_comm_result))
+elif dxl_error != 0:
+    print(packetHandler.getRxPacketError(dxl_error))
 
-time.sleep(1)
+print(f"Moteur tourne {time_to_run:.2f} sec...")
+time.sleep(time_to_run)
 
-# Aller à une position (valeurs entre 0 et 4095 pour EX-106+)
-goal_position = 4095  # Position centrale
-packetHandler.write2ByteTxRx(portHandler, DXL_ID, ADDR_MX_GOAL_POSITION, goal_position)
-print("Position envoyée : ", goal_position)
+# Stop moteur
+dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(
+    portHandler, DXL_ID, ADDR_GOAL_VELOCITY, 0)
 
-time.sleep(1)
+# Torque OFF
+dxl_comm_result, dxl_error = packetHandler.write1ByteTxRx(
+    portHandler, DXL_ID, ADDR_TORQUE_ENABLE, TORQUE_DISABLE)
+if dxl_comm_result != COMM_SUCCESS:
+    print(packetHandler.getTxRxResult(dxl_comm_result))
+elif dxl_error != 0:
+    print(packetHandler.getRxPacketError(dxl_error))
+else:
+    print("Torque désactivé")
 
-# Lire la position réelle
-present_position, _, _ = packetHandler.read2ByteTxRx(portHandler, DXL_ID, ADDR_MX_PRESENT_POSITION)
-print("Position actuelle : ", present_position)
-
-# Désactiver le couple à la fin
-packetHandler.write1ByteTxRx(portHandler, DXL_ID, ADDR_MX_TORQUE_ENABLE, TORQUE_DISABLE)
-
-# Fermer le port
 portHandler.closePort()
+print("Programme terminé.")
