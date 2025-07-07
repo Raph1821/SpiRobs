@@ -182,7 +182,7 @@
 
 Ce rapport présente la conception, la modélisation et la simulation d’une pince robotique à trois doigts souples, destinée à la préhension d’objets légers comme des fruits et des légumes, et avec une capacité de charge maximale de 5 kg. S’appuyant sur les principes du robot SpiRob et des structures souples bio-inspirées, le système utilise des doigts imprimés en 3D en TPU selon une géométrie en spirale logarithmique, actionnés par un mécanisme vis-écrou couplé à des câbles.
 
-Le document commence par un état de l'art des préhenseurs souples et des dispositifs d’actionnement par câbles, en soulignant les avantages de la compliance passive et les limites en termes de charge et de tension des câbles. La conception est détaillée de la définition mathématique des spirales jusqu’au dessin complet des pièces sous SolidWorks, incluant la base, les doigts et les éléments de transmission (glissière, vis, écrou, support moteur).
+Le document s’ouvre sur un état de l’art consacré aux préhenseurs souples et aux dispositifs d’actionnement par câbles, en soulignant les avantages de la compliance passive ainsi que les contraintes à relever en termes de charge et de tension des câbles. La conception de la pince y est décrite de manière détaillée, depuis la définition mathématique des spirales jusqu’à la modélisation complète des pièces sous SolidWorks. Cette modélisation comprend la base, les doigts et les éléments de transmission (glissière, vis, écrou, support moteur), tout en prenant en compte les principaux enjeux de conception, notamment les jeux fonctionnels, les frottements et l’hyperstatisme.
 
 Une simulation par éléments finis permet d’évaluer les contraintes subies lors de la fermeture des doigts. Les résultats montrent que la pince peut saisir des objets de masse modérée sans dépasser la limite d’élasticité du matériau, sous réserve d’ajouter des éléments de rappel mécanique tel qu'un élastique pour limiter les déformations plastiques lors d’efforts plus importants.
 
@@ -198,30 +198,30 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
     \subsection{Motivations et principes fondamentaux}
 
-        \begin{figure}[H]
-                \centering
-                \begin{subfigure}[t]{0.7\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/spiral_logarithm.png}
-                    \caption{Spiral logarithmique du préhenseur \cite{wang_spirobs_2025}}
-                    \label{fig:spiral_logarithm}
-                    \end{subfigure}
-                \hfill
-                \begin{subfigure}[t]{0.6\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/draw_solidworks.png}
-                    \caption{Construction du doigt en "dépliant" la spirale logarthimique \cite{wang_spirobs_2025}}
-                    \label{fig:draw_solidworks}
-                \end{subfigure}
-                \caption{Conception du doigt}
-                \label{fig:doigt}
-            \end{figure}
-
         \begin{figure}
             \centering
             \includegraphics[width=0.5\textwidth]{Figures/pieuvre.png}
             \caption{Inspiration du SpiRob pour les 3 doigts de notre pince \cite{wang_spirobs_2025}}
             \label{fig:pieuvre}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}[t]{0.7\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/spiral_logarithm.png}
+                \caption{Spiral logarithmique du préhenseur \cite{wang_spirobs_2025}}
+                \label{fig:spiral_logarithm}
+                \end{subfigure}
+            \hfill
+            \begin{subfigure}[t]{0.6\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Figures/draw_solidworks.png}
+                \caption{Construction du doigt en "dépliant" la spirale logarthimique \cite{wang_spirobs_2025}}
+                \label{fig:draw_solidworks}
+            \end{subfigure}
+            \caption{Conception du doigt}
+            \label{fig:doigt}
         \end{figure}
     
         Dans notre cas, et comme souvent en robotique, les objets à manipuler ont une forme ou une position mal connue, et contrairement à une main humaine, les pinces robotiques manquent de retour tactile fiable. Pour cette raison, nous n'allons pas utiliser de retour haptique, mais plutôt de préhenseurs souples. Nous nous inspirons de la flexibilité des tentacules de pieuvre et du robot SpiRob dont l'étude est partagée en annexe (voir figure \ref{fig:pieuvre}), ce qui permettra à la pince de s'adapter naturellement à la forme de divers fruits et légumes, sans nécessiter de capteurs ni de système de contrôle complexe, simplement grâce à la compliance mécanique. En effet, la compliance désigne la capacité d’un robot à adapter la rigidité de ses mouvements en fonction des forces extérieures. Autrement dit, il ajuste naturellement sa posture pour bien épouser l’objet qu’il manipule. Dans ce projet, nous nous concentrons sur la compliance passive, où la structure mécanique du robot est suffisamment flexible pour se déformer sous l'effet d'une contrainte externe. Cette approche permet une préhension polyvalente et adaptable. \cite{noauthor_gestion_2016}
