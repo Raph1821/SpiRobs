@@ -19,6 +19,24 @@
 \setlength{\parskip}{6pt}
 \setlength{\parindent}{0pt} % Retrait en début de paragraphe
 
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{chngcntr}
+
+% Compteur pour les chapitres personnalisés
+\newcounter{chapcount}
+\renewcommand{\thechapcount}{\arabic{chapcount}}
+
+% Redéfinir \section pour l'affichage personnalisé
+\titleformat{\section}
+  {\centering\Large\bfseries} % Style : centré, gros, en gras
+  {Chapitre \thechapcount   :}   % Numérotation personnalisée
+  {0.3em}                        % Espace entre "chapitre X :" et le titre
+  {}
+
+% Incrémenter le compteur à chaque section
+\preto\section{\stepcounter{chapcount}}
+
 \usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -43,7 +61,8 @@
 \makeatletter\@addtoreset{section}{chapter}\makeatother
 \renewcommand{\thepart}{\Roman{part}}
 \renewcommand{\thechapter}{\arabic{chapter}}
-\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{chapcount}.\alph{subsection}}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}  % active les symboles pour les footnotes
 
 \usepackage{chngcntr}
@@ -182,19 +201,20 @@
 
 Ce rapport présente la conception, la modélisation et la simulation d’une pince robotique à trois doigts souples, destinée à la préhension d’objets légers comme des fruits et des légumes, et avec une capacité de charge maximale de 5 kg. S’appuyant sur les principes du robot SpiRob et des structures souples bio-inspirées, le système utilise des doigts imprimés en 3D en TPU selon une géométrie en spirale logarithmique, actionnés par un mécanisme vis-écrou couplé à des câbles. En outre, l’élasticité intrinsèque des doigts leur permet de revenir spontanément à leur position initiale lorsque les câbles sont relâchés.
 
-Le document s’ouvre sur un état de l’art consacré aux préhenseurs souples et aux dispositifs d’actionnement par câbles, en soulignant les avantages de la compliance passive ainsi que les contraintes à relever en termes de charge et de tension des câbles. La conception de la pince est ensuite décrite de manière détaillée, depuis la définition mathématique des spirales jusqu’à la modélisation complète des pièces sous SolidWorks. Cette modélisation comprend la base, les doigts et les éléments de transmission (glissière, vis, écrou, support moteur), tout en prenant en compte les principales contraintes de conception, notamment les jeux, les frottements et l’hyperstatisme.
+Le document s’ouvre sur un état de l’art consacré aux préhenseurs souples et aux dispositifs d’actionnement par câbles, en soulignant les avantages de la compliance passive ainsi que les contraintes à relever en termes de charge et de tension des câbles. Un approfondissement est également mené sur la simulation d’élasticité par éléments finis, afin d’évaluer le comportement mécanique des structures souples. La conception de la pince est ensuite décrite de manière détaillée, depuis la définition mathématique des spirales jusqu’à la modélisation complète des pièces sous SolidWorks. Cette modélisation comprend la base, les doigts et les éléments de transmission (glissière, vis, écrou, support moteur), tout en prenant en compte les principales contraintes de conception, notamment les jeux, les frottements et l’hyperstatisme.
 
-Une simulation par éléments finis permet d’évaluer les contraintes subies lors de la fermeture des doigts. Les résultats montrent que la pince peut saisir des objets de masse modérée sans dépasser la limite d’élasticité du matériau, sous réserve d’ajouter des éléments de rappel mécanique tel qu'un élastique pour limiter les déformations plastiques lors d’efforts supérieurs à 15 Newton.
+Enfin, une simulation par éléments finis permet d’évaluer les contraintes subies lors de la fermeture des doigts en TPU. Les résultats montrent que la pince peut saisir des objets de masse modérée sans dépasser la limite d’élasticité du matériau. Toutefois, au-delà d’une tension de 15 Newton, une plastification ou une fatigue du TPU peut survenir. L’ajout d’un élément de rappel mécanique, tel qu’un élastique, est donc recommandé afin de garantir le retour des doigts à leur position initiale.
 
 \clearpage
 \tableofcontents
 \clearpage
 
+\setcounter{chapcount}{0} % Démarre le compteur à zéro juste avant l'introduction
 \section{Introduction}
 
-    Dans l'industrie, la robotique collaborative, ou cobotique, est omniprésente. Elle vise à soulager l’être humain en prenant en charge les tâches pénibles, notamment à l’aide de préhenseurs conçus spécifiquement pour manipuler des charges de tailles et de poids variables, souvent associées à des tâches répétitives.
+    Dans l'industrie, la robotique collaborative, ou cobotique, est omniprésente. Elle vise à soulager l’être humain en prenant en charge les tâches pénibles, notamment à l’aide de préhenseurs conçus spécifiquement pour manipuler des charges de taille et de poids variable, souvent associées à des tâches répétitives.
 
-    Ce projet consiste à concevoir et dimensionner une pince robotique à trois doigts flexibles, conçue pour s'ouvrir et se refermer en s'adaptant à l'objet saisi. L'objectif est de réussir à attraper des fruits et légumes relativement légers, comme un poivron. Idéalement, nous devrons pouvoir soulever des objets allant jusqu'à 5 kilogrammes. Nous utiliserons SolidWorks pour modéliser le robot, et étudierons son élasticité par éléments finis via le module \textit{SolidWorks Simulation}.
+    Ce projet consiste à concevoir et dimensionner une pince robotique à trois doigts souples, conçue pour s'ouvrir et se refermer en s'adaptant à l'objet saisi. L'objectif est de réussir à attraper des fruits et légumes relativement légers, comme un poivron. Idéalement, nous devrons pouvoir soulever des objets allant jusqu'à 5 kilogrammes. Nous utiliserons SolidWorks pour modéliser la pince, et étudierons son élasticité par éléments finis via le module \textit{SolidWorks Simulation}.
 
     \subsection{Motivations et principes fondamentaux}
 
@@ -205,7 +225,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
             \label{fig:pieuvre}
         \end{figure}
     
-        Dans notre cas, et comme souvent en robotique, les objets à manipuler ont une forme ou une position mal connue, et contrairement à une main humaine, les pinces robotiques manquent de retour tactile fiable. Pour cette raison, nous n'allons pas utiliser de retour haptique, mais plutôt de préhenseurs souples. Pour concevoir nos doigts, nous nous inspirons de la flexibilité des tentacules de pieuvre et du robot SpiRob dont l'étude est partagée en annexe (voir figure \ref{fig:pieuvre}). Cela permettra à la pince de s'adapter naturellement à la forme de divers fruits et légumes sans nécessiter de capteurs ni de système de contrôle complexe, mais simplement grâce à la compliance mécanique. En effet, la compliance désigne la capacité d’un robot à adapter la rigidité de ses mouvements en fonction des forces extérieures. Autrement dit, il ajuste naturellement sa posture pour bien épouser l’objet qu’il manipule. Dans ce projet, nous nous concentrons sur la compliance passive, où la structure mécanique du robot est suffisamment flexible pour se déformer sous l'effet d'une contrainte externe. Cette approche permet une préhension polyvalente et adaptable. \cite{noauthor_gestion_2016}
+        Dans notre cas, et comme souvent en robotique, les objets à manipuler ont une forme ou une position mal connue, et contrairement à une main humaine, les pinces robotiques manquent de retour tactile fiable. Pour cette raison, nous n'allons pas utiliser de retour haptique, mais plutôt des préhenseurs souples. Pour concevoir nos doigts, nous nous inspirons de la flexibilité des tentacules de pieuvre et du robot SpiRob (voir figure \ref{fig:pieuvre}). Cela permettra à la pince de s'adapter naturellement à la forme de divers fruits et légumes sans nécessiter de capteurs ni de système de contrôle complexe, mais simplement grâce à la compliance mécanique. En effet, la compliance désigne la capacité d’un robot à adapter la rigidité de ses mouvements en fonction des forces extérieures qu'il subit. Autrement dit, il ajuste naturellement sa posture pour bien épouser l’objet qu’il manipule. Dans ce projet, nous nous concentrons sur la compliance passive, où la structure mécanique du robot est suffisamment flexible pour se déformer sous l'effet d'une contrainte externe. Cette approche permet une préhension polyvalente et adaptable. \cite{noauthor_gestion_2016}
 
         \begin{figure}[h]
             \centering
@@ -226,11 +246,11 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
             \label{fig:doigt}
         \end{figure}
 
-        Les SpiRobs dont nous nous inspirons utilisent des câbles pour provoquer les mouvements d'enroulement (curling) et de déroulement (uncurling). Une extrémité du câble est fixée à l'unité distale par un nœud de pêcheur, tandis que l'autre est reliée à un moteur (voir figure~\ref{fig:spiral_logarithm}). La contraction des câbles entraîne l'enroulement en spirale logarithmique, alors que leur relâchement, combiné à l'élasticité intrinsèque du robot, restitue la forme initiale. En effet, les SpiRobs sont entièrement fabriqués en TPU (Thermoplastic Polyurethane) imprimé en 3D avec du filament eTPU-95A (shore A95). Ce matériau souple, que nous utiliserons également, offre une bonne compliance mécanique et une rigidité suffisante pour transmettre efficacement la tension des câbles. La couche centrale qui relie entre elles les phalanges agit comme un ressort passif, permettant le redéploiement sans nécessiter d’articulations ni de moteurs multiples~\cite{wang_spirobs_2025}.
+        Les SpiRobs dont nous nous inspirons utilisent des câbles pour provoquer les mouvements d'enroulement (curling) et de déroulement (uncurling). Une extrémité du câble est fixée à l'unité distale par un nœud de pêcheur, tandis que l'autre est reliée à un moteur (voir figure~\ref{fig:spiral_logarithm}). La contraction des câbles entraîne l'enroulement en spirale logarithmique, alors que leur relâchement, combiné à l'élasticité intrinsèque du robot, restitue la forme initiale. En effet, les SpiRobs sont entièrement fabriqués en TPU (Thermoplastic Polyurethane). Ce matériau souple, que nous utiliserons également, offre une bonne compliance mécanique et une rigidité suffisante pour transmettre efficacement la tension des câbles. La couche centrale qui relie entre elles les phalanges agit comme un ressort passif, permettant le déroulement du robot sans nécessiter d’articulations ni de moteurs multiples~\cite{wang_spirobs_2025}.
 
     \subsection{Comportement et structure de la pince à concevoir}
     
-        La pince pourra adopter deux configurations distinctes : ouverte ou fermée. Elle est composée de 3 doigts identiques de hauteur 10 cm, chacun soumis à un encastrement rigide sur une base. Les doigts seront positionnés symétriquement autour du centre de la base, séparés par un angle de 120°. Trois câbles, passant du côté fléchisseur de chaque doigt, permettront leur actionnement grâce à un moteur chargé de régler leur tension. Dans ce type de mécanisme, la tension appliquée aux câbles constitue en effet une préoccupation majeure, car si elle est insuffisante, elle peut provoquer un relâchement des câbles et compromettre le contrôle efficace du mouvement. Du reste, pour limiter la friction des câbles, nous pouvons utiliser des câbles UHMWPE pour leur faible coefficient de frottement et leur résistance à l'usure. \cite{wang_spirobs_2025}
+        La pince pourra adopter deux configurations : ouverte ou fermée. Elle est constituée de trois doigts en TPU souple, d’une hauteur de 10 cm chacun, encastrés rigidement à une base. Les doigts seront positionnés symétriquement autour du centre de la base, séparés par un angle de 120°. Ils devront être dimensionnés de manière à éviter toute plastification du TPU et garantir le comportement élastique attendu. Une étude de l’élasticité devra en conséquence être effectuée. Par ailleurs, trois câbles, passant du côté fléchisseur de chaque doigt, permettront leur actionnement grâce à un moteur chargé de régler leur tension. Dans ce type de mécanisme, la tension appliquée aux câbles constitue en effet une préoccupation majeure, car si elle est insuffisante, elle peut provoquer un relâchement des câbles et compromettre le contrôle efficace du mouvement. Du reste, pour limiter la friction des câbles, nous pouvons utiliser des câbles UHMWPE pour leur faible coefficient de frottement et leur résistance à l'usure. \cite{wang_spirobs_2025}
         
 \clearpage
 
@@ -288,13 +308,20 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
             Le mécanisme \textit{level wind} est un dispositif utilisé notamment sur les moulinets de pêche, qui guide le fil de pêche latéralement pendant l’enroulement pour éviter les enchevêtrements et maintenir une tension constante. La vidéo \cite{hugh_lyman_level_2014} illustre ce mécanisme (voir figure \ref{fig:video}).
 
-            Sur la figure \ref{fig:level_wind}, vous pouvez voir comment fonctionne le système. Une poulie se déplace le long d'un axe grâce à un moteur et une vis, et enroule alors le fil tout le long du tambour. L'approche la plus répandue pour la conception d'un tel système consiste en un rapport d'engrenage fixe entre la rotation du tambour du treuil et la poulie de l'enrouleur de niveau. Un rapport fixe signifie que pour chaque tour complet du tambour, la poulie se déplace d'une distance constante. En somme, cela permet à la poulie de se déplacer horizontalement à une vitesse proportionnelle à celle de rotation du tambour.
+            Sur la figure \ref{fig:level_wind}, nous proposons une illustration du système. Une poulie se déplace le long d'une vis grâce à un moteur, et enroule alors le fil tout le long du tambour. L'approche la plus répandue pour la conception d'un tel système consiste en un rapport d'engrenage fixe entre la rotation du tambour du treuil et la poulie de l'enrouleur de niveau. Un rapport fixe signifie que pour chaque tour complet du tambour, la poulie se déplace d'une distance constante. En somme, cela permet à la poulie de se déplacer horizontalement à une vitesse proportionnelle à celle de rotation du tambour.
             
-            Cette solution est parfaitement envisageable pour notre pince, puisque nous resterons dans des plages de distances et de vitesses relativement faibles, limitant ainsi toute accumulation d’erreur dans la position de la poulie par rapport au tambour.
+            Cette solution est parfaitement envisageable pour notre pince, puisque nous resterons dans des plages de distance et de vitesse relativement faibles, limitant ainsi toute accumulation d’erreur dans la position de la poulie par rapport au tambour.
 
         \subsubsection{Vis à bille}
 
-            Enfin, nous nous intéressons à l’actionnement par vis à billes, un système comparable au mécanisme vis-écrou classique. Toutefois, les vis à billes sont parmi les composants les plus couramment employés pour convertir la rotation d’un moteur en mouvement linéaire. Elles présentent l’avantage de réduire considérablement les frottements, grâce au contact entre la vis et l’écrou qui s’effectue uniquement par l’intermédiaire de billes. \cite{verl_double_2014}
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.3\textwidth]{Figures/vis_à_bille.jpg}
+                \caption{Illustration en coupe d'une vis à billes \cite{noauthor_gradel-baudin_nodate}}
+                \label{fig:vis_a_billes}
+            \end{figure}
+
+            Enfin, nous nous intéressons à l’actionnement par vis à billes, un système comparable au mécanisme vis-écrou classique, et qui permettrait de tendre ou de détendre les câbles. En effet, les vis à billes sont parmi les composants les plus couramment employés pour convertir la rotation d’un moteur en mouvement linéaire. Elles présentent l’avantage de réduire considérablement les frottements, grâce au contact entre la vis et l’écrou qui s’effectue uniquement par l’intermédiaire de billes (voir figure \ref{fig:vis_a_billes}). \cite{verl_double_2014}
 
     \subsection{Simulation par éléments finis}
     
@@ -321,7 +348,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
         Dans \cite{bhat_numerical_2025}, les auteurs développent un actuateur souple pneumatique bio-inspiré, conçu pour la préhension douce et les applications thérapeutiques. Ce dispositif imite la flexion d’un doigt humain par l'action de la pression sur des chambres internes segmentées (voir figure \ref{fig:doigt_souple}).
 
-        L’effecteur est fabriqué en silicone liquide (LSR), un matériau hyperélastique, nettement plus souple que notre TPU (module d'Young environ divisé par 10 par rapport au TPU), et modélisé par la loi de Yeoh d'ordre 2. Le comportement est supposé isotrope, homogène, incompressible, et en quasi-statique (pas d’effets inertiels). Le modèle est défini par la formulation faible du problème établie par l'équation d'équilibre : $div(\sigma) + \rho f = 0$, avec \( \sigma \) le tenseur des contraintes, \( \rho \) la masse volumique, et \( f \) les forces volumiques.
+        L’effecteur est réalisé en silicone liquide (LSR), un matériau hyperélastique beaucoup plus souple que notre TPU, avec un module d’Young environ dix fois inférieur. Le comportement élastique est modélisé par la loi de Yeoh d'ordre 2, et est supposé isotrope, homogène et incompressible. Le modèle est défini par la formulation faible du problème établie par l'équation d'équilibre : $div(\sigma) + \rho f = 0$, avec \( \sigma \) le tenseur des contraintes, \( \rho \) la masse volumique, et \( f \) les forces volumiques.
 
         L’analyse est menée via un modèle éléments finis utilisant des tétraèdres quadratiques (éléments d'ordre 2), avec un maillage raffiné (\( 63\,772 \) éléments, taille 3 mm).
 
@@ -344,9 +371,9 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
             \label{fig:angle_pression_comparaison}
         \end{figure}
 
-        La simulation indique que l’actionneur produit une force de préhension comprise entre 2 et 2,71 N pour des pressions allant de 50 à 100 kPa (voir figure \ref{fig:angle_pression}). En revanche, les résultats expérimentaux montrent une relation moins linéaire (figure \ref{fig:angle_pression_experiments}) et une force maximale plus élevée, atteignant 5 N à 100 kPa, alors que la simulation ne prévoit que 2,71 N. Cette différence s’explique par un débit d’air prolongé lors des tests expérimentaux, ce qui permet à l’actionneur de se gonfler davantage et donc de générer une force plus importante.
+        La simulation indique que l’actionneur produit une force de préhension comprise entre 2 et 2,71 N pour des pressions allant de 50 à 100 kPa (voir figure \ref{fig:angle_pression}). En revanche, les résultats expérimentaux montrent une relation moins linéaire (voir figure \ref{fig:angle_pression_experiments}) et une force maximale plus élevée, atteignant 5 N à 100 kPa, alors que la simulation ne prévoit que 2,71 N. Cette différence s’explique par un débit d’air prolongé lors des tests expérimentaux, ce qui permet à l’actionneur de se gonfler davantage et donc de générer une force plus importante.
 
-        Ce travail montre que les résultats d’une simulation par éléments finis peuvent différer sensiblement de ceux obtenus par expérimentation. Même si notre approche par câbles est différente, cet article nous a aidés à explorer un modèle de déformation et une simulation avec un maillage fin basé sur un modèle CAO.
+        Ces travaux mettent en évidence que les résultats obtenus par simulation par éléments finis peuvent s’écarter significativement des observations expérimentales. Bien que notre approche par câbles soit différente, cet article nous a été utile pour explorer un modèle de déformation et réaliser une simulation à l’aide d’un logiciel de CAO.
 
 \clearpage
         
@@ -377,7 +404,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
             Afin que la première phalange ne soit pas trop petite, la spirale centrale sera bornée par $\theta \in [\pi, \theta_0 + \pi]$, avec $\theta_0$ le nombre de tours de la spirale. De plus, $a_c$ est un paramètre d’échelle (elle détermine la taille globale de la spirale), tandis que $b_c$ est un coefficient qui détermine à quel point la spirale s’enroule (plus $b_c$ est grand, plus la spirale est "serrée"). Contrairement à \cite{wang_spirobs_2025}, nous n'aurons pas besoin qu'un doigt s'enroule plusieurs fois autour de l'objet pour le saisir étant donné que nous concevons ici une pince à trois doigts. Ainsi, la spirale centrale parcourra au plus 1 seul tour ($\theta_0 = 2\pi$), et $a_c$ et $b_c$ seront choisis de telle sorte qu'on obtienne la longueur désirée $L$ du doigt, soit $10$ cm.
 
-            Pour déterminer la valeur de \( a_c \) en fonction de $b_c$ pour satisfaire la condition sur $L$, nous procédons comme suit :
+            Pour déterminer la valeur de \( a_c \) en fonction de $b_c$ afin de satisfaire la condition sur $L$, nous procédons comme suit :
 
             La longueur totale \( L \) de la spirale centrale est donnée par l'intégrale de l'arc de \( \pi \) à \( 3\pi \) :
             \[
@@ -435,16 +462,16 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
             \begin{itemize}
                 \item Angle de conicité (ou \textit{taper angle}) : $\phi \ = \ 15^o \ = \ \frac{\pi}{12} \ rad$ 
                 \item Angle entre 2 phalanges adjacentes : $\Delta \theta \ = \ 30^o \ = \ \frac{\pi}{6} \ rad$
-                \item Couche élastique : 10 $\%$ de la largeur du doigt pour tout $\theta$
+                \item Couche élastique qui relient les phalanges : 10 $\%$ de la largeur du doigt
             \end{itemize}
 
             \subsubsection{Discussion sur le cahier des charges à respecter}
 
             L'angle de conicité de la spirale joue un rôle clé dans les performances de préhension du doigt, notamment en termes d’espace de travail, de précision de saisie et de capacité de charge. 
             D’après les résultats rapportés dans \cite{wang_spirobs_2025}, un faible angle de conicité permet d’augmenter significativement l’espace de travail, en élargissant la zone accessible par les doigts lors du déploiement. À l’inverse, un angle de conicité plus élevé améliore la performance de saisie : il permet de saisir des objets de plus petite taille (diamètre minimal réduit) tout en augmentant la capacité de charge maximale du robot.
-            Par exemple, un SpiRob avec un angle de conicité de $15^\circ$ peut saisir des objets dont le diamètre varie de 5{,}6\,mm à 115\,mm, et supporter une charge allant jusqu’à 10\,kg, soit environ 260 fois son propre poids (poids du robot : 38{,}4\,g) \cite{wang_spirobs_2025}.
+            Par exemple, un SpiRob avec un angle de conicité de $15^\circ$ peut saisir des objets dont le diamètre varie de 5{,}6\,mm à 115\,mm, et supporter une charge allant jusqu’à 10\,kg, soit environ 260 fois son propre poids (poids du robot : 38{,}4\,g). \cite{wang_spirobs_2025} Notre but étant de manipuler des fruits et légumes de diamètres allant jusqu'à 10 cm, nous avons choisi d’adopter un angle de conicité de $\phi = 15^\circ$.
 
-            Concernant la discrétisation angulaire $\Delta \theta$ (espacement des unités), une valeur trop élevée limite la capacité du robot à s’enrouler en une spirale logarithmique fluide. Il convient également d’éviter une couche élastique trop épaisse (au centre du doigt robotique), car cela augmenterait la force nécessaire pour enrouler le doigt, rendant l'actionnement par câbles plus exigeant pour le moteur qui utiliserait alors davantage d'énergie. Nous adoptons les recommandations de \cite{wang_spirobs_2025}, en optant pour une épaisseur de couche élastique de 10\,\%, assurant un bon compromis entre élasticité et force d’enroulement, ainsi qu’un $\Delta \theta$ de 30° pour garantir une déformation satisfaisante.
+            Concernant la discrétisation angulaire $\Delta \theta$ (espacement des phalanges), une valeur trop élevée limite la capacité du robot à s’enrouler en une spirale logarithmique fluide, ainsi nous choisissons un $\Delta \theta$ de 30° pour garantir une déformation satisfaisante. Il convient également d’éviter une couche élastique trop épaisse (au centre du doigt robotique), car cela augmenterait la force nécessaire pour enrouler le doigt, rendant l'actionnement par câbles plus exigeant pour le moteur qui utiliserait alors davantage d'énergie. Nous adoptons les recommandations de \cite{wang_spirobs_2025}, en optant pour une épaisseur de couche élastique de 10\,\%, assurant un bon compromis entre élasticité et force d’enroulement.
 
         \subsubsection{Détermination des paramètres pour répondre au cahier des charges}
 
@@ -491,9 +518,9 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
             \textbf{Signification de \texttt{x0} et \texttt{xtol} dans \texttt{fsolve}} :
             \begin{itemize}
-                \item \(\mathbf{x_0}\) : C'est la \textit{valeur initiale} ou \textit{point de départ} donné à l'algorithme numérique pour commencer la recherche de la racine. Comme la résolution numérique dépend du point de départ, choisir un \( x_0 \) proche de la racine attendue facilite la convergence et évite d'obtenir des solutions erronées.
+                \item \(\mathbf{x0}\) : C'est la \textit{valeur initiale} ou \textit{point de départ} donné à l'algorithme numérique pour commencer la recherche de la racine. Comme la résolution numérique dépend du point de départ, choisir un \( x_0 \) proche de la racine attendue facilite la convergence et évite d'obtenir des solutions erronées.
 
-                \item \(\mathbf{xtol}\) : C'est la \textit{tolérance sur la solution} que l'on fixe pour arrêter la recherche de la racine. Plus précisément, lorsque la variation de \( x \) (la valeur approchée de la racine) entre deux itérations est inférieure à \(\texttt{xtol}\), l'algorithme considère que la solution est suffisamment précise et s'arrête. Ici, \(\texttt{xtol} = 10^{-6}\) signifie que la racine est calculée avec une précision d'environ \(10^{-6}\).
+                \item \(\mathbf{xtol}\) : C'est la \textit{tolérance sur la solution} que l'on fixe pour arrêter la recherche de la racine. Plus précisément, lorsque la variation de \( x \) (la valeur approchée de la racine) entre deux itérations est inférieure à \(\texttt{xtol}\), l'algorithme considère que la solution est suffisamment précise et s'arrête.
             \end{itemize}
 
             \textbf{Nous avons donc reçu la valeur de $b_c\ =\ 0.2230302381847426$, et avons déduit $a_c\ =\ 3.530268404263818$ avec l'équation (\ref{eq:a})}.
@@ -550,7 +577,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_moitié_trapèze_1.png}
-                    \caption{Esquisse de l'étoile pour discrétiser la spirale, et extrusion de la première moitié de phalange à l'aide des lignes construites}
+                    \caption{Esquisse de l'étoile pour discrétiser la spirale, et extrusion de la moitié de la première phalange à l'aide des lignes construites}
                 \end{subfigure}
                 \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.4\textwidth}
@@ -562,7 +589,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
                 \label{fig:esquisse_etoile}
             \end{figure}
 
-            Sur la figure \ref{fig:esquisse_etoile}, vous pouvez voir notre dessin de l'étoile dont le centre est l'origine du repère polaire utilisée pour tracer les spirales. Comme en $\theta = 0$, on a $r_c(0) = a_c e^0 = a_c$, alors l'origine de l'étoile se trouve à une distance $a_c$ du point de départ de la spirale centrale. Ensuite, nous dessinons chacune des moitiés de phalanges en prenant soin de ne pas fusionner les extrusions.
+            Comme illustré sur la figure \ref{fig:esquisse_etoile}, nous dessinons l'étoile dont le centre est l'origine du repère polaire utilisée pour tracer les spirales. Comme en $\theta = 0$, on a $r_c(0) = a_c e^0 = a_c$, alors l'origine de l'étoile se trouve à une distance $a_c$ du point de départ de la spirale centrale. Ensuite, nous dessinons chacune des moitiés de phalanges en prenant soin de ne pas fusionner les extrusions.
 
             \begin{figure}[H]
                 \centering
@@ -570,18 +597,20 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
                     \centering
                     \includegraphics[width=\textwidth]{Figures/esquisse_trapèze_symetrie.png}
                     \caption{Symétrie de toutes les phalanges}
+                    \label{fig:symetrie_phalanges}
                 \end{subfigure}
                 \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/doigt.png}
-                    \caption{Doigt assemblé et perçage des trous sur les côtés pour faire passer les câbles}
+                    \caption{Doigt assemblé et perçage des trous sur les côtés pour faire passer le câble}
+                    \label{fig:doigt_assemble}
                 \end{subfigure}
                 \caption{Dessin et assemblage du doigt}
                 \label{fig:spirale_enroule}
             \end{figure}
 
-            Enfin, nous rendons symétriques les moitiés de phalanges et les sauvegardons dans des fichiers de pièces distincts, permettant leur assemblage de manière à obtenir un doigt déroulé. De plus, nous intégrons une couche élastique représentant 10\% de la largeur du doigt pour connecter les phalanges entre elles (voir figure \ref{fig:spirale_enroule}). Bien que chaque doigt soit actionné par un unique câble côté fléchisseur, nous prévoyons des trous de part et d’autre pour garantir la symétrie de la pièce.
+            Enfin, nous rendons symétriques les moitiés de phalanges et les sauvegardons dans des fichiers de pièces distincts (voir figure \ref{fig:symetrie_phalanges}). Cela permet ensuite de les assembler de manière à obtenir un doigt déroulé. De plus, nous intégrons une couche élastique représentant 10\% de la largeur du doigt pour connecter les phalanges entre elles. Bien que chaque doigt soit actionné par un unique câble côté fléchisseur, nous prévoyons des trous de part et d’autre pour garantir la symétrie de la pièce (voir figure \ref{fig:doigt_assemble}).
             
             \subsubsection{Dessin de la base}
 
@@ -590,7 +619,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
                 \begin{subfigure}[t]{0.5\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/base_circonscrit.png}
-                    \caption{Esquisse de la base de diamètre 80 mm}
+                    \caption{Esquisse de la base de rayon 80 mm}
                 \end{subfigure}
                 \hfill
                 \begin{subfigure}[t]{0.4\textwidth}
@@ -602,7 +631,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
                 \label{fig:base}
             \end{figure}
 
-            Nous concevons une base de forme triangulaire, dont le cercle circonscrit présente un rayon d’environ 80 mm, afin de pouvoir manipuler des fruits de diamètre similaire. Le doigt est fixé à la base grâce à un système d’accroche en queue de hareng, avec un jeu de 0,3 mm prévu pour permettre l’assemblage (par la suite, nous adopterons toujours ce jeu pour chaque pièce). Ce même jeu est appliqué à la cavité destinée à accueillir le support moteur qui sera accroché à la base (voir figure \ref{fig:base}).
+            Nous concevons une base de forme triangulaire, dont le cercle circonscrit présente un rayon d’environ 80 mm, afin de pouvoir manipuler des fruits de taille conséquente. Le doigt est encastré à la base grâce à un système d’accroche en queue de hareng, avec un jeu de 0,3 mm prévu pour permettre l’assemblage (par la suite, nous adopterons toujours ce jeu pour chaque pièce). Ce même jeu est appliqué à la cavité destinée à accueillir le support moteur qui sera accroché à la base (voir figure \ref{fig:base}).
             
             \begin{figure}[H]
                 \centering
@@ -627,23 +656,23 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
             \begin{figure}[H]
                 \centering
+                \begin{subfigure}[t]{0.35\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/support_fixation.png}
+                    \caption{4 trous de diamètre 4,3 mm percés dans la base pour fixer les 4 barres (en bleu)}
+                    \label{fig:fixation_base_support}
+                \end{subfigure}
+                \hspace{0.1\textwidth}
                 \begin{subfigure}[t]{0.2\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/support_idee.png}
-                    \caption{Support moteur en MAKERBEAM, avec la pièce pour y fixer le moteur en rouge}
+                    \caption{Support moteur en MAKERBEAM, avec la pièce pour y fixer le moteur (en rouge)}
                     \label{fig:support}
-                \end{subfigure}
-                \hspace{0.1\textwidth}
-                \begin{subfigure}[t]{0.4\textwidth}
-                    \centering
-                    \includegraphics[width=\textwidth]{Figures/support_fixation.png}
-                    \caption{4 trous de diamètre 4 mm percés dans la base pour fixer les 4 barres (en bleu)}
-                    \label{fig:fixation_base_support}
                 \end{subfigure}
                 \caption{Conception du support}
             \end{figure}
 
-            Le support moteur est conçu à l’aide de la bibliothèque MAKERBEAM (voir figure \ref{fig:support}). Il est assemblé à partir de barres de 40 mm, 60 mm et 200 mm, ainsi que de cubes de jonction. La fixation du support à la base est assurée par des vis à tête marteau et des boulons. Cela nécessite la réalisation de quatre perçages de 4,3 mm de diamètre dans la base, centrés sous chaque barre (voir figure \ref{fig:fixation_base_support}).
+            Le support moteur est conçu à l’aide de la bibliothèque MAKERBEAM (voir figure \ref{fig:support}). Il est assemblé à partir de barres de 40 mm, 60 mm et 200 mm, ainsi que de cubes de jonction. La fixation du support à la base est assurée par des vis à tête marteau et des boulons. Cela nécessite la réalisation de quatre perçages de 4,3 mm de diamètre dans la base, centrés sur chaque barre (voir figure \ref{fig:fixation_base_support}).
 
             Le servomoteur MX-106 de chez Dynamixel a été retenu pour ce montage, car il permet un contrôle précis en position et en vitesse grâce au PID intégré et offre le couple le plus élevé parmi les moteurs que nous avions à disposition (10 Nm).
 
@@ -683,11 +712,12 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
                     \centering
                     \includegraphics[width=\textwidth]{Figures/attache.png}
                     \caption{Accouplement entre la vis mère (en bleue) et le moteur par le biais du dispositif de serrage}
+                    \label{vis_serree}
                 \end{subfigure}
                 \caption{Accouplement de transimission de couple}
             \end{figure}
 
-            Comme illustré à la figure \ref{fig:piece_manquante}, nous concevons une pièce spécifique destinée à transmettre le couple moteur à la vis mère. Inspirée d’une bague de serrage, cette pièce de transmission intègre huit perçages permettant de la fixer solidement au moteur à l’aide de vis de 2 mm de diamètre. Par ailleurs, deux vis-écrou assurent le serrage de la vis mère dans l’alésage prévu à cet effet, garantissant ainsi une bonne adhérence et une transmission efficace du mouvement.
+            Comme illustré à la figure \ref{fig:piece_manquante}, nous concevons une pièce spécifique destinée à transmettre le couple moteur à la vis mère. Inspirée d’une bague de serrage, cette pièce de transmission intègre huit perçages permettant de la fixer solidement au moteur à l’aide de vis de 2 mm de diamètre. Par ailleurs, deux vis-écrou assurent le serrage de la vis mère dans l’alésage prévu à cet effet, garantissant ainsi une bonne adhérence et une transmission efficace du mouvement (voir figure \ref{vis_serree}).
 
             \begin{figure}[H]
                 \centering
@@ -708,22 +738,34 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
                 \label{fig:attache_glissiere}
             \end{figure}
 
-            Nous devons également associer le système vis-écrou à une glissière pour assurer le guidage linéaire. Nous avons retenu à cet effet une glissière Igus, modèle NK-01-27, accompagnée de son chariot. Il convient donc de la fixer sur le support réalisé avec la bibliothèque MAKERBEAM. Pour cela, nous utilisons une pièce de cette bibliothèque qui permet de solidariser une nouvelle barre au support destinée à recevoir la glissière.
+            Nous devons également associer le système vis-écrou à une glissière pour assurer le guidage linéaire. Nous avons retenu à cet effet une glissière Igus, modèle NK-01-27, accompagnée de son chariot. Il convient donc de la fixer sur le support réalisé avec la bibliothèque MAKERBEAM. Pour cela, nous utilisons une pièce de cette bibliothèque qui permet de solidariser au support la nouvelle barre destinée à recevoir la glissière.
 
-            Du reste, la conception du système vis-écrou s’inspire de la vidéo \cite{w3d_tech_systeme_2023}. Sur la figure \ref{fig:inspiration}, le rail supérieur (en vert) maintient l’écrou en rotation bloquée, ce qui lui permet de translater lorsqu’un moteur fait tourner la vis. Du reste, ce système empêche l’emmêlement des câbles : l’écrou reste fixe en rotation et ne fait que translater.
+            Du reste, la conception du système vis-écrou s’inspire de la vidéo \cite{w3d_tech_systeme_2023}. Sur la figure \ref{fig:inspiration}, le rail supérieur en vert maintient l’écrou en rotation bloquée, ce qui lui permet de translater lorsqu’un moteur fait tourner la vis. Par ailleurs, ce système empêche l’emmêlement des câbles : l’écrou reste fixe en rotation et ne fait que translater.
 
-            Nous devons ainsi concevoir une pièce intermédiaire destinée à relier la glissière à l’écrou (voir figure \ref{fig:glissiere_support}). Pour garantir l’hyperstatisme de l’assemblage, un minimum de trois vis est nécessaire pour fixer cette pièce à l'écrou. Nous en profitons également pour intégrer à l’extrémité de la pièce un triangle comportant trois trous aux sommets, destinés à y nouer les câbles des doigts. Étant positionné au centre du support, ce triangle présente une distance égale aux trois doigts, assurant ainsi une course identique pour chacun des câbles. En d’autres termes, l’actionnement des doigts sera ainsi uniforme.
+            Nous devons ainsi concevoir une pièce intermédiaire destinée à relier la glissière à l’écrou (en bleu sur la figure \ref{fig:glissiere_support}). Pour garantir l’hyperstatisme de l’assemblage, un minimum de trois vis est nécessaire pour fixer cette pièce à l'écrou. Nous en profitons également pour intégrer à l’extrémité de la pièce un triangle comportant trois trous aux sommets, destinés à y nouer les câbles des doigts. Étant positionné au centre du support, ce triangle présente une distance égale aux trois doigts, assurant ainsi une course identique pour chacun des câbles. En d’autres termes, l’actionnement des doigts sera ainsi uniforme.
 
         \subsubsection{Pince assemblée}
 
-            \begin{figure} [h]
+            \begin{figure}[H]
                 \centering
-                \includegraphics[width=0.50\textwidth]{Figures/pince_assemblee.png}
-                \caption{Assemblage de notre pince}
+                \begin{subfigure}[t]{0.40\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/pince_assemblee.png}
+                    \caption{Pince assemblée sur SolidWorks}
+                    \label{fig:pince_CAO}
+                \end{subfigure}
+                \hspace{0.1\textwidth}
+                \begin{subfigure}[t]{0.35\textwidth}
+                    \centering
+                    \includegraphics[width=\textwidth]{Figures/reel.png}
+                    \caption{Pièces imprimées et montage du support en MAKERBEAM}
+                    \label{fig:reel}
+                \end{subfigure}
+                \caption{Conception du système vis-écrou}
                 \label{fig:pince_assemble}
             \end{figure}
 
-            Sur la figure \ref{fig:pince_assemble}, nous proposons une illustration de l'assemblage CAO finale de notre pince. La sphère verte posée sur la base permet de modéliser une pomme de diamètre 8 cm.
+            Sur la figure \ref{fig:pince_assemble}, nous proposons une illustration de l'assemblage CAO finale de notre pince, ainsi que des photos de la réalisation. La sphère verte sur la base permet de simuler une pomme de diamètre 8 cm.
 
 \clearpage
 
@@ -735,7 +777,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
             \textit{TPU}
 
-                Pour simuler les contraintes et les déplacements dans SolidWorks, il est nécessaire d'intégrer les propriétés mécaniques du TPU que nous utiliserons pour les doigts. Dans \cite{rodriguez-parada_influence_2021}, les auteurs utilisent un TPU de module d'Young de 26 MPa. Étant donné notre objectif d’éviter tout comportement plastique, nous privilégions un matériau présentant un module d’Young relativement faible. Ainsi, pour obtenir une première estimation des efforts maximaux, et par conséquent du couple moteur à ne pas dépasser, nous retenons une valeur volontairement majorée de 30 MPa pour le module d’Young dans la simulation (sachant que plus il est élevé, moins le matériau est souple étant donnée la loi de Hooke $\sigma = E \epsilon$). Enfin, comme critère de vérification, nous adoptons comme limite d’élasticité celle du eTPU-95a utilisé dans \cite{wang_spirobs_2025}, soit $\sigma_{limite} = 8,6$ MPa.
+                Pour simuler les contraintes et les déplacements dans SolidWorks, il est nécessaire d'intégrer les propriétés mécaniques du TPU que nous utiliserons pour les doigts. Dans \cite{rodriguez-parada_influence_2021}, les auteurs utilisent un TPU de module d'Young 26 MPa. Étant donné notre objectif d’éviter tout comportement plastique, nous privilégions un matériau présentant un module d’Young relativement faible. Ainsi, pour obtenir une première estimation des efforts maximaux, et par conséquent du couple moteur à ne pas dépasser, nous retenons une valeur volontairement majorée de 30 MPa pour le module d’Young dans la simulation (sachant que plus il est élevé, moins le matériau est souple étant donnée la loi de Hooke $\sigma = E \epsilon$). Enfin, comme critère de vérification, nous adoptons comme limite d’élasticité celle du eTPU-95a utilisé dans \cite{wang_spirobs_2025}, soit $\sigma_{limite} = 8,6$ MPa.
             
             \textit{PLA}
 
@@ -763,7 +805,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
                 \caption{Mise en place d'un problème bien posé}
             \end{figure}
 
-            Dans le logiciel, nous commencons par créer une nouvelle étude statique. L’onglet \textit{Déplacements imposés} permet de définir les conditions limites, notamment en fixant la géométrie, c'est-à-dire ajouter un encastrement sur la base (voir figure \ref{fig:encastrement}, cela revient à négliger les déformations de la base dont le module d'Young est 100x plus élevé que celui des doigts). Ensuite, l’onglet \textit{Chargements externes} sert à appliquer les forces. Pour simuler la tension des câbles subie par les doigts, nous ajoutons une force à l'extrémité des pièces dans la direction du trou qui accueille le câble (voir figure \ref{fig:force}).
+            Dans le logiciel, nous commencons par créer une nouvelle étude statique. L’onglet \textit{Déplacements imposés} permet de définir les conditions limites, notamment en fixant la géométrie, c'est-à-dire ajouter un encastrement sur la base (voir figure \ref{fig:encastrement}, cela revient à négliger les déformations de la base dont le module d'Young est 100 fois plus élevé que celui des doigts). Ensuite, l’onglet \textit{Chargements externes} sert à appliquer les forces. Pour simuler la tension des câbles subie par les doigts, nous ajoutons une force à l'extrémité des pièces dans la direction du trou qui accueille le câble (voir figure \ref{fig:force}).
 
             \begin{figure}[H]
                 \centering
@@ -777,16 +819,16 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
                 \begin{subfigure}[t]{0.4\textwidth}
                     \centering
                     \includegraphics[width=\textwidth]{Figures/simulation_4 N.png}
-                    \caption{Simulation des efforts des câbles sur les doigts}
+                    \caption{Simulation des contraintes}
                     \label{fig:simulation}
                 \end{subfigure}
-                \caption{Exécution de la simulation}
+                \caption{Exécution de la simulation par éléments finis}
                 \label{fig:simulation4}
             \end{figure}
 
         \subsubsection{Résultats}
             
-            Nous générons un maillage de \(2,7 \times 10^{5}\) éléments basé sur la courbure, avant d'exécuter la simulation avec des forces de 4~N appliquées sur chacun des 3 doigts pour modéliser la prise uniforme d’un objet d’environ \(0,4 \times 3 = 1,2\) kg. Il est important de bien différencier la tension des câbles, qui correspond ici à la force de 4 N exercée sur les doigts, et la force de préhension réelle. En effet, la force de frottement qui retient l’objet est forcément plus faible que la tension exercée par les câbles : la charge effective pourrait ainsi être divisée par deux, soit environ 0,6 kg. Le logiciel va alors calculer les déformations et les déplacements, ainsi que les contraintes équivalentes de Von-Mises. On peut remarquer dans ce cas que la limite d'élasticité n'est pas atteinte (voir figure~\ref{fig:simulation4}) :
+            Nous générons un maillage de \(2,7 \times 10^{5}\) éléments basé sur la courbure, avant d'exécuter la simulation avec des forces de 4~N appliquées sur chacun des 3 doigts pour modéliser la prise uniforme d’un objet d’environ \(0,4 \times 3 = 1,2\) kg. Il est important de bien différencier la tension des câbles, qui correspond ici à la force de 4 N exercée sur les doigts, et la force de préhension réelle. En effet, la force de frottement qui retient l’objet est forcément plus faible que la tension exercée par les câbles : la charge effective pourrait ainsi être divisée par deux, soit environ 0,6 kg. Le logiciel va ensuite calculer les déformations et les déplacements, ainsi que les contraintes équivalentes de Von-Mises. On peut remarquer dans ce cas que la limite d'élasticité n'est pas dépassée (voir figure~\ref{fig:simulation4}) :
 
             \[
             2{,}346\ \text{MPa} < 8{,}6\ \text{MPa} \quad \Rightarrow \quad \sigma_{\text{max}} < \sigma_{\text{limite}}
@@ -813,7 +855,7 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
             \label{fig:etude_de_conception}
         \end{figure}
 
-            Pour réaliser plusieurs simulations, nous utilisons l’option \textit{étude de conception}. Une variable représentant la tension appliquée aux câbles y est introduite, variant de 9 N à 17 N, pour simuler le poids des objets soulevés mesurant jusqu'à $1.7 \cdot 3 / 2 = 2.55$ kg. La figure \ref{fig:etude_de_conception} montre un dépassement de la limite d’élasticité pour des charges lourdes (au-delà de 2.25 kg), et la pièce rentre ainsi dans le domaine plastique. Pour remédier à cela, nous proposons d’ajouter un élastique dans le trou extérieur du doigt qui est inutilisé. Ce dispositif permettra à la pièce de retrouver sa position initiale grâce à l’effet de rappel de l’élastique, dans le cas où le matériau fatigue ou se plastifie.
+            Pour réaliser plusieurs simulations, nous utilisons l’option \textit{étude de conception}. Une variable représentant la tension appliquée aux câbles y est introduite, variant de 9 N à 17 N, pour simuler le poids des objets soulevés mesurant jusqu'à $(1.7 \times 3) / 2 = 2.55$ kg. La figure \ref{fig:etude_de_conception} montre un dépassement de la limite d’élasticité pour des charges lourdes (au-delà de 2.25 kg, correspondant à une tension des câbles de plus de 15 N), et la pièce rentre ainsi dans le domaine plastique. Pour remédier à cela, nous proposons d’ajouter un élastique dans le trou extérieur inutilisé du doigt. Ce dispositif permettra à la pièce de retrouver sa position initiale grâce à l’effet de rappel de l’élastique, dans le cas où le matériau fatigue ou se plastifie.
 
 \clearpage
 
@@ -823,9 +865,9 @@ Une simulation par éléments finis permet d’évaluer les contraintes subies l
 
         L’assemblage complet comprend les doigts en TPU, une base, un système vis-écrou actionné par un servomoteur, ainsi qu’un support pour accrocher l'actionneur. La simulation par éléments finis a permis de vérifier le comportement élastique des doigts sous diverses charges. Les résultats montrent que la pince peut saisir efficacement des objets de masse modérée sans dépasser la limite d’élasticité du matériau, tout en mettant en évidence la nécessité éventuelle d’un dispositif de rappel par élastique pour prévenir les déformations permanentes en cas de charges élevées.
 
-        Ce projet nous a permis de maîtriser le logiciel SolidWorks, ainsi que son module de simulation par éléments finis, \textit{SolidWorks Simulation}. Il nous a offert une expérience approfondie dans la conception d’un assemblage en tenant compte de contraintes telles que les jeux pour faciliter l’assemblage, la gestion de l’hyperstatisme, le choix des vis et des outils de conception adaptés. De plus, il nous a permis d’explorer la robotique souple, d’en détailler les avantages, notamment l’adaptabilité aux formes irrégulières, et les limites, comme la faible capacité de charge. Enfin, ce projet nous a offert l’opportunité de concevoir un système d’actionnement par câbles, renforçant notre compréhension des mécanismes de transmission de couple dans les systèmes robotiques.
+        Ce projet nous a permis de maîtriser le logiciel SolidWorks, ainsi que son module de simulation par éléments finis, \textit{SolidWorks Simulation}. Il nous a offert une expérience approfondie dans la conception d’un assemblage en tenant compte de contraintes telles que les jeux pour permettre l’assemblage, la gestion de l’hyperstatisme, le choix des vis et des outils de conception adaptés. De plus, il nous a permis d’explorer la robotique souple, d’en détailler les avantages, notamment l’adaptabilité aux formes irrégulières, et les limites, comme la faible capacité de charge. Enfin, ce projet nous a offert l’opportunité de concevoir un système d’actionnement par câbles, tout en renforçant notre compréhension des mécanismes de transmission de couple.
 
-        Le projet a abouti à la réalisation de la pince au stade virtuel, accompagnée de l’ensemble des fichiers SolidWorks de chaque pièce et du code permettant d’actionner le moteur, disponibles en annexe. Cette solution pourra être complétée par une phase de prototypage et d’essais expérimentaux afin de valider ses performances en conditions réelles.
+        Le projet a conduit à concevoir la pince au stade virtuel, avec l’ensemble des fichiers SolidWorks de chaque pièce ainsi que le code pour actionner le moteur. La phase de réalisation physique a été entamée, mais des difficultés liées à des problèmes d’impression 3D n’ont pas encore permis de finaliser l’assemblage. Une phase de prototypage et d’essais expérimentaux pourra compléter cette première étape afin de valider les performances en conditions réelles.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}

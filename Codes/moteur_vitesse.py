@@ -2,7 +2,7 @@ import time
 from dynamixel_sdk import *  # SDK Dynamixel
 
 # Paramètres à modifier
-overture = 1        # Ouverture de la pince ou fermeture
+sens_horaire = 1    # Ouverture de la pince ou fermeture
 desired_rps = 0.5   # Vitesse désirée en tours par seconde
 distance_tours = 3  # Nombre de tours à parcourir
 
@@ -62,7 +62,7 @@ dxl_velocity_value = int(desired_rpm / VELOCITY_UNIT)
 if dxl_velocity_value > 1024:
     raise ValueError("Vitesse du moteur trop grande !")
 
-if overture:
+if sens_horaire:
     dxl_velocity_value += 1024  # Sens horaire
 
 print(f"Vitesse souhaitée: {desired_rps} tours/s => {desired_rpm} tours/min => valeur = {dxl_velocity_value}")
